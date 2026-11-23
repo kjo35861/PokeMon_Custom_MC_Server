@@ -1,0 +1,25 @@
+{
+  "version": "0.3.1",
+  "passed": true,
+  "backendChecks": 46,
+  "launchCountVisible": false,
+  "defaultServerLoader": {
+    "type": "fabric",
+    "version": "0.20.1"
+  },
+  "noServerUsesVanilla": true,
+  "generatorDefaultsVerified": true,
+  "webguiInstalled": false,
+  "shiftFImplemented": false,
+  "webguiGuideIncluded": true,
+  "artifacts": {
+    "PocketmateLauncher.exe": {
+      "bytes": 3134976,
+      "sha256": "213703183bcd000550fe64ca9e1fc6efcdcf8841147c53a87bd0960e40dff391"
+    },
+    "PocketmateLauncher.zip": {
+      "bytes": 2960986,
+      "sha256": "0dd28ec33ed1aa448945062b44ddc0a2d8339dad4bde46153ee63be62e088de6"
+    }
+  }
+}

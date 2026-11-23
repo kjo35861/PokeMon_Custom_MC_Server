@@ -1,0 +1,35 @@
+{
+  "version": "0.10.9",
+  "layout_boxes_unchanged": true,
+  "unrelated_css_unchanged": true,
+  "geometry_check": [
+    {
+      "case": "desktop",
+      "visual_px": 70.4,
+      "left_clearance_px": 2.8,
+      "text_gap_px": 7.8
+    },
+    {
+      "case": "medium",
+      "visual_px": 59.84,
+      "left_clearance_px": 6.08,
+      "text_gap_px": 7.08
+    },
+    {
+      "case": "narrow main",
+      "visual_px": 47.6,
+      "left_clearance_px": 5.2,
+      "text_gap_px": 6.2
+    },
+    {
+      "case": "narrow estate",
+      "visual_px": 47.6,
+      "left_clearance_px": 2.2,
+      "text_gap_px": 4.2
+    }
+  ],
+  "deployed": true,
+  "game_interaction": false,
+  "restart_required": false,
+  "apply_command": "/webgui reload"
+}

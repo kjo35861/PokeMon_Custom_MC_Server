@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "checks": [
+    "shared colors",
+    "local rounded font",
+    "named estate plaza",
+    "lord notice editor",
+    "image upload preview and persistence payload",
+    "online players and name search",
+    "invite action",
+    "role change",
+    "kick confirmation",
+    "delete above settings",
+    "exact-name deletion gate with cancel",
+    "non-lord read-only controls",
+    "four responsive viewports"
+  ],
+  "page_errors": []
+}

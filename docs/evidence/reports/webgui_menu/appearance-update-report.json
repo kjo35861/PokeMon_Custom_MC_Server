@@ -1,0 +1,38 @@
+{
+  "version": "0.11.0",
+  "themes": [
+    "dark",
+    "light"
+  ],
+  "default": "dark",
+  "storage_key": "pocketmate.theme",
+  "shared_document_theme": true,
+  "startup_restoration": true,
+  "settings_control": "설정 / 화면 테마",
+  "copy_fixes": [
+    "Home heading underscore replaced with period without extra margin",
+    "Korean help-message spacing",
+    "Natural estate deletion confirmation",
+    "Outdated free-purchase description removed"
+  ],
+  "username_data_preserved": true,
+  "checks": [
+    "JS syntax checks",
+    "CSS stylesheet and declaration parsing",
+    "Storage reload, blocked storage, invalid value and event behavior",
+    "Light mode primary/muted text and action button contrast >= 4.5:1",
+    "Asset deployment byte equality"
+  ],
+  "game_interaction": false,
+  "restart_required": false,
+  "apply_command": "/webgui reload",
+  "deployed_files": {
+    "index.html": "6a7ab243450cb9a19d78652a4b82134f7a976ced30e80b09c6f84b1863c001c5",
+    "menu.js": "bc9696e520207d6aa0ed8a668933f2f912e0bf6cf13d1c22f43d42496f483e06",
+    "estate-app.js": "01db8374509bd92e5452568e167d172d76152bd477b6daf8be6b7aede134db5e",
+    "estate-map.js": "2612e713fe8d6474d9137b8c86b79d856b30db38e6315c0a7f7e53cab4d5f649",
+    "profile.js": "6fa7e168cf6dd0e3ddc5e99c133a1560adfa576dc7b2f46323fa2f8d060dc7af",
+    "appearance.js": "e7d30c2cfb041ff35ed33380b69b91d255f74408a97905ada1d3436f248f99fb",
+    "appearance.css": "d923195495edfd2af4377a4ec4b87eb33f7a67bf435a77178ee4438ecb175f5d"
+  }
+}

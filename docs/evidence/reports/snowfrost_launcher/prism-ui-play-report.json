@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "actualGameLaunched": true,
+  "version": "1.21.1",
+  "prismInstance": "1.21.1",
+  "runningButton": "게임 실행 중",
+  "idleButton": "게임 시작",
+  "launchCount": 1,
+  "gameClosedNormally": true,
+  "accountFilesRead": false
+}

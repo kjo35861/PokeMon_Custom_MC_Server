@@ -1,0 +1,54 @@
+/* Shared palette and typography for the player hub and the estate management page. */
+:root{--ink:#edf2e8;--muted:#a0b5ad;--line:#cfe0d015;--cyan:#b7d6c0;--orange:#c7d7ae;--surface:#111c22;--surface-raised:#1b2b32;--soft-text:#a5b8ae;font-family:'NanumSquareRound','Malgun Gothic',sans-serif}
+body,button,input,textarea,select{font-family:'NanumSquareRound','Malgun Gothic',sans-serif}
+.shell,.estate-window{background:var(--surface);border-color:#d0dfc833;border-radius:12px}
+.shell:before,.estate-window:before{background:linear-gradient(90deg,var(--cyan),transparent 80%)}
+.primary-button,.estate-sidebar .primary-button{background:var(--cyan);color:#172b24;border-color:#c5ddbd33;border-radius:6px}
+.primary-button:hover:not(:disabled),.estate-sidebar .primary-button:hover:not(:disabled){background:#cce2cc}
+.player-strip,.feature-panel,.placeholder-tile,.estate-community-card{background:#17262c;border-color:var(--line)}
+.placeholder-tile:hover,.nav-item.selected,.estate-screen .estate-nav button.active{background:#b7d6c00d;border-color:#b7d6c02d;color:#dfebd7}
+.masthead,.bottom-bar,.player-strip,.feature-panel,.estate-header{border-color:var(--line)}
+.micro-label,.eyebrow,.estate-eyebrow,.connection,.tile-code,.tile-eyebrow,.welcome,.subtext,.feature-panel>p{color:var(--soft-text)}
+.bottom-bar,.bottom-bar .coordinates,.bottom-bar .key-hints{color:#b6c8bc}
+.brand,.estate-screen-brand,.brand small,.estate-screen-brand>div{color:#c8ddc8}
+dialog{background:var(--surface-raised);border-color:#a2c1a95c;border-radius:12px;max-height:88vh;overflow:auto;pointer-events:auto}
+dialog>p:not(.eyebrow){color:#b3c5bd}dialog button:disabled{opacity:.35;cursor:not-allowed}
+.brand,.brand small,.brand-mark,.connection,.micro-label,.eyebrow,.tile-code,.tile-eyebrow,.estate-eyebrow,.estate-nav-label,.estate-screen-brand>div,.estate-screen-brand span,.estate-total,.estate-sidebar .estate-total,.estate-side-heading>span,.map-position,.map-zoom-value,.map-source,.estate-history article i{font-family:'NanumSquareRound','Malgun Gothic',sans-serif}
+.brand{letter-spacing:1.4px}.brand small,.estate-eyebrow{letter-spacing:1.5px}
+.estate-nav-bottom{margin-top:auto;display:flex;flex-direction:column;gap:9px;padding-top:28px}
+.estate-screen .estate-nav{height:100%;min-height:0}
+.estate-screen .estate-nav .estate-danger-nav{color:#d8a6a3}.estate-screen .estate-nav .estate-danger-nav i{color:#d8a6a3}
+.estate-field{display:block;margin:0 0 24px;color:#c2d3c6;font-size:calc(12px * var(--text-scale,1));line-height:1.8}
+.estate-field input,.estate-field textarea,.estate-roster select{display:block;width:100%;border:1px solid #c9ddc62e;background:#102025;border-radius:7px;color:#eff4e9;padding:12px;margin-top:9px;pointer-events:auto;font-size:14px}
+.estate-field textarea{resize:vertical;min-height:130px}.estate-field strong{color:#edf2d5}
+.estate-danger-button{border:1px solid #dc8f895c;border-radius:6px;background:#863d3d;color:#ffebdf;font-size:12px;padding:12px 18px}
+.estate-plaza{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(360px,1fr);gap:22px;flex:1;min-height:0;overflow:auto;padding-bottom:2px;scrollbar-width:thin}
+.estate-photo-card{min-height:420px;display:flex;flex-direction:column;position:relative;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#18302f}
+.estate-cover{position:absolute;inset:0 0 53px;width:100%;height:calc(100% - 53px);object-fit:cover}
+.estate-photo-empty{position:absolute;inset:0 0 53px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:25px 20px 140px;text-align:center;background:linear-gradient(180deg,#11292b22,#0b1d20bb),url('./estate-background.svg') center/cover}
+.estate-photo-empty>svg{width:58px;height:58px;color:#bdd4ae;stroke-width:1;margin-bottom:22px}.estate-photo-empty h2{font-size:calc(19px * var(--text-scale,1));font-weight:700;color:#e5eddb;margin:0 0 12px}.estate-photo-empty p{font-size:calc(11px * var(--text-scale,1));color:#a7bdb0;margin:0}
+.estate-photo-caption{position:relative;z-index:1;display:flex;align-items:flex-end;gap:18px;justify-content:space-between;padding:80px 26px 26px;margin-top:auto;background:linear-gradient(transparent,#081a1ce8)}
+.estate-photo-caption span,.estate-community-card header>div>span,.estate-members-heading>div>span{font-size:calc(8px * var(--text-scale,1));letter-spacing:2px;color:#abc7ad}.estate-photo-caption h2{font-size:calc(30px * var(--text-scale,1));margin:10px 0;overflow-wrap:anywhere;color:#f1f1db}.estate-photo-caption p{font-size:calc(11px * var(--text-scale,1));color:#b5c9b9;margin:0}
+.estate-photo-caption button,.estate-community-card header button,.estate-photo-foot button,.estate-roster button,.estate-invite-results button,.estate-incoming button{font-size:11px;border:1px solid #bad1b33d;border-radius:6px;background:#132b2aab;color:#d3e2c7;padding:9px 12px;flex-shrink:0}
+.estate-photo-caption button:hover,.estate-community-card header button:hover{background:#bdd5b126}
+.estate-photo-foot{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:53px;padding:10px 20px;background:#14262a;font-size:calc(9px * var(--text-scale,1));color:#91aa9e;z-index:1}.estate-photo-foot button{border:0;padding:5px;background:transparent}
+.estate-plaza-right{display:flex;flex-direction:column;gap:20px;min-width:0;min-height:0}
+.estate-community-card{border:1px solid var(--line);border-radius:10px;padding:22px;min-width:0}
+.estate-community-card header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}.estate-community-card header h2,.estate-members-heading h2{margin:8px 0 0;font-size:calc(19px * var(--text-scale,1));color:#ecf1e4}
+.estate-announcement{white-space:pre-wrap;overflow-wrap:anywhere;color:#becfc0;font-size:calc(12px * var(--text-scale,1));line-height:1.9;max-height:190px;overflow:auto;margin:0}
+.estate-plaza-roster{flex:1;min-height:180px;overflow:auto}
+.estate-roster{overflow-x:auto;min-width:0}.estate-roster table{border-collapse:collapse;width:100%;text-align:left;font-size:calc(11px * var(--text-scale,1))}.estate-roster th{color:#8ea79b;font-size:calc(9px * var(--text-scale,1));font-weight:400;padding:0 10px 14px;white-space:nowrap}.estate-roster td{padding:17px 10px;border-top:1px solid var(--line);color:#d9e6d8;vertical-align:middle;white-space:nowrap}.estate-roster td:first-child{display:flex;align-items:center;gap:10px}.estate-roster strong{font-weight:700}
+.member-avatar{display:inline-grid;place-items:center;width:30px;height:32px;border-radius:8px;background:#b9d3bc12;border:1px solid #c4d4b91c;color:#ccddbe;font-size:14px;flex-shrink:0}
+.member-rank{color:#b3c8b8;font-size:calc(10px * var(--text-scale,1))}.member-rank.lord{color:#dfcf99}.member-status{font-size:calc(9px * var(--text-scale,1));color:#8b9d96}.member-status:before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;background:#65716c;margin-right:6px;vertical-align:middle}.member-status.online{color:#b5d8ac}.member-status.online:before{background:#b5d8ac}.estate-roster .member-last-seen{font-size:calc(9px * var(--text-scale,1));color:#99ada1}
+.estate-roster select{width:auto;padding:8px 12px;margin:0;font-size:12px}.estate-muted{color:#8a9c93;font-size:11px}
+.estate-members-page{flex:1;min-height:0;overflow:auto;padding:4px 6px 24px;scrollbar-width:thin}.estate-members-heading{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:30px}.estate-members-heading p,.estate-empty-copy,.estate-search-help{font-size:calc(11px * var(--text-scale,1));line-height:1.8;color:#9fb5a7}.estate-members-heading .primary-button{padding:12px 18px;font-size:12px}
+.estate-outgoing,.estate-incoming{margin-top:30px;border-top:1px solid var(--line);padding-top:22px}.estate-outgoing h3,.estate-incoming h3{font-size:calc(15px * var(--text-scale,1));color:#d4e0cb}.estate-outgoing p{display:flex;gap:18px;font-size:calc(11px * var(--text-scale,1));color:#9eb2a6}.estate-outgoing strong{color:#d5e3d0}.estate-incoming>div{display:flex;align-items:center;gap:12px;padding:10px 0}.estate-incoming strong{margin-right:auto;font-size:calc(12px * var(--text-scale,1))}.estate-incoming p{font-size:calc(10px * var(--text-scale,1));color:#a0b5a7}
+.estate-invite{width:min(600px,90vw)}.estate-invite-results{min-height:110px;max-height:340px;overflow:auto;margin:20px 0}.estate-invite-player{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}.estate-invite-player>div{flex:1}.estate-invite-player strong{display:block;font-size:14px;margin-bottom:7px}.estate-invite-player small{display:block}.estate-invite-results p{font-size:12px;color:#b0c2b4}
+.estate-image-preview{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:7px;margin-bottom:20px}
+@media(max-width:1200px){.estate-plaza{grid-template-columns:minmax(0,1fr) minmax(320px,1fr);gap:16px}.estate-community-card{padding:18px}.estate-photo-caption{padding-left:20px;padding-right:20px;flex-wrap:wrap}.estate-photo-caption h2{font-size:calc(24px * var(--text-scale,1))}.estate-roster td,.estate-roster th{padding-left:6px;padding-right:6px}}
+@media(max-width:1000px){.estate-plaza{grid-template-columns:1fr;overflow:visible}.estate-photo-card{min-height:450px}.estate-plaza-right{overflow:visible}.estate-plaza-roster{overflow:visible}.estate-screen .estate-nav{height:auto;min-height:480px}.estate-members-page{overflow:visible}.estate-members-heading{flex-wrap:wrap}}
+@media(max-width:600px){.estate-photo-card{min-height:380px}.estate-photo-caption{padding:70px 15px 20px}.estate-photo-empty{padding-bottom:170px}.estate-photo-empty h2{font-size:calc(15px * var(--text-scale,1))}.estate-photo-foot>span{display:none}.estate-photo-foot{padding:10px 15px}.estate-community-card{padding:15px}.estate-screen .estate-nav button span{overflow-wrap:anywhere}.estate-nav-bottom{padding-top:18px}}
+
+/* Main backgrounds share one opaque color; existing button and card colors are retained. */
+.shell,.estate-screen,.estate-window,.estate-backdrop{background:var(--surface)}
+.estate-screen:after{background:none}

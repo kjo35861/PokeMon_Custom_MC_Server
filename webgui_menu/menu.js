@@ -1,0 +1,140 @@
+(() => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const meta = {
+    home: ['홈', 'PLAYER HUB', ''],
+    team: ['내 포켓몬', '01 / MY POKÉMON', '파티의 구성과 파트너 정보를 확인하세요.'],
+    dex: ['포켓몬 도감', '02 / ARCHIVE', '발견한 포켓몬의 정보를 확인하세요.'],
+    shop: ['상점', '03 / SUPPLY', '아이템과 거래 기능을 한곳에서 확인하세요.'],
+    quests: ['퀘스트', '04 / MISSIONS', '진행할 목표와 보상을 확인하세요.'],
+    travel: ['마을 이동', '05 / FAST TRAVEL', '목적지를 선택하고 다음 지역으로 이동하세요.'],
+    estate: ['영지관리', '06 / ESTATES', '현재 위치에서 영지를 만들고, 오버월드 지도로 소유 청크를 관리하세요.'],
+    profile: ['프로필 꾸미기', 'MY PROFILE / COLLECTION', '보유한 아이콘·칭호·배너로 나만의 프로필카드를 꾸며보세요.'],
+    settings: ['메뉴 설정', '07 / PREFERENCES', '플레이 허브의 표시 설정을 변경하세요.']
+  };
+  const icons = {team:'ball', dex:'book', shop:'bag', quests:'flag', travel:'compass'};
+  const icon = window.PocketmateIcons;
+  let liveClient = null;
+  let reducedMotion = false;
+  try { reducedMotion = localStorage.getItem('pocketmate.reducedMotion') === 'true'; } catch (_) {}
+  document.body.classList.toggle('reduce-motion', reducedMotion);
+  const TEXT_MIN = 80, TEXT_MAX = 160, TEXT_STEP = 10;
+  let textPercent = 100;
+  try {
+    const saved = Number(localStorage.getItem('pocketmate.textPercent'));
+    if (Number.isFinite(saved) && saved >= TEXT_MIN && saved <= TEXT_MAX) textPercent = Math.round(saved / TEXT_STEP) * TEXT_STEP;
+  } catch (_) {}
+  function applyTextSize() {
+    document.documentElement.style.setProperty('--text-scale', String(textPercent / 100));
+    $('text-size-value').textContent = `${textPercent}%`;
+    $('text-size-decrease').disabled = textPercent <= TEXT_MIN;
+    $('text-size-increase').disabled = textPercent >= TEXT_MAX;
+    document.querySelectorAll('[data-estate-text-value]').forEach(output=>output.textContent=`${textPercent}%`);
+    document.querySelectorAll('[data-estate-text-size]').forEach(button=>button.disabled=Number(button.dataset.estateTextSize)<0?textPercent<=TEXT_MIN:textPercent>=TEXT_MAX);
+  }
+  function adjustTextSize(direction) {
+    textPercent = Math.min(TEXT_MAX, Math.max(TEXT_MIN, textPercent + direction * TEXT_STEP));
+    applyTextSize();
+    try { localStorage.setItem('pocketmate.textPercent', String(textPercent)); } catch (_) {}
+  }
+  $('text-size-decrease').addEventListener('click', () => adjustTextSize(-1));
+  $('text-size-increase').addEventListener('click', () => adjustTextSize(1));
+  document.querySelectorAll('[data-estate-text-size]').forEach(button=>button.addEventListener('click',()=>adjustTextSize(Number(button.dataset.estateTextSize))));
+  applyTextSize();
+
+  const showInfo = (title, message) => {
+    $('dialog-title').textContent = title;
+    $('dialog-body').textContent = message;
+    if (!$('info-dialog').open) $('info-dialog').showModal();
+  };
+  const notConnected = name => showInfo(name, '이 메뉴의 기본 화면이 준비되었어요.\n서버 기능을 연결하면 실제 정보를 확인하고 이용할 수 있어요.');
+  function selectPage(page) {
+    window.PocketmateEstates?.unmount();
+    window.PocketmateProfile?.unmount();
+    $('estate-page').hidden=true;
+    if (!meta[page]) page = 'home';
+    const [title, kicker, description] = meta[page];
+    $('breadcrumb').textContent = title;
+    document.querySelectorAll('[data-page]').forEach(button => {
+      const selected = button.dataset.page === page;
+      button.classList.toggle('selected', selected);
+      if (selected) button.setAttribute('aria-current', 'page'); else button.removeAttribute('aria-current');
+    });
+    $('home-page').hidden = page !== 'home';
+    $('feature-page').hidden = page === 'home';
+    $('page-scroll').scrollTop = 0;
+    if (page === 'home') return;
+    if (page === 'estate') {
+      $('estate-page').hidden=false;
+      window.PocketmateEstates.mount($('estate-content'));
+      $('estate-page').querySelector('[data-go="home"]').focus({preventScroll:true});
+      return;
+    }
+    $('feature-title').textContent = title;
+    $('feature-kicker').textContent = kicker;
+    $('feature-description').textContent = description;
+    const panel = $('feature-content');
+    if (page === 'profile') {
+      window.PocketmateProfile.mount(panel);
+    } else if (page === 'team') {
+      panel.innerHTML = `<div class="feature-panel"><span class="empty-symbol">${icon('ball')}</span><h2>함께할 파트너를 위한 자리</h2><p>포켓몬 모드 연결 후 내 파티의 모습과 이름, 레벨을 이곳에서 확인할 수 있어요. 지금은 파티 정보를 불러오지 않은 상태예요.</p><div class="slot-grid">${Array.from({length:6},(_,i)=>`<div class="team-slot">${icon('ball')}<span>파트너 ${String(i+1).padStart(2,'0')}</span></div>`).join('')}</div></div>`;
+    } else if (page === 'settings') {
+      panel.innerHTML = `<div class="feature-panel"><label class="setting-row" for="theme-select"><span><strong>화면 테마</strong><small>일반 메뉴와 영지 관리소에 함께 적용되며, 다음에도 선택이 유지돼요.</small></span><select class="theme-select" id="theme-select"><option value="dark">다크 모드</option><option value="light">라이트 모드</option></select></label><label class="setting-row"><span><strong>움직임 줄이기</strong><small>버튼과 상태 막대의 전환 효과를 줄여요.</small></span><input type="checkbox" id="motion-toggle" ${reducedMotion?'checked':''}></label><div class="setting-row"><span><strong>메뉴 열기</strong><small>Shift+F 연결 전의 기본 단축키예요.</small></span><span class="setting-value">F6</span></div><div class="setting-row"><span><strong>메뉴 닫기</strong><small>오른쪽 위 닫기 버튼으로도 돌아갈 수 있어요.</small></span><span class="setting-value">Esc</span></div></div>`;
+      $('theme-select').value = window.PocketmateTheme.get();
+      $('theme-select').addEventListener('change', event => window.PocketmateTheme.set(event.target.value));
+      $('motion-toggle').addEventListener('change', event => {
+        reducedMotion = event.target.checked;
+        document.body.classList.toggle('reduce-motion', reducedMotion);
+        try { localStorage.setItem('pocketmate.reducedMotion', String(reducedMotion)); } catch (_) {}
+      });
+    } else if (page === 'travel' || page === 'shop') {
+      const tiles = page === 'travel' ? [['시작 마을','새로운 모험의 출발점'],['내 보금자리','잠시 쉬어갈 나만의 장소'],['탐험 지역','새로운 만남을 찾아서'],['함께하는 광장','친구들의 이야기가 모이는 곳']] : [['모험용품','몬스터볼과 회복 도구를 위한 공간'],['꾸미기','나만의 개성을 위한 공간'],['거래소','다른 모험가와 만나는 공간'],['보관함','소중한 물건을 위한 공간']];
+      panel.innerHTML = `<div class="tile-grid">${tiles.map(([name,description])=>`<button class="placeholder-tile" data-placeholder="${name}">${icon(icons[page])}<strong>${name}</strong><small>${description}<br>서버 연결 준비 중</small></button>`).join('')}</div>`;
+    } else {
+      const copy = page === 'dex' ? ['새로운 만남을 기록할 준비','포켓몬 모드를 연결하면 발견한 포켓몬과 도감 정보를 볼 수 있어요. 아직 도감 데이터는 연결되지 않았어요.'] : ['아직 도착하지 않은 이야기','서버의 퀘스트 기능을 연결하면 목표와 보상, 진행 상황을 볼 수 있어요. 지금은 수락할 수 있는 퀘스트가 없어요.'];
+      panel.innerHTML = `<div class="feature-panel"><span class="empty-symbol">${icon(icons[page])}</span><h2>${copy[0]}</h2><p>${copy[1]}</p><button class="primary-button" data-guide>메뉴 이용 안내 ${icon('arrow')}</button></div>`;
+    }
+  }
+  document.addEventListener('click', event => {
+    const go = event.target.closest('[data-go], [data-page]');
+    if (go) { selectPage(go.dataset.go || go.dataset.page); return; }
+    const tile = event.target.closest('[data-placeholder]');
+    if (tile) { notConnected(tile.dataset.placeholder); return; }
+    if (event.target.closest('[data-guide]')) showInfo('포켓메이트에 오신 걸 환영해요', '왼쪽 탭과 기능 타일로 포켓몬, 도감, 상점과 이동 메뉴를 둘러보세요.\n\n현재는 메뉴의 기본 틀을 테스트하는 단계예요. 서버 기능이 필요한 항목은 연결 후 이용할 수 있어요.\n\nF6으로 메뉴를 열고 Esc로 게임으로 돌아갈 수 있어요.');
+  });
+  document.querySelector('.brand').addEventListener('click', event => { event.preventDefault(); selectPage('home'); });
+  ['dialog-x','dialog-ok'].forEach(id => $(id).addEventListener('click', () => $('info-dialog').close()));
+  $('info-dialog').addEventListener('click', event => { if (event.target === $('info-dialog')) { const r = event.target.getBoundingClientRect(); if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom) event.target.close(); } });
+  function closeMenu() {
+    try {
+      if (typeof window.webgui?.closeGui === 'function') { window.webgui.closeGui(); return; }
+      if (typeof window.webgui?.postToGame === 'function') { window.webgui.postToGame({channel:'close'}); return; }
+      if (typeof window.cefQuery === 'function') { window.cefQuery({request:JSON.stringify({channel:'close'}),onSuccess:()=>{},onFailure:()=>showInfo('게임으로 돌아가기','Esc 키를 눌러 메뉴를 닫아주세요.')}); return; }
+    } catch (_) {}
+    showInfo('메뉴 미리보기', '게임 안에서는 이 버튼으로 메뉴를 닫을 수 있어요.\n지금은 브라우저 미리보기 화면이에요.');
+  }
+  $('close-menu').addEventListener('click',closeMenu);
+  $('close-estate').addEventListener('click',closeMenu);
+  function applyClient(client) {
+    if (!client || typeof client.username !== 'string' || !client.username.trim()) return;
+    liveClient = client;
+    $('player-greeting').textContent = client.username;
+    $('player-name').textContent = client.username;
+    $('connection-label').textContent = client.server?.address ? '월드 연결됨' : '싱글플레이';
+    $('connection-dot').classList.add('connected');
+    const hp=Number(client.health), max=Number(client.maxHealth);
+    const valid=Number.isFinite(hp)&&Number.isFinite(max)&&max>0;
+    $('health-text').textContent = valid ? `${Math.max(0,hp).toFixed(0)} / ${max.toFixed(0)}` : '—';
+    $('health-fill').style.width = valid ? `${Math.min(100,Math.max(0,hp/max*100))}%` : '0%';
+    $('player-level').textContent = Number.isFinite(Number(client.xpLevel)) ? `Lv. ${Math.max(0,Math.floor(Number(client.xpLevel)))}` : '—';
+    const dimension = typeof client.dimension === 'string' ? client.dimension : '';
+    $('player-dimension').textContent = ({'minecraft:overworld':'오버월드','minecraft:the_nether':'네더','minecraft:the_end':'엔드'})[dimension] || (dimension ? dimension.split(':').pop().replace(/_/g,' ') : '—');
+    const pos=client.pos;
+    $('player-coordinates').textContent = pos && ['x','y','z'].every(k=>Number.isFinite(Number(pos[k]))) ? `X ${Math.floor(pos.x)}  ·  Y ${Math.floor(pos.y)}  ·  Z ${Math.floor(pos.z)}` : '현재 위치를 확인하고 있어요.';
+  }
+  window.addEventListener('webgui:client', event => applyClient(event.detail));
+  applyClient(window.webgui?.client);
+  $('date-label').textContent = new Intl.DateTimeFormat('ko-KR',{month:'long',day:'numeric',weekday:'short'}).format(new Date());
+  // Extension point: register trusted server event handlers here when gameplay features are connected.
+  // Navigation and placeholder buttons deliberately do not send commands or grant rewards.
+})();

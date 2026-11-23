@@ -1,0 +1,11 @@
+{
+  "target": "<USERPROFILE>\\AppData\\Roaming\\PrismLauncher\\instances\\포켓메이트 메뉴 테스트\\minecraft\\config\\webgui\\web",
+  "backup": "<WORKSPACE>\\webgui_menu\\verification\\backups\\deployed-left-tabs-font-20261124-003314",
+  "files": [
+    "index.html",
+    "menu.css",
+    "menu.js"
+  ],
+  "version": "0.3",
+  "serverConfigChanged": false
+}

@@ -1,0 +1,5 @@
+numpy>=2.3,<3
+opencv-python>=4.12,<6
+mss>=10,<11
+Pillow>=12,<14
+dxcam==0.3.0

@@ -1,0 +1,47 @@
+{
+  "cases": [
+    {
+      "kind": "insert",
+      "late_correction_ms": 0.0,
+      "last_contour_age_ms": 216.67,
+      "v4_would_reject": true,
+      "v5_rejection": null
+    },
+    {
+      "kind": "insert",
+      "late_correction_ms": 100.0,
+      "last_contour_age_ms": 316.67,
+      "v4_would_reject": true,
+      "v5_rejection": null
+    },
+    {
+      "kind": "insert",
+      "late_correction_ms": 200.0,
+      "last_contour_age_ms": 416.67,
+      "v4_would_reject": true,
+      "v5_rejection": null
+    },
+    {
+      "kind": "remove",
+      "late_correction_ms": 0.0,
+      "last_contour_age_ms": 216.67,
+      "v4_would_reject": true,
+      "v5_rejection": null
+    },
+    {
+      "kind": "remove",
+      "late_correction_ms": 100.0,
+      "last_contour_age_ms": 316.67,
+      "v4_would_reject": true,
+      "v5_rejection": null
+    },
+    {
+      "kind": "remove",
+      "late_correction_ms": 200.0,
+      "last_contour_age_ms": 416.67,
+      "v4_would_reject": true,
+      "v5_rejection": null
+    }
+  ],
+  "real_keys_sent": false
+}

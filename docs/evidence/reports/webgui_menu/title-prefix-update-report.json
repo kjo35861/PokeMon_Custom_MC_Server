@@ -1,0 +1,12 @@
+{
+  "version": "0.10.3",
+  "title_prefix_shared_between_card_and_collection": true,
+  "deployed_assets": [
+    "profile.js",
+    "profile.css"
+  ],
+  "game_interaction": false,
+  "apply_command": "/webgui reload",
+  "brand_image_replaced": false,
+  "brand_generation_status": "Private noncommercial Pikachu/Eevee request also rejected at output by tool safety system. Original animal draft generated but not applied after user changed direction."
+}

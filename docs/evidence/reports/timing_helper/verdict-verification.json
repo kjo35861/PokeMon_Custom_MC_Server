@@ -1,0 +1,119 @@
+{
+  "calibration": {
+    "insert_delay_ms": 12.0,
+    "remove_delay_ms": -12.0,
+    "real_keys_sent": false
+  },
+  "reference": {
+    "counts": {
+      "perfect": 3,
+      "early": 1
+    },
+    "events": [
+      {
+        "verdict": "perfect",
+        "score": 0.9982687830924988,
+        "time": 2.8666666666666667
+      },
+      {
+        "verdict": "perfect",
+        "score": 0.9976915717124939,
+        "time": 6.466666666666667
+      },
+      {
+        "verdict": "perfect",
+        "score": 0.9950949549674988,
+        "time": 7.666666666666667
+      },
+      {
+        "verdict": "early",
+        "score": 0.9588492512702942,
+        "time": 11.233333333333333
+      }
+    ]
+  },
+  "recording": {
+    "counts": {
+      "early": 9,
+      "miss": 5,
+      "late": 1
+    },
+    "events": [
+      {
+        "verdict": "early",
+        "score": 0.9581645131111145,
+        "time": 2.966666666666667
+      },
+      {
+        "verdict": "early",
+        "score": 0.9584144353866577,
+        "time": 7.2
+      },
+      {
+        "verdict": "miss",
+        "score": 0.9766269326210022,
+        "time": 8.8
+      },
+      {
+        "verdict": "early",
+        "score": 0.9549596905708313,
+        "time": 11.433333333333334
+      },
+      {
+        "verdict": "early",
+        "score": 0.9587353467941284,
+        "time": 14.233333333333333
+      },
+      {
+        "verdict": "early",
+        "score": 0.9547746777534485,
+        "time": 15.8
+      },
+      {
+        "verdict": "late",
+        "score": 0.9671347141265869,
+        "time": 17.233333333333334
+      },
+      {
+        "verdict": "early",
+        "score": 0.9573092460632324,
+        "time": 19.933333333333334
+      },
+      {
+        "verdict": "early",
+        "score": 0.9580934047698975,
+        "time": 21.333333333333332
+      },
+      {
+        "verdict": "miss",
+        "score": 0.9595561623573303,
+        "time": 24.366666666666667
+      },
+      {
+        "verdict": "miss",
+        "score": 0.9717447757720947,
+        "time": 25.766666666666666
+      },
+      {
+        "verdict": "early",
+        "score": 0.9572010040283203,
+        "time": 29.8
+      },
+      {
+        "verdict": "miss",
+        "score": 0.9512161016464233,
+        "time": 35.733333333333334
+      },
+      {
+        "verdict": "miss",
+        "score": 0.9687148928642273,
+        "time": 37.06666666666667
+      },
+      {
+        "verdict": "early",
+        "score": 0.9580235481262207,
+        "time": 39.733333333333334
+      }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "version": "menu 0.10.2",
+  "original_svg_icons": 24,
+  "representative_mark": "pocketmate-mark.svg",
+  "applied_assets": [
+    "index.html",
+    "menu.js",
+    "estate-app.js",
+    "profile.js",
+    "profile.css",
+    "icons.css",
+    "icons.js",
+    "pocketmate-mark.svg",
+    "icons/*.svg"
+  ],
+  "syntax_and_svg_validation": "passed",
+  "game_interaction": false,
+  "runtime_test": "left to user",
+  "apply_command": "/webgui reload",
+  "restart_required": false
+}

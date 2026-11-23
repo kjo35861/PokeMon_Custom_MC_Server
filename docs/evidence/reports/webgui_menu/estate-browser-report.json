@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "checks": [
+    "wheel and minus button stop at 128-block zoom",
+    "128-block scale has correct pixel length",
+    "default view covers twice the original terrain span",
+    "expanded ownership request radius",
+    "click toggles selection",
+    "disconnected selection opens warning without purchase",
+    "own and other occupied chunks cannot be selected",
+    "reverse-order connected batch allowed",
+    "removing bridge invalidates batch",
+    "confirmation survives polling",
+    "server rejection opens warning without clearing selection",
+    "batch payload and success clear selection",
+    "drag and zoom retain selection and canvas",
+    "clear selection",
+    "map options persist",
+    "chunk coordinates removed",
+    "four responsive viewports",
+    "estate screen covers viewport outside hub",
+    "estate panel larger than hub",
+    "dedicated font controls",
+    "return to hub and reopen"
+  ],
+  "viewports": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "bodyWidth": 1920,
+      "canvasWidth": 952,
+      "mapBottom": 967.28125,
+      "availableBottom": 990.28125
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "bodyWidth": 1280,
+      "canvasWidth": 640.625,
+      "mapBottom": 621.390625,
+      "availableBottom": 644.390625
+    },
+    {
+      "width": 854,
+      "height": 480,
+      "bodyWidth": 854,
+      "canvasWidth": 648.78125,
+      "mapBottom": 730.515625,
+      "availableBottom": 420.390625
+    },
+    {
+      "width": 640,
+      "height": 360,
+      "bodyWidth": 640,
+      "canvasWidth": 447.625,
+      "mapBottom": 784.515625,
+      "availableBottom": 300.390625
+    }
+  ]
+}

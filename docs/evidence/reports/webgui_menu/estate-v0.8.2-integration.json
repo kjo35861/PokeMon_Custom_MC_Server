@@ -1,0 +1,14 @@
+{
+  "version": "menu 0.8.2 / estates 0.4.0",
+  "applied_by": "/webgui reload",
+  "game_restarted": false,
+  "observed": [
+    "main navigation displays 영지관리",
+    "owned chunk click retains zero selected",
+    "unowned adjacent chunk selects once",
+    "owned chunk click retains that one selected",
+    "clear selection returns count to zero"
+  ],
+  "purchase_performed": false,
+  "browser_report": "estate-browser-report.json"
+}

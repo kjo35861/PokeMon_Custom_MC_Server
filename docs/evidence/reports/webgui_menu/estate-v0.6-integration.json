@@ -1,0 +1,22 @@
+{
+  "version": "menu 0.6 / estates 0.3.0",
+  "date": "2026-11-24",
+  "real_game": "Minecraft 1.21.1 Fabric / Prism test instance",
+  "observed": [
+    "click selected a chunk",
+    "same click deselected the chunk",
+    "distant chunk purchase opened modal warning",
+    "clear all removed selection",
+    "two connected chunks selected in reverse order",
+    "one batch purchase succeeded",
+    "selected count reset to zero",
+    "chunk coordinates absent from map and sidebar"
+  ],
+  "claims_before": 3,
+  "claims_after": 5,
+  "all_existing_claims_preserved": true,
+  "java_tests": 18,
+  "java_failures": 0,
+  "browser_report": "estate-browser-report.json",
+  "currency": "free test; real economy remains unconnected"
+}

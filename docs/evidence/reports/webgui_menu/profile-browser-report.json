@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "checks": [
+    "title adjacent to CONNECTED PLAYER",
+    "only owned collection choices",
+    "draft preview does not alter equipped card",
+    "server acknowledgement applies icon/title/banner together",
+    "equipment retained after reopen",
+    "reset draft",
+    "rejected equipment does not change live card",
+    "4 responsive viewports at 160% text; save reachable"
+  ],
+  "viewports": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "scrollWidth": 1022,
+      "clientWidth": 1022,
+      "studioWidth": 950
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "scrollWidth": 968,
+      "clientWidth": 968,
+      "studioWidth": 908.390625
+    },
+    {
+      "width": 854,
+      "height": 480,
+      "scrollWidth": 635,
+      "clientWidth": 635,
+      "studioWidth": 586.59375
+    },
+    {
+      "width": 640,
+      "height": 360,
+      "scrollWidth": 465,
+      "clientWidth": 465,
+      "studioWidth": 427.390625
+    }
+  ]
+}

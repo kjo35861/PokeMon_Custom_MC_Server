@@ -1,0 +1,53 @@
+# Caches and generated packages
+.codex-video-analysis/
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.py[cod]
+.gradle/
+**/build/
+**/dist/
+*.exe
+*.dll
+*.jar
+*.jar.pending
+*.zip
+*.log
+*.tmp
+*.bak
+
+# Runtime data and credentials
+.env
+.env.*
+!.env.example
+accounts.json
+accounts.json.*
+launcher_accounts.json
+launcher_profiles.json
+servers.dat
+servers.dat_old
+settings.json
+**/saves/
+**/minecraft/
+**/.minecraft/
+**/data/pocketmate-*.json
+**/config/webgui/server.json
+*.pem
+*.key
+
+# Publish sanitized reports through tools/prepare_evidence.py
+**/verification/**
+!**/verification/check_*.cjs
+!**/verification/test_*.py
+!**/verification/brand-light-dark-preview.html
+timing_helper/*.json
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vs/
+*.user
+*.suo

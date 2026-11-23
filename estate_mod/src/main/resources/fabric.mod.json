@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "pocketmate_estates",
+  "version": "0.7.0",
+  "name": "Pocketmate Estates",
+  "description": "Server-authoritative Overworld chunk estates for the Pocketmate WebGUI.",
+  "environment": "*",
+  "license": "MIT",
+  "entrypoints": {
+    "main": [
+      "space.pocketmate.estates.EstatesMod",
+      "space.pocketmate.estates.ProfilesMod"
+    ],
+    "client": [
+      "space.pocketmate.estates.client.EstateMapClient",
+      "space.pocketmate.estates.client.ProfileSkinClient"
+    ]
+  },
+  "mixins": [
+    "pocketmate-estates.client.mixins.json"
+  ],
+  "suggests": {
+    "xaeroworldmap": ">=1.39.12"
+  },
+  "depends": {
+    "minecraft": "1.21.1",
+    "java": ">=21",
+    "fabricloader": ">=0.16.0",
+    "fabric-api": "*",
+    "webgui": "2.0.0"
+  }
+}

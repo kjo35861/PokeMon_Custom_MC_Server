@@ -1,0 +1,21 @@
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
+const listeners=new Map(),nodes=[];
+class MockImage {getAttribute(key){return key==='src'?this.src:null;}}
+const sandbox={window:{addEventListener:(key,fn)=>listeners.set(key,fn),dispatchEvent:()=>{}},document:{querySelectorAll:()=>nodes},Image:MockImage,CustomEvent:class{}};
+vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../people.js'),'utf8'),sandbox);
+const people=sandbox.window.PocketmatePeople;
+const alice={id:'alice',name:'Alice',appearance:{icon:'bulbasaur',iconImage:'./profile-assets/bulbasaur.png',bannerImage:'./profile-assets/forest.svg'}};
+const bob={id:'bob',name:'Bob',appearance:{icon:'skin',bannerImage:'./profile-assets/night.svg'}};
+assert.match(people.markup(alice),/forest\.svg/);people.markup(bob);
+assert.equal(people.avatarUrl('alice'),'./profile-assets/bulbasaur.png');
+const hostile=people.markup({id:'bad',name:'<img src=x onerror=alert(1)>',appearance:{icon:'skin',iconImage:'https://bad.invalid/x.png',bannerImage:'javascript:alert(1)'}});
+assert(!hostile.includes('<img'));assert(!hostile.includes('javascript:'));assert.match(hostile,/&lt;img/);
+people.markup({id:'new',name:'NewPlayer'});assert.equal(people.get('new').appearance.icon,'skin');
+for(const id of ['alice','bob','new'])nodes.push({dataset:{personAvatar:id},firstElementChild:null,replaceChildren(img){this.firstElementChild=img;}});
+const skin=listeners.get('webgui:pocketmate:profile-skin');
+skin({detail:{playerId:'bob',png:'iVBORw0KGgoAAA'}});
+assert.match(people.avatarUrl('bob'),/^data:image\/png;base64,/);
+assert.equal(people.avatarUrl('alice'),'./profile-assets/bulbasaur.png');
+assert.equal(nodes[0].firstElementChild.className,'pokemon-face');assert.equal(nodes[1].firstElementChild.className,'skin-face');assert.equal(nodes[2].textContent,'N');
+const before=people.avatarUrl('bob');skin({detail:{playerId:'bob',png:'not a png'}});assert.equal(people.avatarUrl('bob'),before);
+console.log('Per-user equipment, default skin, asynchronous face association and unsafe asset/name checks passed.');

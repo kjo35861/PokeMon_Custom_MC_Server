@@ -1,0 +1,20 @@
+{
+  "version": "menu 0.7 / estates 0.3.0",
+  "date": "2026-11-24",
+  "applied_by": "/webgui reload",
+  "game_restarted": false,
+  "observed": [
+    "WebGUI config reloaded response in chat",
+    "server distributed 9 files including SVG background",
+    "estate tab opened full-viewport background and independent panel",
+    "base player-hub navigation hidden on estate screen",
+    "actual Xaero terrain and five owned chunks displayed",
+    "return-to-menu button restored original hub",
+    "re-entering estate opened independent screen again"
+  ],
+  "owned_chunks": 5,
+  "browser_report": "estate-browser-report.json",
+  "background": "estate-background.svg",
+  "panel_max_width": 1520,
+  "base_hub_max_width": 1180
+}

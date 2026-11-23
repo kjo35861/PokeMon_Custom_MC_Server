@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "minecraftVersion": "1.21.1",
+  "javaMajor": 21,
+  "classpathFiles": 55,
+  "nativeDlls": 8,
+  "gameDirectory": "<USERPROFILE>\\AppData\\Local\\SnowfrostLauncher\\vanilla-1.21.1",
+  "commandVersionPinned": true,
+  "isolatedVanilla": true,
+  "mainClass": "net.minecraft.client.main.Main",
+  "realAccountUsed": false,
+  "gameLaunched": false
+}

@@ -1,0 +1,26 @@
+{
+  "version": "menu 0.10 / mod 0.6.0",
+  "deployed": true,
+  "restart_required_for_Java": true,
+  "observed": [
+    "금고·성장 tab opens",
+    "existing 김노이 16 chunks migrated to level 5 cap 16",
+    "vault and personal wallet show zero",
+    "level 6 cap 20 costs 550000; insufficient balance disables upgrade",
+    "profile equipment preserved"
+  ],
+  "claims_unchanged": 16,
+  "estate_metadata_unchanged": true,
+  "profile_unchanged": true,
+  "purchase_or_upgrade_performed_in_user_world": false,
+  "money_granted_in_user_world": false,
+  "java_tests": 48,
+  "browser_reports": [
+    "estate-economy-browser-report.json",
+    "estate-browser-report.json",
+    "estate-community-browser-report.json",
+    "profile-browser-report.json"
+  ],
+  "economy": "Internal prototype wallet, external economy integration pending",
+  "backup": "<USERPROFILE>\\AppData\\Local\\PocketmateEstateTools\\before-growth-v0.10"
+}

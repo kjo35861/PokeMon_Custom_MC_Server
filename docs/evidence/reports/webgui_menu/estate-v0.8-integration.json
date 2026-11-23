@@ -1,0 +1,30 @@
+{
+  "version": "menu 0.8 / estates 0.4.0",
+  "date": "2026-11-24",
+  "schema_before": 1,
+  "schema_after": 2,
+  "claims_before": 5,
+  "claims_after": 5,
+  "all_existing_claims_preserved": true,
+  "java_tests": 30,
+  "java_failures": 0,
+  "actual_game": [
+    "shared theme and rounded local font",
+    "estate plaza with image slot, notice and member roster",
+    "current lord and online status with date",
+    "notice saved and restored to empty",
+    "native Windows image picker and JPEG preview; test image canceled",
+    "online user list and nickname search",
+    "delete dialog blocks incorrect name; canceled without deletion"
+  ],
+  "browser_reports": [
+    "estate-browser-report.json",
+    "estate-community-browser-report.json"
+  ],
+  "real_two_player_session_tested": false,
+  "real_estate_deleted": false,
+  "test_notice_and_image_left_empty": true,
+  "java_module_updated_with_one_restart": true,
+  "screen_only_update_policy": "/webgui reload",
+  "font_license": "https://help.naver.com/service/30016/contents/18088?osType=PC"
+}

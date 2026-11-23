@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>POCKETMATE / PLAYER HUB</title>
+<link rel="icon" href="./pocketmate-mark.png" type="image/png">
+<script src="./appearance.js"></script>
+<link rel="stylesheet" href="./fonts.css"><link rel="stylesheet" href="./menu.css"><link rel="stylesheet" href="./estate.css"><link rel="stylesheet" href="./theme.css"><link rel="stylesheet" href="./profile.css"><link rel="stylesheet" href="./icons.css"><script src="./icons.js" defer></script><script src="./profile.js" defer></script><script src="./estate-map.js" defer></script><script src="./estate-app.js" defer></script><script src="./menu.js" defer></script>
+<link rel="stylesheet" href="./appearance.css">
+<link rel="stylesheet" href="./people.css"><script src="./people.js"></script>
+</head>
+<body>
+<svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+  <symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h5m7 0h5"/><circle cx="12" cy="12" r="3.5"/><path d="M7 6.5a7 7 0 0 1 5-2" opacity=".5"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7M5.5 8.5V20h13V8.5M10 20v-6h4v6"/><path d="M17 4v3"/></symbol>
+  <symbol id="i-land" viewBox="0 0 24 24"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2ZM9 3v16m6-14v16M3 11l6-2 6 2 6-2"/><path d="m11 12 2 2m0-2-2 2"/></symbol>
+  <symbol id="i-vault" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="15" height="15" rx="3"/><path d="M7 5.5V3.5h13v13h-1.5M6.5 9v2m0 4v2"/><circle cx="12.5" cy="13" r="3"/><path d="m12.5 9.5 0 1m0 5 0 1m-3.5-3.5 1 0m5 0 1 0"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="7.5" r="3"/><path d="M3.5 20v-2.5A4.5 4.5 0 0 1 8 13h2a4.5 4.5 0 0 1 4.5 4.5V20Zm12-16a3 3 0 0 1 0 6m2 3a4.5 4.5 0 0 1 3 4.3V20h-3"/></symbol>
+  <symbol id="i-history" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M9 3.5h6v3H9Zm0 7h6m-6 4h6m-6 3.5h3"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4.5 7h15M9 7V4.5h6V7M6.5 7l1 13h9l1-13M10 10.5v6m4-6v6"/><path d="M9 3.5h6"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 5.5C9 3.5 5.5 3 3 4.5v15c2.5-1.5 6-1 9 1 3-2 6.5-2.5 9-1v-15c-2.5-1.5-6-1-9 1Zm0 0v15M6 8l3 .5M6 11l3 .5m6-3 3-.5m-3 4 3-.5"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l1 12H4Zm3 0V6a4 4 0 0 1 8 0v2M8 12v1m8-1v1"/><path d="M9 17h6"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4m0 1c4-4 8 4 14 0v9c-6 4-10-4-14 0"/><path d="m10 8 2 2 3-2"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="m16 8-2.5 5.5L8 16l2.5-5.5Zm-4-7v2m11 9h-2M12 23v-2M1 12h2"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 20V4m-6 6 6-6 6 6"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v16m-6-6 6 6 6-6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 3c-7-1-15 2-15 8a7 7 0 0 0 7 7c6 0 9-8 8-15ZM4 21 16 9m-7 7v-5m0 5h5"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3c.7 5.7 3.3 8.3 9 9-5.7.7-8.3 3.3-9 9-.7-5.7-3.3-8.3-9-9 5.7-.7 8.3-3.3 9-9Z"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><path d="m9.5 3 5 0 .7 2.4 2 .9 2.2-.6 2.5 4.3-1.7 1.8v2.4l1.7 1.8-2.5 4.3-2.2-.6-2 .9-.7 2.4h-5l-.7-2.4-2-.9-2.2.6L2.1 16l1.7-1.8v-2.4L2.1 10l2.5-4.3 2.2.6 2-.9Z" transform="translate(.5 -1) scale(.96)"/><circle cx="12" cy="12" r="3.2"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6.5"/><circle cx="12" cy="12" r="2"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v6m0-10v.1"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="m14.5 5.5 4 4M4 20l4.7-1L20 7.7a2.8 2.8 0 0 0-4-4L4.7 15Z"/><path d="m4.7 15 4 4"/></symbol>
+</defs></svg>
+<main class="shell" aria-label="포켓메이트 플레이 허브">
+ <header class="masthead">
+  <a class="brand" href="#home" aria-label="포켓메이트 홈"><span class="brand-mark"><img src="./pocketmate-mark.png" alt="포켓메이트 대표 아이콘" width="44" height="44"></span><span>POCKETMATE<small>PLAYER TERMINAL / 02</small></span></a>
+  <div class="header-right"><div class="text-size-control" role="group" aria-label="일반 글자와 탭 글자 크기"><button id="text-size-decrease" type="button" aria-label="글자 크기 줄이기" title="일반 글자와 탭 글자 크기 줄이기"><svg class="pm-icon"><use href="#i-minus"/></svg></button><output id="text-size-value" aria-live="polite" aria-atomic="true">100%</output><button id="text-size-increase" type="button" aria-label="글자 크기 키우기" title="일반 글자와 탭 글자 크기 키우기"><svg class="pm-icon"><use href="#i-plus"/></svg></button></div><span class="connection"><i id="connection-dot"></i><span id="connection-label">PREVIEW</span></span><span class="header-divider"></span><button id="close-menu" class="close-button" aria-label="메뉴 닫기"><span>닫기</span><svg><use href="#i-x"/></svg></button></div>
+ </header>
+ <div class="hub-body">
+ <nav class="tabbar" aria-label="메뉴">
+  <button class="nav-item selected" data-page="home" aria-current="page">홈<span>00</span></button>
+  <button class="nav-item" data-page="team">내 포켓몬<span>01</span></button>
+  <button class="nav-item" data-page="dex">도감<span>02</span></button>
+  <button class="nav-item" data-page="shop">상점<span>03</span></button>
+  <button class="nav-item" data-page="quests">퀘스트<span>04</span></button>
+  <button class="nav-item" data-page="travel">이동<span>05</span></button>
+  <button class="nav-item" data-page="estate">영지관리<span>06</span></button>
+  <button class="nav-item nav-settings" data-page="settings" aria-label="메뉴 설정"><svg><use href="#i-gear"/></svg><span class="nav-settings-label">설정</span></button>
+ </nav>
+ <div class="hub-content">
+ <section class="player-strip profile-card" id="profile-card" aria-label="프로필카드">
+  <div class="player-id"><span class="avatar profile-avatar" id="profile-avatar"><svg><use href="#i-ball"/></svg></span><div class="profile-identity"><div class="profile-heading"><span class="micro-label">CONNECTED PLAYER</span><span class="profile-title" id="profile-title" hidden></span></div><strong id="player-name">연결 대기</strong></div></div>
+  <div class="live-stats"><div class="stat-hp"><span class="micro-label">HP</span><strong id="health-text">—</strong><div class="health-track"><span id="health-fill"></span></div></div><div><span class="micro-label">LEVEL</span><strong id="player-level">—</strong></div><div><span class="micro-label">LOCATION</span><strong id="player-dimension">—</strong></div></div><button class="profile-edit" data-go="profile" aria-label="프로필카드 편집"><svg><use href="#i-gear"/></svg><span>프로필 편집</span></button>
+ </section>
+ <div class="page-scroll" id="page-scroll">
+  <section id="home-page">
+   <div class="section-title"><div><p class="eyebrow">READY WHEN YOU ARE.</p><h1>다음 플레이를 선택하세요<span class="sentence-stop">.</span></h1><p class="welcome"><span id="player-greeting">모험가</span>님의 모험, 여기서 이어집니다.</p></div><span id="date-label" class="date-label"></span></div>
+   <div class="action-grid">
+    <button class="action-tile team-tile" data-go="team">
+     <span class="tile-code">01 / MY POKÉMON</span><span class="tile-flag">TEAM</span>
+     <div class="orb-scene" aria-hidden="true"><div class="radar-ring ring-a"></div><div class="radar-ring ring-b"></div><div class="radar-ring ring-c"></div><div class="orb-shadow"></div><div class="capture-orb"><div class="orb-seam"></div><div class="orb-center"></div></div><span class="orbit-plus plus-a"><svg class="pm-icon"><use href="#i-plus"/></svg></span><span class="orbit-plus plus-b"><svg class="pm-icon"><use href="#i-plus"/></svg></span><span class="orb-caption">YOUR NEXT MOVE.</span></div>
+     <div class="team-copy"><span class="tile-eyebrow">함께할 여섯 파트너</span><h2>내 포켓몬</h2><p>팀의 모든 이야기를 한눈에.</p></div><span class="launch-arrow"><svg><use href="#i-arrow"/></svg></span>
+    </button>
+    <button class="action-tile dex-tile" data-go="dex"><span class="tile-top"><span class="tile-code">02 / ARCHIVE</span><svg><use href="#i-arrow"/></svg></span><span class="tile-art dex-art" aria-hidden="true"><i></i><i></i><i></i><i></i></span><div class="tile-copy"><h2>포켓몬 도감</h2><p>새로운 발견의 데이터베이스</p></div></button>
+    <button class="action-tile quest-tile" data-go="quests"><span class="tile-top"><span class="tile-code">04 / MISSIONS</span><svg><use href="#i-arrow"/></svg></span><span class="tile-art quest-art" aria-hidden="true"><span><svg class="pm-icon"><use href="#i-flag"/></svg></span><i></i><i></i></span><div class="tile-copy"><h2>퀘스트</h2><p>다음 목표를 확인하세요</p></div></button>
+    <button class="action-tile shop-tile" data-go="shop"><span class="tile-top"><span class="tile-code">03 / SUPPLY</span><svg><use href="#i-arrow"/></svg></span><span class="tile-art shop-art" aria-hidden="true"><svg><use href="#i-bag"/></svg><i><svg class="pm-icon"><use href="#i-plus"/></svg></i></span><div class="tile-copy"><h2>상점</h2><p>필요한 아이템을 준비하세요</p></div></button>
+    <button class="action-tile travel-tile" data-go="travel"><span class="tile-top"><span class="tile-code">05 / FAST TRAVEL</span><svg><use href="#i-arrow"/></svg></span><span class="tile-art travel-art" aria-hidden="true"><svg><use href="#i-compass"/></svg><i></i></span><div class="tile-copy"><h2>마을 이동</h2><p>새로운 목적지로</p></div></button>
+   </div>
+   <button class="notice-strip" data-guide><span class="notice-marker"><svg class="pm-icon"><use href="#i-info"/></svg></span><span><strong>처음 오셨나요?</strong> 메뉴 이용 방법을 확인하세요.</span><svg><use href="#i-arrow"/></svg></button>
+  </section>
+  <section id="feature-page" class="feature-page" hidden aria-labelledby="feature-title"><button class="back-button" data-go="home"><svg><use href="#i-arrow"/></svg> 허브로 돌아가기</button><div class="feature-heading"><span class="feature-badge" id="feature-kicker"></span><h1 id="feature-title"></h1><p class="subtext" id="feature-description"></p></div><div id="feature-content"></div></section>
+ </div>
+ <footer class="bottom-bar"><span class="context"><i></i><span id="breadcrumb">홈</span><span class="coordinates" id="player-coordinates">좌표 수신 대기</span></span><span class="key-hints"><kbd>F6</kbd> OPEN <b>/</b> <kbd>ESC</kbd> BACK</span></footer>
+ </div>
+ </div>
+</main>
+<section id="estate-page" class="estate-screen" hidden aria-label="영지 관리 전용 페이지">
+ <div class="estate-backdrop" aria-hidden="true"></div>
+ <header class="estate-screen-heading">
+  <div class="estate-screen-brand"><img class="pocketmate-emblem" src="./pocketmate-mark.png" alt="포켓메이트 대표 아이콘" width="44" height="44"><div>POCKETMATE<span>영지 관리소</span></div></div>
+  <div class="estate-screen-actions">
+   <div class="text-size-control" role="group" aria-label="영지 글자 크기"><button data-estate-text-size="-1" aria-label="글자 크기 줄이기"><svg class="pm-icon"><use href="#i-minus"/></svg></button><output data-estate-text-value>100%</output><button data-estate-text-size="1" aria-label="글자 크기 키우기"><svg class="pm-icon"><use href="#i-plus"/></svg></button></div>
+   <button class="estate-return" data-go="home"><svg><use href="#i-arrow"/></svg>메뉴로 돌아가기</button>
+   <button id="close-estate" class="estate-exit" aria-label="영지 관리 닫고 게임으로"><svg><use href="#i-x"/></svg></button>
+  </div>
+ </header>
+ <main class="estate-window" aria-label="내 영지 관리"><div id="estate-content"></div><footer class="estate-window-footer"><span><i></i>내 땅에서 시작되는 새로운 이야기</span><span>지도를 움직여 영지를 둘러보세요</span></footer></main>
+</section>
+<dialog id="info-dialog" aria-labelledby="dialog-title"><button class="dialog-x" id="dialog-x" aria-label="안내 닫기"><svg><use href="#i-x"/></svg></button><span class="dialog-symbol"><svg><use href="#i-spark"/></svg></span><p class="eyebrow">SYSTEM MESSAGE</p><h2 id="dialog-title"></h2><p id="dialog-body"></p><button class="primary-button" id="dialog-ok">확인<svg><use href="#i-arrow"/></svg></button></dialog>
+</body></html>

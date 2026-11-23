@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "shared_main_background": "#111c22",
+  "main_backgrounds": {
+    "hub": {
+      "background": "rgb(17, 28, 34)",
+      "image": "none",
+      "color": "rgb(237, 242, 232)"
+    },
+    "estate": {
+      "background": "rgb(17, 28, 34)",
+      "image": "none",
+      "color": "rgb(237, 242, 232)"
+    },
+    "backdrop": {
+      "background": "rgb(17, 28, 34)",
+      "image": "none",
+      "color": "rgb(237, 242, 232)"
+    },
+    "estate_page": {
+      "background": "rgb(17, 28, 34)",
+      "image": "none",
+      "color": "rgb(237, 242, 232)"
+    }
+  },
+  "existing_button_colors_unchanged": true,
+  "actual_game_reload_verified": true,
+  "applied_by": "/webgui reload",
+  "game_restarted": false
+}

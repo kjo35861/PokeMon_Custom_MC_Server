@@ -1,0 +1,13 @@
+{
+  "version": "menu 0.8.4 / estates 0.4.1",
+  "applied_by": "/webgui reload",
+  "game_restarted": false,
+  "observed": [
+    "50% default map zoom",
+    "128-block scale",
+    "real Xaero terrain displayed",
+    "김노이 estate still owns 16 chunks"
+  ],
+  "purchase_performed": false,
+  "browser_report": "estate-browser-report.json"
+}

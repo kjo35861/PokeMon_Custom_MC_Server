@@ -1,0 +1,18 @@
+{
+  "version": "0.10.7",
+  "asset": "pocketmate-mark.png",
+  "mode": "built-in image_gen edit",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "transparent_corners": true,
+  "sha256": "ce4ef2099db8f7c01b1f1f68463790f24eda4c74e91d5fb121ef68108b132b9e",
+  "palette": "honey, caramel, muted gold, ivory, charcoal; no overall mint cast",
+  "prompt_file": "verification/brand-universal-prompt.txt",
+  "comparison": "verification/brand-light-dark-preview.html",
+  "deployed": true,
+  "game_interaction": false,
+  "apply_command": "/webgui reload",
+  "restart_required": false
+}

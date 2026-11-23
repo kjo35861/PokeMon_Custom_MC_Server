@@ -1,0 +1,10 @@
+{
+  "applied_by": "/webgui reload",
+  "game_restarted": false,
+  "observed": [
+    "wheel zoom-out stays at 50% / 128-block scale",
+    "minus button stays at 50% / 128-block scale",
+    "real terrain visible; existing 16 chunks retained"
+  ],
+  "purchase_performed": false
+}

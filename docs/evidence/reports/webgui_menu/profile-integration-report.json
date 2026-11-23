@@ -1,0 +1,30 @@
+{
+  "version": "menu 0.9 / estates and profiles 0.5.0",
+  "deployment": "one mod replacement restart; then /webgui reload confirmed persisted card",
+  "observed": [
+    "actual player skin face with hat layer",
+    "title beside CONNECTED PLAYER",
+    "edit button opens collection",
+    "Pokemon icon + forest banner draft only updates preview",
+    "save applies live profile card",
+    "profile retained after /webgui reload"
+  ],
+  "saved_equipment": {
+    "icon": "bulbasaur",
+    "title": "beginner",
+    "banner": "forest"
+  },
+  "estate_claims_unchanged": 16,
+  "estate_metadata_unchanged": true,
+  "java_tests": 36,
+  "browser_reports": [
+    "profile-browser-report.json",
+    "estate-browser-report.json",
+    "estate-community-browser-report.json"
+  ],
+  "backup": "<USERPROFILE>\\AppData\\Local\\PocketmateEstateTools\\before-profiles-v0.9",
+  "limitations": [
+    "automatic reward/shop unlock not connected",
+    "other player profile inspection not implemented"
+  ]
+}

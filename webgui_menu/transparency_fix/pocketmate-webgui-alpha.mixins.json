@@ -1,0 +1,8 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "space.pocketmate.webgui.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": ["GuiTransparencyMixin"],
+  "injectors": { "defaultRequire": 1 }
+}

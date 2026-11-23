@@ -1,0 +1,20 @@
+{
+  "version": "0.11.1",
+  "scope": [
+    "profile card",
+    "profile preview"
+  ],
+  "both_themes": true,
+  "minimum_scrim_alpha": 0.78,
+  "contrast_over_white_banner": {
+    "#f4f7ef": 7.81,
+    "#d1ded6": 6.09,
+    "#ffe0a0": 6.61,
+    "#b9e5c3": 6.06
+  },
+  "css_parse_passed": true,
+  "deployed": true,
+  "game_interaction": false,
+  "restart_required": false,
+  "apply_command": "/webgui reload"
+}

@@ -1,0 +1,12 @@
+{
+  "NanumSquareRoundR.woff2": {
+    "source": "https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareRound/NanumSquareRoundR.woff2",
+    "sha256": "3127eb6b4cf10a0a840d204d613f610bbbd7f8a7ce82c0f81d04713760f81758",
+    "bytes": 247228
+  },
+  "NanumSquareRoundB.woff2": {
+    "source": "https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareRound/NanumSquareRoundB.woff2",
+    "sha256": "4e8692a08d6c323f1bffb3641c7276d9c4bc8fa2891d78b02acc972776228600",
+    "bytes": 232072
+  }
+}

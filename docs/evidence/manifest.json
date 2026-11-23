@@ -1,0 +1,557 @@
+{
+  "format": 1,
+  "entries": {
+    "artwork/brand-final-prompt.txt": {
+      "source": "webgui_menu/verification/brand-final-prompt.txt",
+      "kind": "image-generation-prompt",
+      "source_sha256": "3915bb30c165cd76e3b5edcf08f5ccf4e80b9bd998a2a3d1ce5b6dfb43b1d022",
+      "published_sha256": "3915bb30c165cd76e3b5edcf08f5ccf4e80b9bd998a2a3d1ce5b6dfb43b1d022",
+      "bytes": 1824,
+      "sanitized": false
+    },
+    "artwork/brand-universal-prompt.txt": {
+      "source": "webgui_menu/verification/brand-universal-prompt.txt",
+      "kind": "image-generation-prompt",
+      "source_sha256": "3839103081ddd66d7018af8cfe414b10c158c4a1dd6f649377749f1217810351",
+      "published_sha256": "3839103081ddd66d7018af8cfe414b10c158c4a1dd6f649377749f1217810351",
+      "bytes": 2064,
+      "sanitized": false
+    },
+    "reports/estate_mod/TEST-space.pocketmate.estates.ClaimStoreTest.xml": {
+      "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.ClaimStoreTest.xml",
+      "kind": "junit-result",
+      "source_sha256": "2ca2f245986543c78249cfcd25c9f121283aaabd0982823e321c6b2c3d5b937b",
+      "published_sha256": "8d707b6a6ef692a95501873ee2d53f9e81655166f8833395057d2f0f5339938b",
+      "bytes": 2341,
+      "sanitized": true
+    },
+    "reports/estate_mod/TEST-space.pocketmate.estates.EstateCommunityTest.xml": {
+      "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.EstateCommunityTest.xml",
+      "kind": "junit-result",
+      "source_sha256": "45b88cca64c4b00ff015f2c9d3182450c3d750d30e9cd402b44275a570ea2a1d",
+      "published_sha256": "b9c55ab8d64baea5e1139378f75e4e5ea57d7c2765e242b38526183fb96e64bf",
+      "bytes": 1944,
+      "sanitized": true
+    },
+    "reports/estate_mod/TEST-space.pocketmate.estates.EstateEconomyTest.xml": {
+      "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.EstateEconomyTest.xml",
+      "kind": "junit-result",
+      "source_sha256": "10649374d74887328a79df91e71a0eff0be9b29de311171f8c91c27914458aa1",
+      "published_sha256": "030199d30a169464181e2d577b35e3605f910aaad419fca83021f0d6d9cc1f23",
+      "bytes": 1998,
+      "sanitized": true
+    },
+    "reports/estate_mod/TEST-space.pocketmate.estates.MapPixelCodecTest.xml": {
+      "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.MapPixelCodecTest.xml",
+      "kind": "junit-result",
+      "source_sha256": "4e9d451439154f01ccfa323086d3fbeffaee3012c5412f9486ab9468edc65430",
+      "published_sha256": "524a0a9c51c5cdf5d875e377393971cea57707826d0aeaf01171ee3d68d57cb6",
+      "bytes": 578,
+      "sanitized": true
+    },
+    "reports/estate_mod/TEST-space.pocketmate.estates.ProfileStoreTest.xml": {
+      "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.ProfileStoreTest.xml",
+      "kind": "junit-result",
+      "source_sha256": "3a5083d70bbb1078aa96d7bcf760c65df7c2bebfa6ce25b11c806c6def1b4c2c",
+      "published_sha256": "7ac98069ded3646b55722d2a5c37eb4a4a70b8c0c72390cf3ae181ee1d90fab3",
+      "bytes": 1384,
+      "sanitized": true
+    },
+    "reports/snowfrost_launcher/backend-report.json": {
+      "source": "snowfrost_launcher/verification/backend-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "c808362f742368b1a8a855e5a52ddd6a680e2ac48ecb8273ece5488ea5881df3",
+      "published_sha256": "f64570be91a7bc24a248b50993f371affb06929a7b7d101724dc797ab22c6f2e",
+      "bytes": 2210,
+      "sanitized": true
+    },
+    "reports/snowfrost_launcher/final-report.json": {
+      "source": "snowfrost_launcher/verification/final-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "6890a674ce742c22f584b296f4107d6a8cc6752248d2753304d0baee54fa9253",
+      "published_sha256": "1a3ad98a8ba029dc54d117e6f1a5d72f9d0a042c3ea19ae952fd61c0497e3223",
+      "bytes": 645,
+      "sanitized": true
+    },
+    "reports/snowfrost_launcher/install-1.21.1-report.json": {
+      "source": "snowfrost_launcher/verification/install-1.21.1-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "bcafeffa01cc3fdba5a261ff1e5f904bd962efec6fefce6ac33f9bcab568e1f7",
+      "published_sha256": "fd4bde3d7f83d6a91f117a9a8a0596164b64730e66c7445a56be859775118688",
+      "bytes": 363,
+      "sanitized": true
+    },
+    "reports/snowfrost_launcher/prism-launch-report.json": {
+      "source": "snowfrost_launcher/verification/prism-launch-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "5216789b827bcc58d76e2b61e7f922d1d8218f7f87e462fe7b6670d03240340b",
+      "published_sha256": "01066394d458f626b3902538bc7d488b8c25c0212dffe7f038849fe53949234d",
+      "bytes": 395,
+      "sanitized": true
+    },
+    "reports/snowfrost_launcher/prism-ui-play-report.json": {
+      "source": "snowfrost_launcher/verification/prism-ui-play-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "51b11ece516d7770976f260cebd8adc565dfe8b72a97b4f9392493e242a32c80",
+      "published_sha256": "b58c61fed85cbb61b7b47e0c19669712d813107f3372766c86a7d2efb48a29c6",
+      "bytes": 255,
+      "sanitized": true
+    },
+    "reports/snowfrost_launcher/self-test.json": {
+      "source": "snowfrost_launcher/verification/self-test.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "189f6b33bce017ee3bbae7e729925572666663aca5fcb3fdb70a01509b7ff297",
+      "published_sha256": "59488d43767317d47b7a959061f8852d1a67c56d0eca462dcccfd6e6eaabdac0",
+      "bytes": 127,
+      "sanitized": true
+    },
+    "reports/timing_helper/deadline-verification.json": {
+      "source": "timing_helper/deadline-verification.json",
+      "kind": "recording-or-synthetic-analysis",
+      "source_sha256": "98c447d420eea458fb1f8dc536a607e27c31c869dbc910d8a5d84a3044c3906b",
+      "published_sha256": "1d5e39be6a125fae6079a3013f070b0db13f33157cdf7be1a15fc8a1bee2f2b3",
+      "bytes": 1162,
+      "sanitized": true
+    },
+    "reports/timing_helper/grill-recovery-verification.json": {
+      "source": "timing_helper/grill-recovery-verification.json",
+      "kind": "recording-or-synthetic-analysis",
+      "source_sha256": "8269915d9e16f0c76f99c7f345c5a665f6cc9cdadf2d8ef4e1b6b11f3506d98c",
+      "published_sha256": "f3b01d721f8f87323cfb5860dd8b148e1b4be611a03351600d8f22c112e2b56b",
+      "bytes": 1045,
+      "sanitized": true
+    },
+    "reports/timing_helper/new-video-forecast-verification.json": {
+      "source": "timing_helper/new-video-forecast-verification.json",
+      "kind": "recording-or-synthetic-analysis",
+      "source_sha256": "b16940b15ddc6ec9b1c88e6c2c930a5b1b8db6543a2d115c825f4c8ba395fdde",
+      "published_sha256": "d8ec38d6bb740448ea0f1c5d7a509e23ba67ede944a45b2b1d37b7618d98f99a",
+      "bytes": 1008,
+      "sanitized": true
+    },
+    "reports/timing_helper/timing-verification.json": {
+      "source": "timing_helper/timing-verification.json",
+      "kind": "recording-or-synthetic-analysis",
+      "source_sha256": "25ba23535a6ca3310ab73cd966b0e372b2ef44081f8c474d8c08e6ec658b1c9e",
+      "published_sha256": "7f600efb4d677c640a6a52b0ca29e058ca529d060f154e05fbf724c2ef180a7a",
+      "bytes": 410,
+      "sanitized": true
+    },
+    "reports/timing_helper/v4-timing-check.json": {
+      "source": "timing_helper/v4-timing-check.json",
+      "kind": "recording-or-synthetic-analysis",
+      "source_sha256": "6ab6b842b8c3d218ea12d7a8d9adbf9ebd2d8cf607964b2c42cba351dd090901",
+      "published_sha256": "4a3e5fc82d1de575574b4b5e8cc1feb64194fd12a2a3ec49d021dc3d6666a8ba",
+      "bytes": 387,
+      "sanitized": true
+    },
+    "reports/timing_helper/v5-recovery-check.json": {
+      "source": "timing_helper/v5-recovery-check.json",
+      "kind": "recording-or-synthetic-analysis",
+      "source_sha256": "0afa5e5fe5ea385f9a8825d47fe7b8d5f1f83a5bb716230ef49b3724b7888375",
+      "published_sha256": "5137f1b66c8bc64e3566abf518c4de9a8ae8ae655e3470b3bd97ba5ee50f4708",
+      "bytes": 1045,
+      "sanitized": true
+    },
+    "reports/timing_helper/v6-judgement-check.json": {
+      "source": "timing_helper/v6-judgement-check.json",
+      "kind": "recording-or-synthetic-analysis",
+      "source_sha256": "6f99c8cde895f0dad605061880762ed4213176854538170a76b6ae3ffc7eeaaf",
+      "published_sha256": "73a1c4e86d04ea36134860982a77f5f8680f26fc12e173a324e24298f7415f1f",
+      "bytes": 85,
+      "sanitized": true
+    },
+    "reports/timing_helper/v6-recovery-check.json": {
+      "source": "timing_helper/v6-recovery-check.json",
+      "kind": "recording-or-synthetic-analysis",
+      "source_sha256": "8269915d9e16f0c76f99c7f345c5a665f6cc9cdadf2d8ef4e1b6b11f3506d98c",
+      "published_sha256": "f3b01d721f8f87323cfb5860dd8b148e1b4be611a03351600d8f22c112e2b56b",
+      "bytes": 1045,
+      "sanitized": true
+    },
+    "reports/timing_helper/v6-regression-verification.json": {
+      "source": "timing_helper/v6-regression-verification.json",
+      "kind": "recording-or-synthetic-analysis",
+      "source_sha256": "9992384b90ffac278f981d7613593825f6e8be20d81a3311f792f5fc4c22b81b",
+      "published_sha256": "69a46707d9d65a83f74d947bb89e0e27b946378f0960f6afe42a611603a0b2a3",
+      "bytes": 1389,
+      "sanitized": true
+    },
+    "reports/timing_helper/v7-grill-check.json": {
+      "source": "timing_helper/v7-grill-check.json",
+      "kind": "recording-or-synthetic-analysis",
+      "source_sha256": "8269915d9e16f0c76f99c7f345c5a665f6cc9cdadf2d8ef4e1b6b11f3506d98c",
+      "published_sha256": "f3b01d721f8f87323cfb5860dd8b148e1b4be611a03351600d8f22c112e2b56b",
+      "bytes": 1045,
+      "sanitized": true
+    },
+    "reports/timing_helper/v7-judgement-check.json": {
+      "source": "timing_helper/v7-judgement-check.json",
+      "kind": "recording-or-synthetic-analysis",
+      "source_sha256": "6f99c8cde895f0dad605061880762ed4213176854538170a76b6ae3ffc7eeaaf",
+      "published_sha256": "73a1c4e86d04ea36134860982a77f5f8680f26fc12e173a324e24298f7415f1f",
+      "bytes": 85,
+      "sanitized": true
+    },
+    "reports/timing_helper/v7-timing-check.json": {
+      "source": "timing_helper/v7-timing-check.json",
+      "kind": "recording-or-synthetic-analysis",
+      "source_sha256": "c183ab345b7377f7e64e74548893a1f5200503f13196d976cdb6e1c0b4982162",
+      "published_sha256": "7bfc7770b7d5ca80c6389c16dd0efff85739fbb9e74b51e703f28069fc0014ea",
+      "bytes": 456,
+      "sanitized": true
+    },
+    "reports/timing_helper/verdict-verification.json": {
+      "source": "timing_helper/verdict-verification.json",
+      "kind": "recording-or-synthetic-analysis",
+      "source_sha256": "68d7e474eefb50b9114ee12df738d225908d1868af4505293c0380a14c18a25a",
+      "published_sha256": "cfab56140958744d898b4a457731ad87679558a9005fce485a424dfd57dcde36",
+      "bytes": 2495,
+      "sanitized": true
+    },
+    "reports/timing_helper/verification.json": {
+      "source": "timing_helper/verification.json",
+      "kind": "recording-or-synthetic-analysis",
+      "source_sha256": "45e0635ae0a5d89a6d9cac7124294f039a01556e75a7543f09f507d9ce82b74b",
+      "published_sha256": "c64117a75ab91c515f1b3acf1c128e9f8ec341193c434132d4b7a6249e6c8e65",
+      "bytes": 1909,
+      "sanitized": true
+    },
+    "reports/webgui_menu/appearance-update-report.json": {
+      "source": "webgui_menu/verification/appearance-update-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "814dfca81d68f32ed1c953b1d397294f58c340ee3f4bc7cfa95d010791c2e5e3",
+      "published_sha256": "32366091d72bc068bf234a805e19abcce463104d3e92eba13e44ab59efd8de40",
+      "bytes": 1503,
+      "sanitized": true
+    },
+    "reports/webgui_menu/brand-image-update-report.json": {
+      "source": "webgui_menu/verification/brand-image-update-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "a673e65beed32956a287916a78364b1c159de8ac1ab67d1fe7bb1bc3b263001f",
+      "published_sha256": "8c963fe02c243189c70326bd28defea5804fbcc45fd7ccd0770242b63f323a0b",
+      "bytes": 569,
+      "sanitized": true
+    },
+    "reports/webgui_menu/brand-size-update-report.json": {
+      "source": "webgui_menu/verification/brand-size-update-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "7396bb1d5fb706d16c0d1f697fdc5a9a0f3a77f8029befb0d051bb2ac3d9f98d",
+      "published_sha256": "01b93ae0e7dd824fa77564d6d4cc9b9016788b649976587d9f017269ec785f1e",
+      "bytes": 728,
+      "sanitized": true
+    },
+    "reports/webgui_menu/browser-report.json": {
+      "source": "webgui_menu/verification/browser-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "34cc42cdf4b23eceb6eff97c129ec3ddf6e9d871d59b91f99f9bad3e269bf240",
+      "published_sha256": "0d6284588a280bb5419054949880a107e471378111de589360429fadd0d18d9d",
+      "bytes": 469,
+      "sanitized": true
+    },
+    "reports/webgui_menu/deployment.json": {
+      "source": "webgui_menu/verification/deployment.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "d836d8ebc1439cad87479fc2db5a77f5edae1384b38ab97ea95b599ccaacd715",
+      "published_sha256": "d92536e45e3e55a33676e68775d85733ac7cba6bf1de139e9c6bc7f51a7b7b1b",
+      "bytes": 364,
+      "sanitized": true
+    },
+    "reports/webgui_menu/estate-browser-report.json": {
+      "source": "webgui_menu/verification/estate-browser-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "d3aca6772087c3eef3d34fd292926aae6aa51afbc991e97d97afaa6636bb6872",
+      "published_sha256": "14aa51f316d493248478c79a53283288b1e93b12276690b0ba0b3b946e7d48c9",
+      "bytes": 1660,
+      "sanitized": true
+    },
+    "reports/webgui_menu/estate-community-browser-report.json": {
+      "source": "webgui_menu/verification/estate-community-browser-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "ee83d93612d9027174fa46a08eac1bc056ffb73b1e8a0f4ca1acc0cb9e30e843",
+      "published_sha256": "4cf11864d639bdfbf2da7967fbaf99f61297bc13ac31127c7d918f6d7e416740",
+      "bytes": 455,
+      "sanitized": true
+    },
+    "reports/webgui_menu/estate-economy-browser-report.json": {
+      "source": "webgui_menu/verification/estate-economy-browser-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "75e94e704ba825bb5e95f0a64fe78915549634eca4a2ad5ebd4cde0ee7cb88d9",
+      "published_sha256": "b7438f368a6ceed86a72bd3edda1369ad639f6aae3cff1f80921a99e7f3d41b9",
+      "bytes": 691,
+      "sanitized": true
+    },
+    "reports/webgui_menu/estate-integration-report.json": {
+      "source": "webgui_menu/verification/estate-integration-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "6925222998aedafd96b567a5c5edbd0af3c0aac8da69dbf2c748603a5e6f6285",
+      "published_sha256": "6158850ce702ae96e42d814b84d3a99f8758c0dadb32e5ff9d8bbd1f8066bd22",
+      "bytes": 1225,
+      "sanitized": true
+    },
+    "reports/webgui_menu/estate-package-report.json": {
+      "source": "webgui_menu/verification/estate-package-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "755d4f86ca8d04922beabed5138600e9f78704f6541ebd2512f026c57f60a25f",
+      "published_sha256": "a6cb912b7e0da472fe609a049e5eed300db0450d2f7c52759c2ec79385e7e6d7",
+      "bytes": 6432,
+      "sanitized": true
+    },
+    "reports/webgui_menu/estate-v0.10-integration.json": {
+      "source": "webgui_menu/verification/estate-v0.10-integration.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "2834d101cef66bfa1fcf1ba4bc284e6557fcc039d8f0792640b7e7b7e3bf04a1",
+      "published_sha256": "510146ab0525b411aece61a646b18e0253d1f48033f548f021666273fbd767c4",
+      "bytes": 924,
+      "sanitized": true
+    },
+    "reports/webgui_menu/estate-v0.6-integration.json": {
+      "source": "webgui_menu/verification/estate-v0.6-integration.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "0f3f783802b06e56a082d306603e76f190c76e8aa34f5830926f763b79bf69a2",
+      "published_sha256": "4fd2e9e3a0b1721d97f6195fb892a0c39cbc4b6132f5f5200bf1f25a4b0a6be4",
+      "bytes": 723,
+      "sanitized": true
+    },
+    "reports/webgui_menu/estate-v0.7-integration.json": {
+      "source": "webgui_menu/verification/estate-v0.7-integration.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "c067d35d319bbb386d5d8fb5ade0cfc3958511789ac755f40492e3eb4f51b24a",
+      "published_sha256": "2ca314e2a14f54d30fdb78994004b7b41f07e64a7f470f8d2f67c176749e182b",
+      "bytes": 723,
+      "sanitized": true
+    },
+    "reports/webgui_menu/estate-v0.8-integration.json": {
+      "source": "webgui_menu/verification/estate-v0.8-integration.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "bbbd5493941b4679e381c6d5125c92fd2214b217d1d1ff873f57ae152f416759",
+      "published_sha256": "3bd9a0533b97929cbfa2f7a265bc2749f4139e3348800862b13ba1fe8894c19c",
+      "bytes": 1046,
+      "sanitized": true
+    },
+    "reports/webgui_menu/estate-v0.8.2-integration.json": {
+      "source": "webgui_menu/verification/estate-v0.8.2-integration.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "b9d0094100de01db0f516fe7ff8bf29ee73ed9f9d1d78477d8b18306de0b1663",
+      "published_sha256": "ea2412d5376311d6577adcff98522b320a3a4551110d75905f09753282162dee",
+      "bytes": 439,
+      "sanitized": true
+    },
+    "reports/webgui_menu/estate-v0.8.3-integration.json": {
+      "source": "webgui_menu/verification/estate-v0.8.3-integration.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "47dccb6f5ce025091e5259ee75b9d63b31c6cb716601dabb1e7af5aa64cc5318",
+      "published_sha256": "92ce728e1aa635373a802b190199fbdc170a998b91b36e7701dac3c56d9d894b",
+      "bytes": 732,
+      "sanitized": true
+    },
+    "reports/webgui_menu/estate-v0.8.4-integration.json": {
+      "source": "webgui_menu/verification/estate-v0.8.4-integration.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "bf4f7414fe5be3ff80f2f532aa6a0b9940a23f74ba073f4a8566c365ec16443a",
+      "published_sha256": "9b1cd1a39af1a6226d7f566c226da9ddf8f5649517af73830188072d48b0d568",
+      "bytes": 340,
+      "sanitized": true
+    },
+    "reports/webgui_menu/estate-v0.8.5-integration.json": {
+      "source": "webgui_menu/verification/estate-v0.8.5-integration.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "a3c8d2bc3b1c2f17b403225b0a277a7a1e379e29240f1edf1c39074938eee3a5",
+      "published_sha256": "b232ba6cd992bdb14094059c88e85d48075b9777c3bb58977d7b714bfae2c045",
+      "bytes": 276,
+      "sanitized": true
+    },
+    "reports/webgui_menu/final-report.json": {
+      "source": "webgui_menu/verification/final-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "9adac492038601ef438829adbed42f33764901aff632e17cf4dec97228f39fb3",
+      "published_sha256": "3b35453d70cf3ad4530ab5c2672ceecf97e872dac93f9920d305d77f4f7367fa",
+      "bytes": 225,
+      "sanitized": true
+    },
+    "reports/webgui_menu/font-sources.json": {
+      "source": "webgui_menu/verification/font-sources.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "b8978acdde5ed65e0f4b31b40dc70d5812dac434ce7ac88886d9af783cc4a251",
+      "published_sha256": "5168f08b7cdb8864bc4bba761f5c8dd01181ab4eb02f731ddaf55f5e09cd10eb",
+      "bytes": 497,
+      "sanitized": true
+    },
+    "reports/webgui_menu/icons-update-report.json": {
+      "source": "webgui_menu/verification/icons-update-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "4f8c20e82909568ca1afd00eb822fd095388193f94ae19f3c3850ae8b92ff6a8",
+      "published_sha256": "e55ca7d82020107796fd3f4aee0a55f49d576056644092ed55007abdf252f5f4",
+      "bytes": 473,
+      "sanitized": true
+    },
+    "reports/webgui_menu/left-tabs-text-report.json": {
+      "source": "webgui_menu/verification/left-tabs-text-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "e659b635e197d4321ece4438b4a50d077a024a17f4e1556d7b20b62b37ecd255",
+      "published_sha256": "2b8514150ee7df31360422b74c03b99a6ed456c7360677b71c79e9cbb375f835",
+      "bytes": 393,
+      "sanitized": true
+    },
+    "reports/webgui_menu/member-limit-install.json": {
+      "source": "webgui_menu/verification/member-limit-install.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "eb34863d9744f96e51cd953f7efa314f08de4011a9a6a2e38a0f0fd3b989ffda",
+      "published_sha256": "545fa269450d82425eeba3edebf088069d60a6c4582fd7b9ccf786d4503015da",
+      "bytes": 50,
+      "sanitized": true
+    },
+    "reports/webgui_menu/overworld-policy-report.json": {
+      "source": "webgui_menu/verification/overworld-policy-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "b9a3cd4bbb29f7a44ee1d90148c4d84e064e1967de8e4ce83b56554f634b6a9e",
+      "published_sha256": "512cedf05d155ad3359d3e36811c8e7570125eac0fbd3c7f3ef3eec46e50d2a4",
+      "bytes": 723,
+      "sanitized": true
+    },
+    "reports/webgui_menu/profile-browser-report.json": {
+      "source": "webgui_menu/verification/profile-browser-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "e8967b05248b782c383a14c23dfb4c897827993b50a8f66091bf3e74686a3c89",
+      "published_sha256": "f031797b686d8f4d17cc93dc36d40cf69256a746b9720690e756ba7541abebdb",
+      "bytes": 972,
+      "sanitized": true
+    },
+    "reports/webgui_menu/profile-contrast-update-report.json": {
+      "source": "webgui_menu/verification/profile-contrast-update-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "1e1d21d8e8c49dea0f3b15707ef8b78dffd221f9d5db66b0eca9c786fbf011b2",
+      "published_sha256": "a929e7525333446867c23bb129dbe570b99b477cdb165d9c05841d129619df4c",
+      "bytes": 405,
+      "sanitized": true
+    },
+    "reports/webgui_menu/profile-integration-report.json": {
+      "source": "webgui_menu/verification/profile-integration-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "606c91e9c4111c4071178cbd40169414629d1effce7480c15d1c067785dd5391",
+      "published_sha256": "69b1f6097193ed7af0df14f831c0866cb17e098ef2a2d74e2a10dad3bac99ef2",
+      "bytes": 984,
+      "sanitized": true
+    },
+    "reports/webgui_menu/public-profiles-install.json": {
+      "source": "webgui_menu/verification/public-profiles-install.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "5220a25c9a941ccba69deec4c88c59da6dbbd9cf492ddae523996f4ea3a37661",
+      "published_sha256": "20c257607c8e2a13e756025750a90fa849c7c317e982670bb55a790aa20b4d09",
+      "bytes": 78,
+      "sanitized": true
+    },
+    "reports/webgui_menu/public-profiles-update-report.json": {
+      "source": "webgui_menu/verification/public-profiles-update-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "335471e0863e90d8280d6af98450d07ebb27ed3f56b5b545178a4d0d96ecb3f3",
+      "published_sha256": "4ea61f105ee40bf0537dd4c9148076565043b6a140a523a882f1749b80f05a6f",
+      "bytes": 1060,
+      "sanitized": true
+    },
+    "reports/webgui_menu/redesign-browser-report.json": {
+      "source": "webgui_menu/verification/redesign-browser-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "f03ec5b7fc2322c44f841a851f8dc108b514bc9aab70db1d876239383a6d508c",
+      "published_sha256": "39c7276bb5c90595cecd5ae497bd38cb725f304adc6632289662d386a38db4b9",
+      "bytes": 464,
+      "sanitized": true
+    },
+    "reports/webgui_menu/scaled-tabs-report.json": {
+      "source": "webgui_menu/verification/scaled-tabs-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "bf7c8581a8d66cd9b044847a97e13c4c1c38be6b4e12c003a425d51120f951ae",
+      "published_sha256": "078d15c185a2a3b3e760f8704ca75b77b0fa93ffa012e95ce326e4ef9805872a",
+      "bytes": 126,
+      "sanitized": true
+    },
+    "reports/webgui_menu/theme-background-report.json": {
+      "source": "webgui_menu/verification/theme-background-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "0d8f82b847503ac547312a800eee41eb24096f9f6f2e4a9938d76fe16ce02827",
+      "published_sha256": "8f0ff893f9d070811b1e6bf197a9bf0c8b28a64d214149ecb7cfac06bdf52ff8",
+      "bytes": 720,
+      "sanitized": true
+    },
+    "reports/webgui_menu/title-prefix-update-report.json": {
+      "source": "webgui_menu/verification/title-prefix-update-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "4a3db31ad21a04433cfc662419056b1693cdaf19bcd33164c3c854433e05f304",
+      "published_sha256": "f48c94b0685553a9d998fe17e1c9ec5ce0cf5624404e90bb588ceaddb0189349",
+      "bytes": 449,
+      "sanitized": true
+    },
+    "screenshots/historical-estate-map-mock.png": {
+      "source": "webgui_menu/verification/estate-management.png",
+      "kind": "historical-ui-screenshot",
+      "source_sha256": "37189dfe4e0b0e4a244d90044732c76f86c9fe5e209201eeb2bb309fe0e0992e",
+      "published_sha256": "37189dfe4e0b0e4a244d90044732c76f86c9fe5e209201eeb2bb309fe0e0992e",
+      "bytes": 111927,
+      "sanitized": false
+    },
+    "screenshots/historical-estate-plaza.png": {
+      "source": "webgui_menu/verification/estate-plaza-v0.8.png",
+      "kind": "historical-ui-screenshot",
+      "source_sha256": "eb7619013cd1a843e99be8e0c03ff651a01484a468e7c004f126cb4dcad03984",
+      "published_sha256": "eb7619013cd1a843e99be8e0c03ff651a01484a468e7c004f126cb4dcad03984",
+      "bytes": 71099,
+      "sanitized": false
+    },
+    "screenshots/historical-estate-treasury.png": {
+      "source": "webgui_menu/verification/estate-vault.png",
+      "kind": "historical-ui-screenshot",
+      "source_sha256": "0f0963b1e6854175b69f6e6d557c3923172ac71ec338cc6702485286a9652ef0",
+      "published_sha256": "0f0963b1e6854175b69f6e6d557c3923172ac71ec338cc6702485286a9652ef0",
+      "bytes": 83523,
+      "sanitized": false
+    },
+    "screenshots/historical-launcher-prism-0.3.0.png": {
+      "source": "snowfrost_launcher/verification/current-prism-preview.png",
+      "kind": "historical-ui-screenshot",
+      "source_sha256": "dd62d1b0adb5916206b6ed5a180a972e95ddc250f14fac63d447bdfb0498927f",
+      "published_sha256": "dd62d1b0adb5916206b6ed5a180a972e95ddc250f14fac63d447bdfb0498927f",
+      "bytes": 1737866,
+      "sanitized": false
+    },
+    "screenshots/historical-menu-redesign.png": {
+      "source": "webgui_menu/verification/redesign-preview.png",
+      "kind": "historical-ui-screenshot",
+      "source_sha256": "5454327828e44ceade1ef21dbf2672bf54e4a271580ab32240fcf2287b2dccf8",
+      "published_sha256": "5454327828e44ceade1ef21dbf2672bf54e4a271580ab32240fcf2287b2dccf8",
+      "bytes": 212786,
+      "sanitized": false
+    },
+    "screenshots/historical-profile-studio.png": {
+      "source": "webgui_menu/verification/profile-studio.png",
+      "kind": "historical-ui-screenshot",
+      "source_sha256": "7c06df750370a5f69b593b1d465f08fb53ab96874159efbf5b9043046da56d4d",
+      "published_sha256": "7c06df750370a5f69b593b1d465f08fb53ab96874159efbf5b9043046da56d4d",
+      "bytes": 207775,
+      "sanitized": false
+    },
+    "screenshots/user-reported-before-0.12.0-members.png": {
+      "source": "user-attachment/codex-clipboard-52f06346-73d5-4a05-ad57-a384cb0bd42a.png",
+      "kind": "user-reported-before-change",
+      "source_sha256": "4fe2872c619b9610d0f63307b13fa45e977e981242af60e911f733b5a0aebb92",
+      "published_sha256": "4fe2872c619b9610d0f63307b13fa45e977e981242af60e911f733b5a0aebb92",
+      "bytes": 22369,
+      "sanitized": false
+    },
+    "screenshots/user-reported-before-0.12.0-plaza-members.png": {
+      "source": "user-attachment/codex-clipboard-903ef18b-6593-46e0-adcf-c361954d4b05.png",
+      "kind": "user-reported-before-change",
+      "source_sha256": "6a7b6c8fe477c1d882aee5c69b0a2fd27939ea5b282e4f68decaf2a5a9c6ca13",
+      "published_sha256": "6a7b6c8fe477c1d882aee5c69b0a2fd27939ea5b282e4f68decaf2a5a9c6ca13",
+      "bytes": 12403,
+      "sanitized": false
+    },
+    "screenshots/user-reported-before-0.12.0-profile.png": {
+      "source": "user-attachment/codex-clipboard-c9a28bb8-ed62-484a-8384-f17e8f801847.png",
+      "kind": "user-reported-before-change",
+      "source_sha256": "8c64e3839ecac70da39ddfea0340bd6eee71da916aec8dc83f7a6e03ee1275ef",
+      "published_sha256": "8c64e3839ecac70da39ddfea0340bd6eee71da916aec8dc83f7a6e03ee1275ef",
+      "bytes": 74735,
+      "sanitized": false
+    }
+  }
+}

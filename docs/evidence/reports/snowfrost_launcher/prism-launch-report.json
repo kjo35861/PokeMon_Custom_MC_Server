@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "minecraftVersion": "1.21.1",
+  "prismInstance": "1.21.1",
+  "gameDirectory": "<USERPROFILE>\\AppData\\Roaming\\PrismLauncher\\instances\\1.21.1\\minecraft",
+  "windowTitle": "Minecraft 1.21.1",
+  "resourcesInitialized": true,
+  "duplicateDetection": true,
+  "gameLaunched": true,
+  "closedAfterTest": true,
+  "accountFilesRead": false,
+  "customClientIdRequired": false
+}

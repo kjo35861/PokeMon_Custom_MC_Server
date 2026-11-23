@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "version": "0.3.2",
+  "footerColors": {
+    "coordinates": "#b5c7dc",
+    "keyHints": "#ccd7e5",
+    "keyCaps": "#edf5ff"
+  },
+  "opaqueControlPanel": true,
+  "exteriorAlpha": 0.22,
+  "deployed": true
+}

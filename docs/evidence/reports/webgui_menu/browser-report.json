@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "checks": [
+    "Navigation team",
+    "Navigation dex",
+    "Navigation shop",
+    "Placeholder action explanation",
+    "Navigation quests",
+    "Navigation travel",
+    "Navigation settings",
+    "Reduced motion",
+    "Live client data and safe text",
+    "Bridge close",
+    "CEF close",
+    "Viewport 1920x1080",
+    "Viewport 1280x720",
+    "Viewport 854x480",
+    "Viewport 640x360"
+  ],
+  "javascriptErrors": [],
+  "inGameTested": false
+}

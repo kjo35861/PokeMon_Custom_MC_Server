@@ -1,0 +1,17 @@
+/* Pocketmate original SVG set, drawn on a shared 24px grid. */
+.pm-icon{width:22px;height:22px;display:inline-block;vertical-align:-.18em;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;pointer-events:none}
+.brand .brand-mark{width:44px;height:44px;min-width:44px;display:block;transform:none;padding:0;border:0;background:transparent}
+/* Use the free header inset to enlarge the logo, preserving the text and header layout. */
+.brand-mark img,.pocketmate-emblem{display:block;width:44px;height:44px;object-fit:contain;flex-shrink:0;transform:translateX(-8px) scale(1.6);transform-origin:center;pointer-events:none}
+.estate-screen .estate-nav button>.pm-icon{width:23px;height:23px;color:#9ebead;flex-shrink:0}
+.estate-screen .estate-nav button.active>.pm-icon{color:#d4e5bd}.estate-screen .estate-nav .estate-danger-nav>.pm-icon{color:#d8a6a3}
+.estate-history article>.pm-icon{width:20px;height:20px;color:#9dbdaa;margin-top:2px}
+.text-size-control button .pm-icon{width:13px;height:13px}.map-tools button .pm-icon{width:18px;height:18px}.map-north .pm-icon{display:block;width:18px;height:21px;margin:3px auto 0}
+.estate-schedule-link{display:inline-flex;align-items:center;gap:8px}.estate-schedule-link .pm-icon,.estate-photo-foot .pm-icon{width:15px;height:15px}.estate-photo-foot button{display:inline-flex;align-items:center;gap:7px}.estate-growth-next .pm-icon{width:14px;height:14px;margin:0 3px}
+.notice-marker{display:grid;place-items:center;border:0!important;width:17px;height:17px}.notice-marker .pm-icon{width:17px;height:17px}
+.profile-title .pm-icon,.profile-title-choice .pm-icon{width:1.3em;height:1.3em;font-size:inherit;color:inherit;stroke-width:2.2;align-self:center;vertical-align:middle;flex-shrink:0}
+.profile-choice[aria-pressed=true]:after{content:'';width:14px;height:14px;background:#d5e6c9;mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23b7d6c0%22%20stroke-width%3D%221.65%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m5%2012%204.5%204.5L19%207%22%2F%3E%3C%2Fsvg%3E") center/contain no-repeat;-webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23b7d6c0%22%20stroke-width%3D%221.65%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m5%2012%204.5%204.5L19%207%22%2F%3E%3C%2Fsvg%3E") center/contain no-repeat}
+.quest-art>span{display:grid;place-items:center}.quest-art>span>.pm-icon{width:42px;height:42px;stroke-width:1.4}.orbit-plus>.pm-icon{width:14px;height:14px}.shop-art>i>.pm-icon{width:19px;height:19px}
+@media(max-width:850px){.brand-mark img,.pocketmate-emblem{transform:translateX(-5px) scale(1.36)}}
+@media(max-width:600px){.brand .brand-mark,.brand-mark img,.pocketmate-emblem{width:34px;height:34px;min-width:34px}.brand-mark img,.pocketmate-emblem{transform:translateX(-3px) scale(1.4)}.estate-screen .estate-nav button>.pm-icon{width:20px;height:20px}}
+@media(max-height:600px){.brand-mark img{transform:translateX(-3px) scale(1.24)}}

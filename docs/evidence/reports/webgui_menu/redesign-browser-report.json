@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "checks": [
+    "Exterior alpha 0.22",
+    "Horizontal navigation replaces sidebar",
+    "Navigation team",
+    "Navigation dex",
+    "Navigation shop",
+    "Navigation quests",
+    "Navigation travel",
+    "Navigation settings",
+    "Live player information",
+    "Close bridge",
+    "Layout 1920x1080",
+    "Layout 1280x720",
+    "Layout 854x480",
+    "Layout 640x360"
+  ],
+  "javascriptErrors": [],
+  "inGameTransparencyVerified": false
+}

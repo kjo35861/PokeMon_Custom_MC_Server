@@ -1,0 +1,19 @@
+{
+  "version": "menu 0.8.3 / estates 0.4.1",
+  "applied_by": "saved world, replaced mod JAR and menu assets, restarted test instance once",
+  "observed": [
+    "actual Xaero forest/river terrain at 25% map zoom",
+    "256-block physical scale bar",
+    "existing estate 김노이 with 16 owned chunks retained",
+    "no selection or purchase performed"
+  ],
+  "claims_unchanged": true,
+  "estate_metadata_unchanged": true,
+  "java_tests": 30,
+  "browser_tests": [
+    "estate-browser-report.json",
+    "estate-community-browser-report.json"
+  ],
+  "backup": "<USERPROFILE>\\AppData\\Local\\PocketmateEstateTools\\before-wide-map-v0.8.3",
+  "terrain_limit": "Only Xaero-loaded terrain is displayed. No chunks are force-generated."
+}

@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "checks": [
+    "Button subtree typography fixed",
+    "Non-button heading grows 10%",
+    "Text size survives reload",
+    "Upper bound enforced",
+    "Dynamic feature buttons also retain sizes",
+    "Left navigation and controls fit four viewports at 160%",
+    "Lower bound enforced"
+  ],
+  "javascriptErrors": [],
+  "textRange": [
+    80,
+    160
+  ],
+  "step": 10
+}

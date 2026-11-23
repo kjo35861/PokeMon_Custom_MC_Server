@@ -1,0 +1,38 @@
+{
+  "menu_version": "0.12.0",
+  "mod_version": "0.7.0",
+  "default_icon": "skin",
+  "existing_equipment_preserved": true,
+  "public_equipment_only": true,
+  "surfaces": [
+    "main profile card",
+    "profile preview",
+    "plaza member list",
+    "member management",
+    "invite search",
+    "outgoing invitations",
+    "role/kick confirmation",
+    "own map marker"
+  ],
+  "edge_changes": [
+    "banner and scrim share one clipped background",
+    "remove offset text and SVG shadows",
+    "restore first roster cell to table-cell",
+    "standard 8x8 faces fit whole-number CSS scales"
+  ],
+  "checks": {
+    "java_tests_passed": 50,
+    "people_identity_checks": true,
+    "dimension_guard_cases_passed": 80,
+    "javascript_syntax": true,
+    "css_parse": true
+  },
+  "game_interaction": false,
+  "visual_result_not_tested_in_game": true,
+  "installation": {
+    "status": "waiting_for_game_to_release_old_jar",
+    "version": "0.7.0",
+    "restart_required": true
+  },
+  "mod_sha256": "755648582673db77ec0203351242f1c3bff8f4a6b611bbfd368b8e3b39073d11"
+}

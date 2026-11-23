@@ -1,0 +1,34 @@
+{
+  "minecraft": "1.21.1",
+  "environment": "Prism test instance, Fabric integrated server",
+  "actual_game_checks": [
+    "WebGUI server event registration",
+    "server snapshot displayed",
+    "initial standing chunk created at [-6,-2]",
+    "diagonal [-5,-3] purchase disabled",
+    "cardinal [-5,-2] expansion purchased",
+    "owned chunk repurchase disabled",
+    "world ownership file contains both successful claims",
+    "real loaded surface terrain displayed"
+  ],
+  "unit_tests": {
+    "count": 10,
+    "failures": 0,
+    "errors": 0
+  },
+  "browser_contract_tests": "passed",
+  "rejoin_test": "Not performed while user was actively testing; persistence reload covered by unit test",
+  "latest_jar_restart": "Latest strict file-validation build copied after gameplay verification; activates on next game restart",
+  "package_entries": [
+    "config/webgui/web/index.html",
+    "config/webgui/web/menu.css",
+    "config/webgui/web/menu.js",
+    "config/webgui/web/estate.css",
+    "config/webgui/web/estate.js",
+    "mods/pocketmate-estates-0.1.0.jar",
+    "client-only/pocketmate-webgui-alpha-0.1.0.jar",
+    "메뉴 사용 안내.txt",
+    "영지 설치와 운영.txt",
+    "client-only/설치 위치.txt"
+  ]
+}

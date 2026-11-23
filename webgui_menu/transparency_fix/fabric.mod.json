@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "id": "pocketmate_webgui_alpha",
+  "version": "0.1.0",
+  "name": "Pocketmate WebGUI Alpha",
+  "description": "Enables alpha blending for the WebGUI 2.0.0 full-screen browser on Minecraft 1.21.1.",
+  "environment": "client",
+  "license": "MIT",
+  "mixins": ["pocketmate-webgui-alpha.mixins.json"],
+  "depends": { "fabricloader": ">=0.16.0", "minecraft": "1.21.1", "java": ">=21", "webgui": "2.0.0" }
+}

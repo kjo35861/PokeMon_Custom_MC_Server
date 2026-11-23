@@ -1,0 +1,17 @@
+{
+  "version": "0.11.3",
+  "removed": "Game mode labels from profile card and preview",
+  "overworld_only_server_guard": "Existing 0.6.1 guard checked before claim creation/purchase",
+  "ownership_dimension": "minecraft:overworld",
+  "claim_storage": "<world>/data/pocketmate-estates.json",
+  "terrain_source": "Read-only Xaero Overworld map",
+  "nether_end_chunk_mutation": false,
+  "request_policy_cases_passed": 80,
+  "dimension_transition_dialog_close_checked": true,
+  "deployed_assets_match": true,
+  "server_jar_sha256": "bea37236e33ca3b6249f6ddc57069977669e553ff50c377f59056e0793f437b8",
+  "server_jar_changed": false,
+  "game_interaction": false,
+  "restart_required": false,
+  "apply_command": "/webgui reload"
+}
