@@ -41,7 +41,7 @@ settings.json
 !**/verification/check_*.cjs
 !**/verification/test_*.py
 !**/verification/brand-light-dark-preview.html
-timing_helper/*.json
+timing_helper/
 
 # OS/editor files
 .DS_Store

@@ -24,7 +24,6 @@
 - [영지 경제 브라우저 검사](reports/webgui_menu/estate-economy-browser-report.json): 모의 서버를 사용하는 화면 계약 검사.
 - [런처 백엔드 검사](reports/snowfrost_launcher/backend-report.json): 경로·manifest·롤백·Prism 명령 구성 등 46개 항목.
 - [Prism 실행 관찰](reports/snowfrost_launcher/prism-ui-play-report.json), [런처 최종 기록](reports/snowfrost_launcher/final-report.json): 당시 실제 실행/종료 확인과 배포 기본값.
-- `reports/timing_helper/`: 이전 영상·모의 노트·타이머 분석. 실제 새 버전 게임 판정 성공률과 구별한다.
 
 ## 화면 자료
 

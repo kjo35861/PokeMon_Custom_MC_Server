@@ -30,9 +30,6 @@ def candidates():
         for source in sorted((ROOT/folder/'verification').glob('*.json')):
             if source.name.endswith('.state.json'):continue
             yield source,f'reports/{folder}/{source.name}','historical-or-current-report'
-    for source in sorted((ROOT/'timing_helper').glob('*.json')):
-        if 'verification' in source.name or re.fullmatch(r'v[3-8]-(recovery|judgement|regression|grill|timing)-check\.json',source.name):
-            yield source,f'reports/timing_helper/{source.name}','recording-or-synthetic-analysis'
     for source in sorted((ROOT/'estate_mod/verification/test-results/test').glob('TEST-*.xml')):
         yield source,f'reports/estate_mod/{source.name}','junit-result'
     screenshots={
@@ -53,7 +50,8 @@ def candidates():
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--check',action='store_true');args=parser.parse_args()
     existing=json.loads(MANIFEST.read_text(encoding='utf-8')) if MANIFEST.exists() else {'format':1,'entries':{}}
-    entries=existing['entries'];changed=[]
+    allowed=('reports/webgui_menu/','reports/snowfrost_launcher/','reports/estate_mod/','screenshots/','artwork/')
+    entries={key:value for key,value in existing['entries'].items() if key.startswith(allowed)};changed=[]
     for source,relative,kind in candidates():
         original=source.read_bytes()
         if source.suffix=='.json':

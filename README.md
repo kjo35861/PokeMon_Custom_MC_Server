@@ -2,7 +2,7 @@
 
 <img src="webgui_menu/pocketmate-mark.png" width="112" alt="포켓메이트 대표 아이콘">
 
-친구들과 함께 사용할 Minecraft Java **1.21.1 / Fabric** 환경을 준비하는 프로젝트입니다. 커스텀 런처, 인게임 WebGUI 메뉴, 영지·마을원·프로필 모드와 이전에 개발한 요리 미니게임 타이밍 도우미의 소스 및 작업 기록을 보관합니다.
+친구들과 함께 사용할 Minecraft Java **1.21.1 / Fabric** 환경을 준비하는 프로젝트입니다. 포켓메이트 커스텀 런처, 인게임 WebGUI 메뉴, 영지·마을원·프로필 모드의 소스 및 작업 기록을 보관합니다.
 
 이 저장소는 2026-11-24에 기존 로컬 작업을 처음 정리해 등록했습니다. 그 이전 개발 단계를 가짜 Git 커밋으로 재구성하지 않고, 아래 작업 과정과 원래 남아 있던 검증 자료로 구분해 기록했습니다. 문서 작성과 구현에는 Codex를 사용했습니다.
 
@@ -14,7 +14,6 @@
 | WebGUI 메뉴 | 0.12.0 | 일반 메뉴, 영지 관리소, 프로필 꾸미기, 공통 라이트·다크 모드 |
 | 영지·프로필 Fabric 모드 | 0.7.0 | 서버 권한의 청크 소유권, 영지 금고·성장·마을원, 착용 프로필 공유 |
 | 반투명 보완 클라이언트 모드 | 0.1.0 | WebGUI 2.0.0의 인게임 배경 알파 블렌딩 보완 |
-| 요리 타이밍 도우미 | v8 | 썰기·굽기 구분, 예약 입력, 피드백 보정, 4회 연타 패턴 |
 
 최신 단계는 **Java 테스트 50개**, 클라이언트 요청 차원 검사 **80가지**, 프로필 표시·테마 저장 로직 검사와 구문 검사를 통과했습니다. 이 수치는 게임 플레이 성공률을 뜻하지 않습니다. 0.7.0 모드 파일 교체는 설치 보고서에서 `installed`로 확인되지만, 최신 프로필 공유 기능과 미세한 화면 정렬 수정의 실제 게임 화면은 아직 검증하지 않았습니다. 과거 인게임 검증과 최신 코드 검증은 [증거 자료 안내](docs/evidence/README.md)에서 따로 확인할 수 있습니다.
 
@@ -24,7 +23,6 @@
 snowfrost_launcher/  C# / WPF 런처와 Prism·업데이트 연결
 webgui_menu/        HTML·CSS·JavaScript 메뉴 및 SVG/PNG/폰트
 estate_mod/         Fabric 서버·클라이언트 모드와 Java 테스트
-timing_helper/      Python 요리 미니게임 도우미와 검증 스크립트
 docs/               상세 개발 과정, 구조, 운영·검증 기록
 docs/evidence/      경로를 정리한 보고서, 과거 화면, JUnit 결과, SHA-256 목록
 tools/              공개용 증거 정리 및 업로드 파일 검사
@@ -106,12 +104,6 @@ WebGUI를 싱글플레이 테스트 인스턴스에 연결하고 기본 메뉴�
 
 관련 자료: [과거 프로필 인게임 검증](docs/evidence/reports/webgui_menu/profile-integration-report.json), [최신 프로필 공유 코드 검증](docs/evidence/reports/webgui_menu/public-profiles-update-report.json), [모드 파일 교체 상태](docs/evidence/reports/webgui_menu/public-profiles-install.json).
 
-### 7. 이전 요리 미니게임 타이밍 도우미
-
-별도 작업이었던 썰기·굽기 타이밍 도우미도 소스와 검사 자료를 보존했습니다. 재료별 색 등록 대신 공통 표시와 이동을 추적하고, 전체화면 캡처, 미니게임 종료 후 다음 판 대기, 중복 입력 방지, 예약 만료 처리, 실제 판정 기반 보정, 감자 4회 연타 패턴을 추가해 v8까지 개선했습니다.
-
-내부 예약 오차와 실제 게임의 `정확/빠름/느림` 판정은 다른 지표입니다. 녹화 분석과 모의 검사 결과를 새 버전의 실제 성공률로 표현하지 않습니다. 사용법·한계와 단계별 설명은 [도우미 README](timing_helper/README.md), 분석 결과는 [증거 폴더](docs/evidence/reports/timing_helper)에 있습니다.
-
 ## 빌드와 검사
 
 Windows 기준입니다. 외부 Minecraft·Fabric·WebGUI·Xaero·Prism 프로그램과 게임 계정은 저장소에 포함하지 않습니다.
@@ -138,8 +130,6 @@ python tools/check_publish.py
 ```
 
 `estate_mod/build.py`는 OneDrive 잠금을 피하려고 `%LOCALAPPDATA%/PocketmateEstateBuild`에 빌드를 준비합니다. Java·Gradle 위치는 해당 스크립트에 지정돼 있으므로 다른 PC에서는 환경에 맞게 조정해야 합니다. 브라우저 검증 스크립트는 과거 UI 검증을 재현할 때 사용하며 별도 Playwright와 Edge 설정이 필요합니다. 최신 작업에서는 사용자 요청에 따라 게임 조작·화면 검증을 진행하지 않았습니다.
-
-타이밍 도우미는 `timing_helper/requirements.txt`를 설치한 뒤 `app.py`로 실행하거나 PyInstaller의 `CookingTimingHelper-v8.spec`으로 빌드합니다. 상세 실행·검사는 각 하위 README를 참고하세요.
 
 ## 적용과 보존
 

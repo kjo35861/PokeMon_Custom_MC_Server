@@ -15,9 +15,14 @@ patterns={
     'JWT credential':rb'eyJ[A-Za-z0-9_-]{12,}\.[A-Za-z0-9_-]{12,}\.[A-Za-z0-9_-]{12,}',
 }
 problems=[];total=0
+allowed_dirs={'docs','tools','estate_mod','snowfrost_launcher','webgui_menu'}
+allowed_root_files={'.gitattributes','.gitignore','AGENTS.md','README.md','THIRD_PARTY_NOTICES.md'}
 for name in paths:
     source=ROOT/name
     if not source.is_file():continue
+    parts=Path(name).parts
+    if (len(parts)==1 and name not in allowed_root_files) or (len(parts)>1 and parts[0] not in allowed_dirs):
+        problems.append((name,'outside Pocketmate repository scope'))
     body=subprocess.check_output(['git','show',':'+name],cwd=ROOT) if args.staged else source.read_bytes()
     size=len(body);total+=size
     if size>20*1024*1024:problems.append((name,'file larger than 20 MiB'))
