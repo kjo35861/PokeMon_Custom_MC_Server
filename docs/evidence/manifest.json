@@ -20,49 +20,49 @@
     "reports/estate_mod/TEST-space.pocketmate.estates.ClaimStoreTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.ClaimStoreTest.xml",
       "kind": "junit-result",
-      "source_sha256": "e80c0fb083c7a1a27f8166b4abb93365582ee9f83b316dc34686c21dae7ee5db",
-      "published_sha256": "fd836720355de202af838989ce2aa798784fa802125fdc37f4e78b0724ff33a7",
-      "bytes": 2339,
+      "source_sha256": "4219fef50b048c89de3b24307d0fb894dd1f2ef2fe9eb452d3cf5c7b64d9f2b9",
+      "published_sha256": "d51b6bcbdf77da61d40f03e1f47f19a920b397ff3dd06ac9523739237e81b9f2",
+      "bytes": 2341,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.EstateCommunityTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.EstateCommunityTest.xml",
       "kind": "junit-result",
-      "source_sha256": "89395adc0eff70eaa6e3d58996aaba4ef6dd90934c8bd3bba4e1b335001f3d69",
-      "published_sha256": "399d38867ff65aa569296d8edbfec4a2730bd1907998ebe51578b304efe7e3e5",
-      "bytes": 1942,
+      "source_sha256": "2f3b94bf23ef104cc495acd5ff58d0005f053aef1e9862fa26dd1253034ae1bc",
+      "published_sha256": "88d257deecf5d5f750a130245d345114bb3f9a063b8f8b6fca47a49903e3d846",
+      "bytes": 1946,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.EstateEconomyTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.EstateEconomyTest.xml",
       "kind": "junit-result",
-      "source_sha256": "c7785b95b834aca8e04c2077d152d33dc8fb612285c89296bcad5f1b73967aab",
-      "published_sha256": "047e87ccc1aa1d2840144452c1c0d511358c6fe955c93fced83eefd70ea4f376",
-      "bytes": 1998,
+      "source_sha256": "9f44056f8cf40b70b59854ae3f0ba66f08c809b1e4f543ba5f46859c4286586c",
+      "published_sha256": "d63369cbfe4c002ba24f45e873d37b434752f5ab0c97877191f8476d9645922f",
+      "bytes": 1997,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.EstateHomeTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.EstateHomeTest.xml",
       "kind": "junit-result",
-      "source_sha256": "3db316a2196e6683d391a1336ca4bb41b794a6f83bef5c5143dab18cffcdc488",
-      "published_sha256": "a5f101e203efe291bbaff0e53afbc54099856f939e1f5cb67c6b0954d6c8774c",
-      "bytes": 1417,
+      "source_sha256": "90be361eb973169048d0c15012b264f9e6bd74cbcf55ca97c4a19bb91fa2df35",
+      "published_sha256": "bc85e13f106ccf9c79fe8797c4d26be27b5ecc8c2368722d5da47039a343f7f2",
+      "bytes": 1418,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.MapPixelCodecTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.MapPixelCodecTest.xml",
       "kind": "junit-result",
-      "source_sha256": "dcb79e9843770489693f3dc127ddf9b8198c2da83772a6d8a72d905e2cd02124",
-      "published_sha256": "614f59b3e4cede159ea0e6dae3aeefdfbe9c76473f2021d82ada491a80909b51",
-      "bytes": 578,
+      "source_sha256": "e9c2ce5031a21aafde3dc42b89c563ccd0f30cd471485341172c8d1f4201ae2c",
+      "published_sha256": "3351ba918ed25566ee4e2529170759b3a5cf26896d86463e44bfd7f4a7c93dac",
+      "bytes": 580,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.ProfileStoreTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.ProfileStoreTest.xml",
       "kind": "junit-result",
-      "source_sha256": "13cff7abda6b3b013f21436c3dfa936357d6b85b09a586143640131feff07464",
-      "published_sha256": "6eed979ab1ca2aec6846d0f13a2928cf43dee6eb6923de6f2e485c9c13253d0d",
-      "bytes": 1384,
+      "source_sha256": "39704cf9bb5579acbf5dea5cf4b9c553af072da83a3975890cbd5ffc7ad24f8a",
+      "published_sha256": "b323c0bcb926d6614ab29bafe4e46018303c2f345b4adabe4bc5801119161582",
+      "bytes": 1519,
       "sanitized": true
     },
     "reports/snowfrost_launcher/backend-report.json": {
@@ -145,6 +145,14 @@
       "bytes": 469,
       "sanitized": true
     },
+    "reports/webgui_menu/chat-title-game-report.json": {
+      "source": "webgui_menu/verification/chat-title-game-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "5e77b5ed9a942e141c8e714e93ec07e975efb21cc98dd52a4a6a3cc4db87860b",
+      "published_sha256": "0d78925fbcf91ae1ae0e1f19f6c8c95ddfdd4fe427519542e8b731882559ec68",
+      "bytes": 665,
+      "sanitized": true
+    },
     "reports/webgui_menu/deployment.json": {
       "source": "webgui_menu/verification/deployment.json",
       "kind": "historical-or-current-report",
@@ -204,9 +212,9 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "63fae71717e6f4f73ace26a8d2d585f35c3c7e1db5f413e44c0acbd61b471260",
-      "published_sha256": "6951e19a113844b10dea60c00d80f263d73d02e36193bbf8d095e89fb385afbd",
-      "bytes": 6846,
+      "source_sha256": "6d27f409859de28c96497ed11a9d0987dc75c1636c640f894f5139231495af78",
+      "published_sha256": "2268204ce4ea6cdd66777c1df41b63aa25717f6caa39e328e37159d6159471d1",
+      "bytes": 6845,
       "sanitized": true
     },
     "reports/webgui_menu/estate-v0.10-integration.json": {

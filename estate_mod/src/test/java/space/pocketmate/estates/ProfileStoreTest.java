@@ -40,6 +40,13 @@ class ProfileStoreTest {
     @Test void corruptedStoreCannotResetOwnership() throws Exception {
         Files.writeString(file(),"{}");assertThrows(IOException.class,this::store);assertEquals("{}",Files.readString(file()));
     }
+    @Test void chatTitleLookupTracksEquipmentWithoutWriting() throws Exception {
+        var s=store();assertEquals("beginner",s.equippedTitle(alice));assertFalse(Files.exists(file()));
+        s.equip(alice,"skin","none","none");byte[] before=Files.readAllBytes(file());
+        assertEquals("none",s.equippedTitle(alice));assertEquals("beginner",s.equippedTitle(bob));
+        assertArrayEquals(before,Files.readAllBytes(file()));
+        s.equip(alice,"skin","beginner","none");assertEquals("beginner",store().equippedTitle(alice));
+    }
     @Test void publicLookupsDoNotCreateOrWriteProfiles() throws Exception {
         var s=store();var appearance=s.appearance(alice);
         assertEquals("skin",appearance.icon());assertEquals("none",appearance.banner());assertFalse(Files.exists(file()));

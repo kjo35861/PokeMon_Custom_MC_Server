@@ -30,7 +30,10 @@ public final class ProfilesMod implements ModInitializer {
         if(title.equals("none"))return original;
         for(var item:ProfileStore.CATALOG){
             if(item.kind().equals("title")&&item.id().equals(title))
-                return Text.literal("["+item.name()+"] ").formatted(net.minecraft.util.Formatting.GOLD).append(original.copy());
+                return Text.empty()
+                    .append(Text.literal("\uE001").setStyle(net.minecraft.text.Style.EMPTY.withFont(net.minecraft.util.Identifier.of("pocketmate","titles")).withColor(0xffe0a0)))
+                    .append(Text.literal(" "+item.name()+" ").setStyle(net.minecraft.text.Style.EMPTY.withColor(0xffe0a0)))
+                    .append(original.copy());
         }
         return original;
     }

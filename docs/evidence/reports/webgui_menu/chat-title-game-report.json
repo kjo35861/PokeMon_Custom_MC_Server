@@ -1,0 +1,21 @@
+{
+  "version": "0.8.2",
+  "java_tests": 59,
+  "failures": 0,
+  "game_tested": true,
+  "environment": "Minecraft 1.21.1 Fabric integrated singleplayer",
+  "observed": [
+    "spark icon rendered before equipped title",
+    "title and icon light gold; original name and body white",
+    "unequip through WebGUI removed prefix on next chat",
+    "original beginner title restored through WebGUI"
+  ],
+  "title_color": "#FFE0A0",
+  "font": "pocketmate:titles",
+  "installed_jar_matches": true,
+  "jar_sha256": "904f685c62d291908d0ace5cdef94175b143ee2848e4e35b9d31ab41878a8173",
+  "not_tested": [
+    "dedicated multiplayer",
+    "third-party chat formatting mods"
+  ]
+}
