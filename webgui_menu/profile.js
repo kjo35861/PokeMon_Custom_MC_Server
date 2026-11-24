@@ -2,6 +2,8 @@
   'use strict';
   const $=id=>document.getElementById(id),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   let snapshot=null,draft=null,client=null,host=null,tab='icon',pending=null,feedback='',error=false,skin=null,identity='';
+  const actionSlot=$('profile-actions-slot');
+  const actionControl=selector=>actionSlot?.querySelector(selector)||host?.querySelector(selector);
   const labels={icon:'프로필아이콘',title:'칭호',banner:'플레이어 배너'};
   const descriptions={icon:'포켓몬 이미지 또는 내 플레이어 스킨 얼굴을 골라보세요.',title:'CONNECTED PLAYER 옆에 표시할 칭호를 선택하세요.',banner:'프로필카드의 배경에 착용할 보유 배너를 선택하세요.'};
   const imagePath=value=>typeof value==='string'&&/^\.\/profile-assets\/[a-z0-9-]+\.(png|svg)$/.test(value)?value:'';
@@ -56,14 +58,17 @@
     banner(preview,draft.banner);avatar(preview.querySelector('.profile-preview-avatar'),draft.icon);title(preview.querySelector('.profile-title'),draft.title);
     preview.querySelector('.profile-preview-name').textContent=snapshot.playerName;
     host.querySelectorAll('[data-profile-item]').forEach(button=>button.setAttribute('aria-pressed',String(draft[tab]===button.dataset.profileItem)));
-    const save=host.querySelector('[data-profile-save]');if(save)save.disabled=Boolean(pending)||!dirty();
-    const cancel=host.querySelector('[data-profile-reset]');if(cancel)cancel.disabled=Boolean(pending)||!dirty();
+    if(actionSlot)actionSlot.hidden=!dirty();
+    const save=actionControl('[data-profile-save]');if(save)save.disabled=Boolean(pending)||!dirty();
+    const cancel=actionControl('[data-profile-reset]');if(cancel)cancel.disabled=Boolean(pending)||!dirty();
   }
   function render(){
     if(!host||!host.isConnected)return;
+    if(actionSlot){actionSlot.replaceChildren();actionSlot.hidden=true;}
     if(!snapshot){host.innerHTML=`<div class="profile-wait"><h2>프로필 꾸미기</h2><p role="status">${esc(pending?'보유한 항목을 불러오고 있습니다.':feedback||'프로필 정보를 확인해 주세요.')}</p><button class="primary-button" data-profile-retry ${pending?'disabled':''}>다시 불러오기</button></div>`;host.querySelector('button').onclick=()=>request('view');return;}
     const owned=snapshot.catalog.filter(c=>c.kind===tab&&snapshot.profile.owned.includes(c.kind+':'+c.id));
     host.innerHTML=`<section class="profile-studio" aria-label="프로필 꾸미기"><div class="profile-editor-scroll" aria-label="프로필 편집 항목"><div class="profile-preview" aria-label="착용 미리보기"><span class="profile-preview-tag">PREVIEW</span><span class="profile-avatar profile-preview-avatar"></span><div><div class="profile-heading"><span class="micro-label">CONNECTED PLAYER</span><span class="profile-title"></span></div><strong class="profile-preview-name"></strong></div></div><div class="profile-workspace"><div class="profile-tabs" role="tablist" aria-label="꾸미기 종류">${Object.entries(labels).map(([kind,label])=>`<button role="tab" id="profile-tab-${kind}" aria-controls="profile-options" data-profile-tab="${kind}" aria-selected="${tab===kind}">${label}<small>${snapshot.catalog.filter(c=>c.kind===kind&&snapshot.profile.owned.includes(c.kind+':'+c.id)).length}</small></button>`).join('')}</div><section class="profile-collection" id="profile-options" role="tabpanel" aria-labelledby="profile-tab-${tab}"><h2>보유한 ${labels[tab]}</h2><p class="profile-collection-desc">${descriptions[tab]}</p><div class="profile-choice-grid ${tab==='banner'?'profile-banner-options':''}">${owned.map(c=>`<button class="profile-choice ${tab==='title'?'profile-choice-title':''}" data-profile-item="${esc(c.id)}" aria-pressed="${draft[tab]===c.id}" ${pending?'disabled':''}>${tab==='icon'?`<span class="profile-option-icon profile-avatar" ${c.id==='skin'?'data-profile-skin':''}></span>`:tab==='banner'?'<span class="profile-banner-thumb"></span>':''}<span class="profile-choice-name ${tab==='title'?'profile-title-choice':''}">${tab==='title'?titleMarkup(c):esc(c.name)}</span><small>${equipped()[tab]===c.id?'착용 중':c.starter?'기본 지급':'보유 중'}</small></button>`).join('')}</div></section></div><span class="profile-feedback" role="status" data-error="${error}">${esc(feedback||(dirty()?'미리보기 중 · 저장하면 카드에 적용됩니다.':'보유한 항목을 선택해 나만의 카드를 꾸며보세요.'))}</span></div><footer class="profile-actions"><button class="back-button" data-profile-reset>선택 되돌리기</button><button class="primary-button" data-profile-save>프로필 저장</button></footer></section>`;
+    if(actionSlot)actionSlot.append(host.querySelector('.profile-actions'));
     host.querySelectorAll('[data-profile-tab]').forEach(button=>button.onclick=()=>{tab=button.dataset.profileTab;render();host.querySelector(`[data-profile-tab="${tab}"]`).focus({preventScroll:true});});
     const tabs=[...host.querySelectorAll('[role=tab]')];tabs.forEach((button,index)=>{button.tabIndex=button.getAttribute('aria-selected')==='true'?0:-1;button.onkeydown=e=>{if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home','End'].includes(e.key))return;e.preventDefault();const next=e.key==='Home'?0:e.key==='End'?tabs.length-1:(index+(['ArrowRight','ArrowDown'].includes(e.key)?1:tabs.length-1))%tabs.length;tabs[next].click();};});
     host.querySelectorAll('[data-profile-item]').forEach(button=>{
@@ -71,10 +76,10 @@
       if(tab==='banner')banner(button.querySelector('.profile-banner-thumb'),button.dataset.profileItem);
       button.onclick=()=>{draft[tab]=button.dataset.profileItem;feedback='';error=false;updatePreview();host.querySelector('.profile-feedback').textContent=dirty()?'미리보기 중 · 저장하면 카드에 적용됩니다.':'현재 착용 중인 항목입니다.';};
     });
-    host.querySelector('[data-profile-reset]').onclick=()=>{draft={icon:equipped().icon,title:equipped().title,banner:equipped().banner};feedback='선택을 되돌렸습니다.';render();};
-    host.querySelector('[data-profile-save]').onclick=()=>request('equip',draft);updatePreview();
+    actionControl('[data-profile-reset]').onclick=()=>{draft={icon:equipped().icon,title:equipped().title,banner:equipped().banner};feedback='선택을 되돌렸습니다.';render();};
+    actionControl('[data-profile-save]').onclick=()=>request('equip',draft);updatePreview();
   }
-  window.PocketmateProfile={mount(element){host=element;tab='icon';if(snapshot)draft={icon:equipped().icon,title:equipped().title,banner:equipped().banner};render();request('view');},unmount(){host=null;},client(value){client=value;if(value?.username&&identity!==value.username){identity=value.username;snapshot=null;skin=null;request('view');}},diagnostics:()=>({connected:Boolean(snapshot),profile:equipped(),draft,dirty:Boolean(dirty())})};
+  window.PocketmateProfile={mount(element){host=element;tab='icon';if(snapshot)draft={icon:equipped().icon,title:equipped().title,banner:equipped().banner};render();request('view');},unmount(){host=null;if(actionSlot){actionSlot.replaceChildren();actionSlot.hidden=true;}},client(value){client=value;if(value?.username&&identity!==value.username){identity=value.username;snapshot=null;skin=null;request('view');}},diagnostics:()=>({connected:Boolean(snapshot),profile:equipped(),draft,dirty:Boolean(dirty())})};
   window.addEventListener('webgui:client',event=>window.PocketmateProfile.client(event.detail));
   if(window.webgui?.client)window.PocketmateProfile.client(window.webgui.client);
 })();

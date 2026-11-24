@@ -1,0 +1,23 @@
+{
+  "version": "0.12.5",
+  "change": "Rounded action area shown only for unsaved profile changes",
+  "non_overlapping_sibling_layout": true,
+  "title_scrolls": true,
+  "clean_hidden": true,
+  "dirty_fields_visible": [
+    "icon",
+    "title",
+    "banner"
+  ],
+  "pending_buttons_disabled": true,
+  "reset_hidden": true,
+  "css_parse_passed": true,
+  "javascript_syntax_passed": true,
+  "html_structure_passed": true,
+  "logic_checked_without_browser": true,
+  "deployed": true,
+  "game_interaction": false,
+  "browser_visual_check": false,
+  "restart_required": false,
+  "apply_command": "/webgui reload"
+}

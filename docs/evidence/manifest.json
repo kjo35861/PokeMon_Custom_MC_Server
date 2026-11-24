@@ -180,8 +180,8 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "cb0561a0eba43651b58fdee7e97a498363f18563b09ac86cb73773546e148746",
-      "published_sha256": "739945ff6fe42689486cee168e25a9574c81be80bbac4df571e2f675174cd528",
+      "source_sha256": "b41976e05efb9b89e2cf45d5f7274c20f9500fdd6380b51803c7c560d556c978",
+      "published_sha256": "06cccc379a64b24e2ebcda6bcc7dd4ff9213eeca209383d575c7ed0bb38bc822",
       "bytes": 6634,
       "sanitized": true
     },
@@ -319,6 +319,14 @@
       "source_sha256": "1e1d21d8e8c49dea0f3b15707ef8b78dffd221f9d5db66b0eca9c786fbf011b2",
       "published_sha256": "a929e7525333446867c23bb129dbe570b99b477cdb165d9c05841d129619df4c",
       "bytes": 405,
+      "sanitized": true
+    },
+    "reports/webgui_menu/profile-dirty-actions-report.json": {
+      "source": "webgui_menu/verification/profile-dirty-actions-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "c96ae411bc2afa6c994c4b1a5b53800567b87cb86deccd2fedc9700ea1be5ec7",
+      "published_sha256": "d878541e311b6feb7874736a3b4d98df6400c35d302f56769eac4b54f8313c2c",
+      "bytes": 608,
       "sanitized": true
     },
     "reports/webgui_menu/profile-fixed-actions-report.json": {
