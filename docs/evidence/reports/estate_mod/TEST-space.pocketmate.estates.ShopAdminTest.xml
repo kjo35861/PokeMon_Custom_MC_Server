@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="space.pocketmate.estates.ShopAdminTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-11-24T23:12:32" hostname="DESKTOP-6FIEOUH" time="0.381">
+<testsuite name="space.pocketmate.estates.ShopAdminTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-11-24T23:17:06" hostname="DESKTOP-6FIEOUH" time="0.393">
   <properties/>
-  <testcase name="saveFailureDoesNotChangeLiveStateAndBadConfigIsNotReset()" classname="space.pocketmate.estates.ShopAdminTest" time="0.039"/>
-  <testcase name="listChangesAndPriceEditsInvalidateOutstandingQuotes()" classname="space.pocketmate.estates.ShopAdminTest" time="0.027"/>
-  <testcase name="staleRevisionDoesNotOverwriteAnotherAdministrator()" classname="space.pocketmate.estates.ShopAdminTest" time="0.009"/>
-  <testcase name="flatPriceConfigMigratesOnFirstEditAndKeepsBackup()" classname="space.pocketmate.estates.ShopAdminTest" time="0.009"/>
-  <testcase name="maintenanceAndRandomPolicyPersistWithIndependentControls()" classname="space.pocketmate.estates.ShopAdminTest" time="0.011"/>
-  <testcase name="auditLogIsBoundedAndAllSuccessfulChangesHaveActor()" classname="space.pocketmate.estates.ShopAdminTest" time="0.279"/>
+  <testcase name="saveFailureDoesNotChangeLiveStateAndBadConfigIsNotReset()" classname="space.pocketmate.estates.ShopAdminTest" time="0.033"/>
+  <testcase name="listChangesAndPriceEditsInvalidateOutstandingQuotes()" classname="space.pocketmate.estates.ShopAdminTest" time="0.031"/>
+  <testcase name="staleRevisionDoesNotOverwriteAnotherAdministrator()" classname="space.pocketmate.estates.ShopAdminTest" time="0.008"/>
+  <testcase name="flatPriceConfigMigratesOnFirstEditAndKeepsBackup()" classname="space.pocketmate.estates.ShopAdminTest" time="0.008"/>
+  <testcase name="maintenanceAndRandomPolicyPersistWithIndependentControls()" classname="space.pocketmate.estates.ShopAdminTest" time="0.01"/>
+  <testcase name="auditLogIsBoundedAndAllSuccessfulChangesHaveActor()" classname="space.pocketmate.estates.ShopAdminTest" time="0.294"/>
   <testcase name="addNewRegisteredBuyItemAndRejectUnsafeSaleCompressionAndProcessedMineral()" classname="space.pocketmate.estates.ShopAdminTest" time="0.002"/>
-  <testcase name="nonOpCannotReadOrMutateEvenWithValidData()" classname="space.pocketmate.estates.ShopAdminTest" time="0.005"/>
+  <testcase name="nonOpCannotReadOrMutateEvenWithValidData()" classname="space.pocketmate.estates.ShopAdminTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -11,8 +11,8 @@
         0,
         0
       ],
-      "size": 8,
-      "oversample": 1
+      "size": 9,
+      "oversample": 3
     },
     {
       "type": "reference",
