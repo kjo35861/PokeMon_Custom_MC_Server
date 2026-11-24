@@ -33,6 +33,11 @@ def candidates():
     for source in sorted((ROOT/'estate_mod/verification/test-results/test').glob('TEST-*.xml')):
         yield source,f'reports/estate_mod/{source.name}','junit-result'
     screenshots={
+        'webgui_menu/verification/unified-main-tabs-home-dark.png':'unified-main-tabs-v0.19.4-home-dark-mock.png',
+        'webgui_menu/verification/unified-main-tabs-home-light.png':'unified-main-tabs-v0.19.4-home-light-mock.png',
+        'webgui_menu/verification/unified-main-tabs-estate-dark.png':'unified-main-tabs-v0.19.4-estate-dark-mock.png',
+        'webgui_menu/verification/unified-main-tabs-estate-light.png':'unified-main-tabs-v0.19.4-estate-light-mock.png',
+
         'webgui_menu/verification/pokedex-tabs-home-dark.png':'pokedex-tabs-v0.19.2-home-dark-mock.png',
         'webgui_menu/verification/pokedex-tabs-home-light.png':'pokedex-tabs-v0.19.2-home-light-mock.png',
         'webgui_menu/verification/pokedex-tabs-estate-dark.png':'pokedex-tabs-v0.19.2-estate-dark-mock.png',
@@ -74,7 +79,7 @@ def candidates():
     }
     for original,name in screenshots.items():
         source=ROOT/original
-        if source.exists():yield source,'screenshots/'+name,('headless-mock-ui-screenshot' if name.startswith(('daily-missions-','menu-v0.17-','shop-v0.18-','home-block-art-','trainer-theme-','pokedex-tabs-')) else 'historical-ui-screenshot')
+        if source.exists():yield source,'screenshots/'+name,('headless-mock-ui-screenshot' if name.startswith(('daily-missions-','menu-v0.17-','shop-v0.18-','home-block-art-','trainer-theme-','pokedex-tabs-','unified-main-tabs-')) else 'historical-ui-screenshot')
     for name in ['brand-final-prompt.txt','brand-universal-prompt.txt']:
         source=ROOT/'webgui_menu/verification'/name
         if source.exists():yield source,'artwork/'+name,'image-generation-prompt'

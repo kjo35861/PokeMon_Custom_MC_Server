@@ -292,8 +292,8 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "d2f0714d5be380c5443f1bee5e8ac02e313966d62f54bb9db94af86416e82892",
-      "published_sha256": "d57f7b084434bcd44dc3f2842f399c0ae147d8e02e5f3e3fa935e415422283db",
+      "source_sha256": "f5b8e4572ad918bb697ba48b4d4305013aae7910535d7c75559b4954b20229a6",
+      "published_sha256": "b3926a8296efb42238c6bc09f7d3997107f006b76c898fe959e2f2fa366d5ff7",
       "bytes": 31794,
       "sanitized": true
     },
@@ -1047,6 +1047,38 @@
       "source_sha256": "bede43cceeb180cd4567e992c3b41db391b9123e7d57b5e48fa6144febd48d4e",
       "published_sha256": "bede43cceeb180cd4567e992c3b41db391b9123e7d57b5e48fa6144febd48d4e",
       "bytes": 87938,
+      "sanitized": false
+    },
+    "screenshots/unified-main-tabs-v0.19.4-estate-dark-mock.png": {
+      "source": "webgui_menu/verification/unified-main-tabs-estate-dark.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "3881879797f959fc2e2e60cb635a25bfab0639132926ca16890e4dfb0c95c7e0",
+      "published_sha256": "3881879797f959fc2e2e60cb635a25bfab0639132926ca16890e4dfb0c95c7e0",
+      "bytes": 178840,
+      "sanitized": false
+    },
+    "screenshots/unified-main-tabs-v0.19.4-estate-light-mock.png": {
+      "source": "webgui_menu/verification/unified-main-tabs-estate-light.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "97f7c43da00de4d069fce73a6c2272179d2e790458144a95d8ea8c220104aa75",
+      "published_sha256": "97f7c43da00de4d069fce73a6c2272179d2e790458144a95d8ea8c220104aa75",
+      "bytes": 181028,
+      "sanitized": false
+    },
+    "screenshots/unified-main-tabs-v0.19.4-home-dark-mock.png": {
+      "source": "webgui_menu/verification/unified-main-tabs-home-dark.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "dc98eeb1f606fcf3817891c99d5f51e5836da5d3a9814cc14a9b1d588b286a3e",
+      "published_sha256": "dc98eeb1f606fcf3817891c99d5f51e5836da5d3a9814cc14a9b1d588b286a3e",
+      "bytes": 402994,
+      "sanitized": false
+    },
+    "screenshots/unified-main-tabs-v0.19.4-home-light-mock.png": {
+      "source": "webgui_menu/verification/unified-main-tabs-home-light.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "d1654adb229a33478ffc7dc63b5363594684a34074e86a84c56e6e4cb132a893",
+      "published_sha256": "d1654adb229a33478ffc7dc63b5363594684a34074e86a84c56e6e4cb132a893",
+      "bytes": 433535,
       "sanitized": false
     },
     "screenshots/user-reported-before-0.12.0-members.png": {

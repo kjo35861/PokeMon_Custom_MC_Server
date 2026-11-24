@@ -83,3 +83,12 @@
 :root[data-theme] body :is(.estate-map-settings,.estate-setting-group,.setting-row){border-color:var(--line)}
 :root[data-theme] body .mission-final{box-shadow:inset 3px 0 var(--trainer-gold)}
 :root[data-theme] body .nav-item.selected>span{background:transparent}
+/* All navigation tabs use the existing main-menu tab treatment. */
+:root[data-theme] body :is(.nav-item,.estate-screen .estate-nav button,.profile-tabs button,.shop-sidebar nav button,.estate-tabs button){position:relative;background:transparent;color:var(--muted);border:0;border-radius:6px;box-shadow:none;font-weight:500}
+:root[data-theme] body :is(.nav-item,.estate-screen .estate-nav button,.profile-tabs button,.shop-sidebar nav button,.estate-tabs button):hover{background:var(--trainer-soft);color:var(--ink)}
+:root[data-theme] body :is(.nav-item.selected,.estate-screen .estate-nav button.active,.profile-tabs button[aria-selected=true],.shop-sidebar nav button[aria-pressed=true],.estate-tabs button.active){background:var(--trainer-red);color:var(--trainer-red-ink);box-shadow:inset 0 1px #fff3,inset 0 -2px #0002;font-weight:600}
+:root[data-theme] body :is(.nav-item,.estate-screen .estate-nav button,.profile-tabs button,.shop-sidebar nav button,.estate-tabs button):after{content:none}
+:root[data-theme] body :is(.nav-item.selected,.estate-screen .estate-nav button.active,.profile-tabs button[aria-selected=true],.shop-sidebar nav button[aria-pressed=true],.estate-tabs button.active):after{content:'';position:absolute;left:0;right:auto;top:10px;bottom:10px;width:2px;height:auto;border:0;border-radius:0;background:var(--cyan);box-shadow:none;pointer-events:none}
+:root[data-theme] body :is(.nav-item>span,.estate-screen .estate-nav button>.pm-icon,.profile-tabs small){color:inherit;background:transparent}
+:root[data-theme] body :is(.nav-item.selected>span,.estate-screen .estate-nav button.active>.pm-icon,.profile-tabs button[aria-selected=true] small){color:var(--trainer-red-ink)}
+:root[data-theme] body .estate-screen .estate-nav .estate-danger-nav,:root[data-theme] body .estate-screen .estate-nav .estate-danger-nav>.pm-icon{color:var(--trainer-danger)}
