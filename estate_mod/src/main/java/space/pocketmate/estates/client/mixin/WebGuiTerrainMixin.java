@@ -11,5 +11,5 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(targets="land.webgui.WebviewClientEmit",remap=false)
 public abstract class WebGuiTerrainMixin {
     @Inject(method="dispatch",at=@At("TAIL"),remap=false)
-    private static void pocketmate$terrain(String event,String payload,CallbackInfo callback){EstateMapClient.onSnapshot(event,payload);ProfileSkinClient.onSnapshot(event,payload);}
+    private static void pocketmate$terrain(String event,String payload,CallbackInfo callback){EstateMapClient.onSnapshot(event,payload);ProfileSkinClient.onSnapshot(event,payload);space.pocketmate.estates.client.ShopAssetsClient.onSnapshot(event,payload);}
 }

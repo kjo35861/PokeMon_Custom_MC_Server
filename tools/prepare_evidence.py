@@ -33,6 +33,11 @@ def candidates():
     for source in sorted((ROOT/'estate_mod/verification/test-results/test').glob('TEST-*.xml')):
         yield source,f'reports/estate_mod/{source.name}','junit-result'
     screenshots={
+        'webgui_menu/verification/shop-catalog-full-buy-dark-mock.png':'shop-catalog-v0.20-buy-dark-mock.png',
+        'webgui_menu/verification/shop-catalog-full-buy-light-mock.png':'shop-catalog-v0.20-buy-light-mock.png',
+        'webgui_menu/verification/shop-catalog-full-sell-dark-mock.png':'shop-catalog-v0.20-sell-dark-mock.png',
+        'webgui_menu/verification/shop-catalog-full-sell-light-mock.png':'shop-catalog-v0.20-sell-light-mock.png',
+
         'webgui_menu/verification/navigation-numbering-dark-mock.png':'navigation-numbering-v0.19.7-dark-mock.png',
         'webgui_menu/verification/navigation-numbering-light-mock.png':'navigation-numbering-v0.19.7-light-mock.png',
 
@@ -92,7 +97,7 @@ def candidates():
     }
     for original,name in screenshots.items():
         source=ROOT/original
-        if source.exists():yield source,'screenshots/'+name,('headless-mock-ui-screenshot' if name.startswith(('daily-missions-','menu-v0.17-','shop-v0.18-','home-block-art-','trainer-theme-','pokedex-tabs-','unified-main-tabs-','estate-stars-','control-alignment-','navigation-numbering-')) else 'historical-ui-screenshot')
+        if source.exists():yield source,'screenshots/'+name,('headless-mock-ui-screenshot' if name.startswith(('daily-missions-','menu-v0.17-','shop-v0.18-','home-block-art-','trainer-theme-','pokedex-tabs-','unified-main-tabs-','estate-stars-','control-alignment-','navigation-numbering-','shop-catalog-')) else 'historical-ui-screenshot')
     for name in ['brand-final-prompt.txt','brand-universal-prompt.txt']:
         source=ROOT/'webgui_menu/verification'/name
         if source.exists():yield source,'artwork/'+name,'image-generation-prompt'

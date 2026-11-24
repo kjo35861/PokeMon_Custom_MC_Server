@@ -60,6 +60,7 @@
     window.PocketmateEstates?.unmount();
     window.PocketmateProfile?.unmount();
     window.PocketmateMissions?.unmount();
+    window.PocketmateShop?.unmount();
     $('estate-page').hidden=true;
     $('shop-page').hidden=true;
     if (!meta[page]) page = 'home';

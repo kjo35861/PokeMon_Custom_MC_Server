@@ -44,7 +44,7 @@ public final class EstatesMod implements ModInitializer {
         final Map<UUID,Integer> radii=new HashMap<>();
         final Map<UUID,String> mapSessions=new HashMap<>();
     }
-    private final Map<MinecraftServer,Session> sessions=new IdentityHashMap<>();
+    private static final Map<MinecraftServer,Session> sessions=new IdentityHashMap<>();
     @Override public void onInitialize() {
         ServerLifecycleEvents.SERVER_STARTING.register(this::start);
         ServerLifecycleEvents.SERVER_STOPPED.register(server->sessions.remove(server));
@@ -78,6 +78,11 @@ public final class EstatesMod implements ModInitializer {
             state.freeTestMode=config.freeTestMode;
             state.store=new ClaimStore(server.getSavePath(WorldSavePath.ROOT).resolve("data/pocketmate-estates.json"));
         } catch(Exception error){state.failure="영지 저장 파일 또는 설정을 읽지 못했습니다. 소유권 보호를 위해 구매를 중단했습니다.";LOG.error("Estate store unavailable; ownership is not reset",error);}
+    }
+    static ClaimStore shopWallet(MinecraftServer server){
+        Session state=sessions.get(server);
+        if(state==null||state.failure!=null||state.store==null)throw new IllegalStateException("개인 재화 저장소를 사용할 수 없습니다.");
+        return state.store;
     }
     private void seen(MinecraftServer server,ServerPlayerEntity player){
         Session state=sessions.get(server);if(state==null||state.store==null)return;

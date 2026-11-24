@@ -308,6 +308,16 @@ public final class ClaimStore {
         Map<UUID,Progress> nextProgress=new LinkedHashMap<>(progress);nextProgress.put(value.owner,updated);Map<UUID,Long> nextBalances=new LinkedHashMap<>(balances);nextBalances.put(actor,wallet(actor)-amount);
         persist(claims.values(),estates,players,nextProgress,nextBalances);progress.clear();progress.putAll(nextProgress);balances.clear();balances.putAll(nextBalances);
     }
+    /** Trusted shop debit/credit. No browser-supplied amount is ever forwarded here. */
+    public synchronized void shopAdjust(UUID player,long delta) throws Denied,IOException {
+        if(player==null)throw new Denied("플레이어를 확인해주세요.");
+        long current=wallet(player),next;
+        try{next=Math.addExact(current,delta);}catch(ArithmeticException invalid){throw new Denied("재화 한도를 초과합니다.");}
+        if(next<0)throw new Denied("개인 재화가 부족합니다.");
+        if(next>EstateRules.MAX_MONEY)throw new Denied("재화 한도를 초과합니다.");
+        Map<UUID,Long> values=new LinkedHashMap<>(balances);values.put(player,next);
+        persist(claims.values(),estates,players,progress,values);balances.clear();balances.putAll(values);
+    }
     /** Trusted server-side credit; browser events never mint personal currency. */
     public synchronized void creditWallet(UUID player,long amount) throws Denied,IOException {
         if(player==null||amount<=0||amount>EstateRules.MAX_MONEY||wallet(player)>EstateRules.MAX_MONEY-amount)throw new Denied("지급 금액이 올바르지 않습니다.");

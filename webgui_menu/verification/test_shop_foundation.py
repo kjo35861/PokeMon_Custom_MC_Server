@@ -10,13 +10,13 @@ with sync_playwright() as p:
  page.goto((root/'index.html').as_uri());page.locator('.shop-entry-tile').click()
  assert page.locator('#shop-page').is_visible()
  assert page.locator('#shop-page').evaluate('(e)=>getComputedStyle(e).position')=='fixed'
- page.locator('[data-shop-category="pokemon"]').click();assert page.locator('#shop-category-title').inner_text()=='포켓몬 용품'
- page.locator('.shop-search input').fill('<script>');assert page.locator('.shop-empty h3').inner_text()=='검색된 상품이 없습니다'
+ page.locator('[data-shop-category="minerals"]').click();assert page.locator('#shop-category-title').inner_text()=='광물'
+ page.locator('.shop-search input').fill('<script>');assert page.locator('.shop-search input').input_value()=='<script>'
  page.locator('.shop-search input').fill('')
- page.locator('[data-shop-category="all"]').click()
+ page.locator('[data-shop-category="building"]').click()
  for theme in ['dark','light']:
   page.evaluate('(t)=>document.documentElement.dataset.theme=t',theme)
-  page.screenshot(path=str(root/f'verification/shop-foundation-{theme}.png'))
+  page.screenshot(path=str(root/f'verification/shop-navigation-current-{theme}.png'))
  for width,height in [(1920,1080),(1280,720),(854,480),(640,360)]:
   page.set_viewport_size({'width':width,'height':height});assert page.locator('#shop-page').evaluate('(e)=>e.scrollWidth<=e.clientWidth+1')
  page.set_viewport_size({'width':1440,'height':900});page.locator('#shop-page [data-go="home"]').click();page.locator('[data-go="warehouse"]').click();assert page.locator('#feature-title').inner_text()=='창고'
@@ -30,5 +30,5 @@ with sync_playwright() as p:
  page.locator('[data-estate-refresh]').click();page.wait_for_timeout(150);assert page.locator('[data-estate-image-delete]').count()==0
  assert not errors,errors
  browser.close()
-(root/'verification/shop-foundation-report.json').write_text(json.dumps({'headless_mock_only':True,'game_tested':False,'shop_fullscreen':True,'categories_and_search':True,'themes':2,'viewport_sizes':4,'warehouse_route':True,'image_delete_cancel_and_confirm':True,'non_lord_hidden':True,'errors':errors},indent=2),encoding='utf-8')
+(root/'verification/shop-navigation-image-regression-report.json').write_text(json.dumps({'headless_mock_only':True,'game_tested':False,'shop_fullscreen':True,'nine_category_navigation_and_search_input':True,'themes':2,'viewport_sizes':4,'warehouse_route':True,'image_delete_cancel_and_confirm':True,'non_lord_hidden':True,'errors':errors},indent=2),encoding='utf-8')
 print('Shop foundation and image removal mock checks passed')

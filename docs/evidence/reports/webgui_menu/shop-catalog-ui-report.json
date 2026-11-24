@@ -1,0 +1,16 @@
+{
+  "headless_mock_only": true,
+  "game_tested": false,
+  "nine_categories": true,
+  "pokemon_categories_empty": true,
+  "buy_and_sell": true,
+  "separate_prices": true,
+  "quantity_validation": true,
+  "korean_search_focus": true,
+  "stale_price_rejected": true,
+  "insufficient_balance_rejected": true,
+  "no_client_prices": true,
+  "viewport_sizes": 4,
+  "unmount_cancels_poll": true,
+  "errors": []
+}

@@ -1,0 +1,6928 @@
+{
+  "registry_bootstrap_only": true,
+  "game_tested": false,
+  "count": 769,
+  "items": [
+    {
+      "id": "minecraft:acacia_button",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "아카시아나무 버튼",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:acacia_door",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "아카시아나무 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:acacia_fence",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "아카시아나무 울타리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:acacia_fence_gate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "아카시아나무 울타리 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:acacia_hanging_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "아카시아나무 매다는 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:acacia_leaves",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "아카시아나무 잎",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:acacia_log",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "아카시아나무 원목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:acacia_planks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "아카시아나무 판자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:acacia_pressure_plate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "아카시아나무 압력판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:acacia_sapling",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "아카시아나무 묘목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:acacia_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "아카시아나무 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:acacia_trapdoor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "아카시아나무 다락문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:acacia_wood",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "아카시아나무",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:activator_rail",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "활성화 레일",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:allium",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "알리움",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:amethyst_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "자수정 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:amethyst_cluster",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "자수정 군집",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:amethyst_shard",
+      "category": "minerals",
+      "buy": true,
+      "sell": true,
+      "name": "자수정 조각",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:ancient_debris",
+      "category": "minerals",
+      "buy": true,
+      "sell": true,
+      "name": "고대 잔해",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:andesite",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "안산암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:andesite_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "안산암 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:anvil",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "모루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:azalea",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "진달래",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:azalea_leaves",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "진달래 잎",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:azure_bluet",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "선애기별꽃",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:bamboo",
+      "category": "crops",
+      "buy": true,
+      "sell": true,
+      "name": "대나무",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:bamboo_button",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "대나무 버튼",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:bamboo_door",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "대나무 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:bamboo_fence",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "대나무 울타리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:bamboo_fence_gate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "대나무 울타리 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:bamboo_hanging_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "대나무 매다는 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:bamboo_mosaic",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "대나무 모자이크",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:bamboo_planks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "대나무 판자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:bamboo_pressure_plate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "대나무 압력판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:bamboo_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "대나무 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:bamboo_trapdoor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "대나무 다락문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:barrel",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "통",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:basalt",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "현무암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:beacon",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "신호기",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:bee_nest",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "벌집",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:beehive",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "벌통",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:beetroot",
+      "category": "crops",
+      "buy": false,
+      "sell": true,
+      "name": "비트",
+      "buyPrice": 0,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:beetroot_seeds",
+      "category": "crops",
+      "buy": true,
+      "sell": true,
+      "name": "비트 씨앗",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:bell",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "종",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:big_dripleaf",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "큰 흘림잎",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:birch_button",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "자작나무 버튼",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:birch_door",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "자작나무 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:birch_fence",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "자작나무 울타리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:birch_fence_gate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "자작나무 울타리 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:birch_hanging_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "자작나무 매다는 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:birch_leaves",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "자작나무 잎",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:birch_log",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "자작나무 원목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:birch_planks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "자작나무 판자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:birch_pressure_plate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "자작나무 압력판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:birch_sapling",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "자작나무 묘목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:birch_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "자작나무 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:birch_trapdoor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "자작나무 다락문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:birch_wood",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "자작나무",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:black_banner",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "검은색 현수막",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:black_bed",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "검은색 침대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:black_candle",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "검은색 초",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:black_carpet",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "검은색 양탄자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:black_concrete",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "검은색 콘크리트",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:black_concrete_powder",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "검은색 콘크리트 가루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:black_glazed_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "검은색 유광 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:black_shulker_box",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "검은색 셜커 상자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:black_stained_glass",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "검은색 색유리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:black_stained_glass_pane",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "검은색 색유리 판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:black_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "검은색 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:black_wool",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "검은색 양털",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:blackstone",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "흑암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:blackstone_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "흑암 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:blast_furnace",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "용광로",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:blue_banner",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "파란색 현수막",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:blue_bed",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "파란색 침대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:blue_candle",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "파란색 초",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:blue_carpet",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "파란색 양탄자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:blue_concrete",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "파란색 콘크리트",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:blue_concrete_powder",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "파란색 콘크리트 가루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:blue_glazed_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "파란색 유광 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:blue_ice",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "푸른얼음",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:blue_orchid",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "파란색 난초",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:blue_shulker_box",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "파란색 셜커 상자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:blue_stained_glass",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "파란색 색유리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:blue_stained_glass_pane",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "파란색 색유리 판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:blue_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "파란색 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:blue_wool",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "파란색 양털",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:bone_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "뼈 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:bookshelf",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "책장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:brain_coral",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "뇌 산호",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:brain_coral_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "뇌 산호 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:brain_coral_fan",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "부채형 뇌 산호",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:brewing_stand",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "양조기",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:brick_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "벽돌 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:bricks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "벽돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:brown_banner",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "갈색 현수막",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:brown_bed",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "갈색 침대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:brown_candle",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "갈색 초",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:brown_carpet",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "갈색 양탄자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:brown_concrete",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "갈색 콘크리트",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:brown_concrete_powder",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "갈색 콘크리트 가루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:brown_glazed_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "갈색 유광 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:brown_mushroom",
+      "category": "crops",
+      "buy": true,
+      "sell": true,
+      "name": "갈색 버섯",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:brown_mushroom_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "갈색 버섯 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:brown_shulker_box",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "갈색 셜커 상자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:brown_stained_glass",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "갈색 색유리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:brown_stained_glass_pane",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "갈색 색유리 판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:brown_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "갈색 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:brown_wool",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "갈색 양털",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:bubble_coral",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "거품 산호",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:bubble_coral_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "거품 산호 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:bubble_coral_fan",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "부채형 거품 산호",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cactus",
+      "category": "crops",
+      "buy": true,
+      "sell": true,
+      "name": "선인장",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:cake",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "케이크",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:calcite",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "방해석",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:calibrated_sculk_sensor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "조율한 스컬크 감지체",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:campfire",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "모닥불",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:candle",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "초",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:carrot",
+      "category": "crops",
+      "buy": true,
+      "sell": true,
+      "name": "당근",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:cartography_table",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "지도 제작대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:carved_pumpkin",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "조각된 호박",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cauldron",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "가마솥",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:chain",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "사슬",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cherry_button",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "벚나무 버튼",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cherry_door",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "벚나무 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cherry_fence",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "벚나무 울타리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cherry_fence_gate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "벚나무 울타리 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cherry_hanging_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "벚나무 매다는 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cherry_leaves",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "벚나무 잎",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cherry_log",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "벚나무 원목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cherry_planks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "벚나무 판자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cherry_pressure_plate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "벚나무 압력판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cherry_sapling",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "벚나무 묘목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cherry_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "벚나무 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cherry_trapdoor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "벚나무 다락문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cherry_wood",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "벚나무",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:chest",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "상자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:chipped_anvil",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "금 간 모루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:chiseled_bookshelf",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "조각된 책장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:chiseled_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "조각된 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:chiseled_deepslate",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "조각된 심층암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:chiseled_nether_bricks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "조각된 네더 벽돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:chiseled_polished_blackstone",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "조각된 윤나는 흑암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:chiseled_quartz_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "조각된 석영 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:chiseled_red_sandstone",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "조각된 붉은 사암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:chiseled_sandstone",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "조각된 사암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:chiseled_stone_bricks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "조각된 석재 벽돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:chiseled_tuff",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "조각된 응회암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:chiseled_tuff_bricks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "조각된 응회암 벽돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:chorus_flower",
+      "category": "crops",
+      "buy": true,
+      "sell": true,
+      "name": "후렴화",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:chorus_fruit",
+      "category": "crops",
+      "buy": false,
+      "sell": true,
+      "name": "후렴과",
+      "buyPrice": 0,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:chorus_plant",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "후렴초",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:clay",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "점토",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:coal",
+      "category": "minerals",
+      "buy": true,
+      "sell": true,
+      "name": "석탄",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:coarse_dirt",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "거친 흙",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cobbled_deepslate",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "심층암 조약돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cobbled_deepslate_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "심층암 조약돌 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cobblestone",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "조약돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cobblestone_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "조약돌 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cobweb",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "거미줄",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cocoa_beans",
+      "category": "crops",
+      "buy": true,
+      "sell": true,
+      "name": "코코아 콩",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:comparator",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "레드스톤 비교기",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:composter",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "퇴비통",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:conduit",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "전달체",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:copper_bulb",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "구리 전구",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:copper_door",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "구리 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:copper_grate",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "구리 격자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:copper_trapdoor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "구리 다락문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cornflower",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "수레국화",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cracked_deepslate_bricks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "금 간 심층암 벽돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cracked_deepslate_tiles",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "금 간 심층암 타일",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cracked_nether_bricks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "금 간 네더 벽돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cracked_polished_blackstone_bricks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "금 간 윤나는 흑암 벽돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cracked_stone_bricks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "금 간 석재 벽돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:crafter",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "제작기",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:crafting_table",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "제작대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:creeper_head",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "크리퍼 머리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:crimson_button",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "진홍빛 버튼",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:crimson_door",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "진홍빛 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:crimson_fence",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "진홍빛 울타리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:crimson_fence_gate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "진홍빛 울타리 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:crimson_fungus",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "진홍빛 균",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:crimson_hanging_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "진홍빛 매다는 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:crimson_hyphae",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "진홍빛 균사",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:crimson_nylium",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "진홍빛 네사체",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:crimson_planks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "진홍빛 판자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:crimson_pressure_plate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "진홍빛 압력판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:crimson_roots",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "진홍빛 뿌리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:crimson_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "진홍빛 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:crimson_stem",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "진홍빛 자루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:crimson_trapdoor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "진홍빛 다락문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:crying_obsidian",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "우는 흑요석",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cut_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "깎인 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cut_red_sandstone",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "깎인 붉은 사암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cut_sandstone",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "깎인 사암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cyan_banner",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "청록색 현수막",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cyan_bed",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "청록색 침대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cyan_candle",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "청록색 초",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cyan_carpet",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "청록색 양탄자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cyan_concrete",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "청록색 콘크리트",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cyan_concrete_powder",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "청록색 콘크리트 가루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cyan_glazed_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "청록색 유광 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cyan_shulker_box",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "청록색 셜커 상자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cyan_stained_glass",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "청록색 색유리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cyan_stained_glass_pane",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "청록색 색유리 판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cyan_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "청록색 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:cyan_wool",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "청록색 양털",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:damaged_anvil",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "손상된 모루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dandelion",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "민들레",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dark_oak_button",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "짙은 참나무 버튼",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dark_oak_door",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "짙은 참나무 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dark_oak_fence",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "짙은 참나무 울타리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dark_oak_fence_gate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "짙은 참나무 울타리 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dark_oak_hanging_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "짙은 참나무 매다는 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dark_oak_leaves",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "짙은 참나무 잎",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dark_oak_log",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "짙은 참나무 원목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dark_oak_planks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "짙은 참나무 판자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dark_oak_pressure_plate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "짙은 참나무 압력판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dark_oak_sapling",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "짙은 참나무 묘목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dark_oak_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "짙은 참나무 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dark_oak_trapdoor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "짙은 참나무 다락문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dark_oak_wood",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "짙은 참나무",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dark_prismarine",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "짙은 프리즈머린",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:daylight_detector",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "햇빛 감지기",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dead_brain_coral",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "죽은 뇌 산호",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dead_brain_coral_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "죽은 뇌 산호 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dead_brain_coral_fan",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "죽은 부채형 뇌 산호",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dead_bubble_coral",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "죽은 거품 산호",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dead_bubble_coral_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "죽은 거품 산호 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dead_bubble_coral_fan",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "죽은 부채형 거품 산호",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dead_bush",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "마른 덤불",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dead_fire_coral",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "죽은 불 산호",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dead_fire_coral_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "죽은 불 산호 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dead_fire_coral_fan",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "죽은 부채형 불 산호",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dead_horn_coral",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "죽은 사방산호",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dead_horn_coral_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "죽은 사방산호 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dead_horn_coral_fan",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "죽은 부채형 사방산호",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dead_tube_coral",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "죽은 관 산호",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dead_tube_coral_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "죽은 관 산호 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dead_tube_coral_fan",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "죽은 부채형 관 산호",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:decorated_pot",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "장식된 도자기",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:deepslate",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "심층암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:deepslate_brick_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "심층암 벽돌 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:deepslate_bricks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "심층암 벽돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:deepslate_tile_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "심층암 타일 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:deepslate_tiles",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "심층암 타일",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:detector_rail",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "감지 레일",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:diamond",
+      "category": "minerals",
+      "buy": true,
+      "sell": true,
+      "name": "다이아몬드",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:diorite",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "섬록암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:diorite_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "섬록암 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dirt",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "흙",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dirt_path",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "흙 길",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dispenser",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "발사기",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dragon_egg",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "드래곤 알",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dragon_head",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "드래곤 머리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dried_kelp_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "말린 켈프 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dripstone_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "점적석 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:dropper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "공급기",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:emerald",
+      "category": "minerals",
+      "buy": true,
+      "sell": true,
+      "name": "에메랄드",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:enchanting_table",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "마법 부여대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:end_portal_frame",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "엔드 차원문 틀",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:end_rod",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "엔드 막대기",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:end_stone",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "엔드 돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:end_stone_brick_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "엔드 석재 벽돌 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:end_stone_bricks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "엔드 석재 벽돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:ender_chest",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "엔더 상자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:exposed_chiseled_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "약간 녹슨 조각된 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:exposed_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "약간 녹슨 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:exposed_copper_bulb",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "약간 녹슨 구리 전구",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:exposed_copper_door",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "약간 녹슨 구리 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:exposed_copper_grate",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "약간 녹슨 구리 격자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:exposed_copper_trapdoor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "약간 녹슨 구리 다락문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:exposed_cut_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "약간 녹슨 깎인 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:farmland",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "경작지",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:fern",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "고사리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:fire_coral",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "불 산호",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:fire_coral_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "불 산호 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:fire_coral_fan",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "부채형 불 산호",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:fletching_table",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "화살 작업대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:flint",
+      "category": "minerals",
+      "buy": true,
+      "sell": true,
+      "name": "부싯돌",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:flower_pot",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "화분",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:flowering_azalea",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "꽃 핀 진달래",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:flowering_azalea_leaves",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "꽃 핀 진달래 잎",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:frogspawn",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "개구리알",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:furnace",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "화로",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:gilded_blackstone",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "황금이 박힌 흑암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:glass",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "유리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:glass_pane",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "유리판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:glow_berries",
+      "category": "crops",
+      "buy": true,
+      "sell": true,
+      "name": "발광 열매",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:glow_lichen",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "발광 이끼",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:glowstone_dust",
+      "category": "minerals",
+      "buy": true,
+      "sell": true,
+      "name": "발광석 가루",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:granite",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "화강암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:granite_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "화강암 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:grass_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "잔디 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:gravel",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "자갈",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:gray_banner",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회색 현수막",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:gray_bed",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회색 침대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:gray_candle",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회색 초",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:gray_carpet",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회색 양탄자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:gray_concrete",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회색 콘크리트",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:gray_concrete_powder",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회색 콘크리트 가루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:gray_glazed_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회색 유광 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:gray_shulker_box",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회색 셜커 상자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:gray_stained_glass",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회색 색유리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:gray_stained_glass_pane",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회색 색유리 판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:gray_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회색 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:gray_wool",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회색 양털",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:green_banner",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "초록색 현수막",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:green_bed",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "초록색 침대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:green_candle",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "초록색 초",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:green_carpet",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "초록색 양탄자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:green_concrete",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "초록색 콘크리트",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:green_concrete_powder",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "초록색 콘크리트 가루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:green_glazed_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "초록색 유광 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:green_shulker_box",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "초록색 셜커 상자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:green_stained_glass",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "초록색 색유리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:green_stained_glass_pane",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "초록색 색유리 판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:green_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "초록색 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:green_wool",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "초록색 양털",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:grindstone",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "숫돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:hanging_roots",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "매달린 뿌리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:heavy_core",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "무거운 코어",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:heavy_weighted_pressure_plate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "중형 무게 압력판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:honey_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "꿀 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:honeycomb_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "벌집 조각 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:hopper",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "호퍼",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:horn_coral",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "사방산호",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:horn_coral_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "사방산호 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:horn_coral_fan",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "부채형 사방산호",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:ice",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "얼음",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:iron_bars",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "철 창살",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:iron_door",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "철 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:iron_trapdoor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "철 다락문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:jack_o_lantern",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "잭오랜턴",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:jukebox",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "주크박스",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:jungle_button",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "정글나무 버튼",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:jungle_door",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "정글나무 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:jungle_fence",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "정글나무 울타리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:jungle_fence_gate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "정글나무 울타리 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:jungle_hanging_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "정글나무 매다는 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:jungle_leaves",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "정글나무 잎",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:jungle_log",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "정글나무 원목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:jungle_planks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "정글나무 판자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:jungle_pressure_plate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "정글나무 압력판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:jungle_sapling",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "정글나무 묘목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:jungle_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "정글나무 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:jungle_trapdoor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "정글나무 다락문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:jungle_wood",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "정글나무",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:kelp",
+      "category": "crops",
+      "buy": true,
+      "sell": true,
+      "name": "켈프",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:ladder",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "사다리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:lantern",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "랜턴",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:lapis_lazuli",
+      "category": "minerals",
+      "buy": true,
+      "sell": true,
+      "name": "청금석",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:large_amethyst_bud",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "큰 자수정 봉오리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:large_fern",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "큰 고사리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:lectern",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "독서대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:lever",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "레버",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_blue_banner",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하늘색 현수막",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_blue_bed",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하늘색 침대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_blue_candle",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하늘색 초",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_blue_carpet",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하늘색 양탄자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_blue_concrete",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하늘색 콘크리트",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_blue_concrete_powder",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하늘색 콘크리트 가루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_blue_glazed_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하늘색 유광 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_blue_shulker_box",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하늘색 셜커 상자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_blue_stained_glass",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하늘색 색유리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_blue_stained_glass_pane",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하늘색 색유리 판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_blue_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하늘색 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_blue_wool",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하늘색 양털",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_gray_banner",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회백색 현수막",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_gray_bed",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회백색 침대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_gray_candle",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회백색 초",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_gray_carpet",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회백색 양탄자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_gray_concrete",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회백색 콘크리트",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_gray_concrete_powder",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회백색 콘크리트 가루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_gray_glazed_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회백색 유광 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_gray_shulker_box",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회백색 셜커 상자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_gray_stained_glass",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회백색 색유리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_gray_stained_glass_pane",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회백색 색유리 판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_gray_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회백색 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_gray_wool",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "회백색 양털",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:light_weighted_pressure_plate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "경형 무게 압력판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:lightning_rod",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "피뢰침",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:lilac",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "라일락",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:lily_of_the_valley",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "은방울꽃",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:lily_pad",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "수련잎",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:lime_banner",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "연두색 현수막",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:lime_bed",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "연두색 침대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:lime_candle",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "연두색 초",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:lime_carpet",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "연두색 양탄자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:lime_concrete",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "연두색 콘크리트",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:lime_concrete_powder",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "연두색 콘크리트 가루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:lime_glazed_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "연두색 유광 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:lime_shulker_box",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "연두색 셜커 상자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:lime_stained_glass",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "연두색 색유리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:lime_stained_glass_pane",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "연두색 색유리 판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:lime_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "연두색 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:lime_wool",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "연두색 양털",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:lodestone",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "자석석",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:loom",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "베틀",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:magenta_banner",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "자홍색 현수막",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:magenta_bed",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "자홍색 침대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:magenta_candle",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "자홍색 초",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:magenta_carpet",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "자홍색 양탄자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:magenta_concrete",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "자홍색 콘크리트",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:magenta_concrete_powder",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "자홍색 콘크리트 가루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:magenta_glazed_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "자홍색 유광 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:magenta_shulker_box",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "자홍색 셜커 상자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:magenta_stained_glass",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "자홍색 색유리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:magenta_stained_glass_pane",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "자홍색 색유리 판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:magenta_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "자홍색 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:magenta_wool",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "자홍색 양털",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:magma_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "마그마 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mangrove_button",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "맹그로브나무 버튼",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mangrove_door",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "맹그로브나무 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mangrove_fence",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "맹그로브나무 울타리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mangrove_fence_gate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "맹그로브나무 울타리 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mangrove_hanging_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "맹그로브나무 매다는 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mangrove_leaves",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "맹그로브나무 잎",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mangrove_log",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "맹그로브나무 원목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mangrove_planks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "맹그로브나무 판자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mangrove_pressure_plate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "맹그로브나무 압력판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mangrove_propagule",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "맹그로브나무 주아",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mangrove_roots",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "맹그로브나무 뿌리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mangrove_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "맹그로브나무 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mangrove_trapdoor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "맹그로브나무 다락문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mangrove_wood",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "맹그로브나무",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:medium_amethyst_bud",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "중간 자수정 봉오리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:melon_seeds",
+      "category": "crops",
+      "buy": true,
+      "sell": true,
+      "name": "수박씨",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:melon_slice",
+      "category": "crops",
+      "buy": false,
+      "sell": true,
+      "name": "수박 조각",
+      "buyPrice": 0,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:moss_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "이끼 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:moss_carpet",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "이끼 바닥",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mossy_cobblestone",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "이끼 낀 조약돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mossy_cobblestone_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "이끼 낀 조약돌 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mossy_stone_brick_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "이끼 낀 석재 벽돌 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mossy_stone_bricks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "이끼 낀 석재 벽돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mud",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "진흙",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mud_brick_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "진흙 벽돌 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mud_bricks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "진흙 벽돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:muddy_mangrove_roots",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "진흙에 묻힌 맹그로브나무 뿌리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mushroom_stem",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "버섯 자루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:mycelium",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "균사체",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:nether_brick_fence",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "네더 벽돌 울타리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:nether_brick_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "네더 벽돌 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:nether_bricks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "네더 벽돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:nether_sprouts",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "네더 싹",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:nether_wart",
+      "category": "crops",
+      "buy": true,
+      "sell": true,
+      "name": "네더 사마귀",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:netherrack",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "네더랙",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:note_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "소리 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:oak_button",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "참나무 버튼",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:oak_door",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "참나무 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:oak_fence",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "참나무 울타리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:oak_fence_gate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "참나무 울타리 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:oak_hanging_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "참나무 매다는 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:oak_leaves",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "참나무 잎",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:oak_log",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "참나무 원목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:oak_planks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "참나무 판자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:oak_pressure_plate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "참나무 압력판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:oak_sapling",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "참나무 묘목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:oak_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "참나무 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:oak_trapdoor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "참나무 다락문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:oak_wood",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "참나무",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:observer",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "관측기",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:obsidian",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "흑요석",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:ochre_froglight",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "황톳빛 개구리불",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:orange_banner",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "주황색 현수막",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:orange_bed",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "주황색 침대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:orange_candle",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "주황색 초",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:orange_carpet",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "주황색 양탄자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:orange_concrete",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "주황색 콘크리트",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:orange_concrete_powder",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "주황색 콘크리트 가루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:orange_glazed_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "주황색 유광 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:orange_shulker_box",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "주황색 셜커 상자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:orange_stained_glass",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "주황색 색유리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:orange_stained_glass_pane",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "주황색 색유리 판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:orange_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "주황색 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:orange_tulip",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "주황색 튤립",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:orange_wool",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "주황색 양털",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:oxeye_daisy",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "데이지",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:oxidized_chiseled_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "산화된 조각된 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:oxidized_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "산화된 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:oxidized_copper_bulb",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "산화된 구리 전구",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:oxidized_copper_door",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "산화된 구리 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:oxidized_copper_grate",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "산화된 구리 격자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:oxidized_copper_trapdoor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "산화된 구리 다락문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:oxidized_cut_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "산화된 깎인 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:packed_ice",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "꽁꽁 언 얼음",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:packed_mud",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "단단한 진흙",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:pearlescent_froglight",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "진줏빛 개구리불",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:peony",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "모란",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:piglin_head",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "피글린 머리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:pink_banner",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "분홍색 현수막",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:pink_bed",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "분홍색 침대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:pink_candle",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "분홍색 초",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:pink_carpet",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "분홍색 양탄자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:pink_concrete",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "분홍색 콘크리트",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:pink_concrete_powder",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "분홍색 콘크리트 가루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:pink_glazed_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "분홍색 유광 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:pink_petals",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "분홍 꽃잎",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:pink_shulker_box",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "분홍색 셜커 상자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:pink_stained_glass",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "분홍색 색유리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:pink_stained_glass_pane",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "분홍색 색유리 판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:pink_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "분홍색 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:pink_tulip",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "분홍색 튤립",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:pink_wool",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "분홍색 양털",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:piston",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "피스톤",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:pitcher_plant",
+      "category": "decoration",
+      "buy": true,
+      "sell": true,
+      "name": "벌레잡이풀",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:pitcher_pod",
+      "category": "crops",
+      "buy": true,
+      "sell": true,
+      "name": "벌레잡이풀 꼬투리",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:player_head",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "플레이어 머리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:podzol",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "회백토",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:pointed_dripstone",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "뾰족한 점적석",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:poisonous_potato",
+      "category": "crops",
+      "buy": false,
+      "sell": true,
+      "name": "독이 있는 감자",
+      "buyPrice": 0,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:polished_andesite",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "윤나는 안산암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:polished_basalt",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "윤나는 현무암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:polished_blackstone",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "윤나는 흑암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:polished_blackstone_brick_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "윤나는 흑암 벽돌 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:polished_blackstone_bricks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "윤나는 흑암 벽돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:polished_blackstone_button",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "윤나는 흑암 버튼",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:polished_blackstone_pressure_plate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "윤나는 흑암 압력판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:polished_blackstone_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "윤나는 흑암 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:polished_deepslate",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "윤나는 심층암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:polished_deepslate_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "윤나는 심층암 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:polished_diorite",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "윤나는 섬록암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:polished_granite",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "윤나는 화강암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:polished_tuff",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "윤나는 응회암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:polished_tuff_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "윤나는 응회암 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:poppy",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "양귀비",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:potato",
+      "category": "crops",
+      "buy": true,
+      "sell": true,
+      "name": "감자",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:powder_snow_bucket",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "가루눈 양동이",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:powered_rail",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "동력 레일",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:prismarine",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "프리즈머린",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:prismarine_bricks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "프리즈머린 벽돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:prismarine_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "프리즈머린 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:pumpkin",
+      "category": "crops",
+      "buy": false,
+      "sell": true,
+      "name": "호박",
+      "buyPrice": 0,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:pumpkin_seeds",
+      "category": "crops",
+      "buy": true,
+      "sell": true,
+      "name": "호박씨",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:purple_banner",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "보라색 현수막",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:purple_bed",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "보라색 침대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:purple_candle",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "보라색 초",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:purple_carpet",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "보라색 양탄자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:purple_concrete",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "보라색 콘크리트",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:purple_concrete_powder",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "보라색 콘크리트 가루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:purple_glazed_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "보라색 유광 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:purple_shulker_box",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "보라색 셜커 상자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:purple_stained_glass",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "보라색 색유리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:purple_stained_glass_pane",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "보라색 색유리 판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:purple_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "보라색 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:purple_wool",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "보라색 양털",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:purpur_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "퍼퍼 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:purpur_pillar",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "퍼퍼 기둥",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:quartz",
+      "category": "minerals",
+      "buy": true,
+      "sell": true,
+      "name": "네더 석영",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:quartz_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "석영 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:quartz_bricks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "석영 벽돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:quartz_pillar",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "석영 기둥",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:rail",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "레일",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:raw_copper",
+      "category": "minerals",
+      "buy": true,
+      "sell": true,
+      "name": "구리 원석",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:raw_gold",
+      "category": "minerals",
+      "buy": true,
+      "sell": true,
+      "name": "금 원석",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:raw_iron",
+      "category": "minerals",
+      "buy": true,
+      "sell": true,
+      "name": "철 원석",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:red_banner",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "빨간색 현수막",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:red_bed",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "빨간색 침대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:red_candle",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "빨간색 초",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:red_carpet",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "빨간색 양탄자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:red_concrete",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "빨간색 콘크리트",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:red_concrete_powder",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "빨간색 콘크리트 가루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:red_glazed_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "빨간색 유광 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:red_mushroom",
+      "category": "crops",
+      "buy": true,
+      "sell": true,
+      "name": "빨간색 버섯",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:red_mushroom_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "빨간색 버섯 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:red_nether_brick_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "붉은 네더 벽돌 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:red_nether_bricks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "붉은 네더 벽돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:red_sand",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "붉은 모래",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:red_sandstone",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "붉은 사암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:red_sandstone_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "붉은 사암 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:red_shulker_box",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "빨간색 셜커 상자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:red_stained_glass",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "빨간색 색유리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:red_stained_glass_pane",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "빨간색 색유리 판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:red_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "빨간색 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:red_tulip",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "빨간색 튤립",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:red_wool",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "빨간색 양털",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:redstone",
+      "category": "minerals",
+      "buy": true,
+      "sell": true,
+      "name": "레드스톤 가루",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:redstone_lamp",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "레드스톤 조명",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:redstone_torch",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "레드스톤 횃불",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:repeater",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "레드스톤 중계기",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:respawn_anchor",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "리스폰 정박기",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:rooted_dirt",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "뿌리내린 흙",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:rose_bush",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "장미 덤불",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:sand",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "모래",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:sandstone",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "사암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:sandstone_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "사암 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:scaffolding",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "비계",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:sculk",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "스컬크",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:sculk_catalyst",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "스컬크 촉매",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:sculk_sensor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "스컬크 감지체",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:sculk_shrieker",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "스컬크 비명체",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:sculk_vein",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "스컬크 정맥",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:sea_lantern",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "바다 랜턴",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:sea_pickle",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "불우렁쉥이",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:seagrass",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "해초",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:short_grass",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "키 작은 잔디",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:shroomlight",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "버섯불",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:shulker_box",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "셜커 상자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:skeleton_skull",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "스켈레톤 해골",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:slime_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "슬라임 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:small_amethyst_bud",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "작은 자수정 봉오리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:small_dripleaf",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "작은 흘림잎",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:smithing_table",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "대장장이 작업대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:smoker",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "훈연기",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:smooth_basalt",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "매끄러운 현무암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:smooth_quartz",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "매끄러운 석영 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:smooth_red_sandstone",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "매끄러운 붉은 사암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:smooth_sandstone",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "매끄러운 사암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:smooth_stone",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "매끄러운 돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:sniffer_egg",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "스니퍼 알",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:snow",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "눈",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:snow_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "눈 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:soul_campfire",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "영혼 모닥불",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:soul_lantern",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "영혼 랜턴",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:soul_sand",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "영혼 모래",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:soul_soil",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "영혼 흙",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:soul_torch",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "영혼 횃불",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:sponge",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "스펀지",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:spore_blossom",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "포자 꽃",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:spruce_button",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "가문비나무 버튼",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:spruce_door",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "가문비나무 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:spruce_fence",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "가문비나무 울타리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:spruce_fence_gate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "가문비나무 울타리 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:spruce_hanging_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "가문비나무 매다는 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:spruce_leaves",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "가문비나무 잎",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:spruce_log",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "가문비나무 원목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:spruce_planks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "가문비나무 판자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:spruce_pressure_plate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "가문비나무 압력판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:spruce_sapling",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "가문비나무 묘목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:spruce_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "가문비나무 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:spruce_trapdoor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "가문비나무 다락문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:spruce_wood",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "가문비나무",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:sticky_piston",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "끈끈이 피스톤",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stone",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stone_brick_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "석재 벽돌 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stone_bricks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "석재 벽돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stone_button",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "돌 버튼",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stone_pressure_plate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "돌 압력판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stonecutter",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "석재 절단기",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:string",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "실",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stripped_acacia_log",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "껍질 벗긴 아카시아나무 원목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stripped_acacia_wood",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "껍질 벗긴 아카시아나무",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stripped_bamboo_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "껍질 벗긴 대나무 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stripped_birch_log",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "껍질 벗긴 자작나무 원목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stripped_birch_wood",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "껍질 벗긴 자작나무",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stripped_cherry_log",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "껍질 벗긴 벚나무 원목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stripped_cherry_wood",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "껍질 벗긴 벚나무",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stripped_crimson_hyphae",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "껍질 벗긴 진홍빛 균사",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stripped_crimson_stem",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "껍질 벗긴 진홍빛 자루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stripped_dark_oak_log",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "껍질 벗긴 짙은 참나무 원목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stripped_dark_oak_wood",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "껍질 벗긴 짙은 참나무",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stripped_jungle_log",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "껍질 벗긴 정글나무 원목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stripped_jungle_wood",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "껍질 벗긴 정글나무",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stripped_mangrove_log",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "껍질 벗긴 맹그로브나무 원목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stripped_mangrove_wood",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "껍질 벗긴 맹그로브나무",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stripped_oak_log",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "껍질 벗긴 참나무 원목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stripped_oak_wood",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "껍질 벗긴 참나무",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stripped_spruce_log",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "껍질 벗긴 가문비나무 원목",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stripped_spruce_wood",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "껍질 벗긴 가문비나무",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stripped_warped_hyphae",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "껍질 벗긴 뒤틀린 균사",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:stripped_warped_stem",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "껍질 벗긴 뒤틀린 자루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:sugar_cane",
+      "category": "crops",
+      "buy": true,
+      "sell": true,
+      "name": "사탕수수",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:sunflower",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "해바라기",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:suspicious_gravel",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "수상한 자갈",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:suspicious_sand",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "수상한 모래",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:sweet_berries",
+      "category": "crops",
+      "buy": true,
+      "sell": true,
+      "name": "달콤한 열매",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:tall_grass",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "키 큰 잔디",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:target",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "과녁",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:tinted_glass",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "차광 유리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:tnt",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "TNT",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:torch",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "횃불",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:torchflower",
+      "category": "decoration",
+      "buy": true,
+      "sell": true,
+      "name": "횃불꽃",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:torchflower_seeds",
+      "category": "crops",
+      "buy": true,
+      "sell": true,
+      "name": "횃불꽃 씨앗",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:trapped_chest",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "덫 상자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:tripwire_hook",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "철사 덫 갈고리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:tube_coral",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "관 산호",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:tube_coral_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "관 산호 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:tube_coral_fan",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "부채형 관 산호",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:tuff",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "응회암",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:tuff_brick_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "응회암 벽돌 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:tuff_bricks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "응회암 벽돌",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:tuff_wall",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "응회암 담장",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:turtle_egg",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "거북알",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:twisting_vines",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "휘어진 덩굴",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:verdant_froglight",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "잔딧빛 개구리불",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:vine",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "덩굴",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:warped_button",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "뒤틀린 버튼",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:warped_door",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "뒤틀린 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:warped_fence",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "뒤틀린 울타리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:warped_fence_gate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "뒤틀린 울타리 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:warped_fungus",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "뒤틀린 균",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:warped_hanging_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "뒤틀린 매다는 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:warped_hyphae",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "뒤틀린 균사",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:warped_nylium",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "뒤틀린 네사체",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:warped_planks",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "뒤틀린 판자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:warped_pressure_plate",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "뒤틀린 압력판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:warped_roots",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "뒤틀린 뿌리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:warped_sign",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "뒤틀린 표지판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:warped_stem",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "뒤틀린 자루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:warped_trapdoor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "뒤틀린 다락문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:warped_wart_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "뒤틀린 사마귀 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_chiseled_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 조각된 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_copper_block",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 구리 블록",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_copper_bulb",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 구리 전구",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_copper_door",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 구리 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_copper_grate",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 구리 격자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_copper_trapdoor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 구리 다락문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_cut_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 깎인 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_exposed_chiseled_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 약간 녹슨 조각된 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_exposed_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 약간 녹슨 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_exposed_copper_bulb",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 약간 녹슨 구리 전구",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_exposed_copper_door",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 약간 녹슨 구리 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_exposed_copper_grate",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 약간 녹슨 구리 격자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_exposed_copper_trapdoor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 약간 녹슨 구리 다락문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_exposed_cut_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 약간 녹슨 깎인 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_oxidized_chiseled_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 산화된 조각된 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_oxidized_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 산화된 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_oxidized_copper_bulb",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 산화된 구리 전구",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_oxidized_copper_door",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 산화된 구리 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_oxidized_copper_grate",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 산화된 구리 격자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_oxidized_copper_trapdoor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 산화된 구리 다락문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_oxidized_cut_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 산화된 깎인 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_weathered_chiseled_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 녹슨 조각된 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_weathered_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 녹슨 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_weathered_copper_bulb",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 녹슨 구리 전구",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_weathered_copper_door",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 녹슨 구리 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_weathered_copper_grate",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 녹슨 구리 격자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_weathered_copper_trapdoor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 녹슨 구리 다락문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:waxed_weathered_cut_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "밀랍칠한 녹슨 깎인 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:weathered_chiseled_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "녹슨 조각된 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:weathered_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "녹슨 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:weathered_copper_bulb",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "녹슨 구리 전구",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:weathered_copper_door",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "녹슨 구리 문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:weathered_copper_grate",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "녹슨 구리 격자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:weathered_copper_trapdoor",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "녹슨 구리 다락문",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:weathered_cut_copper",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "녹슨 깎인 구리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:weeping_vines",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "늘어진 덩굴",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:wet_sponge",
+      "category": "building",
+      "buy": true,
+      "sell": false,
+      "name": "젖은 스펀지",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:wheat",
+      "category": "crops",
+      "buy": false,
+      "sell": true,
+      "name": "밀",
+      "buyPrice": 0,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:wheat_seeds",
+      "category": "crops",
+      "buy": true,
+      "sell": true,
+      "name": "밀 씨앗",
+      "buyPrice": 100,
+      "sellPrice": 50
+    },
+    {
+      "id": "minecraft:white_banner",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하얀색 현수막",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:white_bed",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하얀색 침대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:white_candle",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하얀색 초",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:white_carpet",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하얀색 양탄자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:white_concrete",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하얀색 콘크리트",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:white_concrete_powder",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하얀색 콘크리트 가루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:white_glazed_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하얀색 유광 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:white_shulker_box",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하얀색 셜커 상자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:white_stained_glass",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하얀색 색유리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:white_stained_glass_pane",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하얀색 색유리 판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:white_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하얀색 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:white_tulip",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "하얀색 튤립",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:white_wool",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "하얀색 양털",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:wither_rose",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "위더 장미",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:wither_skeleton_skull",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "위더 스켈레톤 해골",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:yellow_banner",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "노란색 현수막",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:yellow_bed",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "노란색 침대",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:yellow_candle",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "노란색 초",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:yellow_carpet",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "노란색 양탄자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:yellow_concrete",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "노란색 콘크리트",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:yellow_concrete_powder",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "노란색 콘크리트 가루",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:yellow_glazed_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "노란색 유광 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:yellow_shulker_box",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "노란색 셜커 상자",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:yellow_stained_glass",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "노란색 색유리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:yellow_stained_glass_pane",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "노란색 색유리 판",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:yellow_terracotta",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "노란색 테라코타",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:yellow_wool",
+      "category": "colored",
+      "buy": true,
+      "sell": false,
+      "name": "노란색 양털",
+      "buyPrice": 100,
+      "sellPrice": 0
+    },
+    {
+      "id": "minecraft:zombie_head",
+      "category": "decoration",
+      "buy": true,
+      "sell": false,
+      "name": "좀비 머리",
+      "buyPrice": 100,
+      "sellPrice": 0
+    }
+  ]
+}
