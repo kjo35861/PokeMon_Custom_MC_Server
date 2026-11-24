@@ -33,6 +33,12 @@ def candidates():
     for source in sorted((ROOT/'estate_mod/verification/test-results/test').glob('TEST-*.xml')):
         yield source,f'reports/estate_mod/{source.name}','junit-result'
     screenshots={
+        'webgui_menu/verification/shop-continuous-pause-dark-mock.png':'shop-v0.22-pause-dark-mock.png',
+        'webgui_menu/verification/shop-continuous-catalog-buy-dark-mock.png':'shop-v0.22-catalog-buy-dark-mock.png',
+        'webgui_menu/verification/shop-continuous-catalog-sell-dark-mock.png':'shop-v0.22-catalog-sell-dark-mock.png',
+        'webgui_menu/verification/shop-continuous-pause-light-mock.png':'shop-v0.22-pause-light-mock.png',
+        'webgui_menu/verification/shop-continuous-catalog-buy-light-mock.png':'shop-v0.22-catalog-buy-light-mock.png',
+        'webgui_menu/verification/shop-continuous-catalog-sell-light-mock.png':'shop-v0.22-catalog-sell-light-mock.png',
         'webgui_menu/verification/admin-items-dark-mock.png':'admin-v0.21-items-dark-mock.png',
         'webgui_menu/verification/admin-items-light-mock.png':'admin-v0.21-items-light-mock.png',
         'webgui_menu/verification/admin-policy-dark-mock.png':'admin-v0.21-policy-dark-mock.png',

@@ -51,6 +51,17 @@ public final class ShopMod implements ModInitializer {
    if(!Set.of("buy","sell").contains(mode)||!ShopCatalog.CATEGORIES.contains(category)||q.has("query")&&string(q,"query").length()>80)throw new IllegalArgumentException("상점 분류를 확인해주세요.");
    int page=q.has("page")?integer(q,"page"):0;if(page<0||page>1000)throw new IllegalArgumentException();
    long now=System.currentTimeMillis();String message="";
+   if(action.equals("status")){
+    JsonObject out=metadata(player,now);out.addProperty("type","status");out.addProperty("requestId",requestId);WebGuiBridge.emit(player,CHANNEL,out.toString());return;
+   }
+   if(action.equals("quote")){
+    boolean buy=mode.equals("buy");var entry=settings.entries().get(string(q,"item"));
+    if(entry==null||buy&&!entry.buy()||!buy&&!entry.sell())throw new IllegalArgumentException("해당 거래가 가능한 품목이 아닙니다.");
+    if(settings.paused(buy))throw new IllegalArgumentException(maintenanceMessage(buy?"구매가 일시정지되었습니다.":"판매가 일시정지되었습니다."));
+    if(player.isSpectator()||player.currentScreenHandler!=player.playerScreenHandler)throw new IllegalArgumentException("보관함을 닫고 일반 플레이 상태에서 거래해주세요.");
+    Item item=Registries.ITEM.get(Identifier.of(entry.id()));var inventory=slots(player);long balance=wallet.wallet(player.getUuid()),unit=buy?prices.buy(entry.id(),now):prices.sell(entry.id(),now);
+    JsonObject out=metadata(player,now);out.addProperty("type","quote");out.addProperty("requestId",requestId);out.addProperty("item",entry.id());out.addProperty("mode",mode);out.addProperty("unitPrice",unit);out.addProperty("owned",ShopInventory.count(inventory,item));out.addProperty("capacity",ShopInventory.capacity(inventory,item));out.addProperty("maxQuantity",buy?ShopInventory.maxBuy(inventory,item,balance,unit):Math.min(2304,ShopInventory.count(inventory,item)));WebGuiBridge.emit(player,CHANNEL,out.toString());return;
+   }
    if(action.equals("trade")){
     UUID id=player.getUuid();var seen=mutations.computeIfAbsent(id,key->new LinkedHashSet<>());
     if(seen.contains(requestId))throw new IllegalArgumentException("이미 처리한 거래입니다. 목록을 새로고침해주세요.");
@@ -80,8 +91,11 @@ public final class ShopMod implements ModInitializer {
   var list=settings.entries().values().stream().filter(e->buy?e.buy():e.sell()).filter(e->(buy?e.category():e.saleCategory()).equals(category)).filter(e->query.isEmpty()||e.id().contains(query)||ShopCatalog.name(Registries.ITEM.get(Identifier.of(e.id()))).toLowerCase(Locale.ROOT).contains(query)).toList();
   int page=Math.min(requestedPage,Math.max(0,(list.size()-1)/24));JsonArray rows=new JsonArray();
   for(var entry:list.subList(Math.min(page*24,list.size()),Math.min((page+1)*24,list.size()))){
-   Item item=Registries.ITEM.get(Identifier.of(entry.id()));JsonObject row=new JsonObject();row.addProperty("id",entry.id());row.addProperty("name",ShopCatalog.name(item));row.addProperty("buy",entry.buy()?prices.buy(entry.id(),now):0);row.addProperty("sell",entry.sell()?prices.sell(entry.id(),now):0);row.addProperty("owned",ShopInventory.count(slots(player),item));rows.add(row);
+   Item item=Registries.ITEM.get(Identifier.of(entry.id()));JsonObject row=new JsonObject();row.addProperty("id",entry.id());row.addProperty("name",ShopCatalog.name(item));row.addProperty("buy",entry.buy()?prices.buy(entry.id(),now):0);row.addProperty("sell",entry.sell()?prices.sell(entry.id(),now):0);row.addProperty("owned",ShopInventory.count(slots(player),item));row.addProperty("maxBuy",ShopInventory.maxBuy(slots(player),item,EstatesMod.shopWallet(player.getServer()).wallet(player.getUuid()),prices.buy(entry.id(),now)));rows.add(row);
   }
-  JsonObject out=new JsonObject();out.addProperty("balance",EstatesMod.shopWallet(player.getServer()).wallet(player.getUuid()));out.addProperty("mode",mode);out.addProperty("category",category);out.addProperty("page",page);out.addProperty("total",list.size());out.addProperty("pages",Math.max(1,(list.size()+23)/24));out.addProperty("priceVersion",settings.version(now));out.addProperty("nextPriceAt",prices.nextAt(now));out.addProperty("randomPrices",prices.randomEnabled());out.addProperty("buyPaused",settings.paused(true));out.addProperty("sellPaused",settings.paused(false));out.addProperty("maintenanceReason",settings.reason());out.add("items",rows);return out;
+  JsonObject out=metadata(player,now);out.addProperty("mode",mode);out.addProperty("category",category);out.addProperty("page",page);out.addProperty("total",list.size());out.addProperty("pages",Math.max(1,(list.size()+23)/24));out.add("items",rows);return out;
+ }
+ private static JsonObject metadata(ServerPlayerEntity player,long now){
+  JsonObject out=new JsonObject();out.addProperty("balance",EstatesMod.shopWallet(player.getServer()).wallet(player.getUuid()));out.addProperty("priceVersion",settings.version(now));out.addProperty("nextPriceAt",prices.nextAt(now));out.addProperty("randomPrices",prices.randomEnabled());out.addProperty("buyPaused",settings.paused(true));out.addProperty("sellPaused",settings.paused(false));out.addProperty("maintenanceReason",settings.reason());return out;
  }
 }

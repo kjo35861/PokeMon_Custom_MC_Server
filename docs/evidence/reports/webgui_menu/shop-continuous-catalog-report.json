@@ -1,0 +1,11 @@
+{
+  "headless_mock_only": true,
+  "game_tested": false,
+  "actual_registry_catalog_rows": 769,
+  "page_size": 24,
+  "scroll_appends_items": true,
+  "themes": 2,
+  "modes": 2,
+  "sample_inventory_and_balance": true,
+  "game_texture_preview": false
+}

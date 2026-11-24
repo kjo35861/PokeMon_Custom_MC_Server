@@ -1,0 +1,17 @@
+{
+  "headless_mock_only": true,
+  "game_tested": false,
+  "gpu_icons_tested": false,
+  "continuous_75_unique_items": true,
+  "older_batch_icons": true,
+  "max_capacity_and_affordability": true,
+  "max_sell_all": true,
+  "public_pause_notice": true,
+  "zero_capacity_disables_trade": true,
+  "price_change_rejected": true,
+  "late_quote_ignored_after_close": true,
+  "search_resets_list": true,
+  "four_viewports": true,
+  "unmount_stops_poll": true,
+  "errors": []
+}

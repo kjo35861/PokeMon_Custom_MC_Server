@@ -14,12 +14,12 @@ dispatchEvent(new CustomEvent('webgui:pocketmate:shop',{detail:{type:'snapshot',
 '''
 with sync_playwright() as p:
  browser=p.chromium.launch(executable_path=r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe',headless=True);page=browser.new_page(viewport={'width':1440,'height':900});page.add_init_script(mock);page.goto((r/'index.html').as_uri());page.wait_for_timeout(350);page.locator('[data-page=shop]').click();page.locator('.shop-product').first.wait_for();assert page.locator('.shop-product').count()==24
- first=page.locator('[data-shop-item]').first.get_attribute('data-shop-item');page.locator('.shop-main').evaluate('(e)=>e.scrollTop=e.scrollHeight');page.locator('[data-shop-page="1"]').click();page.wait_for_timeout(120);assert page.locator('[data-shop-item]').first.get_attribute('data-shop-item')!=first
+ first=page.locator('[data-shop-item]').first.get_attribute('data-shop-item');page.locator('.shop-main').evaluate('(e)=>e.scrollTop=e.scrollHeight');page.wait_for_timeout(250);assert page.locator('.shop-product').count()>24;assert page.locator('[data-shop-item]').first.get_attribute('data-shop-item')==first
  page.locator('[data-shop-category=building]').click();page.wait_for_timeout(100)
  for mode in ['buy','sell']:
   page.locator('[data-shop-mode='+mode+']').click();page.wait_for_timeout(120)
   for theme in ['dark','light']:
-   page.evaluate('(t)=>PocketmateTheme.set(t)',theme);page.wait_for_timeout(250);page.locator('.shop-main').evaluate('(e)=>e.scrollTop=0');page.screenshot(path=str(r/f'verification/shop-catalog-full-{mode}-{theme}-mock.png'))
+   page.evaluate('(t)=>PocketmateTheme.set(t)',theme);page.wait_for_timeout(250);page.locator('.shop-main').evaluate('(e)=>e.scrollTop=0');page.screenshot(path=str(r/f'verification/shop-continuous-catalog-{mode}-{theme}-mock.png'))
  browser.close()
-(r/'verification/shop-catalog-page-report.json').write_text(json.dumps({'headless_mock_only':True,'game_tested':False,'actual_registry_catalog_rows':len(catalog),'page_size':24,'pagination_changes_items':True,'themes':2,'modes':2,'sample_inventory_and_balance':True,'game_texture_preview':False},indent=2),encoding='utf-8')
-print('Full catalog mock pagination passed')
+(r/'verification/shop-continuous-catalog-report.json').write_text(json.dumps({'headless_mock_only':True,'game_tested':False,'actual_registry_catalog_rows':len(catalog),'page_size':24,'scroll_appends_items':True,'themes':2,'modes':2,'sample_inventory_and_balance':True,'game_texture_preview':False},indent=2),encoding='utf-8')
+print('Full catalog continuous mock passed')

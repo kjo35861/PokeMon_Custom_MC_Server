@@ -7,6 +7,13 @@ public final class ShopInventory {
  public static List<ItemStack> copy(List<ItemStack> items){return items.stream().map(ItemStack::copy).toList();}
  public static boolean plain(ItemStack stack,Item item){return !stack.isEmpty()&&ItemStack.areItemsAndComponentsEqual(stack,new ItemStack(item));}
  public static int count(List<ItemStack> slots,Item item){return slots.stream().filter(s->plain(s,item)).mapToInt(ItemStack::getCount).sum();}
+ /** Empty slots plus compatible partial stacks, without overwriting existing items. */
+ public static int capacity(List<ItemStack> slots,Item item){
+  int total=0,max=new ItemStack(item).getMaxCount();
+  for(ItemStack stack:slots)if(stack.isEmpty())total+=max;else if(plain(stack,item))total+=Math.max(0,stack.getMaxCount()-stack.getCount());
+  return Math.min(2304,total);
+ }
+ public static int maxBuy(List<ItemStack> slots,Item item,long balance,long unitPrice){if(balance<0||unitPrice<1)throw new IllegalArgumentException();return (int)Math.min(capacity(slots,item),balance/unitPrice);}
  /** Work on copies: capacity/ownership failures leave the real inventory untouched. */
  public static List<ItemStack> plan(List<ItemStack> slots,Item item,int amount,boolean buy){
   if(amount<1||amount>2304)throw new IllegalArgumentException("수량은 1~2,304개로 입력해주세요.");

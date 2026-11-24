@@ -62,4 +62,21 @@ class ShopTest {
   assertThrows(IllegalArgumentException.class,()->new ShopPrices(100,50,false,3600,15,10,Map.of("minecraft:diamond",40L),Map.of()));
  }
 
+ @Test void maxPurchaseAccountsForPartialStacksFundsAndFullInventory(){
+  var slots=new ArrayList<ItemStack>(Collections.nCopies(36,new ItemStack(Items.DIRT,64)));
+  slots.set(0,new ItemStack(Items.STONE,60));slots.set(1,ItemStack.EMPTY);
+  assertEquals(68,ShopInventory.capacity(slots,Items.STONE));assertEquals(68,ShopInventory.maxBuy(slots,Items.STONE,100000,100));assertEquals(25,ShopInventory.maxBuy(slots,Items.STONE,2599,100));assertEquals(0,ShopInventory.maxBuy(slots,Items.STONE,99,100));
+  assertEquals(60,slots.get(0).getCount());var filled=ShopInventory.plan(slots,Items.STONE,68,true);assertEquals(64,filled.get(0).getCount());assertEquals(64,filled.get(1).getCount());assertEquals(0,ShopInventory.capacity(filled,Items.STONE));
+ }
+ @Test void maxDoesNotMergeNamedItemsAndRespectsUnstackableItems(){
+  var named=new ItemStack(Items.STONE,10);named.set(net.minecraft.component.DataComponentTypes.CUSTOM_NAME,net.minecraft.text.Text.literal("Protected"));
+  assertEquals(64,ShopInventory.capacity(List.of(named,ItemStack.EMPTY),Items.STONE));assertEquals(0,ShopInventory.count(List.of(named),Items.STONE));
+  assertEquals(36,ShopInventory.maxBuy(Collections.nCopies(36,ItemStack.EMPTY),Items.DIAMOND_PICKAXE,Long.MAX_VALUE,100));
+  assertEquals(2304,ShopInventory.maxBuy(Collections.nCopies(36,ItemStack.EMPTY),Items.STONE,Long.MAX_VALUE,100));
+ }
+ @Test void sellingAllEligibleStacksLeavesNamedStacksUntouched(){
+  var named=new ItemStack(Items.DIAMOND,4);named.set(net.minecraft.component.DataComponentTypes.CUSTOM_NAME,net.minecraft.text.Text.literal("Protected"));
+  var slots=List.of(new ItemStack(Items.DIAMOND,64),named,new ItemStack(Items.DIAMOND,17));int max=ShopInventory.count(slots,Items.DIAMOND);assertEquals(81,max);var sold=ShopInventory.plan(slots,Items.DIAMOND,max,false);assertTrue(sold.get(0).isEmpty());assertTrue(sold.get(2).isEmpty());assertEquals(4,sold.get(1).getCount());
+ }
+
 }

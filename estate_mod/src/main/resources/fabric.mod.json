@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "pocketmate_estates",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "name": "Pocketmate Estates",
   "description": "Server-authoritative Overworld chunk estates for the Pocketmate WebGUI.",
   "environment": "*",
@@ -18,7 +18,8 @@
     "client": [
       "space.pocketmate.estates.client.EstateMapClient",
       "space.pocketmate.estates.client.ProfileSkinClient",
-      "space.pocketmate.estates.client.NicknameClient"
+      "space.pocketmate.estates.client.NicknameClient",
+      "space.pocketmate.estates.client.ShopAssetsClient"
     ]
   },
   "mixins": [
