@@ -15,7 +15,7 @@ public final class ShopCatalog {
  private static final Set<String> PRODUCE=Set.of("chorus_fruit","poisonous_potato","wheat","beetroot","carrot","potato","pumpkin","melon_slice","cocoa_beans","nether_wart","sweet_berries","glow_berries","sugar_cane","bamboo","cactus","kelp","brown_mushroom","red_mushroom","torchflower","pitcher_plant");
  private static final Set<String> EXCLUDED=Set.of("air","bedrock","barrier","structure_void","structure_block","jigsaw","command_block","chain_command_block","repeating_command_block","light","spawner","trial_spawner","vault","reinforced_deepslate","budding_amethyst","infested_stone","infested_cobblestone","infested_stone_bricks","infested_mossy_stone_bricks","infested_cracked_stone_bricks","infested_chiseled_stone_bricks","infested_deepslate","coal_block","raw_iron_block","raw_copper_block","raw_gold_block","iron_block","copper_block","gold_block","diamond_block","emerald_block","lapis_block","redstone_block","netherite_block","hay_block","melon","glowstone","bamboo_block","nether_wart_block");
  private static final String COLORS="white|orange|magenta|light_blue|yellow|lime|pink|gray|light_gray|cyan|purple|blue|brown|green|red|black";
- public record Entry(String id,String category,boolean buy,boolean sell) {public String saleCategory(){return sell?(category.equals("minerals")?"minerals":"crops"):"";}}
+ public record Entry(String id,String category,boolean buy,boolean sell) {public String saleCategory(){return sell?(id.startsWith("minecraft:")&&MINERALS.contains(id.substring(10))?"minerals":"crops"):"";}}
  private static final Map<String,String> NAMES=names();
  private static Map<String,String> names(){
   try(var in=ShopCatalog.class.getResourceAsStream("/pocketmate-shop-ko.json")){
@@ -48,5 +48,6 @@ public final class ShopCatalog {
   }
   catalog=Collections.unmodifiableMap(out);return catalog;
  }
+ public static boolean forbiddenBuy(String id){var key=net.minecraft.util.Identifier.tryParse(id);return key==null||key.getPath().equals("air")||key.getNamespace().equals("minecraft")&&(EXCLUDED.contains(key.getPath())||key.getPath().endsWith("_ore")||key.getPath().equals("pumpkin"));}
  public static Entry require(String id){Entry e=entries().get(id);if(e==null)throw new IllegalArgumentException("상점에 등록되지 않은 아이템입니다.");return e;}
 }

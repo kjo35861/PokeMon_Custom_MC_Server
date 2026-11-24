@@ -2,6 +2,7 @@
   'use strict';
   const $ = id => document.getElementById(id);
   const meta = {
+    admin: ['관리자', 'ADMIN / CONTROL', ''],
     home: ['홈', 'PLAYER HUB', ''],
     warp: ['워프', 'WARP / DESTINATIONS', '이동할 목적지를 확인하세요.'],
     shop: ['상점', 'MARKET', '아이템과 거래 기능을 한곳에서 확인하세요.'],
@@ -56,11 +57,14 @@
   };
   const notConnected = name => showInfo(name, '이 메뉴의 기본 화면이 준비되었어요.\n서버 기능을 연결하면 실제 정보를 확인하고 이용할 수 있어요.');
   function selectPage(page) {
+    if(page==='admin'&&!window.PocketmateAdmin?.allowed()){showInfo('관리자 페이지','OP 권한 레벨 2 이상이 필요합니다.');return;}
     if(page==='travel'){window.PocketmateTravel.go();return;}
     window.PocketmateEstates?.unmount();
     window.PocketmateProfile?.unmount();
     window.PocketmateMissions?.unmount();
     window.PocketmateShop?.unmount();
+    window.PocketmateAdmin?.unmount();
+    $('admin-page').hidden=true;
     $('estate-page').hidden=true;
     $('shop-page').hidden=true;
     if (!meta[page]) page = 'home';
@@ -79,6 +83,9 @@
     $('page-scroll').classList.toggle('profile-fixed-actions', page === 'profile');
     $('page-scroll').scrollTop = 0;
     if (page === 'home') return;
+    if (page === 'admin') {
+      $('admin-page').hidden=false;window.PocketmateAdmin.mount($('admin-page'),closeMenu);return;
+    }
     if (page === 'shop') {
       $('shop-page').hidden=false;
       window.PocketmateShop.mount($('shop-page'),closeMenu);
@@ -136,6 +143,7 @@
   }
   $('close-menu').addEventListener('click',closeMenu);
   $('close-estate').addEventListener('click',closeMenu);
+  window.addEventListener('pocketmate:admin-denied',()=>{if(document.body.dataset.activePage==='admin'){selectPage('home');showInfo('관리자 페이지','OP 권한을 확인하지 못해 관리자 페이지를 닫았습니다.');}});
   window.addEventListener('pocketmate:travel-result',event=>{
     if(event.detail?.success)closeMenu();
     else showInfo('마을 이동',event.detail?.message||'마을 이동을 확인해 주세요.');

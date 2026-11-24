@@ -123,6 +123,7 @@ public final class MissionsMod implements ModInitializer {
             MissionStore store=STORES.get(player.getServer());if(store==null)throw new IllegalStateException("임무 저장소를 사용할 수 없습니다.");
             JsonObject response=new JsonObject();
             if(action.equals("claim")){
+                if(ShopMod.missionsPaused())throw new IllegalArgumentException(ShopMod.maintenanceMessage("임무 보상 수령은 현재 점검 중입니다. 진행도는 계속 집계됩니다."));
                 String id=request.get("taskId").getAsString(),date=request.get("date").getAsString();
                 if(!store.view(player.getUuid()).date().equals(date))throw new IllegalArgumentException("새로운 하루의 임무가 시작되었습니다. 다시 확인해주세요.");
                 if(!store.claim(player.getUuid(),id))throw new IllegalArgumentException("아직 완료하지 않았거나 이미 수령한 보상입니다.");
@@ -135,7 +136,7 @@ public final class MissionsMod implements ModInitializer {
                 response.addProperty("message","같은 슬롯의 새 임무로 교체했습니다. 새 임무는 지금부터 집계합니다.");
             }else if(!action.equals("view"))throw new IllegalArgumentException();
             response.addProperty("type","snapshot");response.addProperty("requestId",requestId);response.add("missions",new Gson().toJsonTree(store.view(player.getUuid())));
-            response.addProperty("pokemonReady",false);WebGuiBridge.emit(player,CHANNEL,response.toString());
+            response.addProperty("rewardsPaused",ShopMod.missionsPaused());response.addProperty("pokemonReady",false);WebGuiBridge.emit(player,CHANNEL,response.toString());
         }catch(Exception e){JsonObject error=new JsonObject();error.addProperty("type","error");error.addProperty("requestId",requestId);error.addProperty("message",e instanceof java.io.IOException?"저장하지 못했습니다. 다시 확인해주세요.":e.getMessage()==null?"올바르지 않은 임무 요청입니다.":e.getMessage());WebGuiBridge.emit(player,CHANNEL,error.toString());}
     }
 }

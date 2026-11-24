@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="space.pocketmate.estates.ShopTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-11-24T22:01:27" hostname="DESKTOP-6FIEOUH" time="0.103">
+<testsuite name="space.pocketmate.estates.ShopTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-11-24T22:20:49" hostname="DESKTOP-6FIEOUH" time="0.081">
   <properties/>
-  <testcase name="catalogHasAllRequestedGroupsAndNoProcessedMineralsOrCompressionArbitrage()" classname="space.pocketmate.estates.ShopTest" time="0.057"/>
-  <testcase name="walletSharesBalancesPersistsAndRejectsInsufficientFunds()" classname="space.pocketmate.estates.ShopTest" time="0.017"/>
-  <testcase name="fixedAndFutureWindowPricesAreServerStableAndBelowBuy()" classname="space.pocketmate.estates.ShopTest" time="0.006"/>
-  <testcase name="inventoryPlanMergesStacksAndRejectsFullWithoutMutatingOriginal()" classname="space.pocketmate.estates.ShopTest" time="0.003"/>
-  <testcase name="perItemBasesAndJsonConfigurationAreSupported()" classname="space.pocketmate.estates.ShopTest" time="0.005"/>
-  <testcase name="walletWriteFailureRestoresInventoryAndSuccessKeepsIt()" classname="space.pocketmate.estates.ShopTest" time="0.003"/>
-  <testcase name="salesUseExactPlainComponentsAndQuantity()" classname="space.pocketmate.estates.ShopTest" time="0.01"/>
+  <testcase name="catalogHasAllRequestedGroupsAndNoProcessedMineralsOrCompressionArbitrage()" classname="space.pocketmate.estates.ShopTest" time="0.044"/>
+  <testcase name="walletSharesBalancesPersistsAndRejectsInsufficientFunds()" classname="space.pocketmate.estates.ShopTest" time="0.016"/>
+  <testcase name="fixedAndFutureWindowPricesAreServerStableAndBelowBuy()" classname="space.pocketmate.estates.ShopTest" time="0.002"/>
+  <testcase name="inventoryPlanMergesStacksAndRejectsFullWithoutMutatingOriginal()" classname="space.pocketmate.estates.ShopTest" time="0.002"/>
+  <testcase name="perItemBasesAndJsonConfigurationAreSupported()" classname="space.pocketmate.estates.ShopTest" time="0.002"/>
+  <testcase name="walletWriteFailureRestoresInventoryAndSuccessKeepsIt()" classname="space.pocketmate.estates.ShopTest" time="0.004"/>
+  <testcase name="salesUseExactPlainComponentsAndQuantity()" classname="space.pocketmate.estates.ShopTest" time="0.008"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

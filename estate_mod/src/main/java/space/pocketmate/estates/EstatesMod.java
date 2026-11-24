@@ -106,6 +106,7 @@ public final class EstatesMod implements ModInitializer {
             requestId=request.has("requestId")?request.get("requestId").getAsString():"";
             if(!requestId.matches("[A-Za-z0-9_-]{1,64}"))throw new IllegalArgumentException();
             String action=request.get("action").getAsString();
+            if(Set.of("create","buy").contains(action)&&ShopMod.estatePaused())throw new IllegalArgumentException(ShopMod.maintenanceMessage("영지 생성과 영토 구매는 현재 점검 중입니다."));
             Session state=sessions.get(server);
             if(state==null||state.failure!=null||state.store==null){error(player,requestId,state==null?"영지 서버를 준비 중입니다.":state.failure);return;}
             UUID id=player.getUuid();long now=System.currentTimeMillis();

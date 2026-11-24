@@ -1,0 +1,16 @@
+{
+  "headless_mock_only": true,
+  "game_tested": false,
+  "non_op_button_hidden": true,
+  "direct_route_denied": true,
+  "op_entry": true,
+  "edit_prices": true,
+  "remove_cancel_and_confirm": true,
+  "lookup_and_add": true,
+  "pause_and_random_policy": true,
+  "stale_revision_rejected": true,
+  "revocation_closes_page": true,
+  "themes": 2,
+  "viewport_sizes": 4,
+  "errors": []
+}

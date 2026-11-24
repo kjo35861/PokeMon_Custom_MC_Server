@@ -298,6 +298,7 @@ public final class ClaimStore {
         if(value.treasury<cost)throw new Denied("영지 금고 잔액이 부족합니다.");
         saveProgress(new Progress(value.owner,next,value.treasury-cost,value.purchasedChunks,appendLedger(value.ledger,new VaultEntry("UPGRADE",cost,next,actor,System.currentTimeMillis()))));
     }
+    public synchronized int[] adminCounts(){return new int[]{estates.size(),claims.size()};}
     public synchronized long wallet(UUID player){return balances.getOrDefault(player,0L);}
     public synchronized void deposit(UUID actor,long amount) throws Denied,IOException {
         Estate estate=estateFor(actor);if(estate==null)throw new Denied("소속된 영지가 없습니다.");

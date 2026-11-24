@@ -27,6 +27,7 @@ with sync_playwright() as p:
  page=browser.new_page(viewport={'width':1440,'height':900});page.add_init_script(mock);errors=[];page.on('pageerror',lambda e:errors.append(str(e)));page.goto((r/'index.html').as_uri());page.wait_for_timeout(400);page.locator('[data-page=shop]').click();page.locator('.shop-product').first.wait_for()
  assert page.locator('[data-shop-category]').count()==9
  assert page.locator('.shop-product').count()==2
+ page.evaluate("dispatchEvent(new CustomEvent('webgui:pocketmate:shop-assets',{detail:{requestId:shopCalls.at(-1).requestId,icons:{}}}))")
  page.locator('[data-shop-item="minecraft:stone"]').click();page.locator('[data-shop-qty="16"]').click();assert '1,600원' in page.locator('.shop-trade-total').inner_text();page.locator('[data-shop-confirm]').click();page.wait_for_timeout(150);assert page.evaluate('shopBalance')==48400
  page.locator('[data-shop-mode=sell]').click();page.wait_for_timeout(150);assert page.locator('[data-shop-category=building]').is_disabled();assert page.locator('#shop-category-title').inner_text()=='광물'
  page.locator('[data-shop-item="minecraft:raw_iron"]').click();page.locator('[data-shop-confirm]').click();page.wait_for_timeout(150);assert page.evaluate('shopBalance')==48450
