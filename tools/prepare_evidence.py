@@ -33,6 +33,13 @@ def candidates():
     for source in sorted((ROOT/'estate_mod/verification/test-results/test').glob('TEST-*.xml')):
         yield source,f'reports/estate_mod/{source.name}','junit-result'
     screenshots={
+        'webgui_menu/verification/control-alignment-home-dark.png':'control-alignment-v0.19.6-home-dark-mock.png',
+        'webgui_menu/verification/control-alignment-home-light.png':'control-alignment-v0.19.6-home-light-mock.png',
+        'webgui_menu/verification/control-alignment-close-dark.png':'control-alignment-v0.19.6-close-dark-mock.png',
+        'webgui_menu/verification/control-alignment-close-light.png':'control-alignment-v0.19.6-close-light-mock.png',
+        'webgui_menu/verification/control-alignment-estate-dialog-dark.png':'control-alignment-v0.19.6-estate-dialog-dark-mock.png',
+        'webgui_menu/verification/control-alignment-estate-dialog-light.png':'control-alignment-v0.19.6-estate-dialog-light-mock.png',
+
         'webgui_menu/verification/estate-stars-dark-mock.png':'estate-stars-v0.19.5-dark-mock.png',
         'webgui_menu/verification/estate-stars-light-mock.png':'estate-stars-v0.19.5-light-mock.png',
 
@@ -82,7 +89,7 @@ def candidates():
     }
     for original,name in screenshots.items():
         source=ROOT/original
-        if source.exists():yield source,'screenshots/'+name,('headless-mock-ui-screenshot' if name.startswith(('daily-missions-','menu-v0.17-','shop-v0.18-','home-block-art-','trainer-theme-','pokedex-tabs-','unified-main-tabs-','estate-stars-')) else 'historical-ui-screenshot')
+        if source.exists():yield source,'screenshots/'+name,('headless-mock-ui-screenshot' if name.startswith(('daily-missions-','menu-v0.17-','shop-v0.18-','home-block-art-','trainer-theme-','pokedex-tabs-','unified-main-tabs-','estate-stars-','control-alignment-')) else 'historical-ui-screenshot')
     for name in ['brand-final-prompt.txt','brand-universal-prompt.txt']:
         source=ROOT/'webgui_menu/verification'/name
         if source.exists():yield source,'artwork/'+name,'image-generation-prompt'

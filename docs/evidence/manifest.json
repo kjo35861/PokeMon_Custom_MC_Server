@@ -185,6 +185,14 @@
       "bytes": 665,
       "sanitized": true
     },
+    "reports/webgui_menu/control-alignment-report.json": {
+      "source": "webgui_menu/verification/control-alignment-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "cbb19ff9d32cc2fdf6dd6867d40bf7adcd6611d8a202326b2b5f0204350ced58",
+      "published_sha256": "f7ca102c0005e6b0f485d445a479830f61f26698c9acb04d15e78db61705024e",
+      "bytes": 268,
+      "sanitized": true
+    },
     "reports/webgui_menu/daily-missions-integration-report.json": {
       "source": "webgui_menu/verification/daily-missions-integration-report.json",
       "kind": "historical-or-current-report",
@@ -292,8 +300,8 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "37fce975719cfbfca8637010ca649bdac71c3c0aa9a9b290b45048a653f6b8d4",
-      "published_sha256": "72e8cfbdd5c4e2df25babb8b1ec572048da3365048cfd4c2958e29e5debad0c0",
+      "source_sha256": "7b3945c1c45845c440bea46b2cd9a865875a4b19627ee3b09ec0bc71721f594c",
+      "published_sha256": "7b8000f634580a03c49e57446909642de3825cff2173b1d0c20b5a9fa53155e8",
       "bytes": 31794,
       "sanitized": true
     },
@@ -768,6 +776,54 @@
       "published_sha256": "cd10f499e3b1639147ef8ca29ada4ae36f50658a0298639486efac3bec4c434d",
       "bytes": 421,
       "sanitized": true
+    },
+    "screenshots/control-alignment-v0.19.6-close-dark-mock.png": {
+      "source": "webgui_menu/verification/control-alignment-close-dark.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "3759fb9995e5ab3eb6ffb1e1b3f0fe79e7ba9896119beb917bdf84f48b9b3a68",
+      "published_sha256": "3759fb9995e5ab3eb6ffb1e1b3f0fe79e7ba9896119beb917bdf84f48b9b3a68",
+      "bytes": 599,
+      "sanitized": false
+    },
+    "screenshots/control-alignment-v0.19.6-close-light-mock.png": {
+      "source": "webgui_menu/verification/control-alignment-close-light.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "ed598a75bd4bec34b561d45a8b242115d8d9dabbb5c8df37b211e588e2771153",
+      "published_sha256": "ed598a75bd4bec34b561d45a8b242115d8d9dabbb5c8df37b211e588e2771153",
+      "bytes": 536,
+      "sanitized": false
+    },
+    "screenshots/control-alignment-v0.19.6-estate-dialog-dark-mock.png": {
+      "source": "webgui_menu/verification/control-alignment-estate-dialog-dark.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "103f17f7d134eb30b105f43210a1c3bdaf9ea2066ad7cbd086112967688da8f7",
+      "published_sha256": "103f17f7d134eb30b105f43210a1c3bdaf9ea2066ad7cbd086112967688da8f7",
+      "bytes": 121265,
+      "sanitized": false
+    },
+    "screenshots/control-alignment-v0.19.6-estate-dialog-light-mock.png": {
+      "source": "webgui_menu/verification/control-alignment-estate-dialog-light.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "c3d46fe58e04474f003f7a387137ddc7e3eb488b93a8eef70781555ab50d53c7",
+      "published_sha256": "c3d46fe58e04474f003f7a387137ddc7e3eb488b93a8eef70781555ab50d53c7",
+      "bytes": 132199,
+      "sanitized": false
+    },
+    "screenshots/control-alignment-v0.19.6-home-dark-mock.png": {
+      "source": "webgui_menu/verification/control-alignment-home-dark.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "06ea81421e64dfc2ecd53164cfdbe5fc067af8e7a41921b3bc452cba71f24ec5",
+      "published_sha256": "06ea81421e64dfc2ecd53164cfdbe5fc067af8e7a41921b3bc452cba71f24ec5",
+      "bytes": 397184,
+      "sanitized": false
+    },
+    "screenshots/control-alignment-v0.19.6-home-light-mock.png": {
+      "source": "webgui_menu/verification/control-alignment-home-light.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "f92cca1fbbfb67d5e0d39c7a0cf28d2355f67f587ef16faba485f5aa40e7ed61",
+      "published_sha256": "f92cca1fbbfb67d5e0d39c7a0cf28d2355f67f587ef16faba485f5aa40e7ed61",
+      "bytes": 425333,
+      "sanitized": false
     },
     "screenshots/daily-missions-claim-all-v0.18.3-mock.png": {
       "source": "webgui_menu/verification/mission-claim-all-mock.png",

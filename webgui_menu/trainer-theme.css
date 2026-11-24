@@ -104,3 +104,25 @@
 @keyframes estate-starlight{0%,100%{opacity:.18}50%{opacity:.85}}
 .reduce-motion .estate-star{animation:none;opacity:.45}
 @media(prefers-reduced-motion:reduce){.estate-star{animation:none;opacity:.45}}
+/* Shared control alignment: symmetric insets and no inline-SVG baseline gaps. */
+:root[data-theme] body .close-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:36px;padding:9px 12px;line-height:1.25;flex-shrink:0}
+:root[data-theme] body .close-button>svg{display:block;width:16px;height:16px;flex-shrink:0}
+:root[data-theme] body .close-button>span{display:block}
+:root[data-theme] body :is(.estate-exit,.dialog-x,[data-shop-close]){display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;line-height:1;padding:8px;min-width:34px;min-height:34px}
+:root[data-theme] body :is(.estate-exit,.dialog-x,[data-shop-close])>svg{display:block;width:18px;height:18px;margin:0}
+:root[data-theme] body :is(.estate-return,.shop-heading-actions button,.profile-edit,.estate-schedule-link,.estate-photo-foot button,.primary-button){display:inline-flex;align-items:center;justify-content:center;gap:8px;line-height:1.35}
+:root[data-theme] body :is(.estate-return,.shop-heading-actions button){min-height:36px;padding:9px 12px}
+:root[data-theme] body :is(.back-button,.estate-clear-selection,.estate-tabs button,.estate-map-toolbar button,.estate-coordinate-select button,.estate-header-stats button,.estate-community-card header button,.estate-roster button,.estate-invite-results button,.estate-incoming button){display:inline-flex;align-items:center;justify-content:center;gap:7px;line-height:1.35}
+:root[data-theme] body .feature-scroll>.back-button{width:max-content;max-width:100%;padding:7px 10px}
+:root[data-theme] body :is(.close-button,.estate-return,.estate-exit,.dialog-x,.back-button,.shop-heading-actions button,.profile-edit,.estate-schedule-link,.estate-photo-foot button,.primary-button,.estate-tabs button,.estate-map-toolbar button,.estate-coordinate-select button,.estate-header-stats button)>svg{display:block;align-self:center;flex-shrink:0;vertical-align:middle}
+:root[data-theme] body .text-size-control{align-items:center}
+:root[data-theme] body .text-size-control output{display:flex;align-items:center;justify-content:center;align-self:stretch;line-height:1;white-space:nowrap}
+:root[data-theme] body .text-size-control button>svg{display:block;margin:0;align-self:center}
+:root[data-theme] body :is(.estate-field input,.estate-coordinate-select input,.estate-roster select,.theme-select,.shop-search input){line-height:1.4;vertical-align:middle}
+:root[data-theme] body :is(.mission-rules-help,.estate-help-button){display:inline-flex;align-items:center;justify-content:center;line-height:1;padding:0;vertical-align:middle}
+@media(max-width:600px){:root[data-theme] body .close-button{padding:8px;min-width:34px;min-height:34px}:root[data-theme] body .close-button>span{display:none}}
+:root[data-theme] body .missions-page .feature-scroll>.back-button{display:none}
+:root[data-theme] body .notice-strip{padding:8px 0;align-items:center}
+:root[data-theme] body dialog .back-button{min-height:36px;margin:0;padding:9px 14px;font-size:12px;border:1px solid var(--control-line)}
+:root[data-theme] body dialog .primary-button{min-height:36px}
+:root[data-theme] body :is(.estate-confirm-actions,.mission-reroll-dialog>div){align-items:center}

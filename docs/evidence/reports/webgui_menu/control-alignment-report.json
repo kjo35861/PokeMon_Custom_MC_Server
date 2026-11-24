@@ -1,0 +1,15 @@
+{
+  "headless_mock_only": true,
+  "game_tested": false,
+  "page_viewport_scale_cases": 72,
+  "icon_buttons_checked": 530,
+  "icon_inside_and_centered": true,
+  "symmetric_close_padding": true,
+  "themes": 2,
+  "scales": [
+    1,
+    1.4,
+    1.6
+  ],
+  "errors": []
+}
