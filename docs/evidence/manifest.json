@@ -292,9 +292,17 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "f5b8e4572ad918bb697ba48b4d4305013aae7910535d7c75559b4954b20229a6",
-      "published_sha256": "b3926a8296efb42238c6bc09f7d3997107f006b76c898fe959e2f2fa366d5ff7",
+      "source_sha256": "37fce975719cfbfca8637010ca649bdac71c3c0aa9a9b290b45048a653f6b8d4",
+      "published_sha256": "72e8cfbdd5c4e2df25babb8b1ec572048da3365048cfd4c2958e29e5debad0c0",
       "bytes": 31794,
+      "sanitized": true
+    },
+    "reports/webgui_menu/estate-stars-report.json": {
+      "source": "webgui_menu/verification/estate-stars-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "ea13e9fa0acb1feabbd8f96faf93290f25828a4b042e1ba13c0ed1836148a805",
+      "published_sha256": "b1535bf68769a873d4484b41515cc6f9312617f4bb04e4369de539b494dbed07",
+      "bytes": 304,
       "sanitized": true
     },
     "reports/webgui_menu/estate-v0.10-integration.json": {
@@ -807,6 +815,22 @@
       "source_sha256": "017d6e883dcfac5527cdf8e3bd27a7fb15b46168aa2acaec36464fa4260cdfb4",
       "published_sha256": "017d6e883dcfac5527cdf8e3bd27a7fb15b46168aa2acaec36464fa4260cdfb4",
       "bytes": 95601,
+      "sanitized": false
+    },
+    "screenshots/estate-stars-v0.19.5-dark-mock.png": {
+      "source": "webgui_menu/verification/estate-stars-dark-mock.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "1ec688e5cc1414956c3db8aaf4c505d54eab9a685ecdb8516f1e9d5594fbaae4",
+      "published_sha256": "1ec688e5cc1414956c3db8aaf4c505d54eab9a685ecdb8516f1e9d5594fbaae4",
+      "bytes": 248744,
+      "sanitized": false
+    },
+    "screenshots/estate-stars-v0.19.5-light-mock.png": {
+      "source": "webgui_menu/verification/estate-stars-light-mock.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "f119a4856cedd9e0130c085cc06521c7f480df3133c5ed00e0f15fb0bad22424",
+      "published_sha256": "f119a4856cedd9e0130c085cc06521c7f480df3133c5ed00e0f15fb0bad22424",
+      "bytes": 247146,
       "sanitized": false
     },
     "screenshots/historical-estate-map-mock.png": {

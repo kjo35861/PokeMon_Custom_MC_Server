@@ -1,0 +1,13 @@
+{
+  "headless_mock_only": true,
+  "game_tested": false,
+  "star_count": 46,
+  "themes": 2,
+  "animation_opacity_changes": true,
+  "decorative_aria_hidden": true,
+  "pointer_events_none": true,
+  "behind_panels": true,
+  "app_and_system_reduced_motion": true,
+  "navigation_works": true,
+  "errors": []
+}

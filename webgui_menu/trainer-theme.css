@@ -92,3 +92,15 @@
 :root[data-theme] body :is(.nav-item>span,.estate-screen .estate-nav button>.pm-icon,.profile-tabs small){color:inherit;background:transparent}
 :root[data-theme] body :is(.nav-item.selected>span,.estate-screen .estate-nav button.active>.pm-icon,.profile-tabs button[aria-selected=true] small){color:var(--trainer-red-ink)}
 :root[data-theme] body .estate-screen .estate-nav .estate-danger-nav,:root[data-theme] body .estate-screen .estate-nav .estate-danger-nav>.pm-icon{color:var(--trainer-danger)}
+
+/* Estate-only starlight sits behind the opaque management window. */
+:root[data-theme]{--estate-star:#c5dff9;--estate-star-glow:#88b7ed77;--estate-sky-haze:#6c8db014}
+:root[data-theme=light]{--estate-star:#5d80a3;--estate-star-glow:#5e89ad3d;--estate-sky-haze:#749cbe0d}
+:root[data-theme] body .estate-backdrop{pointer-events:none;overflow:hidden;background-image:radial-gradient(ellipse at 20% 3%,var(--estate-sky-haze),transparent 52%),radial-gradient(ellipse at 85% 90%,var(--estate-sky-haze),transparent 40%)}
+.estate-star{position:absolute;left:var(--star-x);top:var(--star-y);display:block;width:2px;height:2px;border-radius:1px;background:var(--estate-star);box-shadow:0 0 5px var(--estate-star-glow);opacity:.45;animation:estate-starlight var(--star-duration,6s) ease-in-out var(--star-delay,0s) infinite;pointer-events:none}
+.estate-star.is-bright{width:3px;height:3px;box-shadow:0 0 8px var(--estate-star-glow)}
+.estate-star.is-bright:before,.estate-star.is-bright:after{content:'';position:absolute;left:50%;top:50%;background:var(--estate-star);transform:translate(-50%,-50%);opacity:.65}
+.estate-star.is-bright:before{width:9px;height:1px}.estate-star.is-bright:after{width:1px;height:9px}
+@keyframes estate-starlight{0%,100%{opacity:.18}50%{opacity:.85}}
+.reduce-motion .estate-star{animation:none;opacity:.45}
+@media(prefers-reduced-motion:reduce){.estate-star{animation:none;opacity:.45}}
