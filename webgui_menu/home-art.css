@@ -1,0 +1,14 @@
+/* Transparent block dioramas; layout dimensions and navigation are unchanged. */
+#home-page .home-tile-image{position:absolute;pointer-events:none;right:10px;top:30px;width:min(65%,160px);height:calc(100% - 94px);object-fit:contain;opacity:1;filter:drop-shadow(0 8px 9px #0003);transition:transform .22s ease;z-index:1}
+#home-page .action-tile:hover .home-tile-image{transform:translateY(-3px)}
+#home-page .home-warp-image{width:49%;height:90%;right:0;top:5%}
+#home-page .warp-tile .team-copy{max-width:47%}
+#home-page .tile-copy{max-width:100%}
+@media(max-width:1100px){#home-page .home-tile-image{top:28px;right:5px;height:calc(100% - 86px)}#home-page .home-warp-image{top:5%;height:90%;width:49%}}
+@media(max-height:600px){#home-page .home-tile-image{top:auto;bottom:6px;right:6px;width:44px;height:45px;filter:drop-shadow(0 3px 3px #0002)}#home-page .home-warp-image{height:90%;width:100px;top:5%;right:10px}#home-page .tile-copy{max-width:calc(100% - 45px)}}
+@media(prefers-reduced-motion:reduce){#home-page .home-tile-image{transition:none}}.reduce-motion #home-page .home-tile-image{transition:none}
+
+/* Home tiles share a readable light palette, including the new shop tile. */
+html[data-theme=light] #home-page .action-tile:not(.warp-tile){background:var(--surface-raised);border-color:var(--line);color:var(--ink)}
+html[data-theme=light] #home-page .action-tile:not(.warp-tile):hover{background:var(--surface);border-color:var(--cyan)}
+html[data-theme=light] #home-page .tile-code,html[data-theme=light] #home-page .tile-copy p{color:var(--muted)}

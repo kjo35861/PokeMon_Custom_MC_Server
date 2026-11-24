@@ -292,9 +292,9 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "16eec6c0ef04cb1a63d5177eabbf366a6e4fc8f3bd1d68c49a0129cdd7893a5a",
-      "published_sha256": "005f78f9d1584b064247c8e0e88bd0e6560afa7b8f98fc3b0214e41dfea33c8e",
-      "bytes": 30991,
+      "source_sha256": "64f3eaad5d99bd66c6f3f86481fab87badd95266be4ba305ab44afae0e4f67ee",
+      "published_sha256": "38865544f11d8e799696c5900699e1b47bf2699813057f85df052405d20fd3aa",
+      "bytes": 31678,
       "sanitized": true
     },
     "reports/webgui_menu/estate-v0.10-integration.json": {
@@ -399,6 +399,14 @@
       "source_sha256": "5527a9903d26b305162b4ea3271066fe399f8a8a034cba209010e9f70f38dedf",
       "published_sha256": "0c0948ce4a75baddbdf88549d47b0279297d49aefe815e55506f52797592aa13",
       "bytes": 185,
+      "sanitized": true
+    },
+    "reports/webgui_menu/home-block-art-report.json": {
+      "source": "webgui_menu/verification/home-block-art-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "2828acd13c53b49cec121a0987c4c190e8d24124732f9b8216c41500f1e0121d",
+      "published_sha256": "8dc10cf42db4d47fbd21f8a15f402d6c09462c4e0d30c3bcc457deddbd808918",
+      "bytes": 352,
       "sanitized": true
     },
     "reports/webgui_menu/home-scroll-update-report.json": {
@@ -807,6 +815,22 @@
       "source_sha256": "7c06df750370a5f69b593b1d465f08fb53ab96874159efbf5b9043046da56d4d",
       "published_sha256": "7c06df750370a5f69b593b1d465f08fb53ab96874159efbf5b9043046da56d4d",
       "bytes": 207775,
+      "sanitized": false
+    },
+    "screenshots/home-block-art-v0.18.1-dark-mock.png": {
+      "source": "webgui_menu/verification/home-block-art-dark.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "fe5794632d9e0ca4cd70aae55b4e1379eed3de528dca2c04c055c767e337a14c",
+      "published_sha256": "fe5794632d9e0ca4cd70aae55b4e1379eed3de528dca2c04c055c767e337a14c",
+      "bytes": 404719,
+      "sanitized": false
+    },
+    "screenshots/home-block-art-v0.18.1-light-mock.png": {
+      "source": "webgui_menu/verification/home-block-art-light.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "f4beef8cda286b1190a544176822956219bcfe80e09edb476bf3471c1253ebf0",
+      "published_sha256": "f4beef8cda286b1190a544176822956219bcfe80e09edb476bf3471c1253ebf0",
+      "bytes": 446193,
       "sanitized": false
     },
     "screenshots/menu-v0.17-docked-profile-dark-mock.png": {

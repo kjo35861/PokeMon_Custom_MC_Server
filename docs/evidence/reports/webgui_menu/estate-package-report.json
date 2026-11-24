@@ -1,8 +1,8 @@
 {
-  "bundle": "PocketmateMenu-v0.18.0.zip",
-  "sha256": "e4eead51d404c0982b0267b6e842ed9932e3d5af44e01deec4140f4f2ca4c0dc",
+  "bundle": "PocketmateMenu-v0.18.1.zip",
+  "sha256": "7e7b9e11c5b642b4878d712bd9db038983c419031652a4a7de6a3800718c3e6e",
   "files": {
-    "config/webgui/web/index.html": "218ce21f3160fe9666b46b442c581000b9b8e8f98f2fbe6621caac26e3bf1f56",
+    "config/webgui/web/index.html": "4c9367a29d0a540991fe72e0a67a22979b675d488b4209e77eb5cb2f154042a7",
     "config/webgui/web/menu.css": "0b0ff2ac2fcc6e4e5e45c4c1904b2ba62a79e000d4dd044d194408dc4e05aa20",
     "config/webgui/web/menu.js": "98e738af6b629b4032bd94306e344f2e76bfe44698c4623669ee0330f6d6335b",
     "config/webgui/web/estate.css": "5297ebb61798ff653657b6938e1bee1e7412098a47a849578e8454724b000fa7",
@@ -27,6 +27,7 @@
     "config/webgui/web/layout.css": "fc3f7d7a5237c16e43038bb31b264e5af8d85c9a24eb91d7a6ab78d6758f17dc",
     "config/webgui/web/shop.js": "75a35cfc8f5f314304d5634ce3b354e71be686b6bc5f8fe9ce19b0177e9dfe6c",
     "config/webgui/web/shop.css": "4b9b01c6b5b1192ddbe16d5c37c58b24db99ec9b090bb010759f0465fad40c72",
+    "config/webgui/web/home-art.css": "d72d6d82e3be5a330c032e7dacd202f88cde588e08042ad64ab46a44e08e2e98",
     "config/webgui/web/icons.css": "384535ec5d66ace1f31650aecceca5f7e74d3f3d47b852a2668b66c7f09813b8",
     "config/webgui/web/icons.js": "1e029465c1b8943b5eb6a282ed433b488e4aa938570c7456019c171a74b895e9",
     "config/webgui/web/pocketmate-mark.png": "ce4ef2099db8f7c01b1f1f68463790f24eda4c74e91d5fb121ef68108b132b9e",
@@ -256,7 +257,12 @@
     "config/webgui/web/icons/users.svg": "e117356f91b14147a1fe6cf7157adae34310e6797a0bf80dba8fa9fd18fbda90",
     "config/webgui/web/icons/vault.svg": "b4c37474a7eec70420a74144b2564df0fad5e106563449b51c86c2186b53fd4f",
     "config/webgui/web/icons/warp.svg": "928429037f2a4da3595e3f04f7051ff87ea01f288fd57fa2b862e55b724322e9",
-    "config/webgui/web/icons/x.svg": "4456741f0d25f27e97bd7c6ace2a453007c68e2978e72d3282e98c9092da2bf8"
+    "config/webgui/web/icons/x.svg": "4456741f0d25f27e97bd7c6ace2a453007c68e2978e72d3282e98c9092da2bf8",
+    "config/webgui/web/home-assets/missions.png": "f90779f2afe9d8de0cc4b12352bb2259074262e72218316e8de4aa3dff46e9a6",
+    "config/webgui/web/home-assets/shop.png": "bf6c30b4a60f23325c8dec0808144b3994132b56cd73f874a19c1edb79e3e9cc",
+    "config/webgui/web/home-assets/travel.png": "2a02429b5f95556670742f1995121033e0ea08fac6b6f7eb71300f0e110e5b16",
+    "config/webgui/web/home-assets/warehouse.png": "7a3c4871cfde24c36a653f9d0a6f6df2bbd43beab832da586e8c0984fa5bdf2c",
+    "config/webgui/web/home-assets/warp.png": "e88a6179c6e7944e213f722b92a6315ed71a1a16bfb5a78a70274e1e4e2ee068"
   },
   "deployed_assets_match": true
 }
