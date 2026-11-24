@@ -1,0 +1,15 @@
+{
+  "status": "design_review_only_not_installed",
+  "legendary_count": 71,
+  "mythical_bonus_count": 23,
+  "unique_title_count": 94,
+  "unique_icon_count": 94,
+  "svg_xml_pass": true,
+  "contact_sheet_pngs_visually_inspected": 4,
+  "preview_selection_theme_cases": 188,
+  "preview_test_environment": "Node mock DOM",
+  "browser_tested": false,
+  "game_tested": false,
+  "minecraft_deployment_changed": false,
+  "award_logic_implemented": false
+}

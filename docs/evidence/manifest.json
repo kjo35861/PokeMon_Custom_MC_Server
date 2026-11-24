@@ -329,6 +329,14 @@
       "bytes": 393,
       "sanitized": true
     },
+    "reports/webgui_menu/legendary-title-design-report.json": {
+      "source": "webgui_menu/verification/legendary-title-design-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "595c791eab78a66562bd35c0ce6e90e60ec2fd6859f80b9f522f2879cf8238dd",
+      "published_sha256": "486baeb4e1437f3929d5181d3cf09cef8cafa3c3c8e255a852b90ed79e246f0c",
+      "bytes": 446,
+      "sanitized": true
+    },
     "reports/webgui_menu/member-limit-install.json": {
       "source": "webgui_menu/verification/member-limit-install.json",
       "kind": "historical-or-current-report",

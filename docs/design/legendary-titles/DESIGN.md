@@ -1,0 +1,25 @@
+# 서버 최초 포획 칭호 시안
+
+상태: **검토용 · 사용자 디자인 승인 대기 · Minecraft 미적용**.
+
+전설 71종은 기본안이며 환상 23종은 별도 분류의 추가안이다. 울트라비스트와 일반 패러독스 포켓몬은 포함하지 않았다. 리전폼·메가진화·폼체인지는 같은 종의 칭호를 공유하는 안으로 잡았다. 가라르의 전설 새 등 폼별 별도 보상이 필요하면 별도 시안으로 확장한다.
+
+각 종의 특징을 24×24 좌표계의 간단한 선 아이콘으로 직접 그렸다. 문구는 모든 종이 다르며, 색만 달리해 구분하는 방식이 아니다. 색은 각 포켓몬의 대표색을 바탕으로 화면에서 읽기 쉬운 밝기로 조정했다. `color`는 다크 배경용, `lightColor`는 같은 계열의 라이트 배경용이다. 라이트 변형은 #F5F6F0 배경에 대비 4.5:1 이상으로 계산했다. 실제 Minecraft 비트맵 폰트에서의 가독성은 아직 검사하지 않았다.
+
+- `catalog.tsv`: 이름·문구·색·모티프·원본 도형. 편집의 기준 파일.
+- `catalog.json`: 디자인 데이터와 향후 지급 키 `first_capture_<도감번호>`.
+- `icons/`: 독립 SVG 원본 94개.
+- `legendary-01/02/03.png`와 같은 이름의 SVG: 전설 전체 비교판.
+- `mythical-bonus.png`와 SVG: 환상 별도 비교판.
+- `preview.fragment.html`, `preview-data.json`: 대화 내 선택형 검토 화면의 원본과 데이터. 템플릿의 `__POCKETMATE_TITLE_DATA__`를 JSON 데이터로 채워 사용한다.
+
+생성: `python tools/build_title_designs.py` (`resvg-py` 필요). 생성기는 이 디자인 폴더만 쓰며 게임 설치 경로·WebGUI 실행 파일·모드 소스를 변경하지 않는다. 검토 화면 선택 로직은 `node tools/check_title_designs.cjs`로 검사한다.
+
+직접 확인한 범위: 비교판 PNG 4장 렌더링을 열어 확인했고, 94개 SVG와 4개 비교판 SVG 파싱·종/문구/도형 중복 검사·검토 화면의 188가지 선택/테마 상태 검사를 수행했다. 선택 상태 검사는 Node 모의 DOM이며 실제 브라우저 화면 테스트가 아니다. 서버 최초 포획 이벤트·중복 지급 방지·게임 장착은 구현하거나 테스트하지 않았다. 이 자료만으로 해당 기능이 서버에 설치된 것으로 간주하지 않는다.
+
+분류·목록 참고:
+
+- [Legendary Pokémon](https://bulbapedia.bulbagarden.net/wiki/Legendary_Pok%C3%A9mon)
+- [Mythical Pokémon](https://bulbapedia.bulbagarden.net/wiki/Mythical_Pok%C3%A9mon)
+
+문구와 선 아이콘은 이 프로젝트용 시안으로 제작했으며 위 목록의 공식 일러스트를 가져오지 않았다.
