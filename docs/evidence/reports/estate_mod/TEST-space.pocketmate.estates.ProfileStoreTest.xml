@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="space.pocketmate.estates.ProfileStoreTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-11-24T15:12:24" hostname="DESKTOP-6FIEOUH" time="0.084">
+<testsuite name="space.pocketmate.estates.ProfileStoreTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-11-24T15:16:41" hostname="DESKTOP-6FIEOUH" time="0.092">
   <properties/>
-  <testcase name="equipsOwnedItemsTogetherAndKeepsOtherPlayer()" classname="space.pocketmate.estates.ProfileStoreTest" time="0.012"/>
-  <testcase name="grantIsPersistentAndBelongsOnlyToRecipient()" classname="space.pocketmate.estates.ProfileStoreTest" time="0.012"/>
-  <testcase name="publicAppearanceUsesEachPlayersSavedEquipmentOnly()" classname="space.pocketmate.estates.ProfileStoreTest" time="0.015"/>
-  <testcase name="publicLookupsDoNotCreateOrWriteProfiles()" classname="space.pocketmate.estates.ProfileStoreTest" time="0.006"/>
+  <testcase name="equipsOwnedItemsTogetherAndKeepsOtherPlayer()" classname="space.pocketmate.estates.ProfileStoreTest" time="0.011"/>
+  <testcase name="grantIsPersistentAndBelongsOnlyToRecipient()" classname="space.pocketmate.estates.ProfileStoreTest" time="0.014"/>
+  <testcase name="publicAppearanceUsesEachPlayersSavedEquipmentOnly()" classname="space.pocketmate.estates.ProfileStoreTest" time="0.016"/>
+  <testcase name="publicLookupsDoNotCreateOrWriteProfiles()" classname="space.pocketmate.estates.ProfileStoreTest" time="0.007"/>
   <testcase name="lockedOrWrongKindRejectsWholeEquipmentChange()" classname="space.pocketmate.estates.ProfileStoreTest" time="0.005"/>
-  <testcase name="chatTitleLookupTracksEquipmentWithoutWriting()" classname="space.pocketmate.estates.ProfileStoreTest" time="0.011"/>
-  <testcase name="failedWriteDoesNotChangeEquipmentOrOwnership()" classname="space.pocketmate.estates.ProfileStoreTest" time="0.012"/>
-  <testcase name="corruptedStoreCannotResetOwnership()" classname="space.pocketmate.estates.ProfileStoreTest" time="0.003"/>
+  <testcase name="chatTitleLookupTracksEquipmentWithoutWriting()" classname="space.pocketmate.estates.ProfileStoreTest" time="0.012"/>
+  <testcase name="failedWriteDoesNotChangeEquipmentOrOwnership()" classname="space.pocketmate.estates.ProfileStoreTest" time="0.016"/>
+  <testcase name="corruptedStoreCannotResetOwnership()" classname="space.pocketmate.estates.ProfileStoreTest" time="0.004"/>
   <testcase name="starterOwnershipAndDefaultsPersist()" classname="space.pocketmate.estates.ProfileStoreTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

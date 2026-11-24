@@ -1,0 +1,9 @@
+{
+  "version": "0.10.1",
+  "command": "/pmprofile grantall @s title",
+  "status": "installed",
+  "restart_required": true,
+  "game_tested": false,
+  "java_tests": 68,
+  "failures": 0
+}

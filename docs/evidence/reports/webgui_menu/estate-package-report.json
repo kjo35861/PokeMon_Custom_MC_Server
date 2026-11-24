@@ -1,6 +1,6 @@
 {
-  "bundle": "PocketmateMenu-v0.15.0.zip",
-  "sha256": "567e761a1b5827e7df859aff71e6874b38fd93f73462977791a1d07895a54900",
+  "bundle": "PocketmateMenu-v0.15.1.zip",
+  "sha256": "b10bdcbb39cc4adc54c14b74e2c7d0320bcb0bfd6dd685589f44798af8760641",
   "files": {
     "config/webgui/web/index.html": "faee498c43d35394c853c27a007c15c441cdc6de3424c908599e5d499eb66f19",
     "config/webgui/web/menu.css": "0b0ff2ac2fcc6e4e5e45c4c1904b2ba62a79e000d4dd044d194408dc4e05aa20",
@@ -24,7 +24,7 @@
     "config/webgui/web/icons.css": "384535ec5d66ace1f31650aecceca5f7e74d3f3d47b852a2668b66c7f09813b8",
     "config/webgui/web/icons.js": "1e029465c1b8943b5eb6a282ed433b488e4aa938570c7456019c171a74b895e9",
     "config/webgui/web/pocketmate-mark.png": "ce4ef2099db8f7c01b1f1f68463790f24eda4c74e91d5fb121ef68108b132b9e",
-    "mods/pocketmate-estates-0.10.0.jar": "7f2b6e4d54b625c1e29d8a45b88085bb836cb6fbd57e19f6f2e11b2f5d6c658f",
+    "mods/pocketmate-estates-0.10.1.jar": "88274a2dd25a9561a7c19d0516b6d5b9d4f26e8b7d58d7b451b33fcc852c45d1",
     "client-only/pocketmate-webgui-alpha-0.1.0.jar": "2c2440d9477aef5dbfc4b4b39291b9d4a072392ca1387e3b3771fe5aa98eff73",
     "메뉴 사용 안내.txt": "3a0d3b0538fc3792b45f0780bb775c9da260e6601a9d3f42d15ba67a038547de",
     "영지 설치와 운영.txt": "5c304cf4da4215fe1f416283db2e049ea668d2e78d7447a643425dce5898c7de",

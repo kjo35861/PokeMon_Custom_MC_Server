@@ -86,6 +86,14 @@ public final class ProfileStore {
         Profile current=get(id);Set<String> owned=new HashSet<>(current.owned);if(!owned.add(kind+":"+item))return;
         commit(id,new Profile(current.icon,current.title,current.banner,owned));
     }
+    /** One persisted update; duplicate grants never alter equipment or other cosmetics. */
+    public int grantAllTitles(UUID id) throws IOException {
+        Profile current=get(id);Set<String> owned=new HashSet<>(current.owned);
+        int added=0;
+        for(Cosmetic item:CATALOG)if(item.kind.equals("title")&&owned.add("title:"+item.id))added++;
+        if(added>0)commit(id,new Profile(current.icon,current.title,current.banner,owned));
+        return added;
+    }
     private void commit(UUID id,Profile profile) throws IOException {
         Map<UUID,Profile> next=new LinkedHashMap<>(profiles);next.put(id,profile);
         JsonObject root=new JsonObject(),entries=new JsonObject();root.addProperty("formatVersion",1);

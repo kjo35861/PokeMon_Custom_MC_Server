@@ -46,6 +46,14 @@ public final class ProfilesMod implements ModInitializer {
         ServerPlayConnectionEvents.DISCONNECT.register((handler,server)->requests.remove(handler.player.getUuid()));
         WebGuiBridge.listen(CHANNEL,(player,payload)->{MinecraftServer server=player.getServer();if(server!=null)server.execute(()->receive(server,player,payload));});
         CommandRegistrationCallback.EVENT.register((dispatcher,access,environment)->dispatcher.register(literal("pmprofile").requires(source->source.hasPermissionLevel(2))
+            .then(literal("grantall").then(argument("player",EntityArgumentType.player()).then(literal("title").executes(context->{
+                ProfileStore store=stores.get(context.getSource().getServer());
+                try{
+                    if(store==null)throw new IllegalStateException();
+                    int added=store.grantAllTitles(EntityArgumentType.getPlayer(context,"player").getUuid());
+                    context.getSource().sendFeedback(()->Text.literal("모든 칭호 지급 완료 · 새로 지급한 칭호 "+added+"개. 프로필 편집을 다시 열어주세요."),false);return 1;
+                }catch(Exception failure){context.getSource().sendError(Text.literal("칭호를 지급하지 못했습니다. 프로필 저장 상태를 확인해주세요."));return 0;}
+            }))))
             .then(literal("grant").then(argument("player",EntityArgumentType.player()).then(argument("kind",StringArgumentType.word()).suggests((context,builder)->{
                 for(String kind:List.of("icon","title","banner"))builder.suggest(kind);return builder.buildFuture();
             }).then(argument("item",StringArgumentType.word()).suggests((context,builder)->{
