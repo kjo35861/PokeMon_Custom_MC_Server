@@ -1,0 +1,11 @@
+{
+  "headless_mock_only": true,
+  "game_tested": false,
+  "themes": 2,
+  "route_and_viewport_cases": 32,
+  "shared_surface": true,
+  "profile_dock_preserved": true,
+  "mission_cards_and_claim_all": true,
+  "estate_members_and_dialog": true,
+  "errors": []
+}

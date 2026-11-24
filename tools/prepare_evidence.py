@@ -33,6 +33,19 @@ def candidates():
     for source in sorted((ROOT/'estate_mod/verification/test-results/test').glob('TEST-*.xml')):
         yield source,f'reports/estate_mod/{source.name}','junit-result'
     screenshots={
+        'webgui_menu/verification/trainer-theme-home-dark.png':'trainer-theme-v0.19-home-dark-mock.png',
+        'webgui_menu/verification/trainer-theme-home-light.png':'trainer-theme-v0.19-home-light-mock.png',
+        'webgui_menu/verification/trainer-theme-quests-dark.png':'trainer-theme-v0.19-quests-dark-mock.png',
+        'webgui_menu/verification/trainer-theme-quests-light.png':'trainer-theme-v0.19-quests-light-mock.png',
+        'webgui_menu/verification/trainer-theme-profile-dark.png':'trainer-theme-v0.19-profile-dark-mock.png',
+        'webgui_menu/verification/trainer-theme-profile-light.png':'trainer-theme-v0.19-profile-light-mock.png',
+        'webgui_menu/verification/trainer-theme-shop-dark.png':'trainer-theme-v0.19-shop-dark-mock.png',
+        'webgui_menu/verification/trainer-theme-shop-light.png':'trainer-theme-v0.19-shop-light-mock.png',
+        'webgui_menu/verification/trainer-theme-estate-dark.png':'trainer-theme-v0.19-estate-dark-mock.png',
+        'webgui_menu/verification/trainer-theme-estate-light.png':'trainer-theme-v0.19-estate-light-mock.png',
+        'webgui_menu/verification/trainer-theme-vault-dark.png':'trainer-theme-v0.19-vault-dark-mock.png',
+        'webgui_menu/verification/trainer-theme-vault-light.png':'trainer-theme-v0.19-vault-light-mock.png',
+
         'webgui_menu/verification/mission-claim-all-mock.png':'daily-missions-claim-all-v0.18.3-mock.png',
         'webgui_menu/verification/home-block-art-optimized-dark.png':'home-block-art-v0.18.2-dark-mock.png',
         'webgui_menu/verification/home-block-art-optimized-light.png':'home-block-art-v0.18.2-light-mock.png',
@@ -55,7 +68,7 @@ def candidates():
     }
     for original,name in screenshots.items():
         source=ROOT/original
-        if source.exists():yield source,'screenshots/'+name,('headless-mock-ui-screenshot' if name.startswith(('daily-missions-','menu-v0.17-','shop-v0.18-','home-block-art-')) else 'historical-ui-screenshot')
+        if source.exists():yield source,'screenshots/'+name,('headless-mock-ui-screenshot' if name.startswith(('daily-missions-','menu-v0.17-','shop-v0.18-','home-block-art-','trainer-theme-')) else 'historical-ui-screenshot')
     for name in ['brand-final-prompt.txt','brand-universal-prompt.txt']:
         source=ROOT/'webgui_menu/verification'/name
         if source.exists():yield source,'artwork/'+name,'image-generation-prompt'

@@ -1,0 +1,85 @@
+/* Pocketmate Trainer theme: presentation only; no routes, dimensions or game rules. */
+:root[data-theme]{
+ --surface:#182333;--surface-raised:#233247;--ink:#f5f3e9;--muted:#bdc9d8;--soft-text:#bdc9d8;
+ --line:#52657a66;--cyan:#8fd3b1;--orange:#f5cf7b;
+ --control-bg:#2b3d53;--control-ink:#f5f3e9;--control-line:#61748c;
+ --trainer-red:#d96560;--trainer-red-ink:#fff9ed;--trainer-blue:#9ac7f0;--trainer-gold:#f5cf7b;
+ --trainer-soft:#2c3d52;--trainer-hover:#32475f;--trainer-shadow:#09131f66;--trainer-grid:#b3c6e605;
+ --trainer-button:#355f51;--trainer-button-hover:#42705f;--trainer-danger:#ffb2a8;
+}
+:root[data-theme=light]{
+ --surface:#f5f1e7;--surface-raised:#fffdf6;--ink:#26394a;--muted:#596b79;--soft-text:#596b79;
+ --line:#7e8d9955;--cyan:#28684e;--orange:#e9b64f;
+ --control-bg:#fffdf6;--control-ink:#26394a;--control-line:#9aa9b2;
+ --light-card:#fffdf6;--light-soft:#e9eee7;--light-hover:#dce7df;--light-accent:#28684e;--light-danger:#a73e39;--light-gold:#795612;
+ --trainer-red:#b94743;--trainer-red-ink:#fffdf6;--trainer-blue:#315f87;--trainer-gold:#815d19;
+ --trainer-soft:#e9eee7;--trainer-hover:#dfe7df;--trainer-shadow:#23364a1c;--trainer-grid:#315f8705;
+ --trainer-button:#28684e;--trainer-button-hover:#20563f;--trainer-danger:#a73e39;
+}
+:root[data-theme] body{color:var(--ink)}
+:root[data-theme] body :is(.shell,.estate-window,.estate-screen,.estate-backdrop,.shop-screen){background-color:var(--surface);color:var(--ink);border-color:var(--control-line)}
+:root[data-theme] body :is(.shell,.estate-window,.shop-window){border-radius:12px;box-shadow:0 18px 48px var(--trainer-shadow),inset 0 1px #fff1}
+:root[data-theme] body .shell{background-image:linear-gradient(var(--trainer-grid) 1px,transparent 1px),linear-gradient(90deg,var(--trainer-grid) 1px,transparent 1px);background-size:24px 24px}
+:root[data-theme] body :is(.shell:before,.estate-window:before){background:linear-gradient(90deg,var(--trainer-red) 0 30%,var(--trainer-gold) 30% 34%,transparent 34%)}
+:root[data-theme] body .masthead{background:var(--surface-raised);border-color:var(--line);box-shadow:inset 0 -3px var(--trainer-red)}
+:root[data-theme] body :is(.brand,.estate-screen-brand,.estate-screen-brand>div){color:var(--ink)}
+:root[data-theme] body :is(.brand small,.estate-screen-brand span,.eyebrow,.feature-kicker,.shop-eyebrow){color:var(--trainer-blue)}
+:root[data-theme] body :is(.tabbar,.estate-nav,.shop-sidebar){background:var(--surface);border-color:var(--line)}
+:root[data-theme] body :is(.nav-item,.estate-screen .estate-nav button,.profile-tabs button,.shop-sidebar nav button){color:var(--muted);border-radius:6px}
+:root[data-theme] body :is(.nav-item:hover,.estate-screen .estate-nav button:hover,.profile-tabs button:hover,.shop-sidebar nav button:hover){background:var(--trainer-soft);color:var(--ink)}
+:root[data-theme] body :is(.nav-item.selected,.estate-screen .estate-nav button.active,.profile-tabs button[aria-selected=true],.shop-sidebar nav button[aria-pressed=true]){background:var(--trainer-red);color:var(--trainer-red-ink);border-color:var(--trainer-red);box-shadow:inset 0 1px #fff3,inset 0 -2px #0002}
+:root[data-theme] body :is(.nav-item.selected>span,.estate-screen .estate-nav button.active>.pm-icon,.profile-tabs button[aria-selected=true] small){color:var(--trainer-red-ink)}
+:root[data-theme] body .nav-item.selected:before{background:var(--trainer-gold)}
+:root[data-theme] body :is(.nav-item>span,.welcome,.date-label,.setting-row small,.feature-description,.profile-collection-desc,.mission-day,.mission-reset,.mission-count,.mission-category,.mission-connection,.mission-reward-note,.shop-count,.shop-status,.shop-sidebar-note,.shop-search-label){color:var(--muted)}
+/* Common cards read as sturdy trainer equipment panels. */
+:root[data-theme] body :is(.feature-panel,.placeholder-tile,.profile-wait,.profile-choice,.mission-card,.mission-final,.estate-summary,.estate-standing,.estate-selection,.estate-community-card,.estate-vault-card,.estate-map-pane,.estate-sidebar,.estate-map-option,.shop-window,.shop-welcome,.shop-empty){background:var(--surface-raised);color:var(--ink);border-color:var(--line);border-radius:8px}
+:root[data-theme] body :is(.mission-card,.estate-community-card,.estate-vault-card,.profile-choice){box-shadow:inset 0 2px #fff06,0 3px 0 #0001}
+:root[data-theme] body :is(.mission-card.is-complete,.profile-choice[aria-pressed=true]){border-color:var(--cyan);background:var(--trainer-soft)}
+:root[data-theme] body :is(.profile-choice small,.profile-tabs small,.feature-panel p,.placeholder-tile small,.shop-empty p,.shop-welcome p,.estate-announcement,.estate-members-heading p,.estate-roster th,.estate-roster .member-last-seen,.estate-field,.estate-muted,.estate-empty-copy,.estate-search-help,.estate-side-heading p,.estate-sidebar dt,.estate-sidebar .estate-help,.estate-header-stats,.estate-level-schedule>p){color:var(--muted)}
+:root[data-theme] body :is(.estate-community-card header h2,.estate-members-heading h2,.estate-header h1,.estate-side-heading h2,.estate-sidebar dd,.estate-roster td,.estate-header-stats b){color:var(--ink)}
+:root[data-theme] body :is(.estate-notice,.estate-facts,.estate-photo-foot,.estate-window-footer,.estate-level-badge,.estate-vault-balance,.estate-growth-next,.estate-map-toolbar,.shop-welcome){background:var(--trainer-soft);border-color:var(--line);color:var(--ink)}
+:root[data-theme] body :is(.primary-button,.estate-sidebar .primary-button,.estate-vault-card .primary-button){background:var(--trainer-button);color:#fffdf3;border-color:var(--trainer-button);border-radius:5px;box-shadow:inset 0 1px #fff3,inset 0 -2px #0003}
+:root[data-theme] body :is(.primary-button,.estate-sidebar .primary-button,.estate-vault-card .primary-button):hover:not(:disabled){background:var(--trainer-button-hover);color:#fffdf3}
+:root[data-theme] body :is(.back-button,.close-button,.estate-return,.estate-exit,.estate-tabs button,.estate-map-toolbar button,.estate-header-stats button,.estate-clear-selection,.estate-schedule-link,.estate-community-card header button,.estate-roster button,.estate-invite-results button,.estate-incoming button,.mission-reroll,.shop-heading-actions button){background:var(--control-bg);color:var(--control-ink);border-color:var(--control-line);border-radius:5px}
+:root[data-theme] body :is(.estate-danger-button,.estate-danger-nav){color:var(--trainer-danger)}
+:root[data-theme] body .estate-danger-button{background:var(--trainer-red);color:var(--trainer-red-ink);border-color:var(--trainer-red)}
+:root[data-theme] body :is(input:not([type=checkbox]),textarea,select,.theme-select,.estate-roster select,.estate-coordinate-select input,.shop-search input){background:var(--control-bg);color:var(--control-ink);border-color:var(--control-line);border-radius:5px}
+:root[data-theme] body :is(input,textarea)::placeholder{color:var(--muted)}
+:root[data-theme] body :is(button,input,select,textarea):focus-visible{outline:2px solid var(--trainer-gold);outline-offset:3px}
+:root[data-theme] body :is(.text-size-control,.estate-screen .text-size-control){background:var(--control-bg);border-color:var(--control-line);border-radius:5px}
+:root[data-theme] body .text-size-control button{background:var(--trainer-soft);color:var(--control-ink)}
+:root[data-theme] body :is(.bottom-bar,.bottom-bar .coordinates,.bottom-bar .key-hints,.bottom-bar .key-hints b,.notice-strip,.notice-strip strong,.notice-strip>svg,.notice-marker){color:var(--muted);border-color:var(--line)}
+:root[data-theme] body .bottom-bar kbd{background:var(--control-bg);border-color:var(--control-line);color:var(--ink)}
+:root[data-theme] body dialog{background:var(--surface-raised);color:var(--ink);border-color:var(--control-line);border-radius:10px;box-shadow:0 20px 80px #0005}
+:root[data-theme] body dialog::backdrop{background:#0c142b85;backdrop-filter:blur(3px)}
+:root[data-theme] body :is(.help-tooltip,#pocketmate-help-tooltip){background:var(--surface-raised);color:var(--ink);border-color:var(--control-line)}
+/* Full-color home dioramas remain unchanged. Each tile gets one subtle biome accent. */
+:root[data-theme] body #home-page .action-tile{background:var(--surface-raised);color:var(--ink);border-color:var(--line);border-radius:8px;box-shadow:inset 0 3px var(--tile-accent,var(--trainer-blue)),0 3px 0 #0002}
+:root[data-theme] body #home-page .warp-tile{--tile-accent:#af9ddb;background:linear-gradient(135deg,var(--surface-raised),var(--trainer-soft))}
+:root[data-theme] body #home-page .shop-entry-tile{--tile-accent:#81ba8f}
+:root[data-theme] body #home-page .quest-tile{--tile-accent:#e2ba68}
+:root[data-theme] body #home-page .shop-tile{--tile-accent:#bf9a72}
+:root[data-theme] body #home-page .travel-tile{--tile-accent:#83b7d0}
+:root[data-theme] body #home-page .action-tile:hover{background:var(--trainer-hover);border-color:var(--tile-accent)}
+:root[data-theme] body #home-page :is(.tile-code,.tile-eyebrow,.tile-copy p,.team-copy p,.tile-flag){color:var(--muted)}
+:root[data-theme] body #home-page .team-tile:before{background-image:linear-gradient(var(--trainer-grid) 1px,transparent 1px),linear-gradient(90deg,var(--trainer-grid) 1px,transparent 1px)}
+:root[data-theme] body #home-page .launch-arrow{background:var(--trainer-red);color:var(--trainer-red-ink);border-radius:5px;box-shadow:inset 0 1px #fff3,inset 0 -2px #0002}
+:root[data-theme] body :is(.mission-symbol,.empty-symbol,.feature-badge){background:var(--trainer-soft);color:var(--cyan);border-color:var(--line);border-radius:6px}
+:root[data-theme] body .mission-progress{background:var(--trainer-soft)}
+:root[data-theme] body .mission-progress>span{background:var(--cyan)}
+/* Do not replace equipped banner images, their 10% veil, or title-specific colors. */
+:root[data-theme] body :is(.profile-card,.profile-preview,.people-card){border-color:var(--control-line)}
+:root[data-theme] body :is(.profile-edit,.profile-preview-tag){background:#182333e6;color:#fff8e9;border-color:#becbdd77}
+:root[data-theme] body .profile-actions{background:var(--surface-raised);border-color:var(--control-line);box-shadow:0 8px 30px var(--trainer-shadow)}
+:root[data-theme] body .estate-screen:after{background:none}
+/* Secondary estate controls, tables and empty states follow the same equipment palette. */
+:root[data-theme] body :is(.estate-vault-card button:not(.primary-button),.estate-coordinate-select button,.estate-pan button,.estate-map-options button,.estate-wait button){background:var(--control-bg);color:var(--control-ink);border-color:var(--control-line);border-radius:5px}
+:root[data-theme] body :is(.estate-vault-card>p,.estate-vault-card .estate-vault-note,.estate-growth-level,.estate-growth-level small,.estate-growth-limit,.estate-growth-card dl,.estate-growth-members,.estate-vault-heading>span,.estate-vault-heading p,.estate-vault-history>p,.estate-map-toolbar>span,.estate-legend,.estate-coordinate-select){color:var(--muted)}
+:root[data-theme] body :is(.estate-growth-level strong,.estate-growth-limit b,.estate-growth-card dd,.estate-growth-members b,.estate-vault-table td){color:var(--ink)}
+:root[data-theme] body .estate-vault-table th{background:var(--trainer-soft);color:var(--muted)}
+:root[data-theme] body .estate-vault-table tr.current td{background:var(--trainer-soft);color:var(--cyan)}
+:root[data-theme] body .estate-tabs button.active{background:var(--trainer-soft);border-color:var(--cyan);color:var(--cyan)}
+:root[data-theme] body .estate-screen .estate-nav .estate-danger-nav,:root[data-theme] body .estate-screen .estate-nav .estate-danger-nav>.pm-icon{color:var(--trainer-danger)}
+:root[data-theme] body :is(.estate-map-settings,.estate-setting-group,.setting-row){border-color:var(--line)}
+:root[data-theme] body .mission-final{box-shadow:inset 3px 0 var(--trainer-gold)}
+:root[data-theme] body .nav-item.selected>span{background:transparent}
