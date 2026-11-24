@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="space.pocketmate.estates.ShopTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-11-24T22:52:09" hostname="DESKTOP-6FIEOUH" time="0.082">
+<testsuite name="space.pocketmate.estates.ShopTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-11-24T23:12:33" hostname="DESKTOP-6FIEOUH" time="0.094">
   <properties/>
   <testcase name="maxPurchaseAccountsForPartialStacksFundsAndFullInventory()" classname="space.pocketmate.estates.ShopTest" time="0.003"/>
-  <testcase name="catalogHasAllRequestedGroupsAndNoProcessedMineralsOrCompressionArbitrage()" classname="space.pocketmate.estates.ShopTest" time="0.04"/>
-  <testcase name="walletSharesBalancesPersistsAndRejectsInsufficientFunds()" classname="space.pocketmate.estates.ShopTest" time="0.018"/>
-  <testcase name="fixedAndFutureWindowPricesAreServerStableAndBelowBuy()" classname="space.pocketmate.estates.ShopTest" time="0.003"/>
-  <testcase name="inventoryPlanMergesStacksAndRejectsFullWithoutMutatingOriginal()" classname="space.pocketmate.estates.ShopTest" time="0.002"/>
+  <testcase name="catalogHasAllRequestedGroupsAndNoProcessedMineralsOrCompressionArbitrage()" classname="space.pocketmate.estates.ShopTest" time="0.049"/>
+  <testcase name="walletSharesBalancesPersistsAndRejectsInsufficientFunds()" classname="space.pocketmate.estates.ShopTest" time="0.019"/>
+  <testcase name="fixedAndFutureWindowPricesAreServerStableAndBelowBuy()" classname="space.pocketmate.estates.ShopTest" time="0.002"/>
+  <testcase name="inventoryPlanMergesStacksAndRejectsFullWithoutMutatingOriginal()" classname="space.pocketmate.estates.ShopTest" time="0.001"/>
   <testcase name="perItemBasesAndJsonConfigurationAreSupported()" classname="space.pocketmate.estates.ShopTest" time="0.002"/>
   <testcase name="walletWriteFailureRestoresInventoryAndSuccessKeepsIt()" classname="space.pocketmate.estates.ShopTest" time="0.003"/>
   <testcase name="sellingAllEligibleStacksLeavesNamedStacksUntouched()" classname="space.pocketmate.estates.ShopTest" time="0.008"/>
   <testcase name="maxDoesNotMergeNamedItemsAndRespectsUnstackableItems()" classname="space.pocketmate.estates.ShopTest" time="0.001"/>
-  <testcase name="salesUseExactPlainComponentsAndQuantity()" classname="space.pocketmate.estates.ShopTest" time="0.001"/>
+  <testcase name="salesUseExactPlainComponentsAndQuantity()" classname="space.pocketmate.estates.ShopTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

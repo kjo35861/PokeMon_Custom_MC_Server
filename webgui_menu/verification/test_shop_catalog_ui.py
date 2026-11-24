@@ -27,7 +27,7 @@ webgui.postToGame=function(p){if(p.channel!=='pocketmate:shop')return postOrigin
 with sync_playwright() as p:
  browser=p.chromium.launch(executable_path=r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe',headless=True)
  page=browser.new_page(viewport={'width':1440,'height':900});page.add_init_script(mock);errors=[];page.on('pageerror',lambda e:errors.append(str(e)));page.goto((r/'index.html').as_uri());page.wait_for_timeout(400);page.locator('[data-page=shop]').click();page.locator('.shop-product').first.wait_for()
- assert page.locator('[data-shop-category]').count()==9
+ assert page.locator('[data-shop-category]').count()==10
  assert page.locator('.shop-product').count()==2
  page.evaluate("dispatchEvent(new CustomEvent('webgui:pocketmate:shop-assets',{detail:{requestId:shopCalls.at(-1).requestId,icons:{}}}))")
  page.locator('[data-shop-item="minecraft:stone"]').click();page.locator('[data-shop-qty="16"]').click();assert '1,600원' in page.locator('.shop-trade-total').inner_text();page.locator('[data-shop-confirm]').click();page.wait_for_timeout(150);assert page.evaluate('shopBalance')==48400
@@ -51,5 +51,5 @@ with sync_playwright() as p:
  page.locator('#shop-page [data-go=home]').click();count=page.evaluate('shopCalls.length');page.clock.install();page.clock.fast_forward(20000);assert page.evaluate('shopCalls.length')==count
  assert not errors,errors
  browser.close()
-(r/'verification/shop-catalog-ui-report.json').write_text(json.dumps({'headless_mock_only':True,'game_tested':False,'nine_categories':True,'pokemon_categories_empty':True,'buy_and_sell':True,'separate_prices':True,'quantity_validation':True,'korean_search_focus':True,'stale_price_rejected':True,'insufficient_balance_rejected':True,'no_client_prices':True,'viewport_sizes':4,'unmount_cancels_poll':True,'errors':errors},indent=2),encoding='utf-8')
+(r/'verification/shop-catalog-ui-report.json').write_text(json.dumps({'headless_mock_only':True,'game_tested':False,'nine_product_categories_and_favorites':True,'pokemon_categories_empty':True,'buy_and_sell':True,'separate_prices':True,'quantity_validation':True,'korean_search_focus':True,'stale_price_rejected':True,'insufficient_balance_rejected':True,'no_client_prices':True,'viewport_sizes':4,'unmount_cancels_poll':True,'errors':errors},indent=2),encoding='utf-8')
 print('Shop catalog UI checks passed')
