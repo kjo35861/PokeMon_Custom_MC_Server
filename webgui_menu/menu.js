@@ -62,6 +62,7 @@
     });
     $('home-page').hidden = page !== 'home';
     $('feature-page').hidden = page === 'home';
+    $('page-scroll').classList.toggle('home-fixed', page === 'home');
     $('page-scroll').scrollTop = 0;
     if (page === 'home') return;
     if (page === 'estate') {

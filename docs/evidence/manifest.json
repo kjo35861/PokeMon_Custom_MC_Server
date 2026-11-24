@@ -180,8 +180,8 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "0292f413a7df90e9c5451013190adce1970dd14166c08fff22069659607b54de",
-      "published_sha256": "576f42383722c6ad616fa779cc7ce75e4c07b66c1930cb4b58720f1c2a10582f",
+      "source_sha256": "518d2f68f04b30ab7ea07534b6eec7edaa67ddb981dc712e825df562a8d76ba6",
+      "published_sha256": "3edf1217cc0ce0838433812cbc72a2b03db1dbdfbe2c98b264aa2f3c13585d82",
       "bytes": 6634,
       "sanitized": true
     },
@@ -263,6 +263,14 @@
       "source_sha256": "b8978acdde5ed65e0f4b31b40dc70d5812dac434ce7ac88886d9af783cc4a251",
       "published_sha256": "5168f08b7cdb8864bc4bba761f5c8dd01181ab4eb02f731ddaf55f5e09cd10eb",
       "bytes": 497,
+      "sanitized": true
+    },
+    "reports/webgui_menu/home-scroll-update-report.json": {
+      "source": "webgui_menu/verification/home-scroll-update-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "abdfc58f5ed7d891493ca1ed2b74e66ed9828685b2f1cce52357d969c1e22767",
+      "published_sha256": "ed9a382d008ace6dee776356c6bb6422df71ecce2b226dfe900e84c7f7a81f53",
+      "bytes": 416,
       "sanitized": true
     },
     "reports/webgui_menu/icons-update-report.json": {

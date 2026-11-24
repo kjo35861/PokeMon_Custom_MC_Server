@@ -1,0 +1,14 @@
+{
+  "version": "0.12.2",
+  "scope": "home content only",
+  "home_scroll_disabled": true,
+  "tile_rows": "available-height fractions instead of fixed pixel heights",
+  "other_tabs_scroll_preserved": true,
+  "css_parse_passed": true,
+  "navigation_source_check": true,
+  "game_interaction": false,
+  "browser_visual_check": false,
+  "deployed": true,
+  "restart_required": false,
+  "apply_command": "/webgui reload"
+}
