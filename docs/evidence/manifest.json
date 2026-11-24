@@ -332,8 +332,8 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "b66109111954ea6b7823c29057f5aad309b351fc2727b787c5132acc63202985",
-      "published_sha256": "cd88689a26c2f2697eefa216ccc3f3b094909b1af10b86136d5638e7a0142452",
+      "source_sha256": "bb40f958cf29b0b2ec51f049d5b3c2f9522f3ce665867be65bf7d09737ae41d3",
+      "published_sha256": "5187f94f17b8446945dac9c604bc5e4a229274fdcaa941407d7dbaf33fd5e125",
       "bytes": 31999,
       "sanitized": true
     },

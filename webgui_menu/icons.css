@@ -2,7 +2,7 @@
 .pm-icon{width:22px;height:22px;display:inline-block;vertical-align:-.18em;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;pointer-events:none}
 .brand .brand-mark{width:44px;height:44px;min-width:44px;display:block;transform:none;padding:0;border:0;background:transparent}
 /* Use the free header inset to enlarge the logo, preserving the text and header layout. */
-.brand .brand-mark img,.estate-screen-brand .pocketmate-emblem{display:block;width:44px;height:44px;object-fit:contain;flex-shrink:0;transform:scale(.9);transform-origin:center;pointer-events:none}
+.brand .brand-mark img,.estate-screen-brand .pocketmate-emblem{display:block;width:44px;height:44px;object-fit:contain;flex-shrink:0;transform:scale(1.25);transform-origin:center;pointer-events:none}
 .estate-screen .estate-nav button>.pm-icon{width:23px;height:23px;color:#9ebead;flex-shrink:0}
 .estate-screen .estate-nav button.active>.pm-icon{color:#d4e5bd}.estate-screen .estate-nav .estate-danger-nav>.pm-icon{color:#d8a6a3}
 .estate-history article>.pm-icon{width:20px;height:20px;color:#9dbdaa;margin-top:2px}

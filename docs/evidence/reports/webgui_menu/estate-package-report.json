@@ -1,6 +1,6 @@
 {
   "bundle": "PocketmateMenu-v0.23.4.zip",
-  "sha256": "225383c48e16ce8489f1ad470de1189ad4fec35bdc8b14052a51780e5ece1a2e",
+  "sha256": "fea0863bb6087b47e7a7dc300bed4c226099f653e986e4f298aa98abe794482e",
   "files": {
     "config/webgui/web/index.html": "9e35b2490af9dee1ca9c1f890bbfacd8c0fe23ee7e4943a427a5d3595969b831",
     "config/webgui/web/menu.css": "0b0ff2ac2fcc6e4e5e45c4c1904b2ba62a79e000d4dd044d194408dc4e05aa20",
@@ -31,7 +31,7 @@
     "config/webgui/web/trainer-theme.css": "f805bc64fdaed9d145eadd9c483440709ac202c6183489b0526317da65b7c97a",
     "config/webgui/web/admin.js": "56dbf7aa731b685c3de05db871a39e888f5a2c129828fd9c137ac9bcd1286a34",
     "config/webgui/web/admin.css": "7896c9d72ee5d4b66c3d41a68bc70fb3e4b18c3bcb14c5670f9743eaa2baa114",
-    "config/webgui/web/icons.css": "fb16fe7452af4f12f987f4ffbf00b8625be4b1b31b8a623ed78901eb26517e8d",
+    "config/webgui/web/icons.css": "5915fb8917c4560abd980f69ee0618a13c0ac8df9562f8b6ddf50bdd03d76285",
     "config/webgui/web/icons.js": "1e029465c1b8943b5eb6a282ed433b488e4aa938570c7456019c171a74b895e9",
     "config/webgui/web/pocketmate-mark.png": "1aff20a7cb2445141c31a3b01a08dd37aa434a16cb384f073304014cf7a7c617",
     "mods/pocketmate-estates-0.15.4.jar": "a1f1c57465c66c9d375ce07c08b803b907255dbcdbf7bd15c93d921127c09106",
