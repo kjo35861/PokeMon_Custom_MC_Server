@@ -353,6 +353,14 @@
       "bytes": 357,
       "sanitized": true
     },
+    "reports/webgui_menu/legendary-title-five-v8-report.json": {
+      "source": "webgui_menu/verification/legendary-title-five-v8-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "19213a7f1cdbb656b0441c4df0626ba2e34455b58f8375141b5bb82698084bb2",
+      "published_sha256": "cf43cb33d0f834942a2572fb114b616cbfd2b258b950e3f4b4fb88ee9fe16112",
+      "bytes": 459,
+      "sanitized": true
+    },
     "reports/webgui_menu/legendary-title-line-png-v3-report.json": {
       "source": "webgui_menu/verification/legendary-title-line-png-v3-report.json",
       "kind": "historical-or-current-report",
