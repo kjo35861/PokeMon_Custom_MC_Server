@@ -1,0 +1,27 @@
+{
+  "version": "0.12.1",
+  "change": "Territory selection and purchase explanations moved to question-mark help controls",
+  "triggers": [
+    "pointer hover",
+    "keyboard focus",
+    "click"
+  ],
+  "dismiss": [
+    "Escape",
+    "outside click",
+    "blur",
+    "scroll",
+    "resize",
+    "estate rerender"
+  ],
+  "theme": "shared palette",
+  "outside_overworld_status_preserved": true,
+  "javascript_syntax_passed": true,
+  "css_parse_passed": true,
+  "dimension_guard_cases_passed": 80,
+  "deployed": true,
+  "game_interaction": false,
+  "browser_visual_check": false,
+  "apply_command": "/webgui reload",
+  "restart_required": false
+}

@@ -180,9 +180,9 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "755d4f86ca8d04922beabed5138600e9f78704f6541ebd2512f026c57f60a25f",
-      "published_sha256": "a6cb912b7e0da472fe609a049e5eed300db0450d2f7c52759c2ec79385e7e6d7",
-      "bytes": 6432,
+      "source_sha256": "0292f413a7df90e9c5451013190adce1970dd14166c08fff22069659607b54de",
+      "published_sha256": "576f42383722c6ad616fa779cc7ce75e4c07b66c1930cb4b58720f1c2a10582f",
+      "bytes": 6634,
       "sanitized": true
     },
     "reports/webgui_menu/estate-v0.10-integration.json": {
@@ -351,6 +351,14 @@
       "source_sha256": "bf7c8581a8d66cd9b044847a97e13c4c1c38be6b4e12c003a425d51120f951ae",
       "published_sha256": "078d15c185a2a3b3e760f8704ca75b77b0fa93ffa012e95ce326e4ef9805872a",
       "bytes": 126,
+      "sanitized": true
+    },
+    "reports/webgui_menu/territory-help-update-report.json": {
+      "source": "webgui_menu/verification/territory-help-update-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "b3e9b1775009addaa65967192282ae912c56ad361eace28c571a7fd348a9513d",
+      "published_sha256": "d74e5ba7a9f3135dadae847cf73477d897cb22c189de0141ce868691838865b1",
+      "bytes": 642,
       "sanitized": true
     },
     "reports/webgui_menu/theme-background-report.json": {
