@@ -3,17 +3,17 @@ from pathlib import Path
 import os,subprocess,time,shutil,hashlib,json,argparse
 root=Path(__file__).resolve().parent.parent
 game=Path(os.environ['APPDATA'])/'PrismLauncher/instances/포켓메이트 메뉴 테스트/minecraft'
-source=root/'estate_mod/dist/pocketmate-estates-0.11.0.jar'
+source=root/'estate_mod/dist/pocketmate-estates-0.11.1.jar'
 target=game/'mods'/source.name
 pending=target.with_suffix('.jar.pending')
-report=root/'webgui_menu/verification/daily-missions-integration-report.json'
+report=root/'webgui_menu/verification/daily-missions-rules-integration-report.json'
 expected=hashlib.sha256(source.read_bytes()).digest()
 parser=argparse.ArgumentParser();parser.add_argument('--once',action='store_true');args=parser.parse_args()
 def install():
  r=subprocess.run(['powershell','-NoProfile','-Command',"@(Get-Process java,javaw -ErrorAction SilentlyContinue).Count"],capture_output=True,text=True,creationflags=subprocess.CREATE_NO_WINDOW)
  if r.returncode or r.stdout.strip()!='0':return False
  if not pending.is_file() or hashlib.sha256(pending.read_bytes()).digest()!=expected:return False
- backup=root/'webgui_menu/verification/backups/before-daily-missions-mod';backup.mkdir(parents=True,exist_ok=True)
+ backup=root/'webgui_menu/verification/backups/before-daily-missions-rules-mod';backup.mkdir(parents=True,exist_ok=True)
  for p in target.parent.glob('pocketmate-estates-*.jar'):
   if p!=target:shutil.copy2(p,backup/p.name)
  os.replace(pending,target)

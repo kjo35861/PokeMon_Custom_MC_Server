@@ -33,17 +33,69 @@ class MissionStoreTest {
   }
   assertTrue(selected.containsAll(Set.of("lumber","miner","stone","sand","wild","battle","study","capture","encounters","harvest","plant","planks","food","fish","walk","roam")));
  }
- @Test void pixelmonSignalContractFiltersPvpAndDeduplicatesCaptures() throws Exception {
+ @Test void pixelmonSignalContractRejectsSummonsUnknownAndPvp() throws Exception {
   var s=store();var before=s.view(user);UUID poke=UUID.randomUUID(),battle=UUID.randomUUID();
-  PixelmonMissionSignals.captured(s,user,poke,"rattata",false);
-  PixelmonMissionSignals.defeated(s,user,battle,poke,"rattata",false);
-  PixelmonMissionSignals.wonBattle(s,user,battle,false,false);PixelmonMissionSignals.wonBattle(s,user,battle,true,true);assertEquals(before,s.view(user));
-  PixelmonMissionSignals.captured(s,user,poke,"rattata",true);assertEquals(1,s.view(user).tasks().get(2).progress());
-  var first=s.view(user);PixelmonMissionSignals.captured(s,user,poke,"rattata",true);assertEquals(first,s.view(user));
-  PixelmonMissionSignals.defeated(s,user,battle,poke,"rattata",true);PixelmonMissionSignals.wonBattle(s,user,battle,true,false);
+  var natural=new PixelmonMissionSignals.Encounter(true,PixelmonMissionSignals.Origin.NATURAL);
+  for(var origin:PixelmonMissionSignals.Origin.values())if(origin!=PixelmonMissionSignals.Origin.NATURAL){
+   var summoned=new PixelmonMissionSignals.Encounter(true,origin);
+   PixelmonMissionSignals.captured(s,user,poke,"rattata",summoned,time.instant());
+   PixelmonMissionSignals.defeated(s,user,battle,poke,"rattata",summoned,time.instant());
+   PixelmonMissionSignals.wonBattle(s,user,battle,List.of(summoned),false,false,time.instant());
+  }
+  var owned=new PixelmonMissionSignals.Encounter(false,PixelmonMissionSignals.Origin.NATURAL);
+  PixelmonMissionSignals.defeated(s,user,battle,poke,"rattata",owned,time.instant());
+  PixelmonMissionSignals.wonBattle(s,user,battle,List.of(natural),true,false,time.instant());
+  PixelmonMissionSignals.wonBattle(s,user,battle,List.of(natural),false,true,time.instant());assertEquals(before,s.view(user));
+  PixelmonMissionSignals.captured(s,user,poke,"rattata",natural,time.instant());assertEquals(1,s.view(user).tasks().get(2).progress());
+  var first=s.view(user);PixelmonMissionSignals.captured(s,user,poke,"rattata",natural,time.instant());assertEquals(first,s.view(user));
+  PixelmonMissionSignals.defeated(s,user,battle,poke,"rattata",natural,time.instant());PixelmonMissionSignals.wonBattle(s,user,battle,List.of(natural),false,false,time.instant());
   assertEquals(1,s.view(user).tasks().get(1).progress());
-  var finished=s.view(user);PixelmonMissionSignals.defeated(s,user,battle,poke,"rattata",true);PixelmonMissionSignals.wonBattle(s,user,battle,true,false);assertEquals(finished,s.view(user));
-  assertThrows(IllegalArgumentException.class,()->PixelmonMissionSignals.captured(s,user,poke,"Bad nickname!",true));
+  var finished=s.view(user);PixelmonMissionSignals.defeated(s,user,UUID.randomUUID(),poke,"rattata",natural,time.instant());PixelmonMissionSignals.wonBattle(s,user,battle,List.of(natural),false,false,time.instant());assertEquals(finished,s.view(user));
+  assertThrows(IllegalArgumentException.class,()->PixelmonMissionSignals.captured(s,user,poke,"Bad nickname!",natural,time.instant()));
+ }
+ @Test void rerollOncePersistsAcrossRestartAndKeepsOtherSlotsAndProgress() throws Exception {
+  var s=store();var before=s.view(user);var chosen=before.tasks().getFirst();
+  s.event(user,Map.of(chosen.metric(),1),null,null);var snapshot=s.view(user);
+  time.now=time.now.plusMillis(1);
+  assertTrue(s.reroll(user,snapshot.date(),chosen.id()));var after=s.view(user);
+  assertEquals(0,after.rerollsRemaining());assertNotEquals(chosen.id(),after.tasks().getFirst().id());assertEquals(0,after.tasks().getFirst().progress());
+  for(int i=1;i<5;i++)assertEquals(snapshot.tasks().get(i),after.tasks().get(i));
+  assertEquals(5,after.tasks().stream().map(MissionStore.Task::metric).distinct().count());assertEquals(after,store().view(user));
+  assertFalse(store().reroll(user,after.date(),after.tasks().get(1).id()));
+  s.event(user,Map.of(after.tasks().getFirst().metric(),1),null,null);assertEquals(0,s.view(user).rerollsRemaining());
+ }
+ @Test void rerollRejectsInvalidCompleteClaimedOrOldDateWithoutSpending() throws Exception {
+  var s=store();var before=s.view(user);
+  assertFalse(s.reroll(user,"2000-01-01",before.tasks().getFirst().id()));assertFalse(s.reroll(user,before.date(),"unknown"));assertEquals(before,s.view(user));
+  var task=before.tasks().getFirst();s.event(user,Map.of(task.metric(),task.target()),null,null);
+  assertFalse(s.reroll(user,before.date(),task.id()));assertTrue(s.claim(user,task.id()));assertFalse(s.reroll(user,before.date(),task.id()));assertEquals(1,s.view(user).rerollsRemaining());
+ }
+ @Test void freeRerollRenewsOnlyAtSixAndNeverOnRestart() throws Exception {
+  var s=store();var v=s.view(user);assertTrue(s.reroll(user,v.date(),v.tasks().getFirst().id()));assertEquals(0,store().view(user).rerollsRemaining());
+  time.now=time.now.plusSeconds(1);assertEquals(1,store().view(user).rerollsRemaining());
+ }
+ @Test void eventsBeforeAssignmentOrBeforeReplacementNeverCount() throws Exception {
+  var s=store();s.event(user,Map.of("logs",99,"stone",99,"ore",99,"sand",99),null,null);
+  assertTrue(s.view(user).tasks().stream().allMatch(t->t.progress()==0));
+  var before=s.view(user);Instant old=time.instant();time.now=time.now.plusMillis(1);
+  assertTrue(s.reroll(user,before.date(),before.tasks().getFirst().id()));var current=s.view(user).tasks().getFirst();
+  s.eventAt(user,Map.of(current.metric(),current.target()),null,"late-old-event",old);assertEquals(0,s.view(user).tasks().getFirst().progress());
+  s.eventAt(user,Map.of(current.metric(),1),null,"new-event",time.instant());assertEquals(1,s.view(user).tasks().getFirst().progress());
+ }
+ @Test void failedRerollWriteKeepsQuotaAndAssignment() throws Exception {
+  var s=store();var before=s.view(user);Files.delete(file());Files.createDirectory(file());Files.writeString(file().resolve("blocker"),"x");
+  assertThrows(java.io.IOException.class,()->s.reroll(user,before.date(),before.tasks().getFirst().id()));assertEquals(before,s.view(user));
+ }
+ @Test void v1UpgradePreservesProgressClaimsAssignmentAndPlacedGuard() throws Exception {
+  var s=store();var before=s.view(user);var t=before.tasks().getFirst();s.event(user,Map.of(t.metric(),t.target()),null,null);assertTrue(s.claim(user,t.id()));s.placed("world:123");
+  var expected=s.view(user);var json=com.google.gson.JsonParser.parseString(Files.readString(file())).getAsJsonObject();json.addProperty("formatVersion",1);
+  for(var entry:json.getAsJsonObject("days").entrySet()){var d=entry.getValue().getAsJsonObject();d.remove("rerollsUsed");d.remove("issuedTypes");for(var item:d.getAsJsonArray("tasks"))item.getAsJsonObject().remove("assignedAt");}
+  Files.writeString(file(),json.toString());var upgraded=store();assertEquals(expected,upgraded.view(user));assertEquals(1,upgraded.receiptCount());assertTrue(upgraded.removePlaced("world:123"));
+  assertEquals(2,com.google.gson.JsonParser.parseString(Files.readString(file())).getAsJsonObject().get("formatVersion").getAsInt());
+ }
+ @Test void movedPlacedBlocksStayProtectedAcrossPistonChainsAndRestarts() throws Exception {
+  var s=store();s.placed("world:1");s.movePlaced(Map.of("world:1","world:2","world:2","world:3"));
+  var next=store();assertFalse(next.removePlaced("world:1"));assertFalse(next.removePlaced("world:3"));assertTrue(next.removePlaced("world:2"));
  }
  @Test void fiveSlotsAreStableAndTargetsStayWithinBounds() throws Exception {
   var s=store();var a=s.view(user);assertEquals(5,a.tasks().size());assertEquals(a,s.view(user));assertEquals(a,store().view(user));
@@ -69,7 +121,7 @@ class MissionStoreTest {
   finish(s);assertTrue(s.claim(user,"final"));assertFalse(s.claim(user,"final"));assertTrue(store().view(user).finalClaimed());
  }
  @Test void speciesAndEventKeysDeduplicateAndOtherPlayersAreIsolated() throws Exception {
-  var s=store();var before=s.view(other);
+  var s=store();s.view(user);var before=s.view(other);
   var amounts=Map.of("capture",1,"capture_species",1,"defeat",1,"defeat_species",1,"battle_win",1);
   s.event(user,amounts,"rattata","same-event");var first=s.view(user);s.event(user,amounts,"rattata","same-event");assertEquals(first,s.view(user));
   s.event(user,Map.of("capture_species",1,"defeat_species",1),"rattata","different-event");assertEquals(first,s.view(user));assertEquals(before,s.view(other));

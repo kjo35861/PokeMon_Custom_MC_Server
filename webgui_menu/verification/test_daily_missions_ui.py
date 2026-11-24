@@ -8,7 +8,7 @@ source=(root/'verification/test_profile_ui.py').read_text(encoding='utf-8')
 mock=source.split('mock=r"""',1)[1].split('"""',1)[0]
 mock+=r'''
 window.missionCalls=[];window.missionReady=false;window.rejectMission=false;
-window.missionState={date:'2026-11-25',resetAt:Date.now()+3600000,finalClaimed:false,rewardsConfigured:false,tasks:[
+window.missionState={date:'2026-11-25',resetAt:Date.now()+3600000,finalClaimed:false,rewardsConfigured:false,rerollsRemaining:1,tasks:[
 {id:'lumber',slot:0,name:'숲속의 나무꾼',description:'원목 32개 채집하기',target:32,progress:0,claimed:false},
 {id:'wild',slot:1,name:'야생의 도전자',description:'야생 포켓몬 5마리 처치하기',target:5,progress:0,claimed:false},
 {id:'capture',slot:2,name:'새로운 동료',description:'야생 포켓몬 2마리 포획하기',target:2,progress:0,claimed:false},
@@ -27,6 +27,11 @@ webgui.postToGame=function(p){
    else if(p.taskId==='final'){
     if(missionState.finalClaimed||missionState.tasks.some(t=>t.progress<t.target))error='수령 불가';else missionState.finalClaimed=true;
    }else if(!t||t.claimed||t.progress<t.target)error='수령 불가';else t.claimed=true;
+  }
+  if(p.action==='reroll'){
+   const index=missionState.tasks.findIndex(t=>t.id===p.taskId),old=missionState.tasks[index];
+   if(p.date!==missionState.date||missionState.rerollsRemaining===0||!old||old.progress>=old.target||old.claimed)error='교체 불가';
+   else{missionState.tasks[index]={...old,id:'rerolled-'+old.id,name:'교체한 임무',description:'교체 후에 새로 진행하기',progress:0,claimed:false};missionState.rerollsRemaining=0;}
   }
   const response=error?{type:'error',requestId:p.requestId,message:error}:{type:'snapshot',requestId:p.requestId,pokemonReady:missionReady,missions:structuredClone(missionState)};
   dispatchEvent(new CustomEvent('webgui:pocketmate:missions',{detail:response}));
@@ -49,10 +54,21 @@ with sync_playwright() as p:
   for scale in ['1','1.6']:
    page.evaluate('(v)=>document.documentElement.style.setProperty("--text-scale",v)',scale)
    for card in page.locator('.mission-card').all():
-    copy=card.locator('.mission-copy').bounding_box();button=card.locator('button').bounding_box()
+    copy=card.locator('.mission-copy').bounding_box();button=card.locator('[data-mission-claim]').bounding_box()
     assert copy['x']+copy['width']<=button['x']+1
   page.evaluate('document.documentElement.style.setProperty("--text-scale","1")')
-  page.screenshot(path=str(root/'verification'/('daily-missions-'+theme+'.png')))
+  page.screenshot(path=str(root/'verification'/('daily-missions-rules-'+theme+'.png')))
+ page.locator('.mission-rules-help').focus();assert page.locator('#pocketmate-help-tooltip').is_visible()
+ assert '서버 재시작' in page.locator('#pocketmate-help-tooltip').inner_text()
+ # A cancelled confirmation must never spend a server-side reroll.
+ assert '1 / 1회' in page.locator('.mission-reroll-quota').inner_text()
+ page.locator('[data-mission-reroll="wild"]').click();page.locator('[data-reroll-cancel]').click()
+ assert page.evaluate('missionCalls.filter(p=>p.action==="reroll").length')==0
+ page.locator('[data-mission-reroll="wild"]').click();page.locator('[data-reroll-confirm]').click();page.wait_for_timeout(120)
+ assert '0 / 1회' in page.locator('.mission-reroll-quota').inner_text()
+ assert page.locator('[data-mission-reroll]:enabled').count()==0
+ assert page.locator('[data-mission-claim="rerolled-wild"]').is_disabled()
+ reopen();assert '0 / 1회' in page.locator('.mission-reroll-quota').inner_text()
  page.evaluate('missionState.tasks[0].progress=32');reopen()
  page.locator('[data-mission-claim="lumber"]').click();page.wait_for_timeout(100)
  assert page.locator('[data-mission-claim="lumber"]').is_disabled()
@@ -65,8 +81,8 @@ with sync_playwright() as p:
  # Persistence is authoritative: mount again from a fresh server snapshot.
  reopen();assert '최종 보상 수령 완료' in page.locator('.mission-final').inner_text()
  # Reject a stale-day claim, then refresh to the reset day without retaining the old completion.
- page.evaluate('missionState.date="2026-11-26";missionState.finalClaimed=false;missionState.tasks.forEach(t=>{t.progress=0;t.claimed=false})')
- page.locator('[data-mission-claim="wild"]').click();page.wait_for_timeout(550)
+ page.evaluate('missionState.date="2026-11-26";missionState.finalClaimed=false;missionState.rerollsRemaining=1;missionState.tasks.forEach(t=>{t.progress=0;t.claimed=false})')
+ page.locator('[data-mission-claim="rerolled-wild"]').click();page.wait_for_timeout(550)
  assert '2026-11-26' in page.locator('.mission-day').inner_text()
  assert page.locator('[data-mission-claim]:enabled').count()==0
  calls=page.evaluate('missionCalls.filter(p=>p.action==="claim")')
@@ -76,5 +92,5 @@ with sync_playwright() as p:
  assert page.evaluate('missionCalls.length')==before
  assert not errors,errors
  browser.close()
-(root/'verification/daily-missions-ui-report.json').write_text(json.dumps({'headless_mock_only':True,'game_tested':False,'five_categories':True,'renamed_mission_tab':True,'dark_light_and_text_scale':True,'no_overlapping_claim_buttons':True,'claim_and_final_gating':True,'stale_day_rejected_and_refreshed':True,'no_client_progress_payload':True,'polling_stops_on_unmount':True,'errors':errors},indent=2)+'\n',encoding='utf-8')
+(root/'verification/daily-missions-rules-ui-report.json').write_text(json.dumps({'headless_mock_only':True,'game_tested':False,'five_categories':True,'renamed_mission_tab':True,'dark_light_and_text_scale':True,'no_overlapping_claim_buttons':True,'claim_and_final_gating':True,'stale_day_rejected_and_refreshed':True,'no_client_progress_payload':True,'polling_stops_on_unmount':True,'reroll_cancel_no_request':True,'reroll_confirmation_and_daily_quota':True,'errors':errors},indent=2)+'\n',encoding='utf-8')
 print('Mission UI: 5 slots, both themes, text size, claims, stale-day refresh, server-only progress and cleanup passed.')

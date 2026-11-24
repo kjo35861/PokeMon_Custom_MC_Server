@@ -15,9 +15,25 @@
 .mission-card p,.mission-final p{font-size:calc(12px * var(--text-scale,1));color:var(--soft-text);line-height:1.6;margin:0}
 .mission-progress{background:color-mix(in srgb,var(--muted) 16%,transparent);height:5px;border-radius:3px;margin:10px 0 5px;overflow:hidden;max-width:420px}
 .mission-progress>span{display:block;height:100%;background:var(--cyan);transition:width .25s ease}
-.mission-claim,.mission-final button{white-space:nowrap;flex-shrink:0;font-size:11px;display:inline-flex;align-items:center;gap:5px;justify-content:center;min-width:105px}
+.mission-actions,.mission-final button{white-space:nowrap;flex-shrink:0;font-size:11px;display:inline-flex;align-items:center;gap:5px;justify-content:center;min-width:105px}
 .mission-final{margin-top:18px;border-color:var(--control-line)}.mission-final>div{flex:1;min-width:0}
 .mission-feedback{font-size:calc(12px * var(--text-scale,1));line-height:1.7;min-height:1.7em;color:var(--cyan)}
 .mission-feedback[data-error=true]{color:var(--ink)}.mission-empty{font-size:calc(13px * var(--text-scale,1));line-height:1.7}
 .reduce-motion .mission-progress>span{transition:none}
-@media(max-width:700px){.mission-card,.mission-final{flex-wrap:wrap;gap:10px}.mission-copy{flex-basis:calc(100% - 60px)}.mission-claim,.mission-final button{margin-left:auto}.mission-summary{align-items:flex-start;flex-direction:column}.mission-reset{text-align:left}.mission-final>div{flex-basis:calc(100% - 60px)}}
+@media(max-width:700px){.mission-card,.mission-final{flex-wrap:wrap;gap:10px}.mission-copy{flex-basis:calc(100% - 60px)}.mission-actions,.mission-final button{margin-left:auto}.mission-summary{align-items:flex-start;flex-direction:column}.mission-reset{text-align:left}.mission-final>div{flex-basis:calc(100% - 60px)}}
+
+.mission-actions{display:flex;flex-direction:column;gap:8px;align-items:stretch}
+.mission-actions button{font-size:11px;white-space:nowrap}
+.mission-reroll{padding:7px 12px;color:var(--ink);background:transparent;border:1px solid var(--control-line);border-radius:6px;cursor:pointer}
+.mission-reroll:hover:not(:disabled){background:color-mix(in srgb,var(--cyan) 12%,transparent)}
+.mission-reroll:disabled{opacity:.35;cursor:not-allowed}
+.mission-reroll-quota{display:block;margin-top:8px;font-size:calc(11px * var(--text-scale,1));color:var(--muted)}
+.mission-reroll-dialog{max-width:440px;color:var(--ink);padding:24px}
+.mission-reroll-dialog h2{font-size:calc(18px * var(--text-scale,1))}
+.mission-reroll-dialog p{font-size:calc(12px * var(--text-scale,1));line-height:1.8;color:var(--soft-text);margin:14px 0}
+.mission-reroll-dialog>div{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap}
+.mission-reroll-dialog button{font-size:12px;padding:9px 14px;border-radius:6px;cursor:pointer}
+
+.mission-reroll-dialog [data-reroll-cancel]{background:var(--control-bg);color:var(--control-ink);border:1px solid var(--control-line)}
+
+.mission-rules-help{display:inline-grid;place-items:center;width:20px;height:20px;margin-left:6px;padding:0;border:1px solid var(--control-line);border-radius:50%;background:var(--control-bg);color:var(--ink);font:inherit;cursor:help}

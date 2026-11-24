@@ -49,12 +49,25 @@ public final class MissionsMod implements ModInitializer {
         catch(Exception e){LOG.error("Placed-block mission guard save failed",e);return;}
         if(state.getBlock() instanceof CropBlock||state.isOf(Blocks.NETHER_WART)||state.isOf(Blocks.COCOA))event(serverPlayer,Map.of("plant",1),null,null);
     }
+    public static void pistonMove(World world,List<BlockPos> blocks,net.minecraft.util.math.Direction direction){
+        if(!(world instanceof net.minecraft.server.world.ServerWorld serverWorld))return;
+        MissionStore store=STORES.get(serverWorld.getServer());if(store==null)return;
+        Map<String,String> moves=new HashMap<>();for(BlockPos pos:blocks)moves.put(position(world,pos),position(world,pos.offset(direction)));
+        try{store.movePlaced(moves);}catch(Exception e){LOG.error("Piston mission guard save failed",e);}
+    }
     @Override public void onInitialize(){
         ServerLifecycleEvents.SERVER_STARTING.register(server->{
             try{STORES.put(server,new MissionStore(server.getSavePath(WorldSavePath.ROOT).resolve("data/pocketmate-missions.json"),Clock.systemUTC(),false));}
             catch(Exception e){LOG.error("Mission store unavailable; progress will not be reset",e);}
         });
         ServerLifecycleEvents.SERVER_STOPPED.register(server->{STORES.remove(server);SAMPLES.clear();REQUESTS.clear();});
+        ServerPlayConnectionEvents.JOIN.register((handler,sender,server)->assignAndBaseline(handler.player));
+        ServerTickEvents.START_SERVER_TICK.register(server->{
+            String date=MissionStore.dayAt(java.time.Instant.now()).toString();
+            for(var player:server.getPlayerManager().getPlayerList()){
+                Sample previous=SAMPLES.get(player.getUuid());if(previous==null||!previous.date.equals(date))assignAndBaseline(player);
+            }
+        });
         ServerPlayConnectionEvents.DISCONNECT.register((handler,server)->{SAMPLES.remove(handler.player.getUuid());REQUESTS.remove(handler.player.getUuid());});
         PlayerBlockBreakEvents.AFTER.register((world,player,pos,state,entity)->{
             if(!(player instanceof ServerPlayerEntity serverPlayer))return;
@@ -66,6 +79,11 @@ public final class MissionsMod implements ModInitializer {
         });
         ServerTickEvents.END_SERVER_TICK.register(server->{if(server.getTicks()%20==0)for(var player:server.getPlayerManager().getPlayerList())sample(player);});
         WebGuiBridge.listen(CHANNEL,(player,payload)->{if(player.getServer()!=null)player.getServer().execute(()->receive(player,payload));});
+    }
+    private static void assignAndBaseline(ServerPlayerEntity player){
+        MissionStore store=STORES.get(player.getServer());if(store==null)return;
+        try{store.view(player.getUuid());SAMPLES.remove(player.getUuid());sample(player);}
+        catch(Exception e){LOG.error("Daily mission assignment failed",e);}
     }
     private static int custom(ServerPlayerEntity player,String name){return player.getStatHandler().getStat(Stats.CUSTOM.getOrCreateStat(Identifier.ofVanilla(name)));}
     private static void sample(ServerPlayerEntity player){
@@ -100,6 +118,12 @@ public final class MissionsMod implements ModInitializer {
                 if(!store.view(player.getUuid()).date().equals(date))throw new IllegalArgumentException("새로운 하루의 임무가 시작되었습니다. 다시 확인해주세요.");
                 if(!store.claim(player.getUuid(),id))throw new IllegalArgumentException("아직 완료하지 않았거나 이미 수령한 보상입니다.");
                 response.addProperty("message","보상 수령을 기록했습니다. 보상 구성은 준비 중입니다.");
+            }else if(action.equals("reroll")){
+                String id=request.get("taskId").getAsString(),date=request.get("date").getAsString();
+                sample(player); // Flush old-stat deltas to the old assignment before replacing it.
+                if(!store.reroll(player.getUuid(),date,id))throw new IllegalArgumentException("교체할 수 없습니다. 남은 횟수·완료 여부·임무 날짜를 확인해주세요.");
+                SAMPLES.remove(player.getUuid());sample(player); // New assignment starts from this exact baseline.
+                response.addProperty("message","같은 슬롯의 새 임무로 교체했습니다. 새 임무는 지금부터 집계합니다.");
             }else if(!action.equals("view"))throw new IllegalArgumentException();
             response.addProperty("type","snapshot");response.addProperty("requestId",requestId);response.add("missions",new Gson().toJsonTree(store.view(player.getUuid())));
             response.addProperty("pokemonReady",false);WebGuiBridge.emit(player,CHANNEL,response.toString());

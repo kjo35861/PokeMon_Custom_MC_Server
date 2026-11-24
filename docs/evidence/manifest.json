@@ -20,73 +20,73 @@
     "reports/estate_mod/TEST-space.pocketmate.estates.ClaimStoreTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.ClaimStoreTest.xml",
       "kind": "junit-result",
-      "source_sha256": "da83eb66174947def8b1807a3a44779656911d995e2550d18b3dcb9ce427d414",
-      "published_sha256": "2dd36dad32f30c06974cb9afe3ffd9438315fcc309bbb793203be83135b6b0ef",
-      "bytes": 2339,
+      "source_sha256": "58c6937d9730f80a3dc78f22ff13d2837d8feb196e1db0bf90eb0a4ffc0f0514",
+      "published_sha256": "8d54e2b22095e61ec356cbf4afca92b03de0edb7edbc221de37f94e57d9b47f0",
+      "bytes": 2340,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.EstateCommunityTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.EstateCommunityTest.xml",
       "kind": "junit-result",
-      "source_sha256": "644c716bdb01f02911bda04e4b27f16b18551229dd70a5b91da84a8b6487f88f",
-      "published_sha256": "dcfcd2dfe336e989defb547be5ec87b58598fc4959c17183abbdd99fb38f2964",
+      "source_sha256": "f6ca77f6da7b2b3ad87bba4a64209ad3983aa570d072af25a8dea0fdb17d395c",
+      "published_sha256": "a1d34d435bf8d83909fcfbcb0b9da60bdc61af97904893f73247e378c5c67117",
       "bytes": 1946,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.EstateEconomyTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.EstateEconomyTest.xml",
       "kind": "junit-result",
-      "source_sha256": "416058d786797eb5b1fb2df7dadbf1ccc02b850d1ebc7d0b7c8cb09657699be8",
-      "published_sha256": "118719664fb7f196399856a09df91c8d43d1fa73bb06d66e67c3e1d0ec6b482a",
+      "source_sha256": "597558f8be02c57f97a51744a8bc496119b07ac1752ab8926769a34a6cd47498",
+      "published_sha256": "15e81ee7e73e86009d25192e498d4fbe1626aefb741541c0ed5448589f88a361",
       "bytes": 1999,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.EstateHomeTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.EstateHomeTest.xml",
       "kind": "junit-result",
-      "source_sha256": "d394bd6f3c3615be58c1f3acbf78cd5ac19e05b7bfc6cfa4fc083cb4628a6108",
-      "published_sha256": "376e4ccfe17237e3071ead451f92d89d62cad565fd17c76f7d76be03a921d5a5",
-      "bytes": 1418,
+      "source_sha256": "a37b2291617f76e0e1ff61f5b9d0dabe5a97e16ea314ab9e0c42a94debea3f34",
+      "published_sha256": "90bb416ec93ca102970c49ff24f0e2cff8b6b0f1a3501871c8c4378324478de5",
+      "bytes": 1417,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.LegendaryTitlesTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.LegendaryTitlesTest.xml",
       "kind": "junit-result",
-      "source_sha256": "1da4aa4599eb458b6048bd69b0240959ededa8d133e698e4dd6edbc9592d1f3b",
-      "published_sha256": "80f30398f8e334631326cf360eaf6a7aaa86101002b54dd12ddbee0c706f2d23",
+      "source_sha256": "b25525477ecf59984529c000458e264ec093907a548b410cbab93725ccf517c6",
+      "published_sha256": "494ec7ae4d25c63a402c644dd61d7b65f8f81cf166a15cdabcc5fe174fa6b805",
       "bytes": 623,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.MapPixelCodecTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.MapPixelCodecTest.xml",
       "kind": "junit-result",
-      "source_sha256": "509262c26c87a248f08d1140dc1362fc65da3b1e6568487dbf74ef65be1bbbf1",
-      "published_sha256": "3d0d9b9e0c9c9455db0f2217135f8d47155f6f6b950afbb23c5ec295d1aaf33b",
+      "source_sha256": "e94f7e001432c2891949e762d67a650e8a7292d5678d2b3701b38d40a7ca08de",
+      "published_sha256": "e01d44408bd651f72366945f58b64c5293a66eff56a1b419696d05f3e7481826",
       "bytes": 578,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.MissionStoreTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.MissionStoreTest.xml",
       "kind": "junit-result",
-      "source_sha256": "632754c3e621700038e43d59b290067c2169fb32e6b08c5f1f3e89916924d928",
-      "published_sha256": "5b5128688c517c9527e859be62e14cba7d193fd1e63ffcb99e6b61216c91dfbc",
-      "bytes": 1969,
+      "source_sha256": "fd764927cb47f2449b018feb48f3965c9da9a5f150f476fbfbeecd910d1845ae",
+      "published_sha256": "6504e4793516685b322a053806af28cbb7e99dbb239b5b848cc9b691ce1f7418",
+      "bytes": 2967,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.NicknameStoreTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.NicknameStoreTest.xml",
       "kind": "junit-result",
-      "source_sha256": "f8b41441697a4d8a99727706e7738ce20d3aa95d11bc34e44a2b53aa08890ceb",
-      "published_sha256": "4428ed51cfeffe599d428877a07fb038b2200cd2d88d9cec6c44f5c3093d9a9d",
+      "source_sha256": "0cb735455c5e52481daf878f18c8fd37480462b22a40f81abc4b69dfc4842946",
+      "published_sha256": "7b6f49add0b9b3cae7ca552d819971128baa53999588cdc86c4bc058ed34f455",
       "bytes": 1173,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.ProfileStoreTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.ProfileStoreTest.xml",
       "kind": "junit-result",
-      "source_sha256": "d72b11776d6f7f9be1b9af2f91a16debb9f6ec9e3a26938c17833bd683f9a434",
-      "published_sha256": "7040eb83fa9b095e9f32873d3b36e3b170502579a596c8f84f605b1f935a89d6",
-      "bytes": 1516,
+      "source_sha256": "6975ccd090b4f921df324a69e363db4d07ab43ac2ee4ed26bbd7e6e622e419d6",
+      "published_sha256": "3e6cc2dc4bbcc89b182d893b17af1bfcc91b70498567a2a0af7ac62aac20f8a5",
+      "bytes": 1518,
       "sanitized": true
     },
     "reports/snowfrost_launcher/backend-report.json": {
@@ -185,13 +185,37 @@
       "bytes": 525,
       "sanitized": true
     },
+    "reports/webgui_menu/daily-missions-rules-integration-report.json": {
+      "source": "webgui_menu/verification/daily-missions-rules-integration-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "37f93dc34c77f3ea576e6d9483bd2aa50cad89084391f76165fd52f08656d3ea",
+      "published_sha256": "a32b1bffe982f09c8e8bec7076fd541c119a937cdc1c0f29959ae593b4322b94",
+      "bytes": 619,
+      "sanitized": true
+    },
+    "reports/webgui_menu/daily-missions-rules-ui-report.json": {
+      "source": "webgui_menu/verification/daily-missions-rules-ui-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "f021cf2a1798222005bde77543ea1af64281c428bb10a77e06eb83afe4c31498",
+      "published_sha256": "0e10e40e59125673134d89adc0381a1abe315bb835375f86d806f6e32d4cdd84",
+      "bytes": 443,
+      "sanitized": true
+    },
     "reports/webgui_menu/daily-missions-ui-report.json": {
       "source": "webgui_menu/verification/daily-missions-ui-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "1308280c63278e6be1ed80dc12120c5550e84cd740b7537ffd2d2d23550f7ba9",
+      "source_sha256": "d9244a454815cd1a35804fa9b942a0514c7c4d8240c9a3ebcbd00162f301de87",
       "published_sha256": "d9244a454815cd1a35804fa9b942a0514c7c4d8240c9a3ebcbd00162f301de87",
       "bytes": 360,
-      "sanitized": true
+      "sanitized": false
+    },
+    "reports/webgui_menu/daily-missions-ui-v0.16.0-report.json": {
+      "source": "webgui_menu/verification/daily-missions-ui-v0.16.0-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "d9244a454815cd1a35804fa9b942a0514c7c4d8240c9a3ebcbd00162f301de87",
+      "published_sha256": "d9244a454815cd1a35804fa9b942a0514c7c4d8240c9a3ebcbd00162f301de87",
+      "bytes": 360,
+      "sanitized": false
     },
     "reports/webgui_menu/deployment.json": {
       "source": "webgui_menu/verification/deployment.json",
@@ -252,8 +276,8 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "cb65dc31a64450a721b92b6c33b50743f6ae7e569f84ea017a2b8b9ae1716dc6",
-      "published_sha256": "7ac139dd71d8ffeb35d7a1b4d069332976792e2b5e540f73d46fc1eb04b16afd",
+      "source_sha256": "bf3c2854de88a6c3b45cd0740fd4cc3b81c321c2e1db546a5ecca37046393353",
+      "published_sha256": "ad3c5545adebcbe0d0d632875d73bc2ef9b5e9ea491f855abfe605f0f0419e5f",
       "bytes": 30581,
       "sanitized": true
     },
@@ -340,8 +364,8 @@
     "reports/webgui_menu/galmuri9-font-report.json": {
       "source": "webgui_menu/verification/galmuri9-font-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "b356b031757d66316fdb64bc4c7deeec018cb7ca4fdea1e3b4537d5425141e02",
-      "published_sha256": "b91b8266170397490f922e7d5af22b214b4a5993d394392a71f8fca7e7ca3f95",
+      "source_sha256": "eab86783be4197977f13b7c056604e6c3ffe21be704cb971bb50695e22267f47",
+      "published_sha256": "9af9393509b50e4c8db0d9505cedc0f39f2111b588b421f0878fde9267efceff",
       "bytes": 444,
       "sanitized": true
     },
@@ -647,6 +671,22 @@
       "source_sha256": "b9b325a6f109ad8a0ef0b9d21cdc033a47c0f3c47176be9b1bd039e4af4e99a9",
       "published_sha256": "b9b325a6f109ad8a0ef0b9d21cdc033a47c0f3c47176be9b1bd039e4af4e99a9",
       "bytes": 92680,
+      "sanitized": false
+    },
+    "screenshots/daily-missions-rules-dark-mock.png": {
+      "source": "webgui_menu/verification/daily-missions-rules-dark.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "3a44d88304407673ae06a93a061273b05657a4846576b576ff524fc1af020a49",
+      "published_sha256": "3a44d88304407673ae06a93a061273b05657a4846576b576ff524fc1af020a49",
+      "bytes": 84128,
+      "sanitized": false
+    },
+    "screenshots/daily-missions-rules-light-mock.png": {
+      "source": "webgui_menu/verification/daily-missions-rules-light.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "017d6e883dcfac5527cdf8e3bd27a7fb15b46168aa2acaec36464fa4260cdfb4",
+      "published_sha256": "017d6e883dcfac5527cdf8e3bd27a7fb15b46168aa2acaec36464fa4260cdfb4",
+      "bytes": 95601,
       "sanitized": false
     },
     "screenshots/historical-estate-map-mock.png": {

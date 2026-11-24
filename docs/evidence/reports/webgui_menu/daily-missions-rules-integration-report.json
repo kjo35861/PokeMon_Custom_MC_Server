@@ -1,0 +1,21 @@
+{
+  "mod_version": "0.11.1",
+  "menu_version": "0.16.1",
+  "java_tests": 87,
+  "failures": 0,
+  "mission_rule_tests": 19,
+  "free_rerolls_per_day": 1,
+  "reroll_same_slot_different_type": true,
+  "reroll_quota_survives_restart": true,
+  "reset_hour": 6,
+  "reset_zone": "Asia/Seoul",
+  "pre_assignment_and_old_events_rejected": true,
+  "stat_baseline_reset_on_reroll": true,
+  "placed_block_piston_transfer": true,
+  "pixelmon_pvp_and_non_natural_signal_rules": true,
+  "pixelmon_runtime_connected": false,
+  "game_tested": false,
+  "restart_required": true,
+  "status": "installed",
+  "installed_hash_matches": true
+}

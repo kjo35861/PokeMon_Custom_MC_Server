@@ -33,6 +33,8 @@ def candidates():
     for source in sorted((ROOT/'estate_mod/verification/test-results/test').glob('TEST-*.xml')):
         yield source,f'reports/estate_mod/{source.name}','junit-result'
     screenshots={
+        'webgui_menu/verification/daily-missions-rules-dark.png':'daily-missions-rules-dark-mock.png',
+        'webgui_menu/verification/daily-missions-rules-light.png':'daily-missions-rules-light-mock.png',
         'webgui_menu/verification/daily-missions-dark.png':'daily-missions-dark-mock.png',
         'webgui_menu/verification/daily-missions-light.png':'daily-missions-light-mock.png',
         'webgui_menu/verification/redesign-preview.png':'historical-menu-redesign.png',

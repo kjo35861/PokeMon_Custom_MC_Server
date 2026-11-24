@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="space.pocketmate.estates.NicknameStoreTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-11-24T16:20:37" hostname="DESKTOP-6FIEOUH" time="0.027">
+<testsuite name="space.pocketmate.estates.NicknameStoreTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-11-24T16:34:18" hostname="DESKTOP-6FIEOUH" time="0.025">
   <properties/>
   <testcase name="lookupsNeverCreateFile()" classname="space.pocketmate.estates.NicknameStoreTest" time="0.002"/>
   <testcase name="corruptStoreRefusesReset()" classname="space.pocketmate.estates.NicknameStoreTest" time="0.003"/>
   <testcase name="invalidCharactersAreRejected()" classname="space.pocketmate.estates.NicknameStoreTest" time="0.004"/>
-  <testcase name="duplicateAndSecondRegistrationFail()" classname="space.pocketmate.estates.NicknameStoreTest" time="0.004"/>
+  <testcase name="duplicateAndSecondRegistrationFail()" classname="space.pocketmate.estates.NicknameStoreTest" time="0.005"/>
   <testcase name="knownAccountNamesCannotBeImpersonated()" classname="space.pocketmate.estates.NicknameStoreTest" time="0.003"/>
   <testcase name="koreanPersistsAndResolvesByUuid()" classname="space.pocketmate.estates.NicknameStoreTest" time="0.004"/>
-  <testcase name="failedSavePreservesMemory()" classname="space.pocketmate.estates.NicknameStoreTest" time="0.005"/>
+  <testcase name="failedSavePreservesMemory()" classname="space.pocketmate.estates.NicknameStoreTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
