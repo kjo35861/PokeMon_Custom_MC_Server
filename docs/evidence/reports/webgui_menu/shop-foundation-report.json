@@ -1,0 +1,12 @@
+{
+  "headless_mock_only": true,
+  "game_tested": false,
+  "shop_fullscreen": true,
+  "categories_and_search": true,
+  "themes": 2,
+  "viewport_sizes": 4,
+  "warehouse_route": true,
+  "image_delete_cancel_and_confirm": true,
+  "non_lord_hidden": true,
+  "errors": []
+}

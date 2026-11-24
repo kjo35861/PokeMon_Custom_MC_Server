@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="./help.css"><script src="./help.js" defer></script>
 <script src="./travel.js" defer></script>
 <link rel="stylesheet" href="./missions.css">
+<link rel="stylesheet" href="./shop.css"><script src="./shop.js" defer></script>
 <link rel="stylesheet" href="./layout.css"><script src="./layout.js" defer></script>
 </head>
 <body>
@@ -68,9 +69,9 @@
      <div class="orb-scene warp-scene" aria-hidden="true"><div class="radar-ring ring-a"></div><div class="radar-ring ring-b"></div><svg class="warp-emblem"><use href="#i-warp"/></svg><span class="orb-caption">CHOOSE YOUR DESTINATION.</span></div>
      <div class="team-copy"><span class="tile-eyebrow">새로운 곳으로 떠나는 길</span><h2>워프</h2><p>이동할 목적지를 확인하세요.</p></div><span class="launch-arrow"><svg><use href="#i-arrow"/></svg></span>
     </button>
-    <button class="action-tile empty-tile" type="button" disabled aria-label="빈 버튼"></button>
+    <button class="action-tile shop-entry-tile" data-go="shop"><span class="tile-top"><span class="tile-code">02 / MARKET</span><svg><use href="#i-arrow"/></svg></span><span class="tile-art shop-art" aria-hidden="true"><svg><use href="#i-bag"/></svg></span><div class="tile-copy"><h2>상점</h2><p>다음 모험을 준비하는 곳</p></div></button>
     <button class="action-tile quest-tile" data-go="quests"><span class="tile-top"><span class="tile-code">04 / MISSIONS</span><svg><use href="#i-arrow"/></svg></span><span class="tile-art quest-art" aria-hidden="true"><span><svg class="pm-icon"><use href="#i-flag"/></svg></span><i></i><i></i></span><div class="tile-copy"><h2>임무</h2><p>다음 목표를 확인하세요</p></div></button>
-    <button class="action-tile shop-tile" data-go="shop"><span class="tile-top"><span class="tile-code">03 / SUPPLY</span><svg><use href="#i-arrow"/></svg></span><span class="tile-art shop-art" aria-hidden="true"><svg><use href="#i-bag"/></svg><i><svg class="pm-icon"><use href="#i-plus"/></svg></i></span><div class="tile-copy"><h2>상점</h2><p>필요한 아이템을 준비하세요</p></div></button>
+    <button class="action-tile shop-tile" data-go="warehouse"><span class="tile-top"><span class="tile-code">03 / STORAGE</span><svg><use href="#i-arrow"/></svg></span><span class="tile-art shop-art" aria-hidden="true"><svg><use href="#i-bag"/></svg><i><svg class="pm-icon"><use href="#i-plus"/></svg></i></span><div class="tile-copy"><h2>창고</h2><p>소중한 물건을 보관하는 곳</p></div></button>
     <button class="action-tile travel-tile" data-go="travel"><span class="tile-top"><span class="tile-code">05 / FAST TRAVEL</span><svg><use href="#i-arrow"/></svg></span><span class="tile-art travel-art" aria-hidden="true"><svg><use href="#i-compass"/></svg><i></i></span><div class="tile-copy"><h2>마을 이동</h2><p>새로운 목적지로</p></div></button>
    </div>
    <button class="notice-strip" data-guide><span class="notice-marker"><svg class="pm-icon"><use href="#i-info"/></svg></span><span><strong>처음 오셨나요?</strong> 메뉴 이용 방법을 확인하세요.</span><svg><use href="#i-arrow"/></svg></button>
@@ -81,6 +82,7 @@
  </div>
  </div>
 </main>
+<section id="shop-page" class="shop-screen" aria-label="포켓메이트 상점" hidden></section>
 <section id="estate-page" class="estate-screen" hidden aria-label="영지 관리 전용 페이지">
  <div class="estate-backdrop" aria-hidden="true"></div>
  <header class="estate-screen-heading">

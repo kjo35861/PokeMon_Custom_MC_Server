@@ -5,6 +5,7 @@
     home: ['홈', 'PLAYER HUB', ''],
     warp: ['워프', 'WARP / DESTINATIONS', '이동할 목적지를 확인하세요.'],
     shop: ['상점', '03 / SUPPLY', '아이템과 거래 기능을 한곳에서 확인하세요.'],
+    warehouse: ['창고', '03 / STORAGE', '보관한 물건을 확인하는 공간입니다.'],
     quests: ['임무', '04 / MISSIONS', '진행할 목표와 보상을 확인하세요.'],
     travel: ['마을 이동', '05 / FAST TRAVEL', '목적지를 선택하고 다음 지역으로 이동하세요.'],
     estate: ['영지관리', '06 / ESTATES', '현재 위치에서 영지를 만들고, 오버월드 지도로 소유 청크를 관리하세요.'],
@@ -53,6 +54,7 @@
     window.PocketmateProfile?.unmount();
     window.PocketmateMissions?.unmount();
     $('estate-page').hidden=true;
+    $('shop-page').hidden=true;
     if (!meta[page]) page = 'home';
     const [title, kicker, description] = meta[page];
     $('breadcrumb').textContent = title;
@@ -69,6 +71,11 @@
     $('page-scroll').classList.toggle('profile-fixed-actions', page === 'profile');
     $('page-scroll').scrollTop = 0;
     if (page === 'home') return;
+    if (page === 'shop') {
+      $('shop-page').hidden=false;
+      window.PocketmateShop.mount($('shop-page'),closeMenu);
+      return;
+    }
     if (page === 'estate') {
       $('estate-page').hidden=false;
       window.PocketmateEstates.mount($('estate-content'));
@@ -83,10 +90,12 @@
       window.PocketmateProfile.mount(panel);
     } else if (page === 'quests') {
       window.PocketmateMissions.mount(panel);
+    } else if (page === 'warehouse') {
+      panel.innerHTML = `<div class="feature-panel"><span class="empty-symbol">${icon('vault')}</span><h2>창고를 준비하고 있어요</h2><p>창고 기능을 연결하면 보관한 물건을 이곳에서 확인할 수 있어요.</p></div>`;
     } else if (page === 'warp') {
       panel.innerHTML = `<div class="feature-panel"><span class="empty-symbol">${icon('warp')}</span><h2>워프 지점을 준비하고 있어요</h2><p>등록된 워프 지점이 생기면 이곳에서 목적지를 선택할 수 있어요.</p></div>`;
     } else if (page === 'settings') {
-      panel.innerHTML = `<div class="feature-panel"><label class="setting-row" for="theme-select"><span><strong>화면 테마</strong><small>일반 메뉴와 영지 관리소에 함께 적용되며, 다음에도 선택이 유지돼요.</small></span><select class="theme-select" id="theme-select"><option value="dark">다크 모드</option><option value="light">라이트 모드</option></select></label><label class="setting-row"><span><strong>움직임 줄이기</strong><small>버튼과 상태 막대의 전환 효과를 줄여요.</small></span><input type="checkbox" id="motion-toggle" ${reducedMotion?'checked':''}></label><div class="setting-row"><span><strong>메뉴 열기</strong><small>Shift+F 연결 전의 기본 단축키예요.</small></span><span class="setting-value">F6</span></div><div class="setting-row"><span><strong>메뉴 닫기</strong><small>오른쪽 위 닫기 버튼으로도 돌아갈 수 있어요.</small></span><span class="setting-value">Esc</span></div></div>`;
+      panel.innerHTML = `<div class="feature-panel"><label class="setting-row" for="theme-select"><span><strong>화면 테마</strong><small>일반 메뉴·영지 관리소·상점에 함께 적용되며, 다음에도 선택이 유지돼요.</small></span><select class="theme-select" id="theme-select"><option value="dark">다크 모드</option><option value="light">라이트 모드</option></select></label><label class="setting-row"><span><strong>움직임 줄이기</strong><small>버튼과 상태 막대의 전환 효과를 줄여요.</small></span><input type="checkbox" id="motion-toggle" ${reducedMotion?'checked':''}></label><div class="setting-row"><span><strong>메뉴 열기</strong><small>Shift+F 연결 전의 기본 단축키예요.</small></span><span class="setting-value">F6</span></div><div class="setting-row"><span><strong>메뉴 닫기</strong><small>오른쪽 위 닫기 버튼으로도 돌아갈 수 있어요.</small></span><span class="setting-value">Esc</span></div></div>`;
       $('theme-select').value = window.PocketmateTheme.get();
       $('theme-select').addEventListener('change', event => window.PocketmateTheme.set(event.target.value));
       $('motion-toggle').addEventListener('change', event => {
@@ -94,9 +103,6 @@
         document.body.classList.toggle('reduce-motion', reducedMotion);
         try { localStorage.setItem('pocketmate.reducedMotion', String(reducedMotion)); } catch (_) {}
       });
-    } else if (page === 'travel' || page === 'shop') {
-      const tiles = page === 'travel' ? [['시작 마을','새로운 모험의 출발점'],['내 보금자리','잠시 쉬어갈 나만의 장소'],['탐험 지역','새로운 만남을 찾아서'],['함께하는 광장','친구들의 이야기가 모이는 곳']] : [['모험용품','몬스터볼과 회복 도구를 위한 공간'],['꾸미기','나만의 개성을 위한 공간'],['거래소','다른 모험가와 만나는 공간'],['보관함','소중한 물건을 위한 공간']];
-      panel.innerHTML = `<div class="tile-grid">${tiles.map(([name,description])=>`<button class="placeholder-tile" data-placeholder="${name}">${icon(icons[page])}<strong>${name}</strong><small>${description}<br>서버 연결 준비 중</small></button>`).join('')}</div>`;
     } else {
       const copy = ['아직 도착하지 않은 이야기','서버의 임무 기능을 연결하면 목표와 보상, 진행 상황을 볼 수 있어요. 지금은 수락할 수 있는 임무가 없어요.'];
       panel.innerHTML = `<div class="feature-panel"><span class="empty-symbol">${icon(icons[page])}</span><h2>${copy[0]}</h2><p>${copy[1]}</p><button class="primary-button" data-guide>메뉴 이용 안내 ${icon('arrow')}</button></div>`;

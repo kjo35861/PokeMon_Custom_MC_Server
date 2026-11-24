@@ -292,9 +292,9 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "3990204fb0b5f35f7c2075c1c7ef79a216779f5d4151c69bed53211d047c2ab9",
-      "published_sha256": "e63924d06d7358be376a106ba6274934977bbad0d4e1d4146f3ceb03960dd9ef",
-      "bytes": 30788,
+      "source_sha256": "16eec6c0ef04cb1a63d5177eabbf366a6e4fc8f3bd1d68c49a0129cdd7893a5a",
+      "published_sha256": "005f78f9d1584b064247c8e0e88bd0e6560afa7b8f98fc3b0214e41dfea33c8e",
+      "bytes": 30991,
       "sanitized": true
     },
     "reports/webgui_menu/estate-v0.10-integration.json": {
@@ -681,6 +681,14 @@
       "bytes": 126,
       "sanitized": true
     },
+    "reports/webgui_menu/shop-foundation-report.json": {
+      "source": "webgui_menu/verification/shop-foundation-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "48a9c2ce8ab0f1d9b3fee524206c15cbc264eb259e4dc0ac5a534441994090a0",
+      "published_sha256": "aef3f810ae610846ca064e387b312649d4b27ce9687b59643bd94ee8c3740038",
+      "bytes": 268,
+      "sanitized": true
+    },
     "reports/webgui_menu/territory-help-update-report.json": {
       "source": "webgui_menu/verification/territory-help-update-report.json",
       "kind": "historical-or-current-report",
@@ -815,6 +823,22 @@
       "source_sha256": "ac948c6036b8f6a8448ec501b87add80f19d72dde0df36ad9c4e0514da3769f5",
       "published_sha256": "ac948c6036b8f6a8448ec501b87add80f19d72dde0df36ad9c4e0514da3769f5",
       "bytes": 107333,
+      "sanitized": false
+    },
+    "screenshots/shop-v0.18-dark-mock.png": {
+      "source": "webgui_menu/verification/shop-foundation-dark.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "f631db8344341d6fd0fe98eb470a06a9306f4cf35b5499e71b0c1e41a278060b",
+      "published_sha256": "f631db8344341d6fd0fe98eb470a06a9306f4cf35b5499e71b0c1e41a278060b",
+      "bytes": 53247,
+      "sanitized": false
+    },
+    "screenshots/shop-v0.18-light-mock.png": {
+      "source": "webgui_menu/verification/shop-foundation-light.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "d452d5e8b29986918d515029abb90ff0b814e19f4fd0b6b22760434a4e603f7f",
+      "published_sha256": "d452d5e8b29986918d515029abb90ff0b814e19f4fd0b6b22760434a4e603f7f",
+      "bytes": 56727,
       "sanitized": false
     },
     "screenshots/user-reported-before-0.12.0-members.png": {
