@@ -6,7 +6,8 @@
     "PlayerTitleMixin",
     "NicknameLookupMixin",
     "NicknameSelectorMixin",
-    "NicknameTabMixin"
+    "NicknameTabMixin",
+    "MissionBlockPlaceMixin"
   ],
   "injectors": {
     "defaultRequire": 1

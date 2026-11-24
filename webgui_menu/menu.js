@@ -5,7 +5,7 @@
     home: ['홈', 'PLAYER HUB', ''],
     warp: ['워프', 'WARP / DESTINATIONS', '이동할 목적지를 확인하세요.'],
     shop: ['상점', '03 / SUPPLY', '아이템과 거래 기능을 한곳에서 확인하세요.'],
-    quests: ['퀘스트', '04 / MISSIONS', '진행할 목표와 보상을 확인하세요.'],
+    quests: ['임무', '04 / MISSIONS', '진행할 목표와 보상을 확인하세요.'],
     travel: ['마을 이동', '05 / FAST TRAVEL', '목적지를 선택하고 다음 지역으로 이동하세요.'],
     estate: ['영지관리', '06 / ESTATES', '현재 위치에서 영지를 만들고, 오버월드 지도로 소유 청크를 관리하세요.'],
     profile: ['프로필 꾸미기', 'MY PROFILE / COLLECTION', '보유한 아이콘·칭호·배너로 나만의 프로필카드를 꾸며보세요.'],
@@ -51,6 +51,7 @@
     if(page==='travel'){window.PocketmateTravel.go();return;}
     window.PocketmateEstates?.unmount();
     window.PocketmateProfile?.unmount();
+    window.PocketmateMissions?.unmount();
     $('estate-page').hidden=true;
     if (!meta[page]) page = 'home';
     const [title, kicker, description] = meta[page];
@@ -78,6 +79,8 @@
     const panel = $('feature-content');
     if (page === 'profile') {
       window.PocketmateProfile.mount(panel);
+    } else if (page === 'quests') {
+      window.PocketmateMissions.mount(panel);
     } else if (page === 'warp') {
       panel.innerHTML = `<div class="feature-panel"><span class="empty-symbol">${icon('warp')}</span><h2>워프 지점을 준비하고 있어요</h2><p>등록된 워프 지점이 생기면 이곳에서 목적지를 선택할 수 있어요.</p></div>`;
     } else if (page === 'settings') {
@@ -93,7 +96,7 @@
       const tiles = page === 'travel' ? [['시작 마을','새로운 모험의 출발점'],['내 보금자리','잠시 쉬어갈 나만의 장소'],['탐험 지역','새로운 만남을 찾아서'],['함께하는 광장','친구들의 이야기가 모이는 곳']] : [['모험용품','몬스터볼과 회복 도구를 위한 공간'],['꾸미기','나만의 개성을 위한 공간'],['거래소','다른 모험가와 만나는 공간'],['보관함','소중한 물건을 위한 공간']];
       panel.innerHTML = `<div class="tile-grid">${tiles.map(([name,description])=>`<button class="placeholder-tile" data-placeholder="${name}">${icon(icons[page])}<strong>${name}</strong><small>${description}<br>서버 연결 준비 중</small></button>`).join('')}</div>`;
     } else {
-      const copy = ['아직 도착하지 않은 이야기','서버의 퀘스트 기능을 연결하면 목표와 보상, 진행 상황을 볼 수 있어요. 지금은 수락할 수 있는 퀘스트가 없어요.'];
+      const copy = ['아직 도착하지 않은 이야기','서버의 임무 기능을 연결하면 목표와 보상, 진행 상황을 볼 수 있어요. 지금은 수락할 수 있는 임무가 없어요.'];
       panel.innerHTML = `<div class="feature-panel"><span class="empty-symbol">${icon(icons[page])}</span><h2>${copy[0]}</h2><p>${copy[1]}</p><button class="primary-button" data-guide>메뉴 이용 안내 ${icon('arrow')}</button></div>`;
     }
   }
@@ -102,7 +105,7 @@
     if (go) { selectPage(go.dataset.go || go.dataset.page); return; }
     const tile = event.target.closest('[data-placeholder]');
     if (tile) { notConnected(tile.dataset.placeholder); return; }
-    if (event.target.closest('[data-guide]')) showInfo('포켓메이트에 오신 걸 환영해요', '왼쪽 탭과 기능 타일로 워프, 상점, 퀘스트와 영지관리 메뉴를 둘러보세요.\n\n현재는 메뉴의 기본 틀을 테스트하는 단계예요. 서버 기능이 필요한 항목은 연결 후 이용할 수 있어요.\n\nF6으로 메뉴를 열고 Esc로 게임으로 돌아갈 수 있어요.');
+    if (event.target.closest('[data-guide]')) showInfo('포켓메이트에 오신 걸 환영해요', '왼쪽 탭과 기능 타일로 워프, 상점, 임무와 영지관리 메뉴를 둘러보세요.\n\n현재는 메뉴의 기본 틀을 테스트하는 단계예요. 서버 기능이 필요한 항목은 연결 후 이용할 수 있어요.\n\nF6으로 메뉴를 열고 Esc로 게임으로 돌아갈 수 있어요.');
   });
   document.querySelector('.brand').addEventListener('click', event => { event.preventDefault(); selectPage('home'); });
   ['dialog-x','dialog-ok'].forEach(id => $(id).addEventListener('click', () => $('info-dialog').close()));
@@ -142,5 +145,5 @@
   applyClient(window.webgui?.client);
   $('date-label').textContent = new Intl.DateTimeFormat('ko-KR',{month:'long',day:'numeric',weekday:'short'}).format(new Date());
   // Extension point: register trusted server event handlers here when gameplay features are connected.
-  // Navigation and placeholder buttons deliberately do not send commands or grant rewards.
+  // Feature modules own their server requests; navigation never modifies progress.
 })();

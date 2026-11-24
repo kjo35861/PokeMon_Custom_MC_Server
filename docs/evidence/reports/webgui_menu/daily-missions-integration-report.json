@@ -1,0 +1,21 @@
+{
+  "mod_version": "0.11.0",
+  "menu_version": "0.16.0",
+  "java_tests": 80,
+  "java_failures": 0,
+  "mission_tests": 12,
+  "slots": 5,
+  "templates": 18,
+  "active_templates": 16,
+  "reset_zone": "Asia/Seoul",
+  "reset_hour": 6,
+  "persistent_claim_receipts": true,
+  "reward_pool_configured": false,
+  "pixelmon_runtime_connected": false,
+  "neoforge_migration_performed": false,
+  "game_tested": false,
+  "balance_playtested": false,
+  "restart_required": true,
+  "status": "installed",
+  "installed_hash_matches": true
+}

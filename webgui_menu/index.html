@@ -5,11 +5,12 @@
 <title>POCKETMATE / PLAYER HUB</title>
 <link rel="icon" href="./pocketmate-mark.png" type="image/png">
 <script src="./appearance.js"></script>
-<link rel="stylesheet" href="./fonts.css"><link rel="stylesheet" href="./menu.css"><link rel="stylesheet" href="./estate.css"><link rel="stylesheet" href="./theme.css"><link rel="stylesheet" href="./profile.css"><link rel="stylesheet" href="./icons.css"><script src="./icons.js" defer></script><script src="./profile.js" defer></script><script src="./estate-map.js" defer></script><script src="./estate-app.js" defer></script><script src="./menu.js" defer></script>
+<link rel="stylesheet" href="./fonts.css"><link rel="stylesheet" href="./menu.css"><link rel="stylesheet" href="./estate.css"><link rel="stylesheet" href="./theme.css"><link rel="stylesheet" href="./profile.css"><link rel="stylesheet" href="./icons.css"><script src="./icons.js" defer></script><script src="./profile.js" defer></script><script src="./estate-map.js" defer></script><script src="./estate-app.js" defer></script><script src="./missions.js" defer></script><script src="./menu.js" defer></script>
 <link rel="stylesheet" href="./appearance.css">
 <link rel="stylesheet" href="./people.css"><script src="./people.js"></script>
 <link rel="stylesheet" href="./help.css"><script src="./help.js" defer></script>
 <script src="./travel.js" defer></script>
+<link rel="stylesheet" href="./missions.css">
 </head>
 <body>
 <svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
@@ -48,7 +49,7 @@
  <nav class="tabbar" aria-label="메뉴">
   <button class="nav-item selected" data-page="home" aria-current="page">홈<span>00</span></button>
   <button class="nav-item" data-page="shop">상점<span>03</span></button>
-  <button class="nav-item" data-page="quests">퀘스트<span>04</span></button>
+  <button class="nav-item" data-page="quests">임무<span>04</span></button>
   <button class="nav-item" data-page="estate">영지관리<span>06</span></button>
   <button class="nav-item nav-settings" data-page="settings" aria-label="메뉴 설정"><svg><use href="#i-gear"/></svg><span class="nav-settings-label">설정</span></button>
  </nav>
@@ -67,7 +68,7 @@
      <div class="team-copy"><span class="tile-eyebrow">새로운 곳으로 떠나는 길</span><h2>워프</h2><p>이동할 목적지를 확인하세요.</p></div><span class="launch-arrow"><svg><use href="#i-arrow"/></svg></span>
     </button>
     <button class="action-tile empty-tile" type="button" disabled aria-label="빈 버튼"></button>
-    <button class="action-tile quest-tile" data-go="quests"><span class="tile-top"><span class="tile-code">04 / MISSIONS</span><svg><use href="#i-arrow"/></svg></span><span class="tile-art quest-art" aria-hidden="true"><span><svg class="pm-icon"><use href="#i-flag"/></svg></span><i></i><i></i></span><div class="tile-copy"><h2>퀘스트</h2><p>다음 목표를 확인하세요</p></div></button>
+    <button class="action-tile quest-tile" data-go="quests"><span class="tile-top"><span class="tile-code">04 / MISSIONS</span><svg><use href="#i-arrow"/></svg></span><span class="tile-art quest-art" aria-hidden="true"><span><svg class="pm-icon"><use href="#i-flag"/></svg></span><i></i><i></i></span><div class="tile-copy"><h2>임무</h2><p>다음 목표를 확인하세요</p></div></button>
     <button class="action-tile shop-tile" data-go="shop"><span class="tile-top"><span class="tile-code">03 / SUPPLY</span><svg><use href="#i-arrow"/></svg></span><span class="tile-art shop-art" aria-hidden="true"><svg><use href="#i-bag"/></svg><i><svg class="pm-icon"><use href="#i-plus"/></svg></i></span><div class="tile-copy"><h2>상점</h2><p>필요한 아이템을 준비하세요</p></div></button>
     <button class="action-tile travel-tile" data-go="travel"><span class="tile-top"><span class="tile-code">05 / FAST TRAVEL</span><svg><use href="#i-arrow"/></svg></span><span class="tile-art travel-art" aria-hidden="true"><svg><use href="#i-compass"/></svg><i></i></span><div class="tile-copy"><h2>마을 이동</h2><p>새로운 목적지로</p></div></button>
    </div>
