@@ -1,0 +1,22 @@
+{
+  "version": "0.12.3",
+  "scope": "profile editor only",
+  "actions_outside_scroll_area": true,
+  "fixed_actions": [
+    "save",
+    "reset",
+    "feedback"
+  ],
+  "scroll_content": [
+    "preview",
+    "owned cosmetics"
+  ],
+  "css_parse_passed": true,
+  "javascript_syntax_passed": true,
+  "markup_source_check": true,
+  "game_interaction": false,
+  "browser_visual_check": false,
+  "deployed": true,
+  "restart_required": false,
+  "apply_command": "/webgui reload"
+}

@@ -13,7 +13,7 @@ files.update({
 })
 files.update({f'config/webgui/web/profile-assets/{p.name}':p for p in (root/'profile-assets').iterdir() if p.suffix in {'.png','.svg','.txt'}})
 files.update({f'config/webgui/web/icons/{p.name}':p for p in (root/'icons').glob('*.svg')})
-out=root/'PocketmateMenu-v0.12.2.zip'
+out=root/'PocketmateMenu-v0.12.3.zip'
 with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED) as archive:
     for target,source in files.items():archive.write(source,target)
     archive.writestr('client-only/설치 위치.txt','반투명 보완 JAR는 플레이어 PC의 minecraft/mods에 넣으세요. 전용 서버에는 필요하지 않습니다.\n'.encode('utf-8'))
