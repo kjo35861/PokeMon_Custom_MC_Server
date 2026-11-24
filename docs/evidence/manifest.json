@@ -193,6 +193,14 @@
       "bytes": 525,
       "sanitized": true
     },
+    "reports/webgui_menu/daily-missions-layout-ui-report.json": {
+      "source": "webgui_menu/verification/daily-missions-layout-ui-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "f021cf2a1798222005bde77543ea1af64281c428bb10a77e06eb83afe4c31498",
+      "published_sha256": "0e10e40e59125673134d89adc0381a1abe315bb835375f86d806f6e32d4cdd84",
+      "bytes": 443,
+      "sanitized": true
+    },
     "reports/webgui_menu/daily-missions-rules-integration-report.json": {
       "source": "webgui_menu/verification/daily-missions-rules-integration-report.json",
       "kind": "historical-or-current-report",
@@ -284,9 +292,9 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "97f73b8b5c8b401024b3a2099e860e951aa086524adacf419fbeb474258abf36",
-      "published_sha256": "6e1328dd8e2896e128c288c60d202753bffbd871db74fe6ff5a7bffe50839cbe",
-      "bytes": 30581,
+      "source_sha256": "4e52cd0d84d55fc5a1f5c0d5c7787609aa51eee7288bda2105365a657bf57459",
+      "published_sha256": "666af037e0dfa5274b95a6b0518542cc187b7002aab3e313d0c08791c1d5b22f",
+      "bytes": 30788,
       "sanitized": true
     },
     "reports/webgui_menu/estate-v0.10-integration.json": {
@@ -505,6 +513,22 @@
       "bytes": 50,
       "sanitized": true
     },
+    "reports/webgui_menu/menu-layout-install-report.json": {
+      "source": "webgui_menu/verification/menu-layout-install-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "c0bd3caac5bdb47ef91e9bc158d330cda87a1422e4a322ddfe62885fc33fce42",
+      "published_sha256": "f27f16b989bcd0ad06f95ae0723d8f727d7f99034ef11e3ffb8d37c8137d7238",
+      "bytes": 806,
+      "sanitized": true
+    },
+    "reports/webgui_menu/menu-layout-report.json": {
+      "source": "webgui_menu/verification/menu-layout-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "aec2a7c8174d33e6ed5ea93b5e870f481ae230dc665d7b98be9fd883f600d772",
+      "published_sha256": "4e7c2de810eb7e9a57e9902cd0ebee3991dc3663c83de953de02507133dfe351",
+      "bytes": 413,
+      "sanitized": true
+    },
     "reports/webgui_menu/menu-navigation-update-report.json": {
       "source": "webgui_menu/verification/menu-navigation-update-report.json",
       "kind": "historical-or-current-report",
@@ -543,6 +567,14 @@
       "source_sha256": "cae528acbb915783f47cfa3a3e0b665f02e37de002d56660d235f860e1dbd867",
       "published_sha256": "511e4941fd734a036767a948c5c9f06dac3a691cb2680a9c6321be83a32ff54f",
       "bytes": 665,
+      "sanitized": true
+    },
+    "reports/webgui_menu/profile-browser-layout-report.json": {
+      "source": "webgui_menu/verification/profile-browser-layout-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "2885eeeac65e8537a879c85f2e9accd6e53403e6d82ef64b5c2476a90613a082",
+      "published_sha256": "84572a6fc229b83469c596e2b9320f32731a5cedef3f5501941221d04db796f9",
+      "bytes": 956,
       "sanitized": true
     },
     "reports/webgui_menu/profile-browser-report.json": {
@@ -751,6 +783,22 @@
       "source_sha256": "7c06df750370a5f69b593b1d465f08fb53ab96874159efbf5b9043046da56d4d",
       "published_sha256": "7c06df750370a5f69b593b1d465f08fb53ab96874159efbf5b9043046da56d4d",
       "bytes": 207775,
+      "sanitized": false
+    },
+    "screenshots/menu-v0.17-docked-profile-dark-mock.png": {
+      "source": "webgui_menu/verification/docked-profile-missions-dark.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "2ab37b881e78b75ec3e5fc535872bb075ad2599c0b536e499180274613151dd1",
+      "published_sha256": "2ab37b881e78b75ec3e5fc535872bb075ad2599c0b536e499180274613151dd1",
+      "bytes": 94356,
+      "sanitized": false
+    },
+    "screenshots/menu-v0.17-docked-profile-light-mock.png": {
+      "source": "webgui_menu/verification/docked-profile-missions-light.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "ac948c6036b8f6a8448ec501b87add80f19d72dde0df36ad9c4e0514da3769f5",
+      "published_sha256": "ac948c6036b8f6a8448ec501b87add80f19d72dde0df36ad9c4e0514da3769f5",
+      "bytes": 107333,
       "sanitized": false
     },
     "screenshots/user-reported-before-0.12.0-members.png": {

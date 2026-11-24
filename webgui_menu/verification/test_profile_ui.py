@@ -51,12 +51,13 @@ with sync_playwright() as p:
         page.set_viewport_size({'width':width,'height':height});page.evaluate("document.documentElement.style.setProperty('--text-scale','1.6')");page.wait_for_timeout(100)
         assert page.evaluate('document.documentElement.scrollWidth')<=width
         page.locator('[data-profile-tab="banner"]').click()
+        page.locator('[data-profile-item="night"]').click();page.wait_for_timeout(320)
         metrics=page.evaluate('''(() => {let p=document.querySelector('#page-scroll'),c=document.querySelector('.profile-studio');return {scrollWidth:p.scrollWidth,clientWidth:p.clientWidth,studioWidth:c.getBoundingClientRect().width}})()''')
         assert metrics['scrollWidth']<=metrics['clientWidth']+1,metrics
         page.locator('[data-profile-save]').scroll_into_view_if_needed();assert page.locator('[data-profile-save]').is_visible()
         reports.append({'width':width,'height':height,**metrics})
-    page.set_viewport_size({'width':1920,'height':1080});page.evaluate("document.documentElement.style.setProperty('--text-scale','1.3')");page.locator('#page-scroll').evaluate('e=>e.scrollTop=0');page.screenshot(path=str(root/'verification/profile-studio.png'))
+    page.set_viewport_size({'width':1920,'height':1080});page.evaluate("document.documentElement.style.setProperty('--text-scale','1.3')");page.locator('#page-scroll').evaluate('e=>e.scrollTop=0');page.screenshot(path=str(root/'verification/profile-studio-docked.png'))
     assert not errors,errors
-    (root/'verification/profile-browser-report.json').write_text(json.dumps({'passed':True,'checks':['title adjacent to CONNECTED PLAYER','only owned collection choices','draft preview does not alter equipped card','server acknowledgement applies icon/title/banner together','equipment retained after reopen','reset draft','rejected equipment does not change live card','4 responsive viewports at 160% text; save reachable'],'viewports':reports},ensure_ascii=False,indent=2),encoding='utf-8')
+    (root/'verification/profile-browser-layout-report.json').write_text(json.dumps({'passed':True,'checks':['title adjacent to CONNECTED PLAYER','only owned collection choices','draft preview does not alter equipped card','server acknowledgement applies icon/title/banner together','equipment retained after reopen','reset draft','rejected equipment does not change live card','4 responsive viewports at 160% text; save reachable'],'viewports':reports},ensure_ascii=False,indent=2),encoding='utf-8')
     browser.close()
 print('Profile browser checks passed')

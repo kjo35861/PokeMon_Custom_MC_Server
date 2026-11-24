@@ -1,0 +1,14 @@
+{
+  "headless_mock_only": true,
+  "game_tested": false,
+  "viewport_scale_cases": 9,
+  "long_mission_descriptions_checked": true,
+  "five_missions_and_final_visible": true,
+  "five_portrait_cards_in_one_row": true,
+  "full_width_final_below_all_missions": true,
+  "profile_single_body_node": true,
+  "all_destinations_and_estate": true,
+  "profile_edit_from_estate": true,
+  "no_overflow": true,
+  "errors": []
+}

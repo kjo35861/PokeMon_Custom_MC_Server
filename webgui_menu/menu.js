@@ -63,6 +63,8 @@
     });
     $('home-page').hidden = page !== 'home';
     $('feature-page').hidden = page === 'home';
+    document.body.dataset.activePage=page;
+    $('page-scroll').classList.toggle('missions-page', page === 'quests');
     $('page-scroll').classList.toggle('home-fixed', page === 'home');
     $('page-scroll').classList.toggle('profile-fixed-actions', page === 'profile');
     $('page-scroll').scrollTop = 0;

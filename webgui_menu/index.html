@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="./help.css"><script src="./help.js" defer></script>
 <script src="./travel.js" defer></script>
 <link rel="stylesheet" href="./missions.css">
+<link rel="stylesheet" href="./layout.css"><script src="./layout.js" defer></script>
 </head>
 <body>
 <svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
@@ -40,6 +41,10 @@
   <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v6m0-10v.1"/></symbol>
   <symbol id="i-edit" viewBox="0 0 24 24"><path d="m14.5 5.5 4 4M4 20l4.7-1L20 7.7a2.8 2.8 0 0 0-4-4L4.7 15Z"/><path d="m4.7 15 4 4"/></symbol>
 </defs></svg>
+ <section class="player-strip profile-card profile-dock" id="profile-card" aria-label="프로필카드">
+  <div class="player-id"><span class="avatar profile-avatar" id="profile-avatar"><svg><use href="#i-ball"/></svg></span><div class="profile-identity"><div class="profile-heading"><span class="micro-label">CONNECTED PLAYER</span><span class="profile-title" id="profile-title" hidden></span></div><strong id="player-name">연결 대기</strong></div></div>
+  <div class="live-stats"><div class="stat-hp"><span class="micro-label">HP</span><strong id="health-text">—</strong><div class="health-track"><span id="health-fill"></span></div></div><div><span class="micro-label">LEVEL</span><strong id="player-level">—</strong></div><div><span class="micro-label">LOCATION</span><strong id="player-dimension">—</strong></div></div><button class="profile-edit" data-go="profile" aria-label="프로필카드 편집"><svg><use href="#i-gear"/></svg><span>프로필 편집</span></button>
+ </section>
 <main class="shell" aria-label="포켓메이트 플레이 허브">
  <header class="masthead">
   <a class="brand" href="#home" aria-label="포켓메이트 홈"><span class="brand-mark"><img src="./pocketmate-mark.png" alt="포켓메이트 대표 아이콘" width="44" height="44"></span><span>POCKETMATE<small>PLAYER TERMINAL / 02</small></span></a>
@@ -54,10 +59,6 @@
   <button class="nav-item nav-settings" data-page="settings" aria-label="메뉴 설정"><svg><use href="#i-gear"/></svg><span class="nav-settings-label">설정</span></button>
  </nav>
  <div class="hub-content">
- <section class="player-strip profile-card" id="profile-card" aria-label="프로필카드">
-  <div class="player-id"><span class="avatar profile-avatar" id="profile-avatar"><svg><use href="#i-ball"/></svg></span><div class="profile-identity"><div class="profile-heading"><span class="micro-label">CONNECTED PLAYER</span><span class="profile-title" id="profile-title" hidden></span></div><strong id="player-name">연결 대기</strong></div></div>
-  <div class="live-stats"><div class="stat-hp"><span class="micro-label">HP</span><strong id="health-text">—</strong><div class="health-track"><span id="health-fill"></span></div></div><div><span class="micro-label">LEVEL</span><strong id="player-level">—</strong></div><div><span class="micro-label">LOCATION</span><strong id="player-dimension">—</strong></div></div><button class="profile-edit" data-go="profile" aria-label="프로필카드 편집"><svg><use href="#i-gear"/></svg><span>프로필 편집</span></button>
- </section>
  <div class="page-scroll home-fixed" id="page-scroll">
   <section id="home-page">
    <div class="section-title"><div><p class="eyebrow">READY WHEN YOU ARE.</p><h1>다음 플레이를 선택하세요<span class="sentence-stop">.</span></h1><p class="welcome"><span id="player-greeting">모험가</span>님의 모험, 여기서 이어집니다.</p></div><span id="date-label" class="date-label"></span></div>

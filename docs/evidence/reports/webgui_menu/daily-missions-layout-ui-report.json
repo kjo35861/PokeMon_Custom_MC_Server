@@ -1,0 +1,15 @@
+{
+  "headless_mock_only": true,
+  "game_tested": false,
+  "five_categories": true,
+  "renamed_mission_tab": true,
+  "dark_light_and_text_scale": true,
+  "no_overlapping_claim_buttons": true,
+  "claim_and_final_gating": true,
+  "stale_day_rejected_and_refreshed": true,
+  "no_client_progress_payload": true,
+  "polling_stops_on_unmount": true,
+  "reroll_cancel_no_request": true,
+  "reroll_confirmation_and_daily_quota": true,
+  "errors": []
+}

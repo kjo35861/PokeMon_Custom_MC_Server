@@ -1,0 +1,20 @@
+{
+  "menu_version": "0.17.0",
+  "mod_version_unchanged": "0.11.2",
+  "profile_outside_hub_and_estate": true,
+  "missions_five_portrait_cards": true,
+  "full_width_final_below": true,
+  "deployed_files_match": true,
+  "game_tested": false,
+  "headless_layout_cases": 9,
+  "java_changed": false,
+  "restart_required": false,
+  "reload_command": "/webgui reload",
+  "files": {
+    "layout.css": "fc3f7d7a5237c16e43038bb31b264e5af8d85c9a24eb91d7a6ab78d6758f17dc",
+    "layout.js": "ada858f3deecd2b95f888a16a0726cf8fa61ed52c917154365d0af19a23828fa",
+    "missions.js": "75b15813fc2a7fbf15039a1ad1f38a283a2f0240b22f9d7e536ae2797027d189",
+    "menu.js": "e5140e47e678411c3aee29e059da96ba37116cd778e53134713776e853eb920c",
+    "index.html": "a88f0905361c0894fe336d03fcdaebc6e7c0bd627d5f98233a8e5e0e4b986b3f"
+  }
+}

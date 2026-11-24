@@ -33,6 +33,8 @@ def candidates():
     for source in sorted((ROOT/'estate_mod/verification/test-results/test').glob('TEST-*.xml')):
         yield source,f'reports/estate_mod/{source.name}','junit-result'
     screenshots={
+        'webgui_menu/verification/docked-profile-missions-dark.png':'menu-v0.17-docked-profile-dark-mock.png',
+        'webgui_menu/verification/docked-profile-missions-light.png':'menu-v0.17-docked-profile-light-mock.png',
         'webgui_menu/verification/daily-missions-rules-dark.png':'daily-missions-rules-dark-mock.png',
         'webgui_menu/verification/daily-missions-rules-light.png':'daily-missions-rules-light-mock.png',
         'webgui_menu/verification/daily-missions-dark.png':'daily-missions-dark-mock.png',
@@ -46,7 +48,7 @@ def candidates():
     }
     for original,name in screenshots.items():
         source=ROOT/original
-        if source.exists():yield source,'screenshots/'+name,('headless-mock-ui-screenshot' if name.startswith('daily-missions-') else 'historical-ui-screenshot')
+        if source.exists():yield source,'screenshots/'+name,('headless-mock-ui-screenshot' if name.startswith(('daily-missions-','menu-v0.17-')) else 'historical-ui-screenshot')
     for name in ['brand-final-prompt.txt','brand-universal-prompt.txt']:
         source=ROOT/'webgui_menu/verification'/name
         if source.exists():yield source,'artwork/'+name,'image-generation-prompt'

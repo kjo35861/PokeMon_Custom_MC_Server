@@ -55,9 +55,9 @@ with sync_playwright() as p:
    page.evaluate('(v)=>document.documentElement.style.setProperty("--text-scale",v)',scale)
    for card in page.locator('.mission-card').all():
     copy=card.locator('.mission-copy').bounding_box();button=card.locator('[data-mission-claim]').bounding_box()
-    assert copy['x']+copy['width']<=button['x']+1
+    assert copy['x']+copy['width']<=button['x']+1 or copy['y']+copy['height']<=button['y']+1
   page.evaluate('document.documentElement.style.setProperty("--text-scale","1")')
-  page.screenshot(path=str(root/'verification'/('daily-missions-rules-'+theme+'.png')))
+  page.screenshot(path=str(root/'verification'/('daily-missions-layout-'+theme+'.png')))
  page.locator('.mission-rules-help').focus();assert page.locator('#pocketmate-help-tooltip').is_visible()
  assert '서버 재시작' in page.locator('#pocketmate-help-tooltip').inner_text()
  # A cancelled confirmation must never spend a server-side reroll.
@@ -92,5 +92,5 @@ with sync_playwright() as p:
  assert page.evaluate('missionCalls.length')==before
  assert not errors,errors
  browser.close()
-(root/'verification/daily-missions-rules-ui-report.json').write_text(json.dumps({'headless_mock_only':True,'game_tested':False,'five_categories':True,'renamed_mission_tab':True,'dark_light_and_text_scale':True,'no_overlapping_claim_buttons':True,'claim_and_final_gating':True,'stale_day_rejected_and_refreshed':True,'no_client_progress_payload':True,'polling_stops_on_unmount':True,'reroll_cancel_no_request':True,'reroll_confirmation_and_daily_quota':True,'errors':errors},indent=2)+'\n',encoding='utf-8')
+(root/'verification/daily-missions-layout-ui-report.json').write_text(json.dumps({'headless_mock_only':True,'game_tested':False,'five_categories':True,'renamed_mission_tab':True,'dark_light_and_text_scale':True,'no_overlapping_claim_buttons':True,'claim_and_final_gating':True,'stale_day_rejected_and_refreshed':True,'no_client_progress_payload':True,'polling_stops_on_unmount':True,'reroll_cancel_no_request':True,'reroll_confirmation_and_daily_quota':True,'errors':errors},indent=2)+'\n',encoding='utf-8')
 print('Mission UI: 5 slots, both themes, text size, claims, stale-day refresh, server-only progress and cleanup passed.')
