@@ -108,8 +108,17 @@ namespace Snowfrost
             string original=File.ReadAllText(Path.Combine(vanilla,"mmc-pack.json"));
             PrismTarget server=PrismBridge.ServerTarget(plain,Path.Combine(root,"owner"));PrismBridge.EnsureServer(server,plain);
             Check(server.GameRoot!=plain.GameRoot && File.ReadAllText(Path.Combine(vanilla,"mmc-pack.json"))==original,"Server instance is isolated from original vanilla",checks);
+            string optionsPath = Path.Combine(server.GameRoot, "options.txt");
+            string initialOptions = File.ReadAllText(optionsPath);
+            Check(initialOptions.Contains("chatLineSpacing:0.3573943661971831") && initialOptions.Contains("chatScale:0.7059859154929577") && initialOptions.Contains("lang:ko_kr"), "New server instances seed chat and display options", checks);
+            File.WriteAllText(optionsPath, "chatLineSpacing:0.6");
             string before=File.ReadAllText(Path.Combine(server.Root,"instance.cfg"));PrismBridge.EnsureServer(server,plain);
             Check(before==File.ReadAllText(Path.Combine(server.Root,"instance.cfg")),"Existing managed instance settings are preserved",checks);
+            Check(File.ReadAllText(optionsPath) == "chatLineSpacing:0.6", "Existing player options are preserved", checks);
+            File.Delete(optionsPath);
+            PrismBridge.EnsureServer(server, plain);
+            Check(!File.Exists(optionsPath), "Existing instances are not reseeded when options are missing", checks);
+
             UpdatePlan fabric=new UpdatePlan{Loader="fabric",LoaderVersion="0.16.14"};
             Json.Save(Path.Combine(server.Root,"mmc-pack.json"),PrismBridge.LoaderPack(server,fabric));
             Check(PrismBridge.LoaderMatches(server,fabric)&&!PrismBridge.Vanilla1211(server.Root),"Fabric component is installed only into server instance",checks);

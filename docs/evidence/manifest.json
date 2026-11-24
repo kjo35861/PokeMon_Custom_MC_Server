@@ -116,9 +116,9 @@
     "reports/snowfrost_launcher/backend-report.json": {
       "source": "snowfrost_launcher/verification/backend-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "c808362f742368b1a8a855e5a52ddd6a680e2ac48ecb8273ece5488ea5881df3",
-      "published_sha256": "f64570be91a7bc24a248b50993f371affb06929a7b7d101724dc797ab22c6f2e",
-      "bytes": 2210,
+      "source_sha256": "cc4e2d75fde45573772be60ae3104483164b3f2e6076dc7d094ce37dafea5e74",
+      "published_sha256": "f6c80532f601a53770cb1501d19fdad90c89244b3940d2b837cf5c06008cba0d",
+      "bytes": 2381,
       "sanitized": true
     },
     "reports/snowfrost_launcher/final-report.json": {
@@ -332,9 +332,9 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "18e9cb4ad6e7fd89f501407ac8c223716d00752dc64064199964a3d9d39f9c02",
-      "published_sha256": "5ba6b4d0edb5918883dbd5c430d6b8160b042c0d04ba7d7eb2fd87c88a8353db",
-      "bytes": 32000,
+      "source_sha256": "3dd6d81a4054ae7464073d6a88c540ab80d9294e7b1388b0666697d38657080b",
+      "published_sha256": "cc95975abfd11acf1b9f5fe2fbbe8097093c884f9d2c910d609916af7e1a05e5",
+      "bytes": 31999,
       "sanitized": true
     },
     "reports/webgui_menu/estate-stars-report.json": {
@@ -806,6 +806,14 @@
       "kind": "historical-or-current-report",
       "source_sha256": "1cd9dbb2b03eede7a0d11f09859aca74df21f11b9e4e2aefe74dec84126df9a0",
       "published_sha256": "86389ae233752832537747dba049862c863b17f8c1ec72cf87146e281ef02990",
+      "bytes": 125,
+      "sanitized": true
+    },
+    "reports/webgui_menu/shop-font-baseline-install-report.json": {
+      "source": "webgui_menu/verification/shop-font-baseline-install-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "ec748d6ad191b017ee27a57399652c86d40e0958881aad0f6c48146e33518431",
+      "published_sha256": "d5f95d8b84ac5f87cfacf8c4cb1a86b99cf954ced09f0e5b6bfcbc378df2070e",
       "bytes": 125,
       "sanitized": true
     },

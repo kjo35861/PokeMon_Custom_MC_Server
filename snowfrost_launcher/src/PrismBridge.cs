@@ -105,12 +105,31 @@ namespace Snowfrost
         {
             string marker=Path.Combine(target.Root,"pocketmate-instance.json");
             if (Directory.Exists(target.Root) && !File.Exists(marker)) throw new IOException("같은 이름의 Prism 폴더가 이미 있습니다. 기존 폴더를 덮어쓰지 않았습니다.");
+            bool creating = !File.Exists(marker);
             Directory.CreateDirectory(target.Root);
             // Only our own server instance is created. Never copy accounts, worlds, commands or launcher secrets.
             Json.Save(marker,new{formatVersion=1,vanillaRoot=vanilla.Root});
             if (!File.Exists(Path.Combine(target.Root,"mmc-pack.json"))) Json.Save(Path.Combine(target.Root,"mmc-pack.json"),Json.Parse(File.ReadAllText(Path.Combine(vanilla.Root,"mmc-pack.json"))));
             if (!File.Exists(Path.Combine(target.Root,"instance.cfg")))
                 File.WriteAllText(Path.Combine(target.Root,"instance.cfg"),"[General]\nConfigVersion=1.3\nInstanceType=OneSix\nname=Pocketmate Server 1.21.1\nuuid="+Guid.NewGuid().ToString("N")+"\n",new UTF8Encoding(false));
+            if (creating) WriteInitialOptions(target.GameRoot);
+        }
+        private static void WriteInitialOptions(string gameRoot)
+        {
+            Directory.CreateDirectory(gameRoot);
+            string path = Path.Combine(gameRoot, "options.txt");
+            if (File.Exists(path)) return;
+            // Seed only the selected chat and display settings from the test instance.
+            string[] defaults = {
+                "version:3955", "lang:ko_kr", "guiScale:0",
+                "chatVisibility:0", "chatColors:true", "chatLinks:true", "chatLinksPrompt:true",
+                "chatOpacity:1.0", "chatDelay:0.0", "chatWidth:1.0",
+                "chatHeightFocused:1.0", "chatHeightUnfocused:0.4375",
+                "chatLineSpacing:0.3573943661971831", "chatScale:0.7059859154929577"
+            };
+            using (var file = new FileStream(path, FileMode.CreateNew, FileAccess.Write))
+            using (var writer = new StreamWriter(file, new UTF8Encoding(false)))
+                foreach (string line in defaults) writer.WriteLine(line);
         }
         public static object LoaderPack(PrismTarget target,UpdatePlan plan)
         {

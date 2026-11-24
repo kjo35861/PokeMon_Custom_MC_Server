@@ -1,6 +1,6 @@
 {
   "bundle": "PocketmateMenu-v0.23.4.zip",
-  "sha256": "5cbabb7d4e3eb3fa8568e381cabeb42997a29268cf0aba0bf1a04cf693728910",
+  "sha256": "bdbcf862949829b2efbd307e235bcced88d9ce735e1d423534ca62cf07127079",
   "files": {
     "config/webgui/web/index.html": "9e35b2490af9dee1ca9c1f890bbfacd8c0fe23ee7e4943a427a5d3595969b831",
     "config/webgui/web/menu.css": "0b0ff2ac2fcc6e4e5e45c4c1904b2ba62a79e000d4dd044d194408dc4e05aa20",
@@ -267,5 +267,5 @@
     "config/webgui/web/home-assets/warehouse.webp": "639ccd1084b5f854ce9ea2065205305f5d062a51c4e26a084896859f668d311f",
     "config/webgui/web/home-assets/warp.webp": "1563a5d8fd6cc6b26e3500cd48104ac12a8108977d4a3a5a4d14939799349b11"
   },
-  "deployed_assets_match": false
+  "deployed_assets_match": true
 }

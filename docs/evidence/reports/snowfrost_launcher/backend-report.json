@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checks": 46,
+  "checks": 49,
   "cases": [
     "Reject path ../mods/escape.jar",
     "Reject path mods/../escape.jar",
@@ -39,7 +39,10 @@
     "Prism rejects escaped instance ID",
     "Prism rejects a different Minecraft version",
     "Server instance is isolated from original vanilla",
+    "New server instances seed chat and display options",
     "Existing managed instance settings are preserved",
+    "Existing player options are preserved",
+    "Existing instances are not reseeded when options are missing",
     "Fabric component is installed only into server instance",
     "NeoForge component replaces prior Fabric component",
     "Switching server loader back to vanilla leaves base untouched",
