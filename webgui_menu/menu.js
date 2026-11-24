@@ -3,8 +3,7 @@
   const $ = id => document.getElementById(id);
   const meta = {
     home: ['홈', 'PLAYER HUB', ''],
-    team: ['내 포켓몬', '01 / MY POKÉMON', '파티의 구성과 파트너 정보를 확인하세요.'],
-    dex: ['포켓몬 도감', '02 / ARCHIVE', '발견한 포켓몬의 정보를 확인하세요.'],
+    warp: ['워프', 'WARP / DESTINATIONS', '이동할 목적지를 확인하세요.'],
     shop: ['상점', '03 / SUPPLY', '아이템과 거래 기능을 한곳에서 확인하세요.'],
     quests: ['퀘스트', '04 / MISSIONS', '진행할 목표와 보상을 확인하세요.'],
     travel: ['마을 이동', '05 / FAST TRAVEL', '목적지를 선택하고 다음 지역으로 이동하세요.'],
@@ -12,7 +11,7 @@
     profile: ['프로필 꾸미기', 'MY PROFILE / COLLECTION', '보유한 아이콘·칭호·배너로 나만의 프로필카드를 꾸며보세요.'],
     settings: ['메뉴 설정', '07 / PREFERENCES', '플레이 허브의 표시 설정을 변경하세요.']
   };
-  const icons = {team:'ball', dex:'book', shop:'bag', quests:'flag', travel:'compass'};
+  const icons = {warp:'compass', shop:'bag', quests:'flag', travel:'compass'};
   const icon = window.PocketmateIcons;
   let liveClient = null;
   let reducedMotion = false;
@@ -79,8 +78,8 @@
     const panel = $('feature-content');
     if (page === 'profile') {
       window.PocketmateProfile.mount(panel);
-    } else if (page === 'team') {
-      panel.innerHTML = `<div class="feature-panel"><span class="empty-symbol">${icon('ball')}</span><h2>함께할 파트너를 위한 자리</h2><p>포켓몬 모드 연결 후 내 파티의 모습과 이름, 레벨을 이곳에서 확인할 수 있어요. 지금은 파티 정보를 불러오지 않은 상태예요.</p><div class="slot-grid">${Array.from({length:6},(_,i)=>`<div class="team-slot">${icon('ball')}<span>파트너 ${String(i+1).padStart(2,'0')}</span></div>`).join('')}</div></div>`;
+    } else if (page === 'warp') {
+      panel.innerHTML = `<div class="feature-panel"><span class="empty-symbol">${icon('compass')}</span><h2>워프 지점을 준비하고 있어요</h2><p>등록된 워프 지점이 생기면 이곳에서 목적지를 선택할 수 있어요.</p></div>`;
     } else if (page === 'settings') {
       panel.innerHTML = `<div class="feature-panel"><label class="setting-row" for="theme-select"><span><strong>화면 테마</strong><small>일반 메뉴와 영지 관리소에 함께 적용되며, 다음에도 선택이 유지돼요.</small></span><select class="theme-select" id="theme-select"><option value="dark">다크 모드</option><option value="light">라이트 모드</option></select></label><label class="setting-row"><span><strong>움직임 줄이기</strong><small>버튼과 상태 막대의 전환 효과를 줄여요.</small></span><input type="checkbox" id="motion-toggle" ${reducedMotion?'checked':''}></label><div class="setting-row"><span><strong>메뉴 열기</strong><small>Shift+F 연결 전의 기본 단축키예요.</small></span><span class="setting-value">F6</span></div><div class="setting-row"><span><strong>메뉴 닫기</strong><small>오른쪽 위 닫기 버튼으로도 돌아갈 수 있어요.</small></span><span class="setting-value">Esc</span></div></div>`;
       $('theme-select').value = window.PocketmateTheme.get();
@@ -94,7 +93,7 @@
       const tiles = page === 'travel' ? [['시작 마을','새로운 모험의 출발점'],['내 보금자리','잠시 쉬어갈 나만의 장소'],['탐험 지역','새로운 만남을 찾아서'],['함께하는 광장','친구들의 이야기가 모이는 곳']] : [['모험용품','몬스터볼과 회복 도구를 위한 공간'],['꾸미기','나만의 개성을 위한 공간'],['거래소','다른 모험가와 만나는 공간'],['보관함','소중한 물건을 위한 공간']];
       panel.innerHTML = `<div class="tile-grid">${tiles.map(([name,description])=>`<button class="placeholder-tile" data-placeholder="${name}">${icon(icons[page])}<strong>${name}</strong><small>${description}<br>서버 연결 준비 중</small></button>`).join('')}</div>`;
     } else {
-      const copy = page === 'dex' ? ['새로운 만남을 기록할 준비','포켓몬 모드를 연결하면 발견한 포켓몬과 도감 정보를 볼 수 있어요. 아직 도감 데이터는 연결되지 않았어요.'] : ['아직 도착하지 않은 이야기','서버의 퀘스트 기능을 연결하면 목표와 보상, 진행 상황을 볼 수 있어요. 지금은 수락할 수 있는 퀘스트가 없어요.'];
+      const copy = ['아직 도착하지 않은 이야기','서버의 퀘스트 기능을 연결하면 목표와 보상, 진행 상황을 볼 수 있어요. 지금은 수락할 수 있는 퀘스트가 없어요.'];
       panel.innerHTML = `<div class="feature-panel"><span class="empty-symbol">${icon(icons[page])}</span><h2>${copy[0]}</h2><p>${copy[1]}</p><button class="primary-button" data-guide>메뉴 이용 안내 ${icon('arrow')}</button></div>`;
     }
   }
@@ -103,7 +102,7 @@
     if (go) { selectPage(go.dataset.go || go.dataset.page); return; }
     const tile = event.target.closest('[data-placeholder]');
     if (tile) { notConnected(tile.dataset.placeholder); return; }
-    if (event.target.closest('[data-guide]')) showInfo('포켓메이트에 오신 걸 환영해요', '왼쪽 탭과 기능 타일로 포켓몬, 도감, 상점과 이동 메뉴를 둘러보세요.\n\n현재는 메뉴의 기본 틀을 테스트하는 단계예요. 서버 기능이 필요한 항목은 연결 후 이용할 수 있어요.\n\nF6으로 메뉴를 열고 Esc로 게임으로 돌아갈 수 있어요.');
+    if (event.target.closest('[data-guide]')) showInfo('포켓메이트에 오신 걸 환영해요', '왼쪽 탭과 기능 타일로 워프, 상점, 퀘스트와 영지관리 메뉴를 둘러보세요.\n\n현재는 메뉴의 기본 틀을 테스트하는 단계예요. 서버 기능이 필요한 항목은 연결 후 이용할 수 있어요.\n\nF6으로 메뉴를 열고 Esc로 게임으로 돌아갈 수 있어요.');
   });
   document.querySelector('.brand').addEventListener('click', event => { event.preventDefault(); selectPage('home'); });
   ['dialog-x','dialog-ok'].forEach(id => $(id).addEventListener('click', () => $('info-dialog').close()));

@@ -46,11 +46,8 @@
  <div class="hub-body">
  <nav class="tabbar" aria-label="메뉴">
   <button class="nav-item selected" data-page="home" aria-current="page">홈<span>00</span></button>
-  <button class="nav-item" data-page="team">내 포켓몬<span>01</span></button>
-  <button class="nav-item" data-page="dex">도감<span>02</span></button>
   <button class="nav-item" data-page="shop">상점<span>03</span></button>
   <button class="nav-item" data-page="quests">퀘스트<span>04</span></button>
-  <button class="nav-item" data-page="travel">이동<span>05</span></button>
   <button class="nav-item" data-page="estate">영지관리<span>06</span></button>
   <button class="nav-item nav-settings" data-page="settings" aria-label="메뉴 설정"><svg><use href="#i-gear"/></svg><span class="nav-settings-label">설정</span></button>
  </nav>
@@ -63,12 +60,12 @@
   <section id="home-page">
    <div class="section-title"><div><p class="eyebrow">READY WHEN YOU ARE.</p><h1>다음 플레이를 선택하세요<span class="sentence-stop">.</span></h1><p class="welcome"><span id="player-greeting">모험가</span>님의 모험, 여기서 이어집니다.</p></div><span id="date-label" class="date-label"></span></div>
    <div class="action-grid">
-    <button class="action-tile team-tile" data-go="team">
-     <span class="tile-code">01 / MY POKÉMON</span><span class="tile-flag">TEAM</span>
-     <div class="orb-scene" aria-hidden="true"><div class="radar-ring ring-a"></div><div class="radar-ring ring-b"></div><div class="radar-ring ring-c"></div><div class="orb-shadow"></div><div class="capture-orb"><div class="orb-seam"></div><div class="orb-center"></div></div><span class="orbit-plus plus-a"><svg class="pm-icon"><use href="#i-plus"/></svg></span><span class="orbit-plus plus-b"><svg class="pm-icon"><use href="#i-plus"/></svg></span><span class="orb-caption">YOUR NEXT MOVE.</span></div>
-     <div class="team-copy"><span class="tile-eyebrow">함께할 여섯 파트너</span><h2>내 포켓몬</h2><p>팀의 모든 이야기를 한눈에.</p></div><span class="launch-arrow"><svg><use href="#i-arrow"/></svg></span>
+    <button class="action-tile team-tile warp-tile" data-go="warp">
+     <span class="tile-code">WARP / DESTINATIONS</span><span class="tile-flag">WARP</span>
+     <div class="orb-scene warp-scene" aria-hidden="true"><div class="radar-ring ring-a"></div><div class="radar-ring ring-b"></div><svg class="warp-compass"><use href="#i-compass"/></svg><span class="orb-caption">CHOOSE YOUR DESTINATION.</span></div>
+     <div class="team-copy"><span class="tile-eyebrow">새로운 곳으로 떠나는 길</span><h2>워프</h2><p>이동할 목적지를 확인하세요.</p></div><span class="launch-arrow"><svg><use href="#i-arrow"/></svg></span>
     </button>
-    <button class="action-tile dex-tile" data-go="dex"><span class="tile-top"><span class="tile-code">02 / ARCHIVE</span><svg><use href="#i-arrow"/></svg></span><span class="tile-art dex-art" aria-hidden="true"><i></i><i></i><i></i><i></i></span><div class="tile-copy"><h2>포켓몬 도감</h2><p>새로운 발견의 데이터베이스</p></div></button>
+    <button class="action-tile empty-tile" type="button" disabled aria-label="빈 버튼"></button>
     <button class="action-tile quest-tile" data-go="quests"><span class="tile-top"><span class="tile-code">04 / MISSIONS</span><svg><use href="#i-arrow"/></svg></span><span class="tile-art quest-art" aria-hidden="true"><span><svg class="pm-icon"><use href="#i-flag"/></svg></span><i></i><i></i></span><div class="tile-copy"><h2>퀘스트</h2><p>다음 목표를 확인하세요</p></div></button>
     <button class="action-tile shop-tile" data-go="shop"><span class="tile-top"><span class="tile-code">03 / SUPPLY</span><svg><use href="#i-arrow"/></svg></span><span class="tile-art shop-art" aria-hidden="true"><svg><use href="#i-bag"/></svg><i><svg class="pm-icon"><use href="#i-plus"/></svg></i></span><div class="tile-copy"><h2>상점</h2><p>필요한 아이템을 준비하세요</p></div></button>
     <button class="action-tile travel-tile" data-go="travel"><span class="tile-top"><span class="tile-code">05 / FAST TRAVEL</span><svg><use href="#i-arrow"/></svg></span><span class="tile-art travel-art" aria-hidden="true"><svg><use href="#i-compass"/></svg><i></i></span><div class="tile-copy"><h2>마을 이동</h2><p>새로운 목적지로</p></div></button>

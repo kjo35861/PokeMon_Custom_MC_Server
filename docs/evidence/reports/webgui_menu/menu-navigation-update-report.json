@@ -1,0 +1,30 @@
+{
+  "version": "0.13.1",
+  "left_navigation": [
+    "home",
+    "shop",
+    "quests",
+    "estate",
+    "settings"
+  ],
+  "removed_tabs": [
+    "team",
+    "dex",
+    "travel"
+  ],
+  "hero": "warp, compass artwork, no configured public warp destinations yet",
+  "empty_tile": {
+    "disabled": true,
+    "text": "",
+    "navigation": false
+  },
+  "village_home_tile_preserved": true,
+  "html_contract_passed": true,
+  "javascript_syntax_passed": true,
+  "css_parse_passed": true,
+  "game_interaction": false,
+  "browser_visual_check": false,
+  "deployed": true,
+  "restart_required": false,
+  "apply_command": "/webgui reload"
+}

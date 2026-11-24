@@ -53,6 +53,7 @@
 :root[data-theme=light] :is(.shop-art svg,.shop-art i){color:#8a632c}
 :root[data-theme=light] .travel-art svg{color:#56777b}
 :root[data-theme=light] .dex-art i{border-color:#4c877c88;background:#4c877c14}
+:root[data-theme=light] .warp-compass{color:var(--light-accent)}
 
 /* Profile backgrounds, owned cosmetics, and the equipped-card preview. */
 :root[data-theme=light] :is(.player-strip.profile-card,.profile-preview){background-color:var(--light-soft);border-color:var(--line)}

@@ -71,3 +71,6 @@ button{font-size:14px}
 .home-fixed .notice-strip{margin:0;min-width:0}
 @media(max-width:850px){.home-fixed .action-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr))}.home-fixed .team-tile{grid-column:span 2;grid-row:span 1}.home-fixed .team-copy{max-width:70%}}
 @media(max-height:600px){.home-fixed #home-page{gap:8px}.home-fixed .eyebrow,.home-fixed .welcome,.home-fixed .tile-copy p,.home-fixed .team-copy p,.home-fixed .tile-eyebrow{display:none}.home-fixed .section-title h1{font-size:calc(18px * var(--text-scale,1))}.home-fixed .action-tile{padding:10px 12px}.home-fixed .tile-copy h2,.home-fixed .team-copy h2{font-size:15px;margin:0}.home-fixed .tile-art,.home-fixed .tile-flag,.home-fixed .tile-code{display:none}}
+
+.warp-compass{position:absolute;left:50%;top:50%;width:104px;height:104px;transform:translate(-50%,-50%) rotate(-12deg);stroke-width:1.15;color:#b7d6c0}
+.action-tile.empty-tile,.action-tile.empty-tile:hover{background:var(--surface-raised);border-color:var(--line);transform:none;cursor:default}

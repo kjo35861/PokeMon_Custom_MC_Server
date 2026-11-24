@@ -180,9 +180,9 @@
     "reports/webgui_menu/estate-home-install.json": {
       "source": "webgui_menu/verification/estate-home-install.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "99398c5b763ccc78612f6fd215a3160ad6c044b51c943a72b8c852ee8198e718",
-      "published_sha256": "4a13913f1b504ffac44cf5345bc6bcbfee3a39c7ee0eb1a5a0fc6531ac2ca9c4",
-      "bytes": 104,
+      "source_sha256": "b3370dfbe8377e0bbf7c9002126c62e3f84fcf36dc3ed1b9f784628e2aae93a8",
+      "published_sha256": "54ab7ffc903519f064726cb5e3c5e0809a2c76bfd3e857d9bedeee64c927bb55",
+      "bytes": 78,
       "sanitized": true
     },
     "reports/webgui_menu/estate-home-update-report.json": {
@@ -204,9 +204,9 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "6e15033ac44865775a1dc5c5cd9e4e61ff398cf6e3ed75c133b145ab67ade49c",
-      "published_sha256": "75dca51ffd6c89b0b329b9303828a3e3b57ea58826dbe6f2690e312c71689891",
-      "bytes": 6738,
+      "source_sha256": "bab25a3e16a605fe0d029bff9eab87612f80f6a24baa381679f1987dd0d7be45",
+      "published_sha256": "077cef199b049c2d7dbb4995be07f76438b2140515f3b30994b783d68041f7c5",
+      "bytes": 6737,
       "sanitized": true
     },
     "reports/webgui_menu/estate-v0.10-integration.json": {
@@ -319,6 +319,14 @@
       "source_sha256": "eb34863d9744f96e51cd953f7efa314f08de4011a9a6a2e38a0f0fd3b989ffda",
       "published_sha256": "545fa269450d82425eeba3edebf088069d60a6c4582fd7b9ccf786d4503015da",
       "bytes": 50,
+      "sanitized": true
+    },
+    "reports/webgui_menu/menu-navigation-update-report.json": {
+      "source": "webgui_menu/verification/menu-navigation-update-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "19466d5b2cce918bff40d5a3fd4c9ae1d4e0be0f57c025622e55906561756ff0",
+      "published_sha256": "b3201064b38e52ff372c834cebe2bc3d5fa015c73814d789741b1c6b960a37c5",
+      "bytes": 629,
       "sanitized": true
     },
     "reports/webgui_menu/overworld-policy-report.json": {
