@@ -47,6 +47,7 @@
   function titleMarkup(c){return (c.id==='none'?'':window.PocketmateIcons(c.prefixIcon||'spark'))+'<span>'+esc(c.name)+'</span>';}
   function title(element,id){const cosmetic=item('title',id);const visible=Boolean(cosmetic&&id!=='none');element.innerHTML=visible?titleMarkup(cosmetic):'';element.hidden=!visible;}
   function updateCard(){
+    if(snapshot?.playerName){$('player-name').textContent=snapshot.playerName;$('player-greeting').textContent=snapshot.playerName;}
     const value=equipped();if(!value)return;
     banner($('profile-card'),value.banner);avatar($('profile-avatar'),value.icon);title($('profile-title'),value.title);
     window.PocketmatePeople?.remember({id:snapshot.playerId,name:snapshot.playerName,appearance:{icon:value.icon,iconImage:item('icon',value.icon)?.image,bannerImage:item('banner',value.banner)?.image}});
@@ -108,7 +109,7 @@
     actionControl('[data-profile-reset]').onclick=()=>{draft={icon:equipped().icon,title:equipped().title,banner:equipped().banner};feedback='선택을 되돌렸습니다.';render();};
     actionControl('[data-profile-save]').onclick=()=>request('equip',draft);updatePreview();
   }
-  window.PocketmateProfile={mount(element){host=element;tab='icon';if(snapshot)draft={icon:equipped().icon,title:equipped().title,banner:equipped().banner};render();request('view');},unmount(){host=null;clearActions();},client(value){client=value;if(value?.username&&identity!==value.username){identity=value.username;snapshot=null;skin=null;request('view');}},diagnostics:()=>({connected:Boolean(snapshot),profile:equipped(),draft,dirty:Boolean(dirty())})};
+  window.PocketmateProfile={displayName:()=>snapshot?.playerName||client?.username||'',mount(element){host=element;tab='icon';if(snapshot)draft={icon:equipped().icon,title:equipped().title,banner:equipped().banner};render();request('view');},unmount(){host=null;clearActions();},client(value){client=value;if(value?.username&&identity!==value.username){identity=value.username;snapshot=null;skin=null;request('view');}},diagnostics:()=>({connected:Boolean(snapshot),profile:equipped(),draft,dirty:Boolean(dirty())})};
   window.addEventListener('webgui:client',event=>window.PocketmateProfile.client(event.detail));
   if(window.webgui?.client)window.PocketmateProfile.client(window.webgui.client);
 })();

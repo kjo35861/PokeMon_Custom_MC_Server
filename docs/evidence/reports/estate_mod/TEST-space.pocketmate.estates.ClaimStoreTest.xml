@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="space.pocketmate.estates.ClaimStoreTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2026-11-24T05:59:22" hostname="DESKTOP-6FIEOUH" time="0.974">
+<testsuite name="space.pocketmate.estates.ClaimStoreTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2026-11-24T06:13:14" hostname="DESKTOP-6FIEOUH" time="0.584">
   <properties/>
-  <testcase name="firstClaimPersistsAndReloads()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.175"/>
-  <testcase name="cannotStealOrRebuy()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.068"/>
-  <testcase name="duplicateEmptyAndOversizedBatchesAreRejected()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.053"/>
-  <testcase name="incompleteFilesCannotSilentlyResetOwnership()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.006"/>
-  <testcase name="occupiedBatchNeverPurchasesItsUnoccupiedPart()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.096"/>
-  <testcase name="batchCanConnectThroughOtherSelectedChunksInAnyOrder()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.051"/>
-  <testcase name="disconnectedBatchIsRejectedWithoutPartialPurchase()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.047"/>
-  <testcase name="corruptOrDuplicateFilesFailClosed()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.053"/>
-  <testcase name="failedBatchSaveNeverUpdatesMemory()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.048"/>
-  <testcase name="simultaneousFirstPurchasesHaveOneWinner()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.052"/>
-  <testcase name="onlyCardinalNeighborsCanExpand()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.059"/>
-  <testcase name="cannotCreateDisconnectedSecondEstate()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.044"/>
-  <testcase name="anotherOwnersNeighborDoesNotCount()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.081"/>
-  <testcase name="coordinatesAreBoundedAndNegativeNeighborsWork()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.043"/>
-  <testcase name="failedSaveNeverChangesOwnership()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.003"/>
-  <testcase name="competingBatchesHaveOneWholeWinner()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.086"/>
+  <testcase name="firstClaimPersistsAndReloads()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.115"/>
+  <testcase name="cannotStealOrRebuy()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.036"/>
+  <testcase name="duplicateEmptyAndOversizedBatchesAreRejected()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.031"/>
+  <testcase name="incompleteFilesCannotSilentlyResetOwnership()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.004"/>
+  <testcase name="occupiedBatchNeverPurchasesItsUnoccupiedPart()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.053"/>
+  <testcase name="batchCanConnectThroughOtherSelectedChunksInAnyOrder()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.03"/>
+  <testcase name="disconnectedBatchIsRejectedWithoutPartialPurchase()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.031"/>
+  <testcase name="corruptOrDuplicateFilesFailClosed()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.028"/>
+  <testcase name="failedBatchSaveNeverUpdatesMemory()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.028"/>
+  <testcase name="simultaneousFirstPurchasesHaveOneWinner()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.03"/>
+  <testcase name="onlyCardinalNeighborsCanExpand()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.032"/>
+  <testcase name="cannotCreateDisconnectedSecondEstate()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.025"/>
+  <testcase name="anotherOwnersNeighborDoesNotCount()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.048"/>
+  <testcase name="coordinatesAreBoundedAndNegativeNeighborsWork()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.027"/>
+  <testcase name="failedSaveNeverChangesOwnership()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.002"/>
+  <testcase name="competingBatchesHaveOneWholeWinner()" classname="space.pocketmate.estates.ClaimStoreTest" time="0.056"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

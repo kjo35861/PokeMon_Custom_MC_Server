@@ -3,7 +3,10 @@
   "package": "space.pocketmate.estates.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "PlayerTitleMixin"
+    "PlayerTitleMixin",
+    "NicknameLookupMixin",
+    "NicknameSelectorMixin",
+    "NicknameTabMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,0 +1,28 @@
+{
+  "version": "0.9.0",
+  "java_tests": 66,
+  "java_failures": 0,
+  "game_tested": true,
+  "environment": "Minecraft 1.21.1 Fabric isolated integrated singleplayer QA world",
+  "observed": [
+    "first join nickname screen",
+    "Korean nickname registration",
+    "profile card nickname",
+    "tp by nickname",
+    "tell by nickname",
+    "profile grant by nickname",
+    "execute nickname with account target",
+    "estate testcredit with self selector in isolated QA world",
+    "rejoin skips setup and preserves nickname lookup"
+  ],
+  "not_tested": [
+    "dedicated server",
+    "multiple players",
+    "other mods command implementations",
+    "nickname autocomplete",
+    "overhead nametag"
+  ],
+  "world_files_published": false,
+  "original_world_nickname_assigned": false,
+  "mod_sha256": "64483a52bdeb63df00b59b688c6705a821413b6ad6f8968c9c8a2c7463de207f"
+}

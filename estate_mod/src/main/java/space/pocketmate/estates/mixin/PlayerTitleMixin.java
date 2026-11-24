@@ -15,6 +15,6 @@ public abstract class PlayerTitleMixin {
     @Inject(method="getDisplayName",at=@At("RETURN"),cancellable=true)
     private void pocketmate$title(CallbackInfoReturnable<Text> result){
         if((Object)this instanceof ServerPlayerEntity player)
-            result.setReturnValue(ProfilesMod.titledName(player,result.getReturnValue()));
+            result.setReturnValue(ProfilesMod.titledName(player,space.pocketmate.estates.NicknamesMod.display(player,result.getReturnValue())));
     }
 }

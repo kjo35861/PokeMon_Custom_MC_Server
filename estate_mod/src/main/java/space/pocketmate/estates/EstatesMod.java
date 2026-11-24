@@ -81,7 +81,7 @@ public final class EstatesMod implements ModInitializer {
     }
     private void seen(MinecraftServer server,ServerPlayerEntity player){
         Session state=sessions.get(server);if(state==null||state.store==null)return;
-        try{state.store.seen(player.getUuid(),player.getGameProfile().getName(),System.currentTimeMillis());}
+        try{state.store.seen(player.getUuid(),NicknamesMod.name(player),System.currentTimeMillis());}
         catch(IOException error){LOG.error("Could not persist player last-seen",error);state.failure="영지 정보를 저장하지 못했습니다. 관리자에게 문의해주세요.";}
     }
     private static UUID uuid(JsonObject request,String field){return UUID.fromString(request.get(field).getAsString());}
@@ -192,12 +192,12 @@ public final class EstatesMod implements ModInitializer {
             }
             for(ClaimStore.Key chunk:selection)if(!ClaimStore.inBounds(chunk.x(),chunk.z())||!server.getOverworld().getWorldBorder().contains(new ChunkPos(chunk.x(),chunk.z()))){error(player,requestId,"월드 경계 밖의 청크는 구매할 수 없습니다.");return;}
             try {
-                if(action.equals("create"))state.store.createEstate(id,player.getGameProfile().getName(),text(request,"name",80),x,z,standingHome(player));
+                if(action.equals("create"))state.store.createEstate(id,NicknamesMod.name(player),text(request,"name",80),x,z,standingHome(player));
                 else {
                     ClaimStore.Progress progress=state.store.progress(id);
                     if(progress==null){error(player,requestId,"영주만 청크를 구매할 수 있습니다.");return;}
                     if(integer(request,"expectedPurchasedChunks")!=progress.purchasedChunks()||money(request,"expectedTotal")!=EstateRules.purchasePrice(progress.purchasedChunks(),selection.size())){error(player,requestId,"청크 가격이 변경되었습니다. 새로고침 후 구매 금액을 다시 확인해주세요.");return;}
-                    state.store.buyBatch(id,player.getGameProfile().getName(),selection);
+                    state.store.buyBatch(id,NicknamesMod.name(player),selection);
                 }
                 LOG.info("Estate claims persisted: player={} count={} mode=estate-wallet",id,selection.size());
                 snapshot(server,player,state,requestId,x,z,action.equals("create")?"기본 1청크로 레벨 0 영지를 생성했습니다.":selection.size()+"개 청크 구매가 완료되었습니다.");
@@ -252,7 +252,7 @@ public final class EstatesMod implements ModInitializer {
         JsonArray levels=new JsonArray();for(int level=0;level<=EstateRules.MAX_LEVEL;level++){JsonObject row=new JsonObject();row.addProperty("level",level);row.addProperty("cost",EstateRules.cost(level));row.addProperty("limit",EstateRules.limit(level));row.addProperty("memberLimit",EstateRules.memberLimit(level));levels.add(row);}data.add("levels",levels);
         JsonArray ledger=new JsonArray();if(progress!=null)for(var entry:progress.ledger()){JsonObject row=new JsonObject();row.addProperty("type",entry.type());row.addProperty("amount",entry.amount());row.addProperty("level",entry.level());row.addProperty("at",entry.at());ledger.add(row);}data.add("vaultHistory",ledger);
         data.addProperty("currentMine",current!=null&&current.owner().equals(estateId));data.addProperty("centerX",cx);data.addProperty("centerZ",cz);data.addProperty("radius",state.radii.getOrDefault(id,RADIUS));
-        int radius=state.radii.getOrDefault(id,RADIUS);data.addProperty("playerName",player.getGameProfile().getName());
+        int radius=state.radii.getOrDefault(id,RADIUS);data.addProperty("playerName",NicknamesMod.name(player));
         if(estate!=null){ClaimStore.Home home=estate.home();data.add("home",GSON.toJsonTree(home));data.addProperty("homeX",(int)Math.floor(home.x()/16));data.addProperty("homeZ",(int)Math.floor(home.z()/16));}
         ClaimStore.Claim standingClaim=player.getWorld().getRegistryKey().equals(World.OVERWORLD)?state.store.get(standing.x,standing.z):null;
         data.addProperty("canSetHome",estate!=null&&estate.owner().equals(id)&&standingClaim!=null&&standingClaim.owner().equals(id));
@@ -282,9 +282,9 @@ public final class EstatesMod implements ModInitializer {
         if(estate!=null){
             for(ClaimStore.Member member:estate.members()){
                 ClaimStore.KnownPlayer known=state.store.known(member.id());ServerPlayerEntity online=server.getPlayerManager().getPlayer(member.id());
-                JsonObject item=new JsonObject();item.addProperty("id",member.id().toString());item.addProperty("name",online!=null?online.getGameProfile().getName():known!=null?known.name():member.name());item.addProperty("role",member.role().name());item.addProperty("online",online!=null);item.addProperty("lastSeen",online!=null?System.currentTimeMillis():known==null?member.joinedAt():known.lastSeen());item.add("appearance",ProfilesMod.publicAppearance(server,member.id()));members.add(item);
+                JsonObject item=new JsonObject();item.addProperty("id",member.id().toString());item.addProperty("name",online!=null?NicknamesMod.name(online):NicknamesMod.name(server,member.id(),known!=null?known.name():member.name()));item.addProperty("role",member.role().name());item.addProperty("online",online!=null);item.addProperty("lastSeen",online!=null?System.currentTimeMillis():known==null?member.joinedAt():known.lastSeen());item.add("appearance",ProfilesMod.publicAppearance(server,member.id()));members.add(item);
             }
-            if(estate.owner().equals(player.getUuid()))for(ClaimStore.Invitation invite:estate.invitations()){if(invite.at()<System.currentTimeMillis()-7*86400000L)continue;JsonObject item=new JsonObject();item.addProperty("id",invite.id().toString());item.addProperty("name",invite.name());item.addProperty("at",invite.at());item.add("appearance",ProfilesMod.publicAppearance(server,invite.id()));outgoing.add(item);}
+            if(estate.owner().equals(player.getUuid()))for(ClaimStore.Invitation invite:estate.invitations()){if(invite.at()<System.currentTimeMillis()-7*86400000L)continue;JsonObject item=new JsonObject();item.addProperty("id",invite.id().toString());item.addProperty("name",NicknamesMod.name(server,invite.id(),invite.name()));item.addProperty("at",invite.at());item.add("appearance",ProfilesMod.publicAppearance(server,invite.id()));outgoing.add(item);}
         }
         for(ClaimStore.Estate invitation:state.store.invitationsFor(player.getUuid())){JsonObject item=new JsonObject();item.addProperty("id",invitation.owner().toString());item.addProperty("name",invitation.name());incoming.add(item);}
         data.add("members",members);data.add("outgoingInvites",outgoing);data.add("incomingInvites",incoming);WebGuiBridge.emit(player,CHANNEL,GSON.toJson(data));
@@ -295,8 +295,8 @@ public final class EstatesMod implements ModInitializer {
         if(estate==null||!estate.owner().equals(player.getUuid())){error(player,requestId,"유저 초대는 영주만 할 수 있습니다.");return;}
         JsonObject response=new JsonObject();response.addProperty("type","players");response.addProperty("requestId",requestId);JsonArray result=new JsonArray();
         String search=query.toLowerCase(Locale.ROOT);
-        state.store.knownPlayers().stream().filter(p->p.name().toLowerCase(Locale.ROOT).contains(search)).sorted(Comparator.comparing((ClaimStore.KnownPlayer p)->server.getPlayerManager().getPlayer(p.id())==null).thenComparing(ClaimStore.KnownPlayer::name)).filter(p->!search.isBlank()||server.getPlayerManager().getPlayer(p.id())!=null).limit(60).forEach(p->{
-            JsonObject item=new JsonObject();item.addProperty("id",p.id().toString());item.addProperty("name",p.name());item.addProperty("online",server.getPlayerManager().getPlayer(p.id())!=null);
+        state.store.knownPlayers().stream().filter(p->(p.name().toLowerCase(Locale.ROOT).contains(search)||NicknamesMod.name(server,p.id(),p.name()).toLowerCase(Locale.ROOT).contains(search))).sorted(Comparator.comparing((ClaimStore.KnownPlayer p)->server.getPlayerManager().getPlayer(p.id())==null).thenComparing(ClaimStore.KnownPlayer::name)).filter(p->!search.isBlank()||server.getPlayerManager().getPlayer(p.id())!=null).limit(60).forEach(p->{
+            JsonObject item=new JsonObject();item.addProperty("id",p.id().toString());item.addProperty("name",NicknamesMod.name(server,p.id(),p.name()));item.addProperty("online",server.getPlayerManager().getPlayer(p.id())!=null);
             item.add("appearance",ProfilesMod.publicAppearance(server,p.id()));
             boolean invited=estate.invitations().stream().anyMatch(i->i.id().equals(p.id())&&i.at()>=System.currentTimeMillis()-7*86400000L);item.addProperty("available",state.store.estateFor(p.id())==null&&!invited);item.addProperty("status",invited?"초대 대기":state.store.estateFor(p.id())!=null?"영지 소속":"초대 가능");result.add(item);
         });response.add("players",result);WebGuiBridge.emit(player,CHANNEL,GSON.toJson(response));

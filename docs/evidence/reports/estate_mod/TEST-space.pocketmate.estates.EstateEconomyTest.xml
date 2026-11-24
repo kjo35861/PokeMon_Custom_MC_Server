@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="space.pocketmate.estates.EstateEconomyTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-11-24T05:59:23" hostname="DESKTOP-6FIEOUH" time="0.28">
+<testsuite name="space.pocketmate.estates.EstateEconomyTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-11-24T06:13:15" hostname="DESKTOP-6FIEOUH" time="0.176">
   <properties/>
-  <testcase name="creationStartsAtZeroAndFirstUpgradeIsFree()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.014"/>
-  <testcase name="invalidAmountsAndCorruptProgressCannotMintOrReset()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.007"/>
-  <testcase name="upgradeRequiresLordVaultBalanceAndExpectedLevel()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.018"/>
-  <testcase name="concurrentPurchasesCannotSpendSameMoneyTwice()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.023"/>
-  <testcase name="capAtThirtySixAndMaxLevelRejectWithoutCharge()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.041"/>
-  <testcase name="v2MigrationKeepsExistingClaimsAtSmallestAdequateLevel()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.03"/>
-  <testcase name="insufficientCombinedBalanceRejectsWholePurchaseWithoutDebit()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.025"/>
-  <testcase name="scheduleMatchesRequestedLevelsAndRisingPrices()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.002"/>
-  <testcase name="membersMayDepositOwnMoneyButCannotUpgradeOrSpendAsLord()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.023"/>
-  <testcase name="enoughVaultNeverTouchesPersonalMoney()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.026"/>
-  <testcase name="failedSaveRollsBackWalletVaultLandAndCounter()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.032"/>
-  <testcase name="purchaseUsesVaultFirstAndOnlyMissingAmountFromLord()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.033"/>
+  <testcase name="creationStartsAtZeroAndFirstUpgradeIsFree()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.007"/>
+  <testcase name="invalidAmountsAndCorruptProgressCannotMintOrReset()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.005"/>
+  <testcase name="upgradeRequiresLordVaultBalanceAndExpectedLevel()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.011"/>
+  <testcase name="concurrentPurchasesCannotSpendSameMoneyTwice()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.017"/>
+  <testcase name="capAtThirtySixAndMaxLevelRejectWithoutCharge()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.027"/>
+  <testcase name="v2MigrationKeepsExistingClaimsAtSmallestAdequateLevel()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.021"/>
+  <testcase name="insufficientCombinedBalanceRejectsWholePurchaseWithoutDebit()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.017"/>
+  <testcase name="scheduleMatchesRequestedLevelsAndRisingPrices()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.001"/>
+  <testcase name="membersMayDepositOwnMoneyButCannotUpgradeOrSpendAsLord()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.013"/>
+  <testcase name="enoughVaultNeverTouchesPersonalMoney()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.016"/>
+  <testcase name="failedSaveRollsBackWalletVaultLandAndCounter()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.021"/>
+  <testcase name="purchaseUsesVaultFirstAndOnlyMissingAmountFromLord()" classname="space.pocketmate.estates.EstateEconomyTest" time="0.019"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

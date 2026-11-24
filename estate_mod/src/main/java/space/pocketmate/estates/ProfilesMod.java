@@ -70,7 +70,7 @@ public final class ProfilesMod implements ModInitializer {
             if(action.equals("view"))profile=store.get(id);
             else if(action.equals("equip"))profile=store.equip(id,string(request,"icon",32),string(request,"title",32),string(request,"banner",32));
             else throw new IllegalArgumentException();
-            JsonObject response=new JsonObject();response.addProperty("type","snapshot");response.addProperty("requestId",requestId);response.addProperty("playerId",id.toString());response.addProperty("playerName",player.getGameProfile().getName());
+            JsonObject response=new JsonObject();response.addProperty("type","snapshot");response.addProperty("requestId",requestId);response.addProperty("playerId",id.toString());response.addProperty("playerName",NicknamesMod.name(player));
             response.add("profile",new Gson().toJsonTree(profile));response.add("catalog",new Gson().toJsonTree(ProfileStore.CATALOG));
             if(action.equals("equip"))response.addProperty("message","프로필카드를 저장했습니다.");WebGuiBridge.emit(player,CHANNEL,response.toString());
         }catch(ProfileStore.Denied denied){error(player,requestId,denied.getMessage());}

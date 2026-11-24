@@ -124,8 +124,8 @@
   function applyClient(client) {
     if (!client || typeof client.username !== 'string' || !client.username.trim()) return;
     liveClient = client;
-    $('player-greeting').textContent = client.username;
-    $('player-name').textContent = client.username;
+    $('player-greeting').textContent = window.PocketmateProfile?.displayName?.()||client.username;
+    $('player-name').textContent = window.PocketmateProfile?.displayName?.()||client.username;
     $('connection-label').textContent = client.server?.address ? '월드 연결됨' : '싱글플레이';
     $('connection-dot').classList.add('connected');
     const hp=Number(client.health), max=Number(client.maxHealth);
