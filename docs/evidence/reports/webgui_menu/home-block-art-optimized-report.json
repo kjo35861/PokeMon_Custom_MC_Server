@@ -1,0 +1,19 @@
+{
+  "headless_mock_only": true,
+  "game_tested": false,
+  "transparent_assets": {
+    "missions.webp": true,
+    "shop.webp": true,
+    "travel.webp": true,
+    "warehouse.webp": true,
+    "warp.webp": true
+  },
+  "export_size": 512,
+  "five_assets_total_under_1MB": true,
+  "viewport_sizes": 4,
+  "themes": 2,
+  "image_load_and_copy_clear": true,
+  "home_no_scroll": true,
+  "shop_navigation": true,
+  "errors": []
+}

@@ -1,8 +1,8 @@
 {
-  "bundle": "PocketmateMenu-v0.18.1.zip",
-  "sha256": "7e7b9e11c5b642b4878d712bd9db038983c419031652a4a7de6a3800718c3e6e",
+  "bundle": "PocketmateMenu-v0.18.2.zip",
+  "sha256": "858b69331a2fb3ab074f0aeebf7376f3cfc8712b87912da457a812556de9ddfd",
   "files": {
-    "config/webgui/web/index.html": "4c9367a29d0a540991fe72e0a67a22979b675d488b4209e77eb5cb2f154042a7",
+    "config/webgui/web/index.html": "de3462fba426ba4f38da4bb16f4060e6bb55cc9408b8353604af5d6f31f02525",
     "config/webgui/web/menu.css": "0b0ff2ac2fcc6e4e5e45c4c1904b2ba62a79e000d4dd044d194408dc4e05aa20",
     "config/webgui/web/menu.js": "98e738af6b629b4032bd94306e344f2e76bfe44698c4623669ee0330f6d6335b",
     "config/webgui/web/estate.css": "5297ebb61798ff653657b6938e1bee1e7412098a47a849578e8454724b000fa7",
@@ -258,11 +258,11 @@
     "config/webgui/web/icons/vault.svg": "b4c37474a7eec70420a74144b2564df0fad5e106563449b51c86c2186b53fd4f",
     "config/webgui/web/icons/warp.svg": "928429037f2a4da3595e3f04f7051ff87ea01f288fd57fa2b862e55b724322e9",
     "config/webgui/web/icons/x.svg": "4456741f0d25f27e97bd7c6ace2a453007c68e2978e72d3282e98c9092da2bf8",
-    "config/webgui/web/home-assets/missions.png": "f90779f2afe9d8de0cc4b12352bb2259074262e72218316e8de4aa3dff46e9a6",
-    "config/webgui/web/home-assets/shop.png": "bf6c30b4a60f23325c8dec0808144b3994132b56cd73f874a19c1edb79e3e9cc",
-    "config/webgui/web/home-assets/travel.png": "2a02429b5f95556670742f1995121033e0ea08fac6b6f7eb71300f0e110e5b16",
-    "config/webgui/web/home-assets/warehouse.png": "7a3c4871cfde24c36a653f9d0a6f6df2bbd43beab832da586e8c0984fa5bdf2c",
-    "config/webgui/web/home-assets/warp.png": "e88a6179c6e7944e213f722b92a6315ed71a1a16bfb5a78a70274e1e4e2ee068"
+    "config/webgui/web/home-assets/missions.webp": "7c1291dd43d349650f2434c814c3c296d4211c40864cff9d805aac2752386316",
+    "config/webgui/web/home-assets/shop.webp": "ea87798b6e807c3103ab5c507bd839126cf407c2b2966400b36277374b676e0e",
+    "config/webgui/web/home-assets/travel.webp": "354fcc7864ea220c5c20ea28331fd00a70e2c21aac4dee3fd29ddb16c3cbfbba",
+    "config/webgui/web/home-assets/warehouse.webp": "639ccd1084b5f854ce9ea2065205305f5d062a51c4e26a084896859f668d311f",
+    "config/webgui/web/home-assets/warp.webp": "1563a5d8fd6cc6b26e3500cd48104ac12a8108977d4a3a5a4d14939799349b11"
   },
   "deployed_assets_match": true
 }
