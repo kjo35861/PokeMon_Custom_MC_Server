@@ -30,6 +30,7 @@ public final class ProfileStore {
     }
     /** Public equipment only: never disclose ownership or create a record during a lookup. */
     public record Appearance(String icon,String iconImage,String banner,String bannerImage) {}
+    public String equippedTitle(UUID id) { return profiles.getOrDefault(id,starter()).title(); }
     public Appearance appearance(UUID id) {
         Profile profile=profiles.getOrDefault(id,starter());
         return new Appearance(profile.icon,cosmetic("icon",profile.icon).image,profile.banner,cosmetic("banner",profile.banner).image);

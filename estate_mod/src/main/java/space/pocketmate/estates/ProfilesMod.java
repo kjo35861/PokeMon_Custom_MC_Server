@@ -23,6 +23,17 @@ public final class ProfilesMod implements ModInitializer {
         ProfileStore store=stores.get(server);
         return store==null?new JsonObject():new Gson().toJsonTree(store.appearance(id)).getAsJsonObject();
     }
+    public static Text titledName(ServerPlayerEntity player,Text original){
+        ProfileStore store=stores.get(player.getServer());
+        if(store==null)return original;
+        String title=store.equippedTitle(player.getUuid());
+        if(title.equals("none"))return original;
+        for(var item:ProfileStore.CATALOG){
+            if(item.kind().equals("title")&&item.id().equals(title))
+                return Text.literal("["+item.name()+"] ").formatted(net.minecraft.util.Formatting.GOLD).append(original.copy());
+        }
+        return original;
+    }
     @Override public void onInitialize(){
         ServerLifecycleEvents.SERVER_STARTING.register(server->{
             try{stores.put(server,new ProfileStore(server.getSavePath(WorldSavePath.ROOT).resolve("data/pocketmate-profiles.json")));}
