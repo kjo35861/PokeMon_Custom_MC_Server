@@ -1,0 +1,25 @@
+{
+  "version": "0.12.4",
+  "correction": "Title and description scroll with the full profile page; only two action buttons remain sticky",
+  "scrolling_content": [
+    "back link",
+    "heading",
+    "description",
+    "preview",
+    "owned cosmetics",
+    "feedback"
+  ],
+  "sticky_content": [
+    "reset button",
+    "save button"
+  ],
+  "nested_scroll_removed": true,
+  "css_parse_passed": true,
+  "javascript_syntax_passed": true,
+  "footer_source_check": true,
+  "deployed": true,
+  "game_interaction": false,
+  "browser_visual_check": false,
+  "restart_required": false,
+  "apply_command": "/webgui reload"
+}

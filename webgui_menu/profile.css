@@ -12,13 +12,13 @@
 
 .profile-title-choice{display:inline-flex;align-items:center;justify-content:center;gap:6px;color:#e4d6ac}
 
-/* Keep the action row outside the editor's scrolling content. */
-.page-scroll.profile-fixed-actions{display:flex;flex-direction:column;overflow:hidden}
-.profile-fixed-actions .feature-page{display:flex;flex-direction:column;flex:1;min-height:0;width:100%}
+/* The whole page scrolls; only the two action buttons stick to the viewport bottom. */
+.page-scroll.profile-fixed-actions{display:block;overflow-y:auto;overflow-x:hidden}
+.profile-fixed-actions .feature-page{display:flex;flex-direction:column;min-height:100%;width:100%}
 .profile-fixed-actions .feature-page>.back-button,.profile-fixed-actions .feature-heading{flex-shrink:0}
-.profile-fixed-actions #feature-content{display:flex;flex-direction:column;flex:1;min-height:0;min-width:0}
-.profile-fixed-actions .profile-studio{display:flex;flex-direction:column;flex:1;min-height:0}
-.profile-editor-scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin;padding:3px 4px 12px}
-.profile-fixed-actions .profile-actions{flex-shrink:0;margin-top:0;padding:14px 4px 4px;background:var(--surface);position:relative;z-index:1}
-.profile-fixed-actions .profile-wait{overflow:auto}
-@media(max-height:600px){.profile-fixed-actions .feature-page>.back-button{margin-bottom:10px}.profile-fixed-actions .feature-badge,.profile-fixed-actions .subtext{display:none}.profile-fixed-actions .feature-heading h1{font-size:calc(18px * var(--text-scale,1));margin:0 0 10px}.profile-fixed-actions .profile-actions{padding-top:8px;gap:8px}}
+.profile-fixed-actions #feature-content{display:flex;flex-direction:column;flex:1;min-width:0}
+.profile-fixed-actions .profile-studio{display:flex;flex-direction:column;flex:1}
+.profile-editor-scroll{flex:none;overflow:visible;padding:3px 4px 12px}
+.profile-editor-scroll>.profile-feedback{display:block;margin:16px 0 0}
+.profile-fixed-actions .profile-actions{flex-shrink:0;margin-top:auto;padding:14px 4px 4px;background:var(--surface);box-shadow:0 -8px 0 var(--surface);position:sticky;bottom:0;z-index:2}
+@media(max-height:600px){.profile-fixed-actions .profile-actions{padding-top:8px;gap:8px}}
