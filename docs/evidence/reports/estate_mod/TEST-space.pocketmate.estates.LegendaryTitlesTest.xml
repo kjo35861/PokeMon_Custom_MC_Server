@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="space.pocketmate.estates.LegendaryTitlesTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-11-24T23:17:00" hostname="DESKTOP-6FIEOUH" time="0.597">
+<testsuite name="space.pocketmate.estates.LegendaryTitlesTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-11-24T23:20:38" hostname="DESKTOP-6FIEOUH" time="0.605">
   <properties/>
-  <testcase name="everyRewardRequiresGrantAndPersistsWithItsOwnGlyph()" classname="space.pocketmate.estates.LegendaryTitlesTest" time="0.58"/>
+  <testcase name="everyRewardRequiresGrantAndPersistsWithItsOwnGlyph()" classname="space.pocketmate.estates.LegendaryTitlesTest" time="0.587"/>
   <testcase name="grantsAllTitlesOnceAndPreservesEquipmentAndOtherPlayers()" classname="space.pocketmate.estates.LegendaryTitlesTest" time="0.017"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
