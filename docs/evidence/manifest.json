@@ -292,8 +292,8 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "4d194b68bf784246a6020df8a89dc3fe2991709af40219570e05c4abffa988be",
-      "published_sha256": "ed78b5a422d8b1e306767341270f73c87935600ce862ffc25031bb65dd301e04",
+      "source_sha256": "56311df3895b929991892be888826fad8869de785d291d7a1beb87a721ee6db5",
+      "published_sha256": "a5366b301a1c20f6189e27f84a875b164f8905b4a895bca75b68f6d542dba054",
       "bytes": 31794,
       "sanitized": true
     },
@@ -775,6 +775,14 @@
       "source_sha256": "e35e8f70764a97ce8807f861e9174d499b21fd1be00e474383d3f927d6b10d1f",
       "published_sha256": "e35e8f70764a97ce8807f861e9174d499b21fd1be00e474383d3f927d6b10d1f",
       "bytes": 81093,
+      "sanitized": false
+    },
+    "screenshots/daily-missions-large-rewards-v0.19.1-mock.png": {
+      "source": "webgui_menu/verification/mission-large-rewards-mock.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "1f50d243498d985f3d2acf1c06e14a38235ffa98676104e5e1d51c69dd8b9835",
+      "published_sha256": "1f50d243498d985f3d2acf1c06e14a38235ffa98676104e5e1d51c69dd8b9835",
+      "bytes": 98104,
       "sanitized": false
     },
     "screenshots/daily-missions-light-mock.png": {

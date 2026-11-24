@@ -104,3 +104,10 @@ body{padding:var(--profile-reserve) 0 12px}
 /* Keep the reset action compact so the five mission cards retain their height. */
 .missions-page .mission-claim-all{font-size:12px;padding:5px 12px;min-height:25px;line-height:1.2}
 @media(max-height:850px){.missions-page .mission-reset{gap:3px}.missions-page .mission-card p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}.missions-page .mission-card .mission-category{min-height:24px}}
+/* Larger reward targets; reroll buttons retain their secondary size. */
+.missions-page .mission-actions .mission-claim{min-height:42px;padding:10px 12px;font-size:calc(13px * var(--text-scale,1));font-weight:700;line-height:1.25}
+.missions-page .mission-final [data-mission-claim]{min-height:44px;min-width:174px;padding:10px 18px;font-size:calc(13px * var(--text-scale,1));font-weight:700;line-height:1.25}
+.missions-page .mission-claim-all{min-height:38px;padding:9px 18px;font-size:13px;font-weight:700;line-height:1.25}
+@media(max-height:600px){.missions-page .mission-actions .mission-claim{min-height:32px;padding:6px 8px;font-size:12px}.missions-page .mission-final [data-mission-claim]{min-height:34px;min-width:150px;padding:7px 12px;font-size:12px}.missions-page .mission-claim-all{min-height:30px;padding:6px 12px;font-size:12px}}
+@media(max-height:780px){body.large-text .missions-page .mission-card>.mission-symbol{display:none}body.large-text .missions-page .mission-card .mission-category{padding-left:0;min-height:0}body.large-text .missions-page .mission-card{gap:5px}body.large-text .missions-page .mission-card h2{margin:5px 0}body.large-text .missions-page .mission-final p{display:none}}
+@media(max-height:600px){.missions-page .mission-reset>span:first-child{display:none}.missions-page .missions{gap:3px}}

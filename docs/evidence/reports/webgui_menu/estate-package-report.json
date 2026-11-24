@@ -1,6 +1,6 @@
 {
-  "bundle": "PocketmateMenu-v0.19.0.zip",
-  "sha256": "1e4ed5e9704536d8ecc8bc8ff83cc2f7c64ee6148630a04e1e5c9fbf02313d01",
+  "bundle": "PocketmateMenu-v0.19.1.zip",
+  "sha256": "fffd5a1ad81b7aa5e4826bfb38dc04c3c412c64b2d075d25fd1b110dc76f7291",
   "files": {
     "config/webgui/web/index.html": "0b587fe4788be92add5141cb338165df6e9755ebe0899e711786793f429cce59",
     "config/webgui/web/menu.css": "0b0ff2ac2fcc6e4e5e45c4c1904b2ba62a79e000d4dd044d194408dc4e05aa20",
@@ -24,7 +24,7 @@
     "config/webgui/web/missions.js": "8ec8fb6536ebc64dd80f1dfdd64bedc76355471e767c0d0b44b28c8dd8c9180b",
     "config/webgui/web/missions.css": "e82b1d2e1f05c376bb0ff52c4146f5041017e70117fe4670b2aa3ed0cc2cb98b",
     "config/webgui/web/layout.js": "ada858f3deecd2b95f888a16a0726cf8fa61ed52c917154365d0af19a23828fa",
-    "config/webgui/web/layout.css": "85cbbee0ce8d90cf74182046a91fef62297ac51b468c78d0012cab1bc421581a",
+    "config/webgui/web/layout.css": "dd4e30fcb9c64f803488eca8423a1ea48c02026c591e3ef15d1d5bf102cd68bb",
     "config/webgui/web/shop.js": "75a35cfc8f5f314304d5634ce3b354e71be686b6bc5f8fe9ce19b0177e9dfe6c",
     "config/webgui/web/shop.css": "4b9b01c6b5b1192ddbe16d5c37c58b24db99ec9b090bb010759f0465fad40c72",
     "config/webgui/web/home-art.css": "d72d6d82e3be5a330c032e7dacd202f88cde588e08042ad64ab46a44e08e2e98",
