@@ -53,7 +53,7 @@
 :root[data-theme=light] :is(.shop-art svg,.shop-art i){color:#8a632c}
 :root[data-theme=light] .travel-art svg{color:#56777b}
 :root[data-theme=light] .dex-art i{border-color:#4c877c88;background:#4c877c14}
-:root[data-theme=light] .warp-compass{color:var(--light-accent)}
+:root[data-theme=light] .warp-emblem{color:var(--light-accent);--warp-core:#896323;filter:drop-shadow(0 0 7px #35674920)}
 
 /* Profile backgrounds, owned cosmetics, and the equipped-card preview. */
 :root[data-theme=light] :is(.player-strip.profile-card,.profile-preview){background-color:var(--light-soft);border-color:var(--line)}
@@ -133,3 +133,5 @@
 :root[data-theme=light] .map-source[data-state=ready]{color:var(--light-accent)}
 :root[data-theme=light] :is(.estate-map-note,.estate-selection-note,.estate-legend,.estate-map-toolbar>span,.estate-standing dt,.estate-selection dt){color:var(--soft-text)}
 :root[data-theme=light] :is(.estate-tabs button,.estate-map-toolbar button,.estate-pan button,.estate-coordinate-select button){background:var(--light-card);border-color:var(--control-line);color:var(--light-accent)}
+
+:root[data-theme=light] .empty-symbol{--warp-core:#896323}

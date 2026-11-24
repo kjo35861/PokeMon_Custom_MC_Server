@@ -204,9 +204,9 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "bab25a3e16a605fe0d029bff9eab87612f80f6a24baa381679f1987dd0d7be45",
-      "published_sha256": "077cef199b049c2d7dbb4995be07f76438b2140515f3b30994b783d68041f7c5",
-      "bytes": 6737,
+      "source_sha256": "71ede8eadf68617bdfe2784bdf0380b77034d819b109d5bf0d489557ca4cb1d5",
+      "published_sha256": "f35b3db7bd16f92c8392b92fabfc51ff8c96bcd3f41639d0cd13aec44b69570b",
+      "bytes": 6845,
       "sanitized": true
     },
     "reports/webgui_menu/estate-v0.10-integration.json": {
@@ -455,6 +455,14 @@
       "source_sha256": "4a3db31ad21a04433cfc662419056b1693cdaf19bcd33164c3c854433e05f304",
       "published_sha256": "f48c94b0685553a9d998fe17e1c9ec5ce0cf5624404e90bb588ceaddb0189349",
       "bytes": 449,
+      "sanitized": true
+    },
+    "reports/webgui_menu/warp-icon-update-report.json": {
+      "source": "webgui_menu/verification/warp-icon-update-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "c72024700a45f486e33cc7f980b57f649a22d0302f4f540fb9f77bf3a1694497",
+      "published_sha256": "cd10f499e3b1639147ef8ca29ada4ae36f50658a0298639486efac3bec4c434d",
+      "bytes": 421,
       "sanitized": true
     },
     "screenshots/historical-estate-map-mock.png": {

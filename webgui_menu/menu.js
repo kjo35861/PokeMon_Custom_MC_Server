@@ -11,7 +11,7 @@
     profile: ['프로필 꾸미기', 'MY PROFILE / COLLECTION', '보유한 아이콘·칭호·배너로 나만의 프로필카드를 꾸며보세요.'],
     settings: ['메뉴 설정', '07 / PREFERENCES', '플레이 허브의 표시 설정을 변경하세요.']
   };
-  const icons = {warp:'compass', shop:'bag', quests:'flag', travel:'compass'};
+  const icons = {warp:'warp', shop:'bag', quests:'flag', travel:'compass'};
   const icon = window.PocketmateIcons;
   let liveClient = null;
   let reducedMotion = false;
@@ -79,7 +79,7 @@
     if (page === 'profile') {
       window.PocketmateProfile.mount(panel);
     } else if (page === 'warp') {
-      panel.innerHTML = `<div class="feature-panel"><span class="empty-symbol">${icon('compass')}</span><h2>워프 지점을 준비하고 있어요</h2><p>등록된 워프 지점이 생기면 이곳에서 목적지를 선택할 수 있어요.</p></div>`;
+      panel.innerHTML = `<div class="feature-panel"><span class="empty-symbol">${icon('warp')}</span><h2>워프 지점을 준비하고 있어요</h2><p>등록된 워프 지점이 생기면 이곳에서 목적지를 선택할 수 있어요.</p></div>`;
     } else if (page === 'settings') {
       panel.innerHTML = `<div class="feature-panel"><label class="setting-row" for="theme-select"><span><strong>화면 테마</strong><small>일반 메뉴와 영지 관리소에 함께 적용되며, 다음에도 선택이 유지돼요.</small></span><select class="theme-select" id="theme-select"><option value="dark">다크 모드</option><option value="light">라이트 모드</option></select></label><label class="setting-row"><span><strong>움직임 줄이기</strong><small>버튼과 상태 막대의 전환 효과를 줄여요.</small></span><input type="checkbox" id="motion-toggle" ${reducedMotion?'checked':''}></label><div class="setting-row"><span><strong>메뉴 열기</strong><small>Shift+F 연결 전의 기본 단축키예요.</small></span><span class="setting-value">F6</span></div><div class="setting-row"><span><strong>메뉴 닫기</strong><small>오른쪽 위 닫기 버튼으로도 돌아갈 수 있어요.</small></span><span class="setting-value">Esc</span></div></div>`;
       $('theme-select').value = window.PocketmateTheme.get();

@@ -24,6 +24,7 @@
   <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l1 12H4Zm3 0V6a4 4 0 0 1 8 0v2M8 12v1m8-1v1"/><path d="M9 17h6"/></symbol>
   <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4m0 1c4-4 8 4 14 0v9c-6 4-10-4-14 0"/><path d="m10 8 2 2 3-2"/></symbol>
   <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="m16 8-2.5 5.5L8 16l2.5-5.5Zm-4-7v2m11 9h-2M12 23v-2M1 12h2"/></symbol>
+  <symbol id="i-warp" viewBox="0 0 24 24"><g transform="rotate(28 12 12)"><ellipse cx="12" cy="12" rx="6.1" ry="9" fill="currentColor" fill-opacity=".07" stroke-opacity=".3"/><path d="M12 3c-3.37 0-6.1 4.03-6.1 9 0 3.1 1.07 5.84 2.72 7.45M12 21c3.37 0 6.1-4.03 6.1-9 0-3.1-1.07-5.84-2.72-7.45"/><ellipse cx="12" cy="12" rx="3.7" ry="6.2" stroke-width="1" opacity=".55"/></g><path d="m12 8.5 2.8 3.5-2.8 3.5L9.2 12Z" fill="var(--warp-core,#f0d49a)" stroke="none"/><path d="M2 16c4.5 3.8 12.3-6.3 20-7.3"/><path d="m19.6 7.3 2.4 1.4-1.7 2.4"/><path d="m19.8 1.8.45 1.4 1.4.45-1.4.45-.45 1.4-.45-1.4-1.4-.45 1.4-.45Z" fill="currentColor" stroke="none"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
   <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 20V4m-6 6 6-6 6 6"/></symbol>
   <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v16m-6-6 6 6 6-6"/></symbol>
@@ -62,7 +63,7 @@
    <div class="action-grid">
     <button class="action-tile team-tile warp-tile" data-go="warp">
      <span class="tile-code">WARP / DESTINATIONS</span><span class="tile-flag">WARP</span>
-     <div class="orb-scene warp-scene" aria-hidden="true"><div class="radar-ring ring-a"></div><div class="radar-ring ring-b"></div><svg class="warp-compass"><use href="#i-compass"/></svg><span class="orb-caption">CHOOSE YOUR DESTINATION.</span></div>
+     <div class="orb-scene warp-scene" aria-hidden="true"><div class="radar-ring ring-a"></div><div class="radar-ring ring-b"></div><svg class="warp-emblem"><use href="#i-warp"/></svg><span class="orb-caption">CHOOSE YOUR DESTINATION.</span></div>
      <div class="team-copy"><span class="tile-eyebrow">새로운 곳으로 떠나는 길</span><h2>워프</h2><p>이동할 목적지를 확인하세요.</p></div><span class="launch-arrow"><svg><use href="#i-arrow"/></svg></span>
     </button>
     <button class="action-tile empty-tile" type="button" disabled aria-label="빈 버튼"></button>

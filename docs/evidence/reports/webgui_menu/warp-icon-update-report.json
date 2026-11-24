@@ -1,0 +1,16 @@
+{
+  "menu_version": "0.13.2",
+  "change": "original warp portal SVG",
+  "checks": {
+    "standalone_svg_xml": true,
+    "embedded_symbol_xml": true,
+    "symbol_matches_source": true,
+    "hero_uses_warp": true,
+    "css_parse": true,
+    "deployed_files_match": true
+  },
+  "game_visual_tested": false,
+  "browser_visual_tested": false,
+  "apply": "/webgui reload then F6",
+  "restart_required_for_this_change": false
+}
