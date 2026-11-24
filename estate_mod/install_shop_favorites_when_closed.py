@@ -5,11 +5,12 @@ root=Path(__file__).resolve().parent.parent
 queue=root/'webgui_menu/verification/backups/pending-shop-v0.23.0'
 game=Path(os.environ['APPDATA'])/'PrismLauncher/instances/포켓메이트 메뉴 테스트/minecraft'
 report=root/'webgui_menu/verification/shop-favorites-install-report.json'
-parser=argparse.ArgumentParser();parser.add_argument('--pixel-font',action='store_true');parser.add_argument('--sharp-font',action='store_true');parser.add_argument('--font-fix',action='store_true');parser.add_argument('--once',action='store_true');args=parser.parse_args()
-mod_version='0.15.3' if args.pixel_font else '0.15.2' if args.sharp_font else '0.15.1' if args.font_fix else '0.15.0'
-menu_version='0.23.3' if args.pixel_font else '0.23.2' if args.sharp_font else '0.23.1' if args.font_fix else '0.23.0'
+parser=argparse.ArgumentParser();parser.add_argument('--font-baseline',action='store_true');parser.add_argument('--pixel-font',action='store_true');parser.add_argument('--sharp-font',action='store_true');parser.add_argument('--font-fix',action='store_true');parser.add_argument('--once',action='store_true');args=parser.parse_args()
+mod_version='0.15.4' if args.font_baseline else '0.15.3' if args.pixel_font else '0.15.2' if args.sharp_font else '0.15.1' if args.font_fix else '0.15.0'
+menu_version='0.23.4' if args.font_baseline else '0.23.3' if args.pixel_font else '0.23.2' if args.sharp_font else '0.23.1' if args.font_fix else '0.23.0'
 queue=root/f'webgui_menu/verification/backups/pending-shop-v{menu_version}'
-if args.pixel_font:report=root/'webgui_menu/verification/shop-pixel-font-install-report.json'
+if args.font_baseline:report=root/'webgui_menu/verification/shop-font-baseline-install-report.json'
+elif args.pixel_font:report=root/'webgui_menu/verification/shop-pixel-font-install-report.json'
 elif args.sharp_font:report=root/'webgui_menu/verification/shop-sharp-font-install-report.json'
 elif args.font_fix:report=root/'webgui_menu/verification/shop-font-fix-install-report.json'
 def install():
