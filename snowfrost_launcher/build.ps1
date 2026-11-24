@@ -10,6 +10,7 @@ New-Item -ItemType Directory -Force -Path (Split-Path -Parent $launcherOutput) |
 $launcherArguments = @(
     '/nologo', '/target:winexe', '/platform:x64', '/optimize+', '/codepage:65001',
     ('/win32manifest:' + (Join-Path $launcherRoot 'src\app.manifest')),
+    ('/resource:' + (Join-Path $launcherRoot 'assets\launcher.ico') + ',Snowfrost.LauncherIcon.ico'),
     ('/win32icon:' + (Join-Path $launcherRoot 'assets\launcher.ico')),
     ('/out:' + $launcherOutput),
     ('/reference:' + (Join-Path $launcherWpf 'PresentationFramework.dll')),

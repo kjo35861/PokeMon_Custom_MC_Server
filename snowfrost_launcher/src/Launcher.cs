@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -133,6 +133,15 @@ namespace Snowfrost
             previewPath = Program.Option(arguments, "--render-preview");
             using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Snowfrost.MainWindow.xaml"))
                 Window = (Window)XamlReader.Load(stream);
+            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Snowfrost.LauncherIcon.ico"))
+            {
+                var icon = new IconBitmapDecoder(stream, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.OnLoad);
+                var frame = icon.Frames[0];
+                foreach (var candidate in icon.Frames)
+                    if (candidate.PixelWidth == 48) { frame = candidate; break; }
+                Get<Image>("TitleBarIcon").Source = frame;
+                Window.Icon = frame;
+            }
             Window.Width = Math.Min(1440, SystemParameters.WorkArea.Width * .93);
             Window.Height = Math.Min(840, SystemParameters.WorkArea.Height * .93);
             if (previewPath != null) { Window.Width = 1440; Window.Height = 840; }
