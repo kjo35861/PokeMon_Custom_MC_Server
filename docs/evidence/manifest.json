@@ -569,6 +569,14 @@
       "bytes": 665,
       "sanitized": true
     },
+    "reports/webgui_menu/profile-banner-brighter-report.json": {
+      "source": "webgui_menu/verification/profile-banner-brighter-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "f3462c212a86507e11fd26c1889b41b08ff2520d3d822d94cc210cf1ec4ca413",
+      "published_sha256": "b199a489b71cf3e42f284198861bf7cc1dc662c5049b332083bd38ee66a90bb8",
+      "bytes": 373,
+      "sanitized": true
+    },
     "reports/webgui_menu/profile-browser-layout-report.json": {
       "source": "webgui_menu/verification/profile-browser-layout-report.json",
       "kind": "historical-or-current-report",

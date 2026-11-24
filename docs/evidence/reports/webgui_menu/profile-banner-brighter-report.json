@@ -1,0 +1,13 @@
+{
+  "headless_mock_only": true,
+  "game_tested": false,
+  "banner_theme_cases": 6,
+  "actual_element_background_checked": true,
+  "old_override_removed": true,
+  "veil_opacity": 0.1,
+  "pseudo_layer_disabled_as_before": true,
+  "unified_edge_clipping_preserved": true,
+  "image_vertical_position_percent": 30,
+  "text_unfiltered": true,
+  "card_preview_consistent": true
+}
