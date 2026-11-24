@@ -31,8 +31,8 @@ public final class ProfilesMod implements ModInitializer {
         for(var item:ProfileStore.CATALOG){
             if(item.kind().equals("title")&&item.id().equals(title))
                 return Text.empty()
-                    .append(Text.literal("\uE001").setStyle(net.minecraft.text.Style.EMPTY.withFont(net.minecraft.util.Identifier.of("pocketmate","titles")).withColor(0xffe0a0)))
-                    .append(Text.literal(" "+item.name()+" ").setStyle(net.minecraft.text.Style.EMPTY.withColor(0xffe0a0)))
+                    .append(Text.literal(item.glyph()).setStyle(net.minecraft.text.Style.EMPTY.withFont(net.minecraft.util.Identifier.of(item.font())).withColor(item.font().equals("pocketmate:legendary_titles")?0xffffff:Integer.parseInt(item.color().substring(1),16))))
+                    .append(Text.literal(" "+item.name()+" ").setStyle(net.minecraft.text.Style.EMPTY.withColor(Integer.parseInt(item.color().substring(1),16))))
                     .append(original.copy());
         }
         return original;

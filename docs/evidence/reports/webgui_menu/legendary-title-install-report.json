@@ -1,0 +1,13 @@
+{
+  "mod_version": "0.10.0",
+  "title_count": 94,
+  "java_tests": 67,
+  "failures": 0,
+  "errors": 0,
+  "installed_file_hashes_match": true,
+  "font_atlas_matches_final_v10": true,
+  "web_title_images": 188,
+  "restart_required": true,
+  "game_tested": false,
+  "first_capture_auto_award": false
+}

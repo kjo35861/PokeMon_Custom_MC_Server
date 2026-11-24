@@ -1,0 +1,9 @@
+{
+  "headless_mock_only": true,
+  "game_tested": false,
+  "species": 94,
+  "theme_selection_cases": 188,
+  "images_loaded": true,
+  "server_ack_mock_updates_card": true,
+  "errors": []
+}

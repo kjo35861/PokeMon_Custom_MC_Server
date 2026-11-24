@@ -27,3 +27,11 @@
 .profile-fixed-actions .profile-actions .back-button{color:#e4f0df;background:#ffffff0b;border:1px solid #ffffff24}
 :root[data-theme=light] .profile-fixed-actions .profile-actions{background:#dcebdd;border-color:#739a7c}
 :root[data-theme=light] .profile-fixed-actions .profile-actions .back-button{color:#2b4b32;background:#ffffff70;border-color:#7a9d7d66}
+
+/* Species rewards retain their individual palette; profile cards stay dark in both modes. */
+.title-reward{display:inline-flex;align-items:center;gap:.35em;color:var(--reward-color,inherit)}
+.title-reward-icon{width:1.25em;height:1.25em;object-fit:contain;flex-shrink:0}
+.title-reward-light{display:none}
+:root[data-theme=light] .profile-title-choice .title-reward{color:var(--reward-light)}
+:root[data-theme=light] .profile-title-choice .title-reward-dark{display:none}
+:root[data-theme=light] .profile-title-choice .title-reward-light{display:inline-block}

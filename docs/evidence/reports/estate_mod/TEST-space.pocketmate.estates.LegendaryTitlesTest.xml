@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="space.pocketmate.estates.LegendaryTitlesTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-11-24T15:12:24" hostname="DESKTOP-6FIEOUH" time="0.534">
+  <properties/>
+  <testcase name="everyRewardRequiresGrantAndPersistsWithItsOwnGlyph()" classname="space.pocketmate.estates.LegendaryTitlesTest" time="0.534"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

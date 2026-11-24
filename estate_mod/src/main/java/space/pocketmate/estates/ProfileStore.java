@@ -9,8 +9,14 @@ import java.util.*;
 
 /** Cosmetic ownership and equipment belong to the server, independently of estates. */
 public final class ProfileStore {
-    public record Cosmetic(String kind,String id,String name,String image,boolean starter) {}
-    public static final List<Cosmetic> CATALOG=List.of(
+    public record Cosmetic(String kind,String id,String name,String image,boolean starter,String color,String lightColor,String glyph,String font) {
+        public Cosmetic(String kind,String id,String name,String image,boolean starter) {
+            this(kind,id,name,image,starter,"#ffe0a0","#896000","\uE001","pocketmate:titles");
+        }
+    }
+    public static final List<Cosmetic> CATALOG=buildCatalog();
+    private static List<Cosmetic> buildCatalog(){
+        List<Cosmetic> items=new ArrayList<>(List.of(
         new Cosmetic("icon","skin","내 스킨 얼굴","",true),
         new Cosmetic("icon","bulbasaur","이상해씨","./profile-assets/bulbasaur.png",true),
         new Cosmetic("icon","charmander","파이리","./profile-assets/charmander.png",true),
@@ -24,7 +30,9 @@ public final class ProfileStore {
         new Cosmetic("banner","forest","초록빛 숲길","./profile-assets/forest.svg",true),
         new Cosmetic("banner","night","별빛 야영","./profile-assets/night.svg",true),
         new Cosmetic("banner","sky","하늘 항로","./profile-assets/sky.svg",false)
-    );
+    ));
+        items.addAll(LegendaryTitles.entries());return List.copyOf(items);
+    }
     public record Profile(String icon,String title,String banner,Set<String> owned) {
         public Profile { owned=Set.copyOf(owned); }
     }
