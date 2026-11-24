@@ -353,6 +353,14 @@
       "bytes": 631,
       "sanitized": true
     },
+    "reports/webgui_menu/legendary-title-portrait-v5-report.json": {
+      "source": "webgui_menu/verification/legendary-title-portrait-v5-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "84b1ed28a17378509934e3089bf33f2abe4fdb663aefb8c982c0186c329ce55b",
+      "published_sha256": "276c5971822b922de0395f7e4774613ba3f192f1cefdf8fcf18cfcdc8955a3ee",
+      "bytes": 536,
+      "sanitized": true
+    },
     "reports/webgui_menu/member-limit-install.json": {
       "source": "webgui_menu/verification/member-limit-install.json",
       "kind": "historical-or-current-report",

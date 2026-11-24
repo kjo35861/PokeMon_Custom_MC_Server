@@ -1,0 +1,16 @@
+{
+  "revision": 5,
+  "status": "species_portrait_review_pending_not_installed",
+  "species_count": 94,
+  "unique_contours": 94,
+  "species_exterior_references_visually_consulted": 94,
+  "reference_images_published": false,
+  "species_feature_and_title_rationale_entries": 94,
+  "png_font_static_checks_pass": true,
+  "preview_mock_dom_theme_selection_and_rationale_cases": 188,
+  "contact_sheets_visually_inspected": 2,
+  "browser_tested": false,
+  "game_tested": false,
+  "small_chat_recognition_tested": false,
+  "installed": false
+}

@@ -11,7 +11,7 @@ class Element {
   querySelectorAll(){return [...elements['pm-legend-grid'].children,...elements['pm-myth-grid'].children];}
 }
 const elements={};
-for(const name of ['pm-title-review','pm-title-icon','pm-title-text','pm-title-species','pm-title-color','pm-title-chat','pm-legend-grid','pm-myth-grid'])elements[name]=new Element();
+for(const name of ['pm-title-review','pm-title-icon','pm-title-text','pm-title-species','pm-title-color','pm-title-chat','pm-title-design','pm-legend-grid','pm-myth-grid'])elements[name]=new Element();
 let theme='dark';const window={addEventListener(){},matchMedia(){return {addEventListener(){}};}};
 const context={window,document:{getElementById:id=>elements[id],createElement:tag=>Object.assign(new Element(),{tag}),documentElement:{}},getComputedStyle:()=>({color:theme==='dark'?'rgb(230, 230, 230)':'rgb(30, 30, 30)'}),MutationObserver:class{observe(){}}};
 const source=fs.readFileSync(path.join(rootDir,'preview.fragment.html'),'utf8').match(/<script>([\s\S]*?)<\/script>/)[1].replace('__POCKETMATE_TITLE_DATA__',JSON.stringify(rows));
@@ -26,6 +26,7 @@ for(const mode of ['dark','light']){
     assert.equal(elements['pm-title-species'].textContent,row.name);
     assert.equal(elements['pm-title-icon'].src,row[mode]);
     assert.equal(elements['pm-title-text'].style.color,'#'+(mode==='light'?row.lightColor:row.color));
+    if(row.exterior_features)assert(elements['pm-title-design'].textContent.includes(row.exterior_features)&&elements['pm-title-design'].textContent.includes(row.title_relation));
     assert.equal(button.attrs['aria-pressed'],'true');
     assert.equal(buttons.filter(b=>b.attrs['aria-pressed']==='true').length,1);
   }

@@ -1,10 +1,10 @@
 """Static format/asset checks only; does not run Minecraft or install the draft."""
 from pathlib import Path
 from PIL import Image
-import json
+import json,sys
 
 ROOT=Path(__file__).resolve().parents[1]
-OUT=ROOT/'docs/design/legendary-titles/line-png-v3'
+OUT=Path(sys.argv[1]).resolve() if len(sys.argv)>1 else ROOT/'docs/design/legendary-titles/line-png-v3'
 PACK=OUT/'resource-pack'
 mapping=json.loads((OUT/'glyph-map.json').read_text(encoding='utf-8'))
 provider=json.loads((PACK/'assets/pocketmate/font/legendary_titles.json').read_text(encoding='utf-8'))['providers'][0]
