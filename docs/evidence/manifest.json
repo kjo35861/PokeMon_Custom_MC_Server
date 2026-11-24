@@ -20,65 +20,65 @@
     "reports/estate_mod/TEST-space.pocketmate.estates.ClaimStoreTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.ClaimStoreTest.xml",
       "kind": "junit-result",
-      "source_sha256": "adada0ba8345bfdc9067cb1e96c5fab41ea911901b32964e91f8d1df1382fa8a",
-      "published_sha256": "54155c5e476913e151ee62b372eb38850726dc56daf6ef20ca513d1c8865567a",
-      "bytes": 2339,
+      "source_sha256": "c39365c6704e3dade946bd93958a3d75fe084a2541f37e628cfb3edf245482cf",
+      "published_sha256": "3cb15296dba938694ead072d24321c1270e1ea2c8e6286341d1484fac92f3837",
+      "bytes": 2341,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.EstateCommunityTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.EstateCommunityTest.xml",
       "kind": "junit-result",
-      "source_sha256": "b4d30cb3136409c94bf6a40e93b6f389fc269c0c2b3c8bfedad0fca5bbf2faba",
-      "published_sha256": "b97f3cebda6c7df5f3584f7414a39b49f2d2fa6ada1953e31bd91785e223a61e",
+      "source_sha256": "3d97fa2a8d6d834f189ee484cb9d7d578fb60ceb687d10fe3f5e0e00585e8ff8",
+      "published_sha256": "82853d4f3e559c6895e30be422e472559b2cfb5ef0b817bfe7122cab032b3655",
       "bytes": 1943,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.EstateEconomyTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.EstateEconomyTest.xml",
       "kind": "junit-result",
-      "source_sha256": "48a0e931888b0f69232d074be6811456c9e3bdc282cddf2cfafd0d2affd4b016",
-      "published_sha256": "792a528c7959069703bee1ca01f352f8d7f13df151a67104b975c2ebc67f78c7",
+      "source_sha256": "73339488bcec26ddb60153872f782bbd1bf0951dfe02a27b3bcff0c921c6305b",
+      "published_sha256": "8a0a54a351c819304433196a26e1d5036b5686ec3cd43c3ad3cbb9971fd20829",
       "bytes": 1999,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.EstateHomeTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.EstateHomeTest.xml",
       "kind": "junit-result",
-      "source_sha256": "0ffe6f77d5910ecdec42fd1e5a622dcba9d10ea03f6d5cbc6470b05ba15a2580",
-      "published_sha256": "bafa9831cc2fb327197263144189384db16e66802b0a2c984468a7294f901eb0",
+      "source_sha256": "cd3f638832b5a0bb4e2275f7c698b87874e956de47cf2d84bd775b2188f052c5",
+      "published_sha256": "620725395fc122fbcec3a3159f85418952bcac74d957d3ede272351a831dea50",
       "bytes": 1419,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.LegendaryTitlesTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.LegendaryTitlesTest.xml",
       "kind": "junit-result",
-      "source_sha256": "bb752628f4a533c60c5e7a819b849a40ea49182d718f10c6c0c67180855311f9",
-      "published_sha256": "d0eb4255e983624caa021c3f6d8b154a2add84151b56202e5798ae05f96d5756",
+      "source_sha256": "cd08390e870df37623832ebe217570ae9d8c1686645d6a5fe9fbcfe52c896def",
+      "published_sha256": "df821135a5568f179996fdb01a5454f165c12c3dee5b0c5702a37587bb8e8f9a",
       "bytes": 623,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.MapPixelCodecTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.MapPixelCodecTest.xml",
       "kind": "junit-result",
-      "source_sha256": "70d26efa0db7fd7016181bcbc07a3066df5c5cb6bfe1acbb5d9361779b8b920a",
-      "published_sha256": "d398571d3864ef2df74c38d8bb7ab534cea23cebb68bb70c8b43032e7ef4f32a",
+      "source_sha256": "89b2123aea0652cf73fe4de5553b73d6a100ba1bb672ad2f80c327fdc164c844",
+      "published_sha256": "056274fdb7fbd88cf7a3de15db1f1b2c8b7b05720feedb452b4f649ac0e93ee9",
       "bytes": 578,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.NicknameStoreTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.NicknameStoreTest.xml",
       "kind": "junit-result",
-      "source_sha256": "6b7194ae1bb500f4e1c3aba1064e87cd8934cb63ea7541dbfff03e8964708c9c",
-      "published_sha256": "9dc04c311b7e3474b8168d6c3a77af7f6596d0c115fa78555290402f00ff3c92",
+      "source_sha256": "98ddf4520061cf558438f5eb831cccfe09b5f95dbf5ec857d2514a3d75df08b9",
+      "published_sha256": "47a52fcbc76d1b90e0998104448bff1a8d105cdb26161dcbd184a81f0be1de19",
       "bytes": 1173,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.ProfileStoreTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.ProfileStoreTest.xml",
       "kind": "junit-result",
-      "source_sha256": "39c3edbf5fc810db713cab04f955c43b04004b88322a113491f28aeddf534d8b",
-      "published_sha256": "5c65357b119d041f2526ea40c74641b2e5fa0b13c0b1acf6fcd5443b191e14b6",
-      "bytes": 1519,
+      "source_sha256": "44587747b9f059f04f16ef40f26d4d5f9cbbd98b30d4833012a5fe919e7e2b21",
+      "published_sha256": "b8d18a2efd815f4da7ec9237a76ecf434460bd561c753ac6d4f38320f094866b",
+      "bytes": 1518,
       "sanitized": true
     },
     "reports/snowfrost_launcher/backend-report.json": {
@@ -228,9 +228,9 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "e4210308aa41d35a4b745cefe5e1b19dc24f61c0b5502adbaf716f4c8f0b6600",
-      "published_sha256": "227429e8525d683656a8ed08688143d76088ec827ae53ec22b5d7b8791d00ec3",
-      "bytes": 30370,
+      "source_sha256": "5daf7eaa81f2862bd9021f918750ba86cb48878192ada8fd1a1ef1ec2f907b6f",
+      "published_sha256": "d4bff43754dbe18138215a83bde3656378e0486c8877932186f53efbe952b002",
+      "bytes": 30371,
       "sanitized": true
     },
     "reports/webgui_menu/estate-v0.10-integration.json": {
@@ -420,9 +420,9 @@
     "reports/webgui_menu/legendary-title-ui-report.json": {
       "source": "webgui_menu/verification/legendary-title-ui-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "47d70f47ee591d3c4dc20502cb3939173b1bb37f89e0f79d3622c10cb8d892f6",
-      "published_sha256": "0a5a08aa7366a1408c0917dde3dd4f98f14cb1aeb018d8204bd8946f1aa588a1",
-      "bytes": 187,
+      "source_sha256": "ebde312d15b006f770f02716ae2d9454fea7d9fee1bdb2e316f59d3f8d823ed4",
+      "published_sha256": "575a4009252f4f4c6ce75841ca9cdf06b7545130b177dffab123de6d6bec1f7d",
+      "bytes": 228,
       "sanitized": true
     },
     "reports/webgui_menu/member-limit-install.json": {
@@ -567,6 +567,14 @@
       "source_sha256": "0d8f82b847503ac547312a800eee41eb24096f9f6f2e4a9938d76fe16ce02827",
       "published_sha256": "8f0ff893f9d070811b1e6bf197a9bf0c8b28a64d214149ecb7cfac06bdf52ff8",
       "bytes": 720,
+      "sanitized": true
+    },
+    "reports/webgui_menu/title-descriptions-report.json": {
+      "source": "webgui_menu/verification/title-descriptions-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "27648c2d593ac4f9ebc54f6cded69b63cda726d451cff5e5981a06c16c6ac5be",
+      "published_sha256": "6b1474393f938dba80e2c75255edb17ad1e2176e538c3259b5192192404fcfab",
+      "bytes": 220,
       "sanitized": true
     },
     "reports/webgui_menu/title-prefix-update-report.json": {

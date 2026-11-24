@@ -4,6 +4,7 @@
   "species": 94,
   "theme_selection_cases": 188,
   "images_loaded": true,
+  "acquisition_conditions_checked": 188,
   "server_ack_mock_updates_card": true,
   "errors": []
 }

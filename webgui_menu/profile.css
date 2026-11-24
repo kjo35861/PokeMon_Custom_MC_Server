@@ -35,3 +35,7 @@
 :root[data-theme=light] .profile-title-choice .title-reward{color:var(--reward-light)}
 :root[data-theme=light] .profile-title-choice .title-reward-dark{display:none}
 :root[data-theme=light] .profile-title-choice .title-reward-light{display:inline-block}
+
+.profile-acquisition{display:flex;flex-direction:column;gap:4px;color:var(--ink);font-size:calc(11px * var(--text-scale,1));line-height:1.6;font-weight:400;overflow-wrap:anywhere;text-align:center}
+.profile-acquisition-label{color:var(--muted);font-size:calc(10px * var(--text-scale,1))}
+.profile-acquisition-note{color:var(--muted);font-size:calc(11px * var(--text-scale,1));line-height:1.6;margin:0 0 14px}

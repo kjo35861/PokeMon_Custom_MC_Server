@@ -22,6 +22,7 @@ class LegendaryTitlesTest {
   for(var title:entries){
    assertTrue(ids.add(title.id()));assertTrue(glyphs.add(title.glyph()));
    assertFalse(title.starter());assertEquals("pocketmate:legendary_titles",title.font());
+   assertTrue(title.acquisitionCondition().startsWith("서버에서 "));assertTrue(title.acquisitionCondition().endsWith(" 최초 포획"));
    assertEquals(1,title.glyph().length());assertTrue(title.color().matches("#[0-9A-Fa-f]{6}"));
    assertThrows(ProfileStore.Denied.class,()->store.equip(user,"skin",title.id(),"none"));
    store.grant(user,"title",title.id());store.equip(user,"skin",title.id(),"none");

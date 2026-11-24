@@ -9,9 +9,9 @@ import java.util.*;
 
 /** Cosmetic ownership and equipment belong to the server, independently of estates. */
 public final class ProfileStore {
-    public record Cosmetic(String kind,String id,String name,String image,boolean starter,String color,String lightColor,String glyph,String font) {
+    public record Cosmetic(String kind,String id,String name,String image,boolean starter,String color,String lightColor,String glyph,String font,String acquisitionCondition) {
         public Cosmetic(String kind,String id,String name,String image,boolean starter) {
-            this(kind,id,name,image,starter,"#ffe0a0","#896000","\uE001","pocketmate:titles");
+            this(kind,id,name,image,starter,"#ffe0a0","#896000","\uE001","pocketmate:titles",kind.equals("title")?(id.equals("none")?"칭호를 표시하지 않는 기본 설정입니다.":starter?"서버 첫 접속 시 기본 지급됩니다.":"관리자가 지급하는 칭호입니다."):"");
         }
     }
     public static final List<Cosmetic> CATALOG=buildCatalog();
