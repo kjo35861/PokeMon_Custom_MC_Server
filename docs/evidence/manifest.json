@@ -180,8 +180,8 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "b41976e05efb9b89e2cf45d5f7274c20f9500fdd6380b51803c7c560d556c978",
-      "published_sha256": "06cccc379a64b24e2ebcda6bcc7dd4ff9213eeca209383d575c7ed0bb38bc822",
+      "source_sha256": "ebfac5d6fe723bbeaa9010e693893a087d92f5acd4ced634044f81f4877a40a9",
+      "published_sha256": "292cee1a9cd845f9a33a488717681fdee8a27639ab8efcc27f942ff182411b6b",
       "bytes": 6634,
       "sanitized": true
     },
@@ -303,6 +303,14 @@
       "source_sha256": "b9a3cd4bbb29f7a44ee1d90148c4d84e064e1967de8e4ce83b56554f634b6a9e",
       "published_sha256": "512cedf05d155ad3359d3e36811c8e7570125eac0fbd3c7f3ef3eec46e50d2a4",
       "bytes": 723,
+      "sanitized": true
+    },
+    "reports/webgui_menu/profile-actions-animation-report.json": {
+      "source": "webgui_menu/verification/profile-actions-animation-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "cae528acbb915783f47cfa3a3e0b665f02e37de002d56660d235f860e1dbd867",
+      "published_sha256": "511e4941fd734a036767a948c5c9f06dac3a691cb2680a9c6321be83a32ff54f",
+      "bytes": 665,
       "sanitized": true
     },
     "reports/webgui_menu/profile-browser-report.json": {

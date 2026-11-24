@@ -1,0 +1,25 @@
+{
+  "version": "0.12.6",
+  "transition_ms": 280,
+  "animation": [
+    "allocated space height",
+    "translateY 16px to 0",
+    "opacity"
+  ],
+  "persistent_animation_wrapper": true,
+  "compact_padding_px": 6,
+  "size": "button content width",
+  "dark_background": "#2b4845",
+  "light_background": "#dcebdd",
+  "reduced_motion_supported": true,
+  "hidden_controls_inert": true,
+  "aria_hidden_state_checked": true,
+  "state_logic_checks_passed": true,
+  "javascript_syntax_passed": true,
+  "css_parse_passed": true,
+  "deployed": true,
+  "game_interaction": false,
+  "browser_visual_check": false,
+  "restart_required": false,
+  "apply_command": "/webgui reload"
+}
