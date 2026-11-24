@@ -337,6 +337,14 @@
       "bytes": 446,
       "sanitized": true
     },
+    "reports/webgui_menu/legendary-title-emblem-v2-report.json": {
+      "source": "webgui_menu/verification/legendary-title-emblem-v2-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "496dc780c550ac76d9b563e4546f5db4fe5f88770e1631b83f0778d8efa7f2c7",
+      "published_sha256": "2a05969b28daaf2468c04ee1da836ccdf07f3c5dde4380270447ff51e2055552",
+      "bytes": 357,
+      "sanitized": true
+    },
     "reports/webgui_menu/member-limit-install.json": {
       "source": "webgui_menu/verification/member-limit-install.json",
       "kind": "historical-or-current-report",

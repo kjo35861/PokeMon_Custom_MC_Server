@@ -30,8 +30,8 @@
   const rows=__POCKETMATE_TITLE_DATA__;
   const root=document.getElementById('pm-title-review');
   const el=id=>root.querySelector('#'+id);
-  let selected=String(window.openai?.widgetState?.modelContent?.dex||'384');
-  if(!rows.some(r=>r.dex===selected))selected='384';
+  let selected=String(window.openai?.widgetState?.modelContent?.dex||'1017');
+  if(!rows.some(r=>r.dex===selected))selected='1017';
   function isLight(){const rgb=getComputedStyle(root).color.match(/[\d.]+/g);return rgb&&rgb.slice(0,3).map(Number).reduce((s,n)=>s+n,0)<385;}
   function paint(){
     const light=isLight(),theme=light?'light':'dark',row=rows.find(r=>r.dex===selected);

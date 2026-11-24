@@ -1,0 +1,13 @@
+{
+  "revision": 2,
+  "status": "icon_review_pending_not_installed",
+  "changed_icons": 94,
+  "titles_and_colors_preserved": true,
+  "svg_parse_pass": true,
+  "contact_sheets_visually_reviewed": 4,
+  "preview_theme_selection_cases": 188,
+  "preview_test_environment": "Node mock DOM",
+  "browser_tested": false,
+  "game_tested": false,
+  "deployed": false
+}

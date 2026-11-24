@@ -25,7 +25,7 @@ def light_color(color):
     while contrast(''.join(f'{round(x*255):02x}' for x in values),'f5f6f0')<4.5:values=[x*.96 for x in values]
     return ''.join(f'{round(x*255):02X}' for x in values)
 def svg(row,color=None,size=24):
-    return f'<svg xmlns="http://www.w3.org/2000/svg" width="{size}" height="{size}" viewBox="0 0 24 24" fill="none" color="#{color or row["color"]}" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><title>{html.escape(row["name"]+" · "+row["motif"])}</title><path d="{row["path"]}"/></svg>'
+    return f'<svg xmlns="http://www.w3.org/2000/svg" width="{size}" height="{size}" viewBox="0 0 24 24" fill="none" color="#{color or row["color"]}" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><title>{html.escape(row["name"]+" · "+row["motif"])}</title><path d="{row["path"]}"/></svg>'
 
 (OUT/'icons').mkdir(exist_ok=True)
 for row in ROWS:
@@ -42,7 +42,7 @@ def poster(rows,name,label):
     parts=[f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}">',f'<rect width="{w}" height="{h}" fill="#111c22"/>','<g font-family="Malgun Gothic, sans-serif">',f'<text x="38" y="42" fill="#b7d6c0" font-size="13" letter-spacing="3">POCKETMATE / FIRST ENCOUNTER</text>',f'<text x="38" y="87" fill="#edf2e8" font-size="28" font-weight="bold">{label}</text>','<text x="38" y="116" fill="#abbfb6" font-size="14">서버 최초 포획 칭호 시안 · 각 포켓몬별 1종 · 게임 미적용</text>']
     for i,row in enumerate(rows):
         x=38+(i%cols)*390;y=154+(i//cols)*116
-        parts.extend([f'<path d="M{x} {y+90}H{x+356}" stroke="#293c41"/>',f'<text x="{x}" y="{y+8}" fill="#abbfb6" font-size="13">#{int(row["dex"]):04d}  {html.escape(row["name"])}</text>',f'<g transform="translate({x},{y+26}) scale(1.35)" fill="none" stroke="#{row["color"]}" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="{row["path"]}"/></g>',f'<text x="{x+46}" y="{y+51}" fill="#{row["color"]}" font-size="20" font-weight="bold">{html.escape(row["title"])}</text>',f'<text x="{x+46}" y="{y+74}" fill="#91a6a0" font-size="11">{html.escape(row["motif"])}  /  #{row["color"]}</text>'])
+        parts.extend([f'<path d="M{x} {y+90}H{x+356}" stroke="#293c41"/>',f'<text x="{x}" y="{y+8}" fill="#abbfb6" font-size="13">#{int(row["dex"]):04d}  {html.escape(row["name"])}</text>',f'<g transform="translate({x},{y+26}) scale(1.35)" fill="none" stroke="#{row["color"]}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="{row["path"]}"/></g>',f'<text x="{x+46}" y="{y+51}" fill="#{row["color"]}" font-size="20" font-weight="bold">{html.escape(row["title"])}</text>',f'<text x="{x+46}" y="{y+74}" fill="#91a6a0" font-size="11">{html.escape(row["motif"])}  /  #{row["color"]}</text>'])
     parts.append('</g></svg>');source=''.join(parts)
     (OUT/f'{name}.svg').write_text(source,encoding='utf-8')
     (OUT/f'{name}.png').write_bytes(resvg_py.svg_to_bytes(svg_string=source))
