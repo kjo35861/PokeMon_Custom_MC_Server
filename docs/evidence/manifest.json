@@ -292,8 +292,8 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "4e52cd0d84d55fc5a1f5c0d5c7787609aa51eee7288bda2105365a657bf57459",
-      "published_sha256": "666af037e0dfa5274b95a6b0518542cc187b7002aab3e313d0c08791c1d5b22f",
+      "source_sha256": "f1e1a07d2e5d97b3f5e51dc5f17d63784c58347b2f3c8b405e25b02f003d083c",
+      "published_sha256": "d054f0f00837fb6f7ecddc4af9024514bd07023956556786539ad9e6c33155a3",
       "bytes": 30788,
       "sanitized": true
     },
@@ -631,6 +631,14 @@
       "source_sha256": "edbe69fb22d4c331712c913aa0a56e2d30a4b554d2ab3c2a8748c1432bac2e89",
       "published_sha256": "08c3b84eac535c28e81951e67b5134f54527b2731a9c4e97e182c4b038196b37",
       "bytes": 615,
+      "sanitized": true
+    },
+    "reports/webgui_menu/profile-veil-report.json": {
+      "source": "webgui_menu/verification/profile-veil-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "ea80a4550bb70173ba309c0519e4a89d878bdc3d805665caf30b30ff801eecaa",
+      "published_sha256": "eb5ddd9c34e49a516e999050fe10f0fb49803a7ffc2309f09e13fc9af9295635",
+      "bytes": 176,
       "sanitized": true
     },
     "reports/webgui_menu/public-profiles-install.json": {

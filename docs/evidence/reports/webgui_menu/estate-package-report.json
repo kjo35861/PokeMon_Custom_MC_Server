@@ -1,6 +1,6 @@
 {
-  "bundle": "PocketmateMenu-v0.17.0.zip",
-  "sha256": "f9eee35ca8524a9cfefba423ba2042e2ecb415715baa6d787ca75270618b6349",
+  "bundle": "PocketmateMenu-v0.17.1.zip",
+  "sha256": "9914a1d162944444a3eb8e050502af7e28256aa98a2cb069ac2d1de1d2cbd9d8",
   "files": {
     "config/webgui/web/index.html": "a88f0905361c0894fe336d03fcdaebc6e7c0bd627d5f98233a8e5e0e4b986b3f",
     "config/webgui/web/menu.css": "0b0ff2ac2fcc6e4e5e45c4c1904b2ba62a79e000d4dd044d194408dc4e05aa20",
@@ -10,7 +10,7 @@
     "config/webgui/web/estate-app.js": "8f94eaac929d490493be4595e593b6b0ab7f4ba69f6364d5614e771bf42d1e1f",
     "config/webgui/web/estate-background.svg": "14a97220344eab9582540d3ae53ac50728a42aca775271b42bd5a324653909d6",
     "config/webgui/web/theme.css": "fa65e3ba205c3ef342968234060980b1d1fa2986cb927dbad98e93aa2ec76404",
-    "config/webgui/web/appearance.css": "dbd2ec0f280565e741c66b7a38315bdb15aab85dc0fa70f92aa6ae802d3aaa36",
+    "config/webgui/web/appearance.css": "63eedf9b4ab649f1b2966cbb16d9afd0288e9c7e6836ecdbaa33fd0b3f59996f",
     "config/webgui/web/appearance.js": "e7d30c2cfb041ff35ed33380b69b91d255f74408a97905ada1d3436f248f99fb",
     "config/webgui/web/people.css": "1cb0bdc8f7f1f9a0b5b73cb5976497f3a257f25c5f06aa69aa3360b8475ae436",
     "config/webgui/web/people.js": "7589f191efbfd1ad643fad8dea38d09709c992e15b5d4fc88976898ef6421cfe",
@@ -20,7 +20,7 @@
     "config/webgui/web/fonts.css": "4edfb556f74faf7949d6ef4dacf8a519713c7420bdb9d9ea60b92d06217f2917",
     "config/webgui/web/NanumSquareRound-LICENSE.txt": "03ffe86255bb7e5e38db938054b773af4e18c519ce13ba4f7416a87c1172ca0a",
     "config/webgui/web/profile.js": "f84c68b1f4fc33a8f5bdf5c39237a11102e17bf688c11becfd3a7f07a3296f78",
-    "config/webgui/web/profile.css": "df80eab65bf957c3dd12db6c5f385c29e37c15e4676e2e72284574a4b7eb9b2a",
+    "config/webgui/web/profile.css": "f184bfe92664a5723e255eb909bb7710d164fd074e1fe30b9fd64ae1fd039199",
     "config/webgui/web/missions.js": "75b15813fc2a7fbf15039a1ad1f38a283a2f0240b22f9d7e536ae2797027d189",
     "config/webgui/web/missions.css": "f96b2f9fce6fcd483968f606a602284ecf866ccddc5ae6713866534865c43129",
     "config/webgui/web/layout.js": "ada858f3deecd2b95f888a16a0726cf8fa61ed52c917154365d0af19a23828fa",

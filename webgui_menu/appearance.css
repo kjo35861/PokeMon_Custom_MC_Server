@@ -71,7 +71,7 @@
 
 /* Equipped banners keep bright, readable lettering in both modes, including preview. */
 .profile-card,.profile-preview{--profile-ink:#f4f7ef;--profile-muted:#d1ded6;--profile-gold:#ffe0a0;color:var(--profile-ink)}
-.profile-card::before,.profile-preview::before{background:linear-gradient(90deg,#101d23d6 0%,#101d23c7 48%,#101d23d1 100%)}
+.profile-card::before,.profile-preview::before{background:linear-gradient(90deg,#101d238c 0%,#101d2352 48%,#101d2380 100%)}
 .profile-card #player-name,.profile-card .live-stats strong,.profile-preview-name{color:var(--profile-ink);text-shadow:0 1px 2px #0008}
 .profile-card .micro-label,.profile-preview .micro-label{color:var(--profile-muted);text-shadow:0 1px 2px #0008}
 .profile-card .profile-title,.profile-preview .profile-title,.profile-card .profile-title .pm-icon,.profile-preview .profile-title .pm-icon{color:var(--profile-gold);text-shadow:0 1px 2px #0008}

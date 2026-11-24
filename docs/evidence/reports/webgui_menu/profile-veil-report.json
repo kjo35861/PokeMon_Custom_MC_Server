@@ -1,0 +1,11 @@
+{
+  "headless_mock_only": true,
+  "game_tested": false,
+  "overlay_alpha_percent": [
+    55,
+    32,
+    50
+  ],
+  "theme_banner_cases": 6,
+  "card_preview_consistent": true
+}
