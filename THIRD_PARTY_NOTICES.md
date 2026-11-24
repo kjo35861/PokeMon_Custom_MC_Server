@@ -11,3 +11,8 @@
 Copyright 2021 The Gowun Dodum Project Authors. SIL Open Font License 1.1.
 원본: https://github.com/google/fonts/tree/main/ofl/gowundodum
 수정하지 않은 TTF 및 라이선스: `estate_mod/src/main/resources/assets/pocketmate/font/`. 라이선스 전문 `gowun_dodum_ofl.txt`를 모드에 함께 포함한다.
+
+## Galmuri9 (현재 게임 기본 글꼴)
+
+제작: quiple (Lee Minseo). 원본: https://github.com/quiple/galmuri
+SIL Open Font License 1.1. 원본 TTF와 라이선스 전문은 `estate_mod/src/main/resources/assets/pocketmate/font/galmuri9.ttf`, `galmuri_ofl.txt`에 포함한다.

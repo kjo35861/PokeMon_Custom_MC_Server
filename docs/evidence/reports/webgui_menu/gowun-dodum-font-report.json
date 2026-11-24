@@ -11,7 +11,8 @@
   "font_sha256": "a6e457933227483a11758fd0947bc74422a106d46f0bf057fdaa5af94a30067d",
   "game_tested": false,
   "restart_required": true,
-  "status": "staged_pending_game_close",
+  "status": "installed",
   "previous_game_failure": "TTF font/ prefix duplicated; default font failed to load",
-  "game_retest_pending": true
+  "game_retest_pending": true,
+  "installed_hash_matches": true
 }

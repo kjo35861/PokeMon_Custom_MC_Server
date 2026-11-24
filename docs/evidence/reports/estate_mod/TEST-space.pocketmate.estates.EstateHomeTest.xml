@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="space.pocketmate.estates.EstateHomeTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-11-24T15:43:55" hostname="DESKTOP-6FIEOUH" time="0.1">
+<testsuite name="space.pocketmate.estates.EstateHomeTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-11-24T15:49:35" hostname="DESKTOP-6FIEOUH" time="0.135">
   <properties/>
-  <testcase name="homeMustStayInsideOwnedTerritoryIncludingNegativeCoordinates()" classname="space.pocketmate.estates.EstateHomeTest" time="0.013"/>
-  <testcase name="missingOrForeignHomeFailsClosedAndDeletionRemovesAccess()" classname="space.pocketmate.estates.EstateHomeTest" time="0.014"/>
+  <testcase name="homeMustStayInsideOwnedTerritoryIncludingNegativeCoordinates()" classname="space.pocketmate.estates.EstateHomeTest" time="0.018"/>
+  <testcase name="missingOrForeignHomeFailsClosedAndDeletionRemovesAccess()" classname="space.pocketmate.estates.EstateHomeTest" time="0.02"/>
   <testcase name="invalidPositionsAndCreationMismatchNeverPersist()" classname="space.pocketmate.estates.EstateHomeTest" time="0.004"/>
-  <testcase name="legacyV3UsesEarliestClaimWithoutResettingLandOrWallet()" classname="space.pocketmate.estates.EstateHomeTest" time="0.014"/>
-  <testcase name="onlyLordMaySetButMembersMayResolveHome()" classname="space.pocketmate.estates.EstateHomeTest" time="0.014"/>
-  <testcase name="initialHomePersistsExactCreationPositionAndOrientation()" classname="space.pocketmate.estates.EstateHomeTest" time="0.004"/>
-  <testcase name="homeSurvivesUnrelatedEstateAndEconomyChanges()" classname="space.pocketmate.estates.EstateHomeTest" time="0.029"/>
-  <testcase name="failedSavePreservesPreviousHome()" classname="space.pocketmate.estates.EstateHomeTest" time="0.008"/>
+  <testcase name="legacyV3UsesEarliestClaimWithoutResettingLandOrWallet()" classname="space.pocketmate.estates.EstateHomeTest" time="0.02"/>
+  <testcase name="onlyLordMaySetButMembersMayResolveHome()" classname="space.pocketmate.estates.EstateHomeTest" time="0.023"/>
+  <testcase name="initialHomePersistsExactCreationPositionAndOrientation()" classname="space.pocketmate.estates.EstateHomeTest" time="0.006"/>
+  <testcase name="homeSurvivesUnrelatedEstateAndEconomyChanges()" classname="space.pocketmate.estates.EstateHomeTest" time="0.033"/>
+  <testcase name="failedSavePreservesPreviousHome()" classname="space.pocketmate.estates.EstateHomeTest" time="0.009"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

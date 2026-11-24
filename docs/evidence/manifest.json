@@ -20,65 +20,65 @@
     "reports/estate_mod/TEST-space.pocketmate.estates.ClaimStoreTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.ClaimStoreTest.xml",
       "kind": "junit-result",
-      "source_sha256": "94f80c957a9c3aa526617f947545ba2ca1c4129dde3ac34e7227285a27bf707d",
-      "published_sha256": "eeab84961dc8c7b8949249902a0c98001b13ccada0d80938c8fc65a29a8222ae",
-      "bytes": 2341,
+      "source_sha256": "56f1de2f5369ffff0baf08c80f92ccdbbc5a9ada56a9134d69c27b310744e097",
+      "published_sha256": "b98a23d012e0a6d9f1a0da53aa5a135c36fa0816333c7ac9eb3244dcde41583d",
+      "bytes": 2339,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.EstateCommunityTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.EstateCommunityTest.xml",
       "kind": "junit-result",
-      "source_sha256": "240f08a1c58a80c216b76a6a7a5aa79f91be5e1b14979e6f5dbf48b251aca5bd",
-      "published_sha256": "81d4079be517ba4121ad09446fa3a1631ed3909a48c6814d59fef3acae509514",
-      "bytes": 1946,
+      "source_sha256": "44549793dab22c1c7b56964e529f33f58ec40263ace00bccd4edcc1137a1dad3",
+      "published_sha256": "e11381ef0ba717a822ec9d51508fd2b37f9a343eda3caee3d0104be327600212",
+      "bytes": 1944,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.EstateEconomyTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.EstateEconomyTest.xml",
       "kind": "junit-result",
-      "source_sha256": "2269c4a01ecb4b1b54ee4913b9bb51be54d31f8cd458e67bf725c5a757f83bd7",
-      "published_sha256": "cb91aa97b0c57be5279f41250b97ad6ea8e7248d3c7c0523ea76531f2ae3a603",
-      "bytes": 1996,
+      "source_sha256": "3c18ba58ef387e7739dfe1c8dc848df9449431d4949dbcbf537d057135d5646f",
+      "published_sha256": "8cdd2b3060ea3d5eb0fb8f04da4ad3f7f1562bae0602caa103163080d5f4e39f",
+      "bytes": 1999,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.EstateHomeTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.EstateHomeTest.xml",
       "kind": "junit-result",
-      "source_sha256": "5820cfe7e061dfe2f686f180ec91f77f3c2785fb13a0dd14a00d585f532a0889",
-      "published_sha256": "a1ea668736fa7887bf0f0fc8a1665e311f84316ab9a7234b85da1ba56a866299",
+      "source_sha256": "c62d97b8cbb857d40e396108f00b853391986d44b20730cd49ad3b207cabb993",
+      "published_sha256": "cb37a8db53db37a292693194eb5087a58da7ccc02d62ead9f3a299bf08e92981",
       "bytes": 1417,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.LegendaryTitlesTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.LegendaryTitlesTest.xml",
       "kind": "junit-result",
-      "source_sha256": "7cb7545fd617a02632d9383f86a8df80cd4405593ccda5ac36e0643bd5806d1a",
-      "published_sha256": "f4e691b82ebf598ebb3e1266d3a59fc801db952b48b8879b913cb84d2752efa8",
+      "source_sha256": "40d8cd30d64d8e244131411148884acda24a977f4ece5c96f863cdbebd90a872",
+      "published_sha256": "bd1c1f2d4ea577f7c44732c37565e1287856e7e0e4bc44ae48ee389f4f7a54be",
       "bytes": 623,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.MapPixelCodecTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.MapPixelCodecTest.xml",
       "kind": "junit-result",
-      "source_sha256": "94d5b5da75190d840df7ecc486c0b8ed04c6cab1c2f8075867196b9df7a0ac16",
-      "published_sha256": "2d2aee123dc9b5f421b9c78d621986ff569c8c31f6f064869bd0f79ecd92040e",
-      "bytes": 580,
+      "source_sha256": "76f1562da439f19ea8f41d02519bd44b7c5cf503fe537647fcc27875c9b90af4",
+      "published_sha256": "0126cfe8b67e6b1e03b27e6142ba95dda9ec9e94f9cd3bedf439fadc0119c218",
+      "bytes": 578,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.NicknameStoreTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.NicknameStoreTest.xml",
       "kind": "junit-result",
-      "source_sha256": "bef1ec812e115bcd7760ccda5304a6dc1b319059cfbe9d6eeb84ba549561fb75",
-      "published_sha256": "e2af7f4ddf13ae123a3175f53bb2e599f3d37e810954b656f2bc899b555f96a3",
+      "source_sha256": "51c95e90bbb1271aa4aa0a027d2f92b330b67517af5dfc092f94839de481afa7",
+      "published_sha256": "b14c00892df0f04c88c47e776ebd9fc3548ca6a5d44e935312d7a500a97e339b",
       "bytes": 1173,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.ProfileStoreTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.ProfileStoreTest.xml",
       "kind": "junit-result",
-      "source_sha256": "49e7da341f279db0c4338a704f2bcb8476e193f751a63a07d90aba8791cc2eda",
-      "published_sha256": "72123efc2a8251fc551a43fb5e8417349b7d7a5571416248c88c74146f2dfd04",
-      "bytes": 1519,
+      "source_sha256": "92aecc71de8e3c4f54c53bab0929c72d4403f260dede782757757ab6056cf61f",
+      "published_sha256": "5a649a43302fe3b1a66424d09bbc0e98008d00793c69ce5646dac2c9d2387717",
+      "bytes": 1517,
       "sanitized": true
     },
     "reports/snowfrost_launcher/backend-report.json": {
@@ -228,9 +228,9 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "52b2db1ac5e4265b34a2984183655dd90f62eb4a126c0573659236bc890f1b1c",
-      "published_sha256": "0744437918611d1d6eb6c7950c004b0e99131bec0a00ef5969fa3dd362e2d220",
-      "bytes": 30371,
+      "source_sha256": "982aa4b416ea4816e119b154245c846740974b2ccbdaddf332f634d8ec92dbc7",
+      "published_sha256": "30847829c9d5cc7387a5fbb49e110536185ba77d29414eada3954c75107acc38",
+      "bytes": 30370,
       "sanitized": true
     },
     "reports/webgui_menu/estate-v0.10-integration.json": {
@@ -313,12 +313,20 @@
       "bytes": 497,
       "sanitized": true
     },
+    "reports/webgui_menu/galmuri9-font-report.json": {
+      "source": "webgui_menu/verification/galmuri9-font-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "a564e582613c62e0d894a5764dce73b5c73a2ce70cfdd138fc79304bdd55e5a3",
+      "published_sha256": "a12315b17ff87a747de27c886731294ad86103d9ac24cbe30a1099e841c2c01b",
+      "bytes": 503,
+      "sanitized": true
+    },
     "reports/webgui_menu/gowun-dodum-font-report.json": {
       "source": "webgui_menu/verification/gowun-dodum-font-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "063cc2675c5a6d389a6f5232b8ede92e818484a302c60e6890fa81dba2fce169",
-      "published_sha256": "82f91f247447301bdf2f9554cd6651b422d588292b429a172d972d8e23a7c798",
-      "bytes": 614,
+      "source_sha256": "38b42240ded2a902fde9e10da60517094ddd5e21a026b7b9b66cee45f8a574e0",
+      "published_sha256": "1adc45965363ab1eb9f567a163e5b53e7692d0b159e6807399be0427535f843b",
+      "bytes": 632,
       "sanitized": true
     },
     "reports/webgui_menu/grant-all-titles-report.json": {

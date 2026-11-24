@@ -6,13 +6,13 @@
     },
     {
       "type": "ttf",
-      "file": "pocketmate:gowun_dodum.ttf",
+      "file": "pocketmate:galmuri9.ttf",
       "shift": [
         0,
         0
       ],
-      "size": 9,
-      "oversample": 3
+      "size": 10,
+      "oversample": 1
     },
     {
       "type": "reference",

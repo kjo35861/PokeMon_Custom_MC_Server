@@ -1,0 +1,16 @@
+{
+  "font": "Galmuri9",
+  "mod_version": "0.10.5",
+  "hangul_syllables_checked": 11172,
+  "latin_letters_digits": true,
+  "fallback_references": true,
+  "title_bitmap_fonts_preserved": true,
+  "jar_resources_match": true,
+  "ttf_loader_resolved_path_checked": true,
+  "all_resource_paths_lowercase": true,
+  "font_sha256": "e84e821b18be15b9e3a907ceb83cfba25fabf51c80b7edf0d2921cf8f8e1a11d",
+  "game_tested": false,
+  "restart_required": true,
+  "status": "installed",
+  "installed_hash_matches": true
+}
