@@ -1,13 +1,13 @@
 {
-  "bundle": "PocketmateMenu-v0.12.7.zip",
-  "sha256": "6fae4be997153ae6e7ecaedbdf7e93c51863fdce8136d7672184af8d5ee8e8b9",
+  "bundle": "PocketmateMenu-v0.13.0.zip",
+  "sha256": "16ea0753be88a5cf2556a0346661350264766bcc5371cb92d6baee227f7d11c9",
   "files": {
-    "config/webgui/web/index.html": "7161779229f8736c0938d39a1a72b626759663aac5adc6af0dfcfe067af50a17",
+    "config/webgui/web/index.html": "3aa77a72c1fb22bcc59e98b888871205bd41e6aa4e02a6e8746ed739baa319f6",
     "config/webgui/web/menu.css": "ef7616ee8c009a7fdf7147fc18cba192cc48c499a4ad6ef8293ccbffbd2cc83c",
-    "config/webgui/web/menu.js": "312786916af8c06509fc576a47fd1221640cf7bbbbf5f119567b1bff82037a57",
-    "config/webgui/web/estate.css": "a31d1dc2c5659d6bce11e75e0c0b047fcbdb26c03da100f0a7519e052026fe3e",
+    "config/webgui/web/menu.js": "5a5e1881b0b8189cd1e084b452d867b27bc51f24a7f3f76c5b335d8b6137d731",
+    "config/webgui/web/estate.css": "5297ebb61798ff653657b6938e1bee1e7412098a47a849578e8454724b000fa7",
     "config/webgui/web/estate-map.js": "59dac81c769a12b2402c81bf456a785cb22ec1c087a394417e42d75b57c4a193",
-    "config/webgui/web/estate-app.js": "cfad607bcd522ceb7192769cebc56ea5c914a25b685e4ddb8eb55908f5059b70",
+    "config/webgui/web/estate-app.js": "8f94eaac929d490493be4595e593b6b0ab7f4ba69f6364d5614e771bf42d1e1f",
     "config/webgui/web/estate-background.svg": "14a97220344eab9582540d3ae53ac50728a42aca775271b42bd5a324653909d6",
     "config/webgui/web/theme.css": "fa65e3ba205c3ef342968234060980b1d1fa2986cb927dbad98e93aa2ec76404",
     "config/webgui/web/appearance.css": "eddc87e9cba52f1794b3de5a7b6fc0e16456036293e3514c436d7809527219db",
@@ -16,6 +16,7 @@
     "config/webgui/web/people.js": "7589f191efbfd1ad643fad8dea38d09709c992e15b5d4fc88976898ef6421cfe",
     "config/webgui/web/help.css": "0f361847f3022164744fa6d38758fc4941d24222091880f85c19c6d4622c6ae6",
     "config/webgui/web/help.js": "d4d34a5a39cc4413b0532d9b3f09f8d931bb140ef80f89d7a85dfc7cec48da2c",
+    "config/webgui/web/travel.js": "db402c7ddd7047b13765ce0e89ca3060cc4c03a2470b1c8dfe1946fbf64b4839",
     "config/webgui/web/fonts.css": "4edfb556f74faf7949d6ef4dacf8a519713c7420bdb9d9ea60b92d06217f2917",
     "config/webgui/web/NanumSquareRound-LICENSE.txt": "03ffe86255bb7e5e38db938054b773af4e18c519ce13ba4f7416a87c1172ca0a",
     "config/webgui/web/profile.js": "4e0394656a2bfd73e4b83a2c79f8345f542c74709211c0919d7b7f32f65be909",
@@ -23,10 +24,10 @@
     "config/webgui/web/icons.css": "384535ec5d66ace1f31650aecceca5f7e74d3f3d47b852a2668b66c7f09813b8",
     "config/webgui/web/icons.js": "4272e973c1de59c42b14b9f36ad2c3d6dc7de192d091e641a57d0a7d69c112c2",
     "config/webgui/web/pocketmate-mark.png": "ce4ef2099db8f7c01b1f1f68463790f24eda4c74e91d5fb121ef68108b132b9e",
-    "mods/pocketmate-estates-0.7.0.jar": "755648582673db77ec0203351242f1c3bff8f4a6b611bbfd368b8e3b39073d11",
+    "mods/pocketmate-estates-0.8.0.jar": "9d18dabe33a82748b192a881befb45993b203aed5d713046576c6ecb4ea3e4a0",
     "client-only/pocketmate-webgui-alpha-0.1.0.jar": "2c2440d9477aef5dbfc4b4b39291b9d4a072392ca1387e3b3771fe5aa98eff73",
-    "메뉴 사용 안내.txt": "d74bdb74d6c126d80dba8f1f05c9aa6c32c98770d680ed63ee54f4133c939dcd",
-    "영지 설치와 운영.txt": "c0c9d9ee66668e3808d4887394be50a92a6cfc9b670ab4aea42448d772290e3c",
+    "메뉴 사용 안내.txt": "33002d036a16e98bbc73e711a6c03675054a675a0e5fd6bc3684f896c3a9b467",
+    "영지 설치와 운영.txt": "5c304cf4da4215fe1f416283db2e049ea668d2e78d7447a643425dce5898c7de",
     "config/webgui/web/profile-assets/bulbasaur.png": "7307265558511ea080add119ab7e86b9f87aaab4cedef76df2a13290ca5ad8c9",
     "config/webgui/web/profile-assets/charmander.png": "4e943ded73aff00aa8323800481412cf0912649d640f5ad5021e8e1e2b3e77c6",
     "config/webgui/web/profile-assets/eevee.png": "56ad4ec369aadb71218b080e6a67b85eea97b3cd63f9d3097d63d9b4b7483df9",
@@ -62,5 +63,5 @@
     "config/webgui/web/icons/vault.svg": "b4c37474a7eec70420a74144b2564df0fad5e106563449b51c86c2186b53fd4f",
     "config/webgui/web/icons/x.svg": "4456741f0d25f27e97bd7c6ace2a453007c68e2978e72d3282e98c9092da2bf8"
   },
-  "deployed_assets_match": true
+  "deployed_assets_match": false
 }

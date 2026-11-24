@@ -11,6 +11,9 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.util.math.Box;
+import net.minecraft.util.math.Direction;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -36,7 +39,7 @@ public final class EstatesMod implements ModInitializer {
         ClaimStore store;
         String failure;
         boolean freeTestMode;
-        final Map<UUID,Long> views=new HashMap<>(),purchases=new HashMap<>();
+        final Map<UUID,Long> views=new HashMap<>(),purchases=new HashMap<>(),travels=new HashMap<>();
         final Map<UUID,LinkedHashSet<String>> mutations=new HashMap<>();
         final Map<UUID,Integer> radii=new HashMap<>();
         final Map<UUID,String> mapSessions=new HashMap<>();
@@ -47,7 +50,7 @@ public final class EstatesMod implements ModInitializer {
         ServerLifecycleEvents.SERVER_STOPPED.register(server->sessions.remove(server));
         ServerPlayConnectionEvents.JOIN.register((handler,sender,server)->seen(server,handler.player));
         ServerPlayConnectionEvents.DISCONNECT.register((handler,server)->{
-            seen(server,handler.player);Session state=sessions.get(server);if(state!=null){UUID id=handler.player.getUuid();state.views.remove(id);state.purchases.remove(id);state.mutations.remove(id);state.radii.remove(id);state.mapSessions.remove(id);}
+            seen(server,handler.player);Session state=sessions.get(server);if(state!=null){UUID id=handler.player.getUuid();state.views.remove(id);state.purchases.remove(id);state.travels.remove(id);state.mutations.remove(id);state.radii.remove(id);state.mapSessions.remove(id);}
         });
         WebGuiBridge.listen(CHANNEL,(player,payload)->{
             MinecraftServer server=player.getServer();
@@ -122,6 +125,31 @@ public final class EstatesMod implements ModInitializer {
                 if(!seen.add(requestId)){error(player,requestId,"이미 처리한 요청입니다. 새로고침 후 확인해주세요.");return;}
                 if(seen.size()>128)seen.remove(seen.iterator().next());
             }
+            if(action.equals("teleportHome")){
+                Long last=state.travels.get(id);if(last!=null&&now-last<5000){error(player,requestId,"마을 이동 후 5초 뒤에 다시 이용해 주세요.");return;}
+                try{
+                    ClaimStore.Home home=state.store.homeFor(id);
+                    if(!player.isAlive()||player.isSleeping()||player.hasVehicle())throw new ClaimStore.Denied("지금은 마을로 이동할 수 없습니다. 깨어 있는 상태에서 탈것에서 내려 다시 시도해 주세요.");
+                    ServerWorld overworld=server.getOverworld();ClaimStore.Home target=resolveHome(overworld,player,home);
+                    if(target==null)throw new ClaimStore.Denied("홈 지점이 막혀 있거나 안전하지 않습니다. 영주에게 홈 지점을 다시 지정해 달라고 요청해 주세요.");
+                    player.teleport(overworld,target.x(),target.y(),target.z(),target.yaw(),target.pitch());player.fallDistance=0;
+                    state.travels.put(id,now);
+                    JsonObject response=new JsonObject();response.addProperty("type","travel");response.addProperty("requestId",requestId);response.addProperty("message","영지 홈으로 이동했습니다.");WebGuiBridge.emit(player,CHANNEL,GSON.toJson(response));
+                }catch(ClaimStore.Denied denied){error(player,requestId,denied.getMessage());}
+                return;
+            }
+            if(action.equals("setHome")){
+                Long last=state.purchases.get(id);if(last!=null&&now-last<450){error(player,requestId,"요청을 처리 중입니다. 잠시 후 다시 시도해 주세요.");return;}state.purchases.put(id,now);
+                try{
+                    if(!player.getWorld().getRegistryKey().equals(World.OVERWORLD))throw new ClaimStore.Denied("홈 지점은 오버월드의 내 영지 안에서만 지정할 수 있습니다.");
+                    ClaimStore.Home home=standingHome(player);
+                    if(!player.isAlive()||player.hasVehicle()||!player.isOnGround()||!safeHome(server.getOverworld(),player,home))throw new ClaimStore.Denied("안전하고 단단한 바닥에 서서 홈 지점을 지정해 주세요.");
+                    state.store.setHome(id,home);
+                    snapshot(server,player,state,requestId,(int)Math.floor(home.x()/16),(int)Math.floor(home.z()/16),"현재 위치를 영지 홈으로 지정했습니다.");
+                }catch(ClaimStore.Denied denied){error(player,requestId,denied.getMessage());}
+                catch(IOException failure){LOG.error("Estate home not committed",failure);error(player,requestId,"홈 지점을 저장하지 못했습니다. 기존 홈 지점은 유지됩니다.");}
+                return;
+            }
             if(Set.of("upgrade","deposit","invite","acceptInvite","declineInvite","role","kick","notice","image","deleteEstate").contains(action)){
                 Long last=state.purchases.get(id);if(last!=null&&now-last<450){error(player,requestId,"요청을 처리 중입니다. 잠시 후 다시 시도해주세요.");return;}state.purchases.put(id,now);
                 try{
@@ -164,7 +192,7 @@ public final class EstatesMod implements ModInitializer {
             }
             for(ClaimStore.Key chunk:selection)if(!ClaimStore.inBounds(chunk.x(),chunk.z())||!server.getOverworld().getWorldBorder().contains(new ChunkPos(chunk.x(),chunk.z()))){error(player,requestId,"월드 경계 밖의 청크는 구매할 수 없습니다.");return;}
             try {
-                if(action.equals("create"))state.store.createEstate(id,player.getGameProfile().getName(),text(request,"name",80),x,z);
+                if(action.equals("create"))state.store.createEstate(id,player.getGameProfile().getName(),text(request,"name",80),x,z,standingHome(player));
                 else {
                     ClaimStore.Progress progress=state.store.progress(id);
                     if(progress==null){error(player,requestId,"영주만 청크를 구매할 수 있습니다.");return;}
@@ -186,6 +214,27 @@ public final class EstatesMod implements ModInitializer {
             catch(IOException saveError){LOG.error("Estate purchase not committed",saveError);error(player,requestId,"영지 정보를 저장하지 못해 구매를 취소했습니다. 소유권은 변경되지 않았습니다.");}
         } catch(Exception malformed){LOG.debug("Rejected malformed estate request",malformed);error(player,requestId,"잘못된 영지 요청입니다. 메뉴에서 다시 시도해주세요.");}
     }
+    private static ClaimStore.Home standingHome(ServerPlayerEntity player){return new ClaimStore.Home(player.getX(),player.getY(),player.getZ(),player.getYaw(),player.getPitch(),false);}
+    private static boolean dangerous(BlockState state){return state.isOf(Blocks.MAGMA_BLOCK)||state.isOf(Blocks.CACTUS)||state.isOf(Blocks.CAMPFIRE)||state.isOf(Blocks.SOUL_CAMPFIRE)||state.isOf(Blocks.FIRE)||state.isOf(Blocks.SOUL_FIRE)||state.isOf(Blocks.SWEET_BERRY_BUSH)||state.isOf(Blocks.WITHER_ROSE)||state.isOf(Blocks.POWDER_SNOW)||state.isOf(Blocks.NETHER_PORTAL)||state.isOf(Blocks.END_PORTAL)||state.isOf(Blocks.END_GATEWAY);}
+    private static boolean safeHome(ServerWorld world,ServerPlayerEntity player,ClaimStore.Home home){
+        BlockPos feet=BlockPos.ofFloored(home.x(),home.y(),home.z()),ground=BlockPos.ofFloored(home.x(),home.y()-.01,home.z());
+        if(!world.getWorldBorder().contains(feet)||home.y()<world.getBottomY()+1||home.y()+1.8>=world.getTopY())return false;
+        for(BlockPos pos:List.of(ground,feet,feet.up())){BlockState state=world.getBlockState(pos);if(dangerous(state)||!state.getFluidState().isEmpty())return false;}
+        return world.getBlockState(ground).isSideSolidFullSquare(world,ground,Direction.UP)&&world.isSpaceEmpty(player,new Box(home.x()-.3,home.y(),home.z()-.3,home.x()+.3,home.y()+1.8,home.z()+.3));
+    }
+    private static ClaimStore.Home resolveHome(ServerWorld world,ServerPlayerEntity player,ClaimStore.Home home){
+        int chunkX=(int)Math.floor(home.x()/16),chunkZ=(int)Math.floor(home.z()/16);
+        if(!world.getWorldBorder().contains(new ChunkPos(chunkX,chunkZ)))return null;
+        world.getChunk(chunkX,chunkZ); // Only load the registered Overworld home chunk.
+        if(!home.surface())return safeHome(world,player,home)?home:null;
+        // Old stores never recorded a Y coordinate. Search the first owned chunk's surface only.
+        for(int dz=0;dz<16;dz++)for(int dx=0;dx<16;dx++){
+            int x=chunkX*16+(8+dx)%16,z=chunkZ*16+(8+dz)%16;
+            ClaimStore.Home target=new ClaimStore.Home(x+.5,world.getTopY(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,x,z),z+.5,home.yaw(),home.pitch(),false);
+            if(safeHome(world,player,target))return target;
+        }
+        return null;
+    }
     private void snapshot(MinecraftServer server,ServerPlayerEntity player,Session state,String requestId,int cx,int cz,String message) {
         UUID id=player.getUuid();ChunkPos standing=player.getChunkPos();ClaimStore.Estate estate=state.store.estateFor(id);UUID estateId=estate==null?id:estate.owner();List<ClaimStore.Claim> mine=state.store.owned(estateId);
         JsonObject data=new JsonObject();data.addProperty("type","snapshot");data.addProperty("requestId",requestId);data.addProperty("dimension","minecraft:overworld");data.addProperty("mapSession",state.mapSessions.getOrDefault(id,requestId));
@@ -204,8 +253,9 @@ public final class EstatesMod implements ModInitializer {
         JsonArray ledger=new JsonArray();if(progress!=null)for(var entry:progress.ledger()){JsonObject row=new JsonObject();row.addProperty("type",entry.type());row.addProperty("amount",entry.amount());row.addProperty("level",entry.level());row.addProperty("at",entry.at());ledger.add(row);}data.add("vaultHistory",ledger);
         data.addProperty("currentMine",current!=null&&current.owner().equals(estateId));data.addProperty("centerX",cx);data.addProperty("centerZ",cz);data.addProperty("radius",state.radii.getOrDefault(id,RADIUS));
         int radius=state.radii.getOrDefault(id,RADIUS);data.addProperty("playerName",player.getGameProfile().getName());
-        JsonArray history=new JsonArray();for(int i=mine.size()-1;i>=Math.max(0,mine.size()-30);i--){ClaimStore.Claim claim=mine.get(i);JsonObject item=new JsonObject();item.addProperty("x",claim.x());item.addProperty("z",claim.z());item.addProperty("at",claim.createdAt());history.add(item);}data.add("history",history);
-        if(!mine.isEmpty()){data.addProperty("homeX",mine.getFirst().x());data.addProperty("homeZ",mine.getFirst().z());}
+        if(estate!=null){ClaimStore.Home home=estate.home();data.add("home",GSON.toJsonTree(home));data.addProperty("homeX",(int)Math.floor(home.x()/16));data.addProperty("homeZ",(int)Math.floor(home.z()/16));}
+        ClaimStore.Claim standingClaim=player.getWorld().getRegistryKey().equals(World.OVERWORLD)?state.store.get(standing.x,standing.z):null;
+        data.addProperty("canSetHome",estate!=null&&estate.owner().equals(id)&&standingClaim!=null&&standingClaim.owner().equals(id));
         if(message!=null)data.addProperty("message",message);
         JsonArray cells=new JsonArray();ServerWorld world=server.getOverworld();
         for(int z=cz-radius;z<=cz+radius;z++)for(int x=cx-radius;x<=cx+radius;x++) {

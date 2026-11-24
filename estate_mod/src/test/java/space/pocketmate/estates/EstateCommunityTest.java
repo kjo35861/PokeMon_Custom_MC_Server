@@ -62,7 +62,7 @@ class EstateCommunityTest {
     }
     @Test void legacyWorldMigratesWithoutLosingClaims() throws Exception {
         ClaimStore s=village();Path path=root.resolve("ownership.json");JsonObject json=JsonParser.parseString(Files.readString(path)).getAsJsonObject();json.addProperty("formatVersion",1);json.remove("estates");json.remove("players");Files.writeString(path,json.toString());
-        ClaimStore migrated=store();assertEquals("Lord의 영지",migrated.estateFor(lord).name());assertEquals(lord,migrated.get(0,0).owner());migrated.seen(lord,"Lord",500);assertNotNull(store().estateFor(lord));assertTrue(Files.readString(path).contains("\"formatVersion\": 3"));
+        ClaimStore migrated=store();assertEquals("Lord의 영지",migrated.estateFor(lord).name());assertEquals(lord,migrated.get(0,0).owner());migrated.seen(lord,"Lord",500);assertNotNull(store().estateFor(lord));assertTrue(Files.readString(path).contains("\"formatVersion\": 4"));
     }
     @Test void damagedCommunityDataCannotResetWorld() throws Exception {
         village();Path path=root.resolve("ownership.json");JsonObject json=JsonParser.parseString(Files.readString(path)).getAsJsonObject();json.remove("estates");Files.writeString(path,json.toString());assertThrows(java.io.IOException.class,this::store);

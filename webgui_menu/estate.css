@@ -150,3 +150,11 @@
 @media(min-width:1001px){.estate-screen .estate-vault-stage{display:block;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#6a8574 transparent;padding-right:10px}.estate-vault-stage>.estate-vault{padding-bottom:24px}}
 .estate-schedule-link{border:1px solid #b7d6c03d;border-radius:5px;background:#b7d6c00b;color:#d0dfc3;padding:8px 12px;font-size:11px;margin:0 0 18px}
 .estate-growth-members{display:flex;justify-content:space-between;gap:12px;color:#acc1ad;font-size:calc(11px * var(--text-scale,1));line-height:1.6;margin:0 0 17px}.estate-growth-members b{color:#dce7d2;white-space:nowrap}
+
+.estate-settings-page{padding:4px 0 24px;min-width:0}
+.estate-home-card{max-width:760px}
+.estate-home-status{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin:22px 0;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:calc(12px * var(--text-scale,1));color:var(--ink)}
+.estate-home-status>span{color:var(--soft-text)}
+.estate-home-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.estate-home-actions button{font-size:12px;gap:8px}
+.estate-home-actions button:disabled{opacity:.4;cursor:not-allowed}

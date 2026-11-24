@@ -1,0 +1,35 @@
+{
+  "menu_version": "0.13.0",
+  "mod_version": "0.8.0",
+  "estate_settings_replaces_history": true,
+  "default_new_home": "server player position and orientation on creation",
+  "legacy_home": "oldest owned Overworld chunk, safe surface search at travel time",
+  "setter": "lord only, own Overworld territory, safe solid ground",
+  "travel": "current member own estate home, Overworld destination only, 5 second success cooldown",
+  "client_destination_or_identity_used": false,
+  "unsafe_destination_rejected": true,
+  "store_format": 4,
+  "legacy_formats_read": [
+    1,
+    2,
+    3
+  ],
+  "existing_equipment_wallet_claims_preserved": true,
+  "java_tests_passed": 58,
+  "new_home_tests": 8,
+  "home_settings_contract_passed": true,
+  "travel_bridge_contract_passed": true,
+  "dimension_request_cases_passed": 80,
+  "javascript_syntax_passed": true,
+  "css_parse_passed": true,
+  "game_interaction": false,
+  "actual_teleport_tested": false,
+  "browser_visual_check": false,
+  "installation": {
+    "status": "waiting_for_game_to_release_old_jar",
+    "version": "0.8.0",
+    "restart_required": true
+  },
+  "restart_required": true,
+  "mod_sha256": "9d18dabe33a82748b192a881befb45993b203aed5d713046576c6ecb4ea3e4a0"
+}

@@ -49,6 +49,7 @@
   };
   const notConnected = name => showInfo(name, '이 메뉴의 기본 화면이 준비되었어요.\n서버 기능을 연결하면 실제 정보를 확인하고 이용할 수 있어요.');
   function selectPage(page) {
+    if(page==='travel'){window.PocketmateTravel.go();return;}
     window.PocketmateEstates?.unmount();
     window.PocketmateProfile?.unmount();
     $('estate-page').hidden=true;
@@ -117,6 +118,10 @@
   }
   $('close-menu').addEventListener('click',closeMenu);
   $('close-estate').addEventListener('click',closeMenu);
+  window.addEventListener('pocketmate:travel-result',event=>{
+    if(event.detail?.success)closeMenu();
+    else showInfo('마을 이동',event.detail?.message||'마을 이동을 확인해 주세요.');
+  });
   function applyClient(client) {
     if (!client || typeof client.username !== 'string' || !client.username.trim()) return;
     liveClient = client;

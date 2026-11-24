@@ -20,7 +20,8 @@ public final class ClaimStore {
     public record Member(UUID id,String name,Role role,long joinedAt) {}
     public record Invitation(UUID id,String name,long at) {}
     public record KnownPlayer(UUID id,String name,long lastSeen) {}
-    public record Estate(UUID owner,String name,List<Member> members,List<Invitation> invitations,String announcement,String image) {
+    public record Home(double x,double y,double z,float yaw,float pitch,boolean surface) {}
+    public record Estate(UUID owner,String name,List<Member> members,List<Invitation> invitations,String announcement,String image,Home home) {
         public Estate { members=List.copyOf(members);invitations=List.copyOf(invitations); }
     }
     public static final class Denied extends Exception { Denied(String message){super(message);} }
@@ -34,7 +35,7 @@ public final class ClaimStore {
     private final Map<UUID,Estate> estates=new LinkedHashMap<>();
     private final Map<UUID,KnownPlayer> players=new LinkedHashMap<>();
     private static final class State {
-        int formatVersion = 3;
+        int formatVersion = 4;
         String dimension = "minecraft:overworld";
         List<Claim> claims = new ArrayList<>();
         List<Estate> estates = new ArrayList<>();
@@ -69,15 +70,23 @@ public final class ClaimStore {
                     if(!field.equals("createdAt")&&(number<Integer.MIN_VALUE||number>Integer.MAX_VALUE))throw new IOException("Invalid ownership coordinates");
                 }
             }
+            if(document.get("formatVersion").getAsInt()==4)for(JsonElement entry:document.getAsJsonArray("estates")){
+                JsonObject home=entry.getAsJsonObject().getAsJsonObject("home");
+                if(home==null)throw new IOException("Missing estate home");
+                for(String field:List.of("x","y","z","yaw","pitch","surface")){
+                    JsonElement value=home.get(field);
+                    if(value==null||!value.isJsonPrimitive()||(field.equals("surface")?!value.getAsJsonPrimitive().isBoolean():!value.getAsJsonPrimitive().isNumber()))throw new IOException("Incomplete estate home");
+                }
+            }
             State state = GSON.fromJson(document, State.class);
-            if (state == null || (state.formatVersion != 1 && state.formatVersion != 2 && state.formatVersion != 3) || !"minecraft:overworld".equals(state.dimension) || state.claims == null)
+            if (state == null || (state.formatVersion != 1 && state.formatVersion != 2 && state.formatVersion != 3 && state.formatVersion != 4) || !"minecraft:overworld".equals(state.dimension) || state.claims == null)
                 throw new IOException("Invalid estate ownership file");
             for (Claim claim : state.claims) {
                 if (claim == null || claim.owner == null || claim.ownerName == null || claim.ownerName.isBlank() || claim.createdAt < 0 || !inBounds(claim.x,claim.z) ||
                     claims.putIfAbsent(new Key(claim.x,claim.z),claim) != null) throw new IOException("Invalid or duplicate chunk ownership");
             }
             if(state.formatVersion==1){
-                for(Claim claim:claims.values())estates.computeIfAbsent(claim.owner,id->new Estate(id,claim.ownerName+"의 영지",List.of(new Member(id,claim.ownerName,Role.LORD,claim.createdAt)),List.of(),"",""));
+                for(Claim claim:claims.values())estates.computeIfAbsent(claim.owner,id->new Estate(id,claim.ownerName+"의 영지",List.of(new Member(id,claim.ownerName,Role.LORD,claim.createdAt)),List.of(),"","",null));
             }else{
                 if(!document.has("estates")||!document.get("estates").isJsonArray()||!document.has("players")||!document.get("players").isJsonArray())throw new IOException("Missing estate community data");
                 Set<UUID> members=new HashSet<>();
@@ -93,6 +102,12 @@ public final class ClaimStore {
                 for(KnownPlayer player:state.players)if(player.id==null||player.name==null||player.name.isBlank()||player.lastSeen<0||players.putIfAbsent(player.id,player)!=null)throw new IOException("Invalid player history");
                 for(Claim claim:claims.values())if(!estates.containsKey(claim.owner))throw new IOException("Ownership has no estate");
                 for(Estate estate:estates.values())if(owned(estate.owner).isEmpty())throw new IOException("Estate has no ownership");
+            }
+            for(Estate estate:new ArrayList<>(estates.values())){
+                if(state.formatVersion<4){
+                    Claim first=owned(estate.owner).stream().min(Comparator.comparingLong(Claim::createdAt)).orElseThrow();
+                    estates.put(estate.owner,new Estate(estate.owner,estate.name,estate.members,estate.invitations,estate.announcement,estate.image,new Home(first.x*16+8.5,0,first.z*16+8.5,0,0,true)));
+                }else if(!validHome(estate.home)||get(homeChunk(estate.home.x),homeChunk(estate.home.z))==null||!get(homeChunk(estate.home.x),homeChunk(estate.home.z)).owner.equals(estate.owner))throw new IOException("Invalid estate home");
             }
             if(state.formatVersion<3){
                 for(Estate estate:estates.values()){int count=owned(estate.owner).size();progress.put(estate.owner,new Progress(estate.owner,EstateRules.migrationLevel(count),0,count,List.of()));}
@@ -133,7 +148,12 @@ public final class ClaimStore {
         try{return createEstate(owner,ownerName,ownerName+"의 영지",x,z);}catch(Denied denied){throw new Rejected(Failure.ALREADY_HAS_ESTATE);}
     }
     public synchronized Claim createEstate(UUID owner,String ownerName,String name,int x,int z) throws Rejected,IOException,Denied {
+        return createEstate(owner,ownerName,name,x,z,new Home(x*16+8.5,0,z*16+8.5,0,0,true));
+    }
+    public synchronized Claim createEstate(UUID owner,String ownerName,String name,int x,int z,Home home) throws Rejected,IOException,Denied {
         name=validName(name);
+        if(!inBounds(x,z))throw new Rejected(Failure.OUT_OF_BOUNDS);
+        if(!validHome(home)||homeChunk(home.x)!=x||homeChunk(home.z)!=z)throw new Denied("영지 홈은 최초 영지 청크 안에 있어야 합니다.");
         if(estateFor(owner)!=null)throw new Denied("이미 소속된 영지가 있습니다.");
         boolean create=true;
         if (!inBounds(x,z))throw new Rejected(Failure.OUT_OF_BOUNDS);
@@ -146,7 +166,7 @@ public final class ClaimStore {
         Map<Key,Claim> next=new LinkedHashMap<>(claims);next.put(new Key(x,z),claim);
         // Commit durable ownership before announcing success. A failed save never updates memory.
         Map<UUID,Estate> nextEstates=new LinkedHashMap<>(estates);
-        nextEstates.put(owner,new Estate(owner,name,List.of(new Member(owner,ownerName,Role.LORD,claim.createdAt)),List.of(),"",""));
+        nextEstates.put(owner,new Estate(owner,name,List.of(new Member(owner,ownerName,Role.LORD,claim.createdAt)),List.of(),"","",home));
         Map<UUID,Progress> nextProgress=new LinkedHashMap<>(progress);nextProgress.put(owner,new Progress(owner,0,0,1,List.of()));
         persist(next.values(),nextEstates,players,nextProgress);progress.clear();progress.putAll(nextProgress);claims.put(new Key(x,z),claim);estates.clear();estates.putAll(nextEstates);return claim;
     }
@@ -190,6 +210,18 @@ public final class ClaimStore {
         return name;
     }
     public synchronized Estate estateFor(UUID player){return estates.values().stream().filter(e->e.members.stream().anyMatch(m->m.id.equals(player))).findFirst().orElse(null);}
+    private static int homeChunk(double position){return (int)Math.floor(position/16);}
+    private static boolean validHome(Home home){return home!=null&&Double.isFinite(home.x)&&Double.isFinite(home.y)&&Double.isFinite(home.z)&&Float.isFinite(home.yaw)&&Float.isFinite(home.pitch)&&home.y>=-64&&home.y<320&&home.pitch>=-90&&home.pitch<=90&&inBounds(homeChunk(home.x),homeChunk(home.z))&&Math.abs(home.x)<30_000_000&&Math.abs(home.z)<30_000_000;}
+    public synchronized Home homeFor(UUID actor) throws Denied {
+        Estate estate=estateFor(actor);if(estate==null)throw new Denied("소속된 영지가 없습니다. 먼저 영지를 생성하거나 초대를 수락해 주세요.");return estate.home;
+    }
+    public synchronized void setHome(UUID actor,Home home) throws Denied,IOException {
+        Estate estate=lord(actor);
+        if(!validHome(home)||home.surface)throw new Denied("홈 위치가 올바르지 않습니다.");
+        Claim claim=get(homeChunk(home.x),homeChunk(home.z));
+        if(claim==null||!claim.owner.equals(estate.owner))throw new Denied("내 영지 안에서만 홈 지점을 지정할 수 있습니다.");
+        saveEstate(new Estate(estate.owner,estate.name,estate.members,estate.invitations,estate.announcement,estate.image,home));
+    }
     public synchronized List<KnownPlayer> knownPlayers(){return List.copyOf(players.values());}
     public synchronized KnownPlayer known(UUID id){return players.get(id);}
     public synchronized List<Estate> invitationsFor(UUID id){long cutoff=System.currentTimeMillis()-7*86400000L;return estates.values().stream().filter(e->e.invitations.stream().anyMatch(i->i.id.equals(id)&&i.at>=cutoff)).limit(20).toList();}
@@ -207,7 +239,7 @@ public final class ClaimStore {
         if(active.size()>=64)throw new Denied("대기 중인 초대 한도에 도달했습니다.");
         if(active.stream().anyMatch(i->i.id.equals(target)))throw new Denied("이미 초대한 유저입니다.");
         List<Invitation> next=new ArrayList<>(active);next.add(new Invitation(target,player.name,System.currentTimeMillis()));
-        saveEstate(new Estate(actor,estate.name,estate.members,next,estate.announcement,estate.image));
+        saveEstate(new Estate(actor,estate.name,estate.members,next,estate.announcement,estate.image,estate.home));
     }
     public synchronized void answerInvite(UUID actor,UUID owner,boolean accept) throws Denied,IOException {
         Estate estate=estates.get(owner);long cutoff=System.currentTimeMillis()-7*86400000L;
@@ -217,23 +249,23 @@ public final class ClaimStore {
         List<Invitation> invitations=estate.invitations.stream().filter(i->!i.id.equals(actor)).toList();
         List<Member> members=new ArrayList<>(estate.members);
         if(accept){KnownPlayer player=players.get(actor);if(player==null)throw new Denied("플레이어 정보를 확인해주세요.");members.add(new Member(actor,player.name,Role.RESIDENT,System.currentTimeMillis()));}
-        saveEstate(new Estate(owner,estate.name,members,invitations,estate.announcement,estate.image));
+        saveEstate(new Estate(owner,estate.name,members,invitations,estate.announcement,estate.image,estate.home));
     }
     public synchronized void changeRole(UUID actor,UUID target,Role role) throws Denied,IOException {
         Estate estate=lord(actor);
         if(target.equals(actor)||role==null||role==Role.LORD)throw new Denied("영주 등급은 변경하거나 다른 유저에게 부여할 수 없습니다.");
         if(estate.members.stream().noneMatch(m->m.id.equals(target)))throw new Denied("해당 마을원이 없습니다.");
         List<Member> members=estate.members.stream().map(m->m.id.equals(target)?new Member(m.id,m.name,role,m.joinedAt):m).toList();
-        saveEstate(new Estate(actor,estate.name,members,estate.invitations,estate.announcement,estate.image));
+        saveEstate(new Estate(actor,estate.name,members,estate.invitations,estate.announcement,estate.image,estate.home));
     }
     public synchronized void kick(UUID actor,UUID target) throws Denied,IOException {
         Estate estate=lord(actor);if(target.equals(actor))throw new Denied("영주는 추방할 수 없습니다.");
         if(estate.members.stream().noneMatch(m->m.id.equals(target)))throw new Denied("해당 마을원이 없습니다.");
-        saveEstate(new Estate(actor,estate.name,estate.members.stream().filter(m->!m.id.equals(target)).toList(),estate.invitations,estate.announcement,estate.image));
+        saveEstate(new Estate(actor,estate.name,estate.members.stream().filter(m->!m.id.equals(target)).toList(),estate.invitations,estate.announcement,estate.image,estate.home));
     }
     public synchronized void updateNotice(UUID actor,String text) throws Denied,IOException {
         Estate estate=lord(actor);if(text==null||text.length()>1000)throw new Denied("공지는 1000자 이내로 작성해주세요.");
-        saveEstate(new Estate(actor,estate.name,estate.members,estate.invitations,text,estate.image));
+        saveEstate(new Estate(actor,estate.name,estate.members,estate.invitations,text,estate.image,estate.home));
     }
     public synchronized void updateImage(UUID actor,String image) throws Denied,IOException {
         Estate estate=lord(actor);
@@ -246,7 +278,7 @@ public final class ClaimStore {
                 var reader=readers.next();try{reader.setInput(input);if(!reader.getFormatName().equalsIgnoreCase("JPEG")||reader.getWidth(0)>1024||reader.getHeight(0)>768)throw new IllegalArgumentException();}finally{reader.dispose();}
             }
         }catch(Exception invalid){throw new Denied("올바른 JPEG 이미지를 선택해주세요.");}
-        saveEstate(new Estate(actor,estate.name,estate.members,estate.invitations,estate.announcement,image));
+        saveEstate(new Estate(actor,estate.name,estate.members,estate.invitations,estate.announcement,image,estate.home));
     }
     public synchronized void deleteEstate(UUID actor,String typedName) throws Denied,IOException {
         Estate estate=lord(actor);if(!estate.name.equals(typedName))throw new Denied("영지 이름이 일치하지 않습니다. 이름을 정확히 입력해주세요.");
