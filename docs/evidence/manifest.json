@@ -180,8 +180,8 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "ebfac5d6fe723bbeaa9010e693893a087d92f5acd4ced634044f81f4877a40a9",
-      "published_sha256": "292cee1a9cd845f9a33a488717681fdee8a27639ab8efcc27f942ff182411b6b",
+      "source_sha256": "327d397af79bbc219cb82e954fef16af9f574ab6b507a5a9cd680e031ce5325e",
+      "published_sha256": "08e3f92695c5ed065ede6a4d463536547a5d303dd9c974fa8880a1bbd1dd6363",
       "bytes": 6634,
       "sanitized": true
     },
@@ -343,6 +343,14 @@
       "source_sha256": "e6f9ca8c1ef6b88c7e3b5dc58adf91b7c57f0ec57a44b0301239fd96580da71d",
       "published_sha256": "7a9c2ef986d18dd5713d598fd0214d04ee386356fbfcd3b856f0d2c432f98064",
       "bytes": 472,
+      "sanitized": true
+    },
+    "reports/webgui_menu/profile-floating-actions-report.json": {
+      "source": "webgui_menu/verification/profile-floating-actions-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "570ae9ec46d85d825853a141201e4af7a5c7068049db65efcae8927df097b5e8",
+      "published_sha256": "62167e3e96f2a4782aa5bc168014e7200dd839f2ce287b205b11d8cecbbd28b3",
+      "bytes": 675,
       "sanitized": true
     },
     "reports/webgui_menu/profile-integration-report.json": {

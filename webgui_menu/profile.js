@@ -4,12 +4,31 @@
   let snapshot=null,draft=null,client=null,host=null,tab='icon',pending=null,feedback='',error=false,skin=null,identity='';
   const actionSlot=$('profile-actions-slot');
   const actionControl=selector=>actionSlot?.querySelector(selector)||host?.querySelector(selector);
+  let actionsVisible=false,actionsAnimation=null;
   function showActions(visible){
     if(!actionSlot)return;
+    const changed=visible!==actionsVisible;
+    actionsVisible=visible;
     actionSlot.hidden=false;
-    actionSlot.classList.toggle('is-open',visible);
     actionSlot.inert=!visible;
     actionSlot.setAttribute('aria-hidden',String(!visible));
+    actionSlot.parentElement?.style.setProperty('--profile-actions-clearance',visible?'84px':'12px');
+    if(!changed)return;
+    actionsAnimation?.cancel();actionsAnimation=null;
+    const shell=actionSlot.querySelector('.profile-actions-shell');
+    const reduced=document.body.classList.contains('reduce-motion')||window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    if(visible){
+      actionSlot.classList.add('is-open');
+      if(shell?.animate&&!reduced)actionsAnimation=shell.animate([{opacity:0,transform:'translateY(22px)'},{opacity:1,transform:'translateY(0)'}],{duration:300,easing:'cubic-bezier(.22,1,.36,1)',fill:'both'});
+    }else if(shell?.animate&&!reduced){
+      const animation=shell.animate([{opacity:1,transform:'translateY(0)'},{opacity:0,transform:'translateY(14px)'}],{duration:160,easing:'ease-in',fill:'both'});
+      actionsAnimation=animation;
+      animation.onfinish=()=>{if(!actionsVisible)actionSlot.classList.remove('is-open');};
+    }else actionSlot.classList.remove('is-open');
+  }
+  function clearActions(){
+    actionsAnimation?.cancel();actionsAnimation=null;actionsVisible=false;
+    if(actionSlot){actionSlot.replaceChildren();actionSlot.classList.remove('is-open');actionSlot.hidden=true;actionSlot.inert=true;actionSlot.setAttribute('aria-hidden','true');actionSlot.parentElement?.style.removeProperty('--profile-actions-clearance');}
   }
   const labels={icon:'프로필아이콘',title:'칭호',banner:'플레이어 배너'};
   const descriptions={icon:'포켓몬 이미지 또는 내 플레이어 스킨 얼굴을 골라보세요.',title:'CONNECTED PLAYER 옆에 표시할 칭호를 선택하세요.',banner:'프로필카드의 배경에 착용할 보유 배너를 선택하세요.'};
@@ -89,7 +108,7 @@
     actionControl('[data-profile-reset]').onclick=()=>{draft={icon:equipped().icon,title:equipped().title,banner:equipped().banner};feedback='선택을 되돌렸습니다.';render();};
     actionControl('[data-profile-save]').onclick=()=>request('equip',draft);updatePreview();
   }
-  window.PocketmateProfile={mount(element){host=element;tab='icon';if(snapshot)draft={icon:equipped().icon,title:equipped().title,banner:equipped().banner};render();request('view');},unmount(){host=null;if(actionSlot){actionSlot.replaceChildren();actionSlot.hidden=true;}},client(value){client=value;if(value?.username&&identity!==value.username){identity=value.username;snapshot=null;skin=null;request('view');}},diagnostics:()=>({connected:Boolean(snapshot),profile:equipped(),draft,dirty:Boolean(dirty())})};
+  window.PocketmateProfile={mount(element){host=element;tab='icon';if(snapshot)draft={icon:equipped().icon,title:equipped().title,banner:equipped().banner};render();request('view');},unmount(){host=null;clearActions();},client(value){client=value;if(value?.username&&identity!==value.username){identity=value.username;snapshot=null;skin=null;request('view');}},diagnostics:()=>({connected:Boolean(snapshot),profile:equipped(),draft,dirty:Boolean(dirty())})};
   window.addEventListener('webgui:client',event=>window.PocketmateProfile.client(event.detail));
   if(window.webgui?.client)window.PocketmateProfile.client(window.webgui.client);
 })();

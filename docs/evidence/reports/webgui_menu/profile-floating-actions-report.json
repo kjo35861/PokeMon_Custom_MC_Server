@@ -1,0 +1,20 @@
+{
+  "version": "0.12.7",
+  "full_width_reserved_row_removed": true,
+  "capsule_position": "bottom-right absolute, transparent position container",
+  "list_end_scroll_clearance_px": 84,
+  "entry_animation": "Web Animations API, translateY 22px to 0 and opacity 0 to 1",
+  "entry_duration_ms": 300,
+  "replay_on_pending": false,
+  "reverse_cancel_checked": true,
+  "reduced_motion_supported": true,
+  "unmount_cleanup_checked": true,
+  "state_logic_passed": true,
+  "javascript_syntax_passed": true,
+  "css_parse_passed": true,
+  "deployed": true,
+  "game_interaction": false,
+  "browser_visual_check": false,
+  "restart_required": false,
+  "apply_command": "/webgui reload"
+}
