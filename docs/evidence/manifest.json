@@ -300,8 +300,8 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "7b3945c1c45845c440bea46b2cd9a865875a4b19627ee3b09ec0bc71721f594c",
-      "published_sha256": "7b8000f634580a03c49e57446909642de3825cff2173b1d0c20b5a9fa53155e8",
+      "source_sha256": "af10f64232a86dab89f24d3e9a72a4eff40f5904203160d1ba72ffc2eed5fdd6",
+      "published_sha256": "826343c910bc509091f93d860320b8b6fd55f7b705c9922fe76a0a9071f0fccf",
       "bytes": 31794,
       "sanitized": true
     },
@@ -583,6 +583,14 @@
       "source_sha256": "a3af5d3289315acbb2ee2a0364980e8a95ddcd88473df55c8c2ed470521e119e",
       "published_sha256": "5f2751f326fbedb1ebaef9e430483dd2f28515b6fa2c7ab188cee34de3afd3ad",
       "bytes": 767,
+      "sanitized": true
+    },
+    "reports/webgui_menu/navigation-numbering-report.json": {
+      "source": "webgui_menu/verification/navigation-numbering-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "2b8200e56444ba7a82e9667058cb3ab554647552125df5c84fef3034d80df406",
+      "published_sha256": "46e1e4e990c6ddb28271a93b7a26058ba31ccd1fcf29c56fb5943411dfc7c67e",
+      "bytes": 280,
       "sanitized": true
     },
     "reports/webgui_menu/nickname-game-report.json": {
@@ -983,6 +991,22 @@
       "source_sha256": "ac948c6036b8f6a8448ec501b87add80f19d72dde0df36ad9c4e0514da3769f5",
       "published_sha256": "ac948c6036b8f6a8448ec501b87add80f19d72dde0df36ad9c4e0514da3769f5",
       "bytes": 107333,
+      "sanitized": false
+    },
+    "screenshots/navigation-numbering-v0.19.7-dark-mock.png": {
+      "source": "webgui_menu/verification/navigation-numbering-dark-mock.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "3f4245610864d4e9b1eba1a6b0f7fd33c8f2259fcf8e043acf4792fc77c4f9f4",
+      "published_sha256": "3f4245610864d4e9b1eba1a6b0f7fd33c8f2259fcf8e043acf4792fc77c4f9f4",
+      "bytes": 403423,
+      "sanitized": false
+    },
+    "screenshots/navigation-numbering-v0.19.7-light-mock.png": {
+      "source": "webgui_menu/verification/navigation-numbering-light-mock.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "828135279334e715540939cebf64413de3a0b917586dcfa5151b71536b956fa8",
+      "published_sha256": "828135279334e715540939cebf64413de3a0b917586dcfa5151b71536b956fa8",
+      "bytes": 432276,
       "sanitized": false
     },
     "screenshots/pokedex-tabs-v0.19.2-estate-dark-mock.png": {

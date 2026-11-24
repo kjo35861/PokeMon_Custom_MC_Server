@@ -4,14 +4,21 @@
   const meta = {
     home: ['홈', 'PLAYER HUB', ''],
     warp: ['워프', 'WARP / DESTINATIONS', '이동할 목적지를 확인하세요.'],
-    shop: ['상점', '03 / SUPPLY', '아이템과 거래 기능을 한곳에서 확인하세요.'],
-    warehouse: ['창고', '03 / STORAGE', '보관한 물건을 확인하는 공간입니다.'],
-    quests: ['임무', '04 / MISSIONS', '진행할 목표와 보상을 확인하세요.'],
-    travel: ['마을 이동', '05 / FAST TRAVEL', '목적지를 선택하고 다음 지역으로 이동하세요.'],
-    estate: ['영지관리', '06 / ESTATES', '현재 위치에서 영지를 만들고, 오버월드 지도로 소유 청크를 관리하세요.'],
+    shop: ['상점', 'MARKET', '아이템과 거래 기능을 한곳에서 확인하세요.'],
+    warehouse: ['창고', 'STORAGE', '보관한 물건을 확인하는 공간입니다.'],
+    quests: ['임무', 'MISSIONS', '진행할 목표와 보상을 확인하세요.'],
+    travel: ['마을 이동', 'FAST TRAVEL', '목적지를 선택하고 다음 지역으로 이동하세요.'],
+    estate: ['영지관리', 'ESTATES', '현재 위치에서 영지를 만들고, 오버월드 지도로 소유 청크를 관리하세요.'],
     profile: ['프로필 꾸미기', 'MY PROFILE / COLLECTION', '보유한 아이콘·칭호·배너로 나만의 프로필카드를 꾸며보세요.'],
-    settings: ['메뉴 설정', '07 / PREFERENCES', '플레이 허브의 표시 설정을 변경하세요.']
+    settings: ['메뉴 설정', 'PREFERENCES', '플레이 허브의 표시 설정을 변경하세요.']
   };
+  // Visible tab order is the sole source of navigation numbering.
+  document.querySelectorAll('.tabbar [data-page]').forEach((button,index)=>{
+    const number=String(index+1).padStart(2,'0');
+    button.querySelector('[data-nav-order]').textContent=number;
+    const page=button.dataset.page;
+    if(meta[page])meta[page][1]=`${number} / ${meta[page][1]}`;
+  });
   const icons = {warp:'warp', shop:'bag', quests:'flag', travel:'compass'};
   const icon = window.PocketmateIcons;
   let liveClient = null;

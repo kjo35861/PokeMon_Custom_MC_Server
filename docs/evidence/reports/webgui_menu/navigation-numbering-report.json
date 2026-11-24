@@ -1,0 +1,16 @@
+{
+  "headless_mock_only": true,
+  "game_tested": false,
+  "nav_orders": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05"
+  ],
+  "route_headings_match": true,
+  "decorative_number_conflicts_removed": true,
+  "settings_label_and_number_fit": true,
+  "themes": 2,
+  "errors": []
+}

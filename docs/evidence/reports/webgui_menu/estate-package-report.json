@@ -1,10 +1,10 @@
 {
-  "bundle": "PocketmateMenu-v0.19.6.zip",
-  "sha256": "8e9ad2b21ee46c554297c20d13313a7c48e963e6469ea7f2b1f0a679b7116279",
+  "bundle": "PocketmateMenu-v0.19.7.zip",
+  "sha256": "c65c22a0b79402510a25e61741b5540acf767ca1116916f8df707052c32e8737",
   "files": {
-    "config/webgui/web/index.html": "cca0c5335bd772debe02857faaaf94b0d752d77605aeca70b84f669a97f795b9",
+    "config/webgui/web/index.html": "2069845547dd8954e8fb555a0d134fa16f6d14a389272b473c078afe6927d741",
     "config/webgui/web/menu.css": "0b0ff2ac2fcc6e4e5e45c4c1904b2ba62a79e000d4dd044d194408dc4e05aa20",
-    "config/webgui/web/menu.js": "98e738af6b629b4032bd94306e344f2e76bfe44698c4623669ee0330f6d6335b",
+    "config/webgui/web/menu.js": "66b3e27d168b9c7a5d572862a3401259a7ec495cff3b035f1ffd4eab4c9739f8",
     "config/webgui/web/estate.css": "5297ebb61798ff653657b6938e1bee1e7412098a47a849578e8454724b000fa7",
     "config/webgui/web/estate-map.js": "59dac81c769a12b2402c81bf456a785cb22ec1c087a394417e42d75b57c4a193",
     "config/webgui/web/estate-app.js": "b35c0d930b7dcd922b4204a15aa4c40c5bfa04e6851fac628183ace4570281da",
@@ -28,7 +28,7 @@
     "config/webgui/web/shop.js": "75a35cfc8f5f314304d5634ce3b354e71be686b6bc5f8fe9ce19b0177e9dfe6c",
     "config/webgui/web/shop.css": "4b9b01c6b5b1192ddbe16d5c37c58b24db99ec9b090bb010759f0465fad40c72",
     "config/webgui/web/home-art.css": "d72d6d82e3be5a330c032e7dacd202f88cde588e08042ad64ab46a44e08e2e98",
-    "config/webgui/web/trainer-theme.css": "777d3c73660d12ce4863c889f5ece523f17020a1ccba6d626e9883d7603f4771",
+    "config/webgui/web/trainer-theme.css": "f805bc64fdaed9d145eadd9c483440709ac202c6183489b0526317da65b7c97a",
     "config/webgui/web/icons.css": "384535ec5d66ace1f31650aecceca5f7e74d3f3d47b852a2668b66c7f09813b8",
     "config/webgui/web/icons.js": "1e029465c1b8943b5eb6a282ed433b488e4aa938570c7456019c171a74b895e9",
     "config/webgui/web/pocketmate-mark.png": "ce4ef2099db8f7c01b1f1f68463790f24eda4c74e91d5fb121ef68108b132b9e",
