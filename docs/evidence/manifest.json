@@ -345,6 +345,14 @@
       "bytes": 357,
       "sanitized": true
     },
+    "reports/webgui_menu/legendary-title-line-png-v3-report.json": {
+      "source": "webgui_menu/verification/legendary-title-line-png-v3-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "97b4f0839fad8346c1cb9ab072129e071fae12a8ea40507cd4ce28cbe168c3ff",
+      "published_sha256": "db8c74f6b8bdfdb85ac95a2339c3400007b97f09d3d615eac7cf079787ae3b1e",
+      "bytes": 631,
+      "sanitized": true
+    },
     "reports/webgui_menu/member-limit-install.json": {
       "source": "webgui_menu/verification/member-limit-install.json",
       "kind": "historical-or-current-report",

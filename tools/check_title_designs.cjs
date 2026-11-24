@@ -1,6 +1,6 @@
 // Logic check for the review-only fragment. This is not a browser render test.
 const fs=require('fs'),vm=require('vm'),assert=require('assert'),path=require('path');
-const rootDir=path.resolve(__dirname,'../docs/design/legendary-titles');
+const rootDir=process.argv[2]?path.resolve(process.argv[2]):path.resolve(__dirname,'../docs/design/legendary-titles');
 const rows=JSON.parse(fs.readFileSync(path.join(rootDir,'preview-data.json'),'utf8'));
 class Element {
   constructor(){this.children=[];this.style={};this.dataset={};this.attrs={};this.listeners={};}

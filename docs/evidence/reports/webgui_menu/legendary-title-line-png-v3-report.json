@@ -1,0 +1,27 @@
+{
+  "revision": 3,
+  "style": "smooth_outline_transparent_png_not_pixel_art",
+  "status": "review_only_not_installed",
+  "png_count": 94,
+  "png_dimensions": [
+    48,
+    48
+  ],
+  "atlas_dimensions": [
+    768,
+    288
+  ],
+  "font_height": 9,
+  "ascent": 8,
+  "font_format": "bitmap",
+  "pack_format": 34,
+  "asset_mapping_checks_pass": true,
+  "transparent_antialiased_png_checks_pass": true,
+  "tellraw_examples_checked_not_executed": 94,
+  "preview_mock_dom_cases": 188,
+  "contact_sheets_visually_inspected": 2,
+  "game_tested": false,
+  "browser_tested": false,
+  "installed": false,
+  "capture_rewards_connected": false
+}
