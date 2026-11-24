@@ -1,0 +1,17 @@
+{
+  "revision": 6,
+  "style": "species_signature_mark_not_portrait",
+  "status": "user_design_review_pending_not_installed",
+  "species_count": 94,
+  "unique_marks": 94,
+  "symbol_and_title_rationale_entries": 94,
+  "existing_emblem_geometry_reused_where_appropriate": true,
+  "title_text_and_colors_preserved": true,
+  "png_font_static_checks_pass": true,
+  "preview_mock_dom_theme_selection_rationale_cases": 188,
+  "contact_sheets_visually_inspected": 2,
+  "browser_tested": false,
+  "game_tested": false,
+  "small_chat_recognition_tested": false,
+  "installed": false
+}

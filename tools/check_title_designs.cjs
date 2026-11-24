@@ -27,6 +27,7 @@ for(const mode of ['dark','light']){
     assert.equal(elements['pm-title-icon'].src,row[mode]);
     assert.equal(elements['pm-title-text'].style.color,'#'+(mode==='light'?row.lightColor:row.color));
     if(row.exterior_features)assert(elements['pm-title-design'].textContent.includes(row.exterior_features)&&elements['pm-title-design'].textContent.includes(row.title_relation));
+    if(row.symbol_components)assert(elements['pm-title-design'].textContent.includes(row.symbol_components)&&elements['pm-title-design'].textContent.includes(row.title_relation));
     assert.equal(button.attrs['aria-pressed'],'true');
     assert.equal(buttons.filter(b=>b.attrs['aria-pressed']==='true').length,1);
   }
