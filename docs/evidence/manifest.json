@@ -20,65 +20,65 @@
     "reports/estate_mod/TEST-space.pocketmate.estates.ClaimStoreTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.ClaimStoreTest.xml",
       "kind": "junit-result",
-      "source_sha256": "b326ab6ed5e7ac11590a09fc65141f0391ca28b43887090b863b3c332bc752be",
-      "published_sha256": "c1513491821cbdd0bfa80d76ddd73fe43a079f19d22a509d0dd2bdd582a4418a",
+      "source_sha256": "94f80c957a9c3aa526617f947545ba2ca1c4129dde3ac34e7227285a27bf707d",
+      "published_sha256": "eeab84961dc8c7b8949249902a0c98001b13ccada0d80938c8fc65a29a8222ae",
       "bytes": 2341,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.EstateCommunityTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.EstateCommunityTest.xml",
       "kind": "junit-result",
-      "source_sha256": "2cd266820e38929e2cfb31f09b47007ade759bd09d37ddbb1eaedabd5f805f9c",
-      "published_sha256": "be25f5777c9c55a1072125007af766883870f2159edd352f23f9491dbda0f5c1",
-      "bytes": 1944,
+      "source_sha256": "240f08a1c58a80c216b76a6a7a5aa79f91be5e1b14979e6f5dbf48b251aca5bd",
+      "published_sha256": "81d4079be517ba4121ad09446fa3a1631ed3909a48c6814d59fef3acae509514",
+      "bytes": 1946,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.EstateEconomyTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.EstateEconomyTest.xml",
       "kind": "junit-result",
-      "source_sha256": "692bae438e5fed465aec442c7e3cdce5184a97b899dbe5b5825d9a65c9fc7525",
-      "published_sha256": "add72edbc3cd5417fd1dbcd31b7e6906298e718f6964ead88289d8e8bb708283",
-      "bytes": 1997,
+      "source_sha256": "2269c4a01ecb4b1b54ee4913b9bb51be54d31f8cd458e67bf725c5a757f83bd7",
+      "published_sha256": "cb91aa97b0c57be5279f41250b97ad6ea8e7248d3c7c0523ea76531f2ae3a603",
+      "bytes": 1996,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.EstateHomeTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.EstateHomeTest.xml",
       "kind": "junit-result",
-      "source_sha256": "3f4f5e75ee11d3a75b2b042d92406029697893b7e8acfb5c44d1fd1125382b5e",
-      "published_sha256": "c257ce000f28a83e4bd441b8644ebcaf3b3f79e1f92c33f02cf2cf638b4318a2",
-      "bytes": 1419,
+      "source_sha256": "5820cfe7e061dfe2f686f180ec91f77f3c2785fb13a0dd14a00d585f532a0889",
+      "published_sha256": "a1ea668736fa7887bf0f0fc8a1665e311f84316ab9a7234b85da1ba56a866299",
+      "bytes": 1417,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.LegendaryTitlesTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.LegendaryTitlesTest.xml",
       "kind": "junit-result",
-      "source_sha256": "164d4a4442006e2fdfa48e8228d0c2300286ce9963637e730e91ccfb6c530c69",
-      "published_sha256": "2cb77ec02606b4cca18f555cff339a499ddd3903aca10ac97b77f99b431fc593",
+      "source_sha256": "7cb7545fd617a02632d9383f86a8df80cd4405593ccda5ac36e0643bd5806d1a",
+      "published_sha256": "f4e691b82ebf598ebb3e1266d3a59fc801db952b48b8879b913cb84d2752efa8",
       "bytes": 623,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.MapPixelCodecTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.MapPixelCodecTest.xml",
       "kind": "junit-result",
-      "source_sha256": "7be8a49d885874c03aa41540b754d6237f0914f10cdf0daf019908a7ea6d38f3",
-      "published_sha256": "68b2f88b33ee6adae0e51ed1381dd33f69669535ff31709c06914319f91feaad",
-      "bytes": 578,
+      "source_sha256": "94d5b5da75190d840df7ecc486c0b8ed04c6cab1c2f8075867196b9df7a0ac16",
+      "published_sha256": "2d2aee123dc9b5f421b9c78d621986ff569c8c31f6f064869bd0f79ecd92040e",
+      "bytes": 580,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.NicknameStoreTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.NicknameStoreTest.xml",
       "kind": "junit-result",
-      "source_sha256": "8fbed871fae6da2b76fff77dcd2ecea321d492a06d9fc9d16ba577e87fd420a0",
-      "published_sha256": "f00dd2e4d893c0a90e58181894c85fc72b20880b0817a0685cce0bcb7acb9164",
+      "source_sha256": "bef1ec812e115bcd7760ccda5304a6dc1b319059cfbe9d6eeb84ba549561fb75",
+      "published_sha256": "e2af7f4ddf13ae123a3175f53bb2e599f3d37e810954b656f2bc899b555f96a3",
       "bytes": 1173,
       "sanitized": true
     },
     "reports/estate_mod/TEST-space.pocketmate.estates.ProfileStoreTest.xml": {
       "source": "estate_mod/verification/test-results/test/TEST-space.pocketmate.estates.ProfileStoreTest.xml",
       "kind": "junit-result",
-      "source_sha256": "3bd691d4faa5d1d7f19ee9fa6b758b4dd37162dfc6215feb4455c31243df2a3f",
-      "published_sha256": "c85c086df45ee579c42a89361372cd8b781eaf3d9c1041a1c0e33da6d5f8f867",
-      "bytes": 1518,
+      "source_sha256": "49e7da341f279db0c4338a704f2bcb8476e193f751a63a07d90aba8791cc2eda",
+      "published_sha256": "72123efc2a8251fc551a43fb5e8417349b7d7a5571416248c88c74146f2dfd04",
+      "bytes": 1519,
       "sanitized": true
     },
     "reports/snowfrost_launcher/backend-report.json": {
@@ -228,9 +228,9 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "ed666a71b5c6fca80cd3a10f06a4807b9fd199e28719ac688e8dfe97cd96d633",
-      "published_sha256": "0bdc816c7d61a7cb1e4f97f2848065295fa861f4f6e2e7ce874a1194c857d21d",
-      "bytes": 30370,
+      "source_sha256": "52b2db1ac5e4265b34a2984183655dd90f62eb4a126c0573659236bc890f1b1c",
+      "published_sha256": "0744437918611d1d6eb6c7950c004b0e99131bec0a00ef5969fa3dd362e2d220",
+      "bytes": 30371,
       "sanitized": true
     },
     "reports/webgui_menu/estate-v0.10-integration.json": {
@@ -316,9 +316,9 @@
     "reports/webgui_menu/gowun-dodum-font-report.json": {
       "source": "webgui_menu/verification/gowun-dodum-font-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "cf0b3892084c13a04152f4caeb62b0e2aa17f3a1bec43194bf6335bc9218e68e",
-      "published_sha256": "248ec08c302471986d27b1e3d46f0d87e748c2930f3c383d158e6cf7790ccfb2",
-      "bytes": 430,
+      "source_sha256": "063cc2675c5a6d389a6f5232b8ede92e818484a302c60e6890fa81dba2fce169",
+      "published_sha256": "82f91f247447301bdf2f9554cd6651b422d588292b429a172d972d8e23a7c798",
+      "bytes": 614,
       "sanitized": true
     },
     "reports/webgui_menu/grant-all-titles-report.json": {

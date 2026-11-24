@@ -1,14 +1,17 @@
 {
   "font": "Gowun Dodum Regular",
-  "mod_version": "0.10.3",
+  "mod_version": "0.10.4",
   "hangul_syllables_checked": 11172,
   "latin_letters_digits": true,
   "fallback_references": true,
   "title_bitmap_fonts_preserved": true,
   "jar_resources_match": true,
+  "ttf_loader_resolved_path_checked": true,
+  "all_resource_paths_lowercase": true,
   "font_sha256": "a6e457933227483a11758fd0947bc74422a106d46f0bf057fdaa5af94a30067d",
   "game_tested": false,
   "restart_required": true,
-  "status": "installed",
-  "installed_hash_matches": true
+  "status": "staged_pending_game_close",
+  "previous_game_failure": "TTF font/ prefix duplicated; default font failed to load",
+  "game_retest_pending": true
 }

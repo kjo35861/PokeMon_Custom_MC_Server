@@ -3,7 +3,7 @@ from pathlib import Path
 import os,subprocess,time,shutil,hashlib,json,argparse
 root=Path(__file__).resolve().parent.parent
 game=Path(os.environ['APPDATA'])/'PrismLauncher/instances/포켓메이트 메뉴 테스트/minecraft'
-source=root/'estate_mod/dist/pocketmate-estates-0.10.3.jar'
+source=root/'estate_mod/dist/pocketmate-estates-0.10.4.jar'
 target=game/'mods'/source.name
 pending=target.with_suffix('.jar.pending')
 report=root/'webgui_menu/verification/gowun-dodum-font-report.json'

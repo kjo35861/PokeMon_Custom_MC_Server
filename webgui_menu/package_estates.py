@@ -6,14 +6,14 @@ root=Path(__file__).resolve().parent
 estate=root.parent/'estate_mod'
 files={f'config/webgui/web/{name}':root/name for name in ['index.html','menu.css','menu.js','estate.css','estate-map.js','estate-app.js','estate-background.svg','theme.css','appearance.css','appearance.js','people.css','people.js','help.css','help.js','travel.js','fonts.css','NanumSquareRound-LICENSE.txt','profile.js','profile.css','icons.css','icons.js','pocketmate-mark.png']}
 files.update({
-    'mods/pocketmate-estates-0.10.3.jar':estate/'dist/pocketmate-estates-0.10.3.jar',
+    'mods/pocketmate-estates-0.10.4.jar':estate/'dist/pocketmate-estates-0.10.4.jar',
     'client-only/pocketmate-webgui-alpha-0.1.0.jar':root/'transparency_fix/dist/pocketmate-webgui-alpha-0.1.0.jar',
     '메뉴 사용 안내.txt':root/'사용 안내.txt',
     '영지 설치와 운영.txt':estate/'설치와 운영.txt',
 })
 files.update({f'config/webgui/web/profile-assets/{p.name}':p for p in (root/'profile-assets').iterdir() if p.suffix in {'.png','.svg','.txt'}})
 files.update({f'config/webgui/web/icons/{p.name}':p for p in (root/'icons').glob('*.svg')})
-out=root/'PocketmateMenu-v0.15.3.zip'
+out=root/'PocketmateMenu-v0.15.4.zip'
 with zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED) as archive:
     for target,source in files.items():archive.write(source,target)
     archive.writestr('client-only/설치 위치.txt','반투명 보완 JAR는 플레이어 PC의 minecraft/mods에 넣으세요. 전용 서버에는 필요하지 않습니다.\n'.encode('utf-8'))

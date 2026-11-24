@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "pocketmate_estates",
-  "version": "0.10.3",
+  "version": "0.10.4",
   "name": "Pocketmate Estates",
   "description": "Server-authoritative Overworld chunk estates for the Pocketmate WebGUI.",
   "environment": "*",
