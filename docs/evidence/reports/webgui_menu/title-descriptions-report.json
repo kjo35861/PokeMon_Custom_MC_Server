@@ -1,10 +1,11 @@
 {
   "version": "0.10.2",
-  "status": "staged_pending_game_close",
+  "status": "installed",
   "restart_required": true,
   "game_tested": false,
   "java_tests": 68,
   "failures": 0,
   "species_conditions": 94,
-  "ui_condition_theme_checks": 188
+  "ui_condition_theme_checks": 188,
+  "installed_hash_matches": true
 }

@@ -5,3 +5,9 @@
 - NanumSquareRound 폰트는 [동봉된 라이선스](webgui_menu/NanumSquareRound-LICENSE.txt)를 유지합니다. `fonts.css`에는 폰트가 포함돼 있습니다.
 - 런처 배경의 생성 기록은 [background-prompt.md](snowfrost_launcher/assets/background-prompt.md), 대표 아이콘의 생성·수정 기록은 [증거 자료](docs/evidence/artwork)에 있습니다.
 - SVG 배너·메뉴 아이콘, 코드와 자료의 기존 개별 라이선스 표기는 유지합니다. 이번 정리 작업으로 타사 자료를 포함한 저장소 전체에 새로운 일괄 라이선스를 부여하지 않습니다.
+
+## Gowun Dodum (게임 기본 글꼴)
+
+Copyright 2021 The Gowun Dodum Project Authors. SIL Open Font License 1.1.
+원본: https://github.com/google/fonts/tree/main/ofl/gowundodum
+수정하지 않은 TTF 및 라이선스: `estate_mod/src/main/resources/assets/pocketmate/font/`. 라이선스 전문 `GowunDodum-OFL.txt`를 모드에 함께 포함한다.

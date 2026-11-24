@@ -1,0 +1,9 @@
+{
+  "family": "Gowun Dodum",
+  "weight": 400,
+  "source": "https://github.com/google/fonts/tree/main/ofl/gowundodum",
+  "file": "GowunDodum-Regular.ttf",
+  "sha256": "a6e457933227483a11758fd0947bc74422a106d46f0bf057fdaa5af94a30067d",
+  "license": "SIL Open Font License 1.1",
+  "license_file": "estate_mod/src/main/resources/assets/pocketmate/font/GowunDodum-OFL.txt"
+}

@@ -30,6 +30,8 @@ servers.dat_old
 settings.json
 **/saves/
 **/minecraft/
+# Source resource namespace, not a runtime game directory
+!estate_mod/src/main/resources/assets/minecraft/
 **/.minecraft/
 **/data/pocketmate-*.json
 **/config/webgui/server.json
