@@ -1,0 +1,72 @@
+<div id="pm-title-review" style="color:var(--foreground);font-family:inherit">
+  <div class="card" aria-live="polite">
+    <div class="viz-row">
+      <img id="pm-title-icon" width="48" height="48" alt="">
+      <strong id="pm-title-text"></strong>
+      <span id="pm-title-species"></span>
+      <code id="pm-title-color"></code>
+    </div>
+    <div class="viz-row" style="margin-top:.5em">
+      <span id="pm-title-chat"></span>
+      <span>포켓메이트 : 첫 만남을 기억해요.</span>
+    </div>
+  </div>
+  <div id="pm-title-design" class="text-small" aria-live="polite" style="margin-top:.5em"></div>
+  <h3>전설 포켓몬 · 수정한 7종을 먼저 표시</h3>
+  <div id="pm-legend-grid" class="pm-title-grid"></div>
+  <details style="margin-top:1em">
+    <summary>환상의 포켓몬 · 수정한 3종을 먼저 표시</summary>
+    <div id="pm-myth-grid" class="pm-title-grid" style="margin-top:.5em"></div>
+  </details>
+  <div class="text-small" style="margin-top:1em">컨셉·겹침 수정 10종 · 나머지 84종 유지 · 게임 미적용 시안</div>
+</div>
+<style>
+#pm-title-review .pm-title-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+#pm-title-review .pm-title-label{display:inline-flex;align-items:center;justify-content:center;gap:7px;white-space:normal;overflow-wrap:anywhere}
+#pm-title-review h3{margin:1em 0 .5em}
+@media(max-width:520px){#pm-title-review .pm-title-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+<script>
+(()=>{
+  const rows=__POCKETMATE_TITLE_DATA__;
+  const root=document.getElementById('pm-title-review');
+  const el=id=>root.querySelector('#'+id);
+  let selected=String(window.openai?.widgetState?.modelContent?.dex||'150');
+  if(!rows.some(r=>r.dex===selected))selected='150';
+  function isLight(){const rgb=getComputedStyle(root).color.match(/[\d.]+/g);return rgb&&rgb.slice(0,3).map(Number).reduce((s,n)=>s+n,0)<385;}
+  function paint(){
+    const light=isLight(),theme=light?'light':'dark',row=rows.find(r=>r.dex===selected);
+    const color='#'+(light?row.lightColor:row.color);
+    el('pm-title-icon').src=row[theme];el('pm-title-icon').alt=row.motif;
+    el('pm-title-text').textContent=row.title;el('pm-title-text').style.color=color;
+    el('pm-title-species').textContent=row.name;
+    el('pm-title-design').textContent='마크 구성: '+row.symbol_components+' · '+row.title_relation;
+    el('pm-title-color').textContent=color;
+    el('pm-title-chat').textContent=row.title;el('pm-title-chat').style.color=color;
+    root.querySelectorAll('[data-pm-dex]').forEach(button=>{
+      const entry=rows.find(r=>r.dex===button.dataset.pmDex);
+      button.setAttribute('aria-pressed',String(entry.dex===selected));
+      button.querySelector('img').src=entry[theme];
+    });
+  }
+  for(const row of [...rows.filter(r=>r.revised),...rows.filter(r=>!r.revised)]){
+    const button=document.createElement('button');button.type='button';button.className='btn viz-tile';button.dataset.pmDex=row.dex;
+    button.setAttribute('aria-label',row.name+' · '+row.title+' · '+row.motif);
+    const label=document.createElement('span');label.className='pm-title-label';
+    const img=document.createElement('img');img.width=24;img.height=24;img.alt='';
+    const text=document.createElement('span');text.textContent=row.name;label.append(img,text);button.append(label);
+    button.addEventListener('click',()=>{
+      selected=row.dex;paint();
+      window.openai?.setWidgetState?.({modelContent:{dex:selected,pokemon:row.name,title:row.title},privateContent:null})?.catch(()=>{});
+    });
+    el(row.group==='legendary'?'pm-legend-grid':'pm-myth-grid').append(button);
+  }
+  window.addEventListener('openai:set_globals',event=>{
+    const dex=String(event.detail?.globals?.widgetState?.modelContent?.dex||selected);
+    if(rows.some(r=>r.dex===dex)){selected=dex;paint();}
+  });
+  new MutationObserver(paint).observe(document.documentElement,{attributes:true,attributeFilter:['class','style','data-theme']});
+  window.matchMedia?.('(prefers-color-scheme: dark)').addEventListener('change',paint);
+  paint();
+})();
+</script>

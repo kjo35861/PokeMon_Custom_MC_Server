@@ -1,0 +1,24 @@
+{
+  "revision": 7,
+  "status": "user_design_review_pending_not_installed",
+  "species_reviewed_on_contact_sheets": 94,
+  "named_species_changed": 9,
+  "additional_species_changed": [
+    "Deoxys"
+  ],
+  "total_pngs_changed": 10,
+  "unchanged_pngs_verified": 84,
+  "title_text_colors_preserved": true,
+  "unique_marks": 94,
+  "png_font_static_checks_pass": true,
+  "mock_dom_cases": 188,
+  "png_comparison_sizes": [
+    24,
+    16,
+    12
+  ],
+  "png_comparison_visually_inspected": true,
+  "browser_tested": false,
+  "game_tested": false,
+  "installed": false
+}

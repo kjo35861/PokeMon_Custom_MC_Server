@@ -329,6 +329,14 @@
       "bytes": 393,
       "sanitized": true
     },
+    "reports/webgui_menu/legendary-title-clear-v7-report.json": {
+      "source": "webgui_menu/verification/legendary-title-clear-v7-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "41443461cb14dc248bed9e02d2f606e842799f75d4128921611a73ce16d02839",
+      "published_sha256": "a6701c353c417eac4c3137c88370cee2d86e7e6450c0866878555e6e83e096d0",
+      "bytes": 562,
+      "sanitized": true
+    },
     "reports/webgui_menu/legendary-title-design-report.json": {
       "source": "webgui_menu/verification/legendary-title-design-report.json",
       "kind": "historical-or-current-report",
