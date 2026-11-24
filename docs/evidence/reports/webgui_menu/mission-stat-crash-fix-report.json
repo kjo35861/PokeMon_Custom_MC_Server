@@ -1,0 +1,21 @@
+{
+  "mod_version": "0.11.2",
+  "menu_version": "0.16.2",
+  "source_crash": "crash-2026-11-25_01.52.57-server.txt",
+  "observed_failure": "NullPointerException in MissionsMod.custom -> sample -> server tick",
+  "cause": "Fresh Identifier used as a custom-stat registry value rather than the registered object",
+  "canonical_registry_resolution": true,
+  "registered_stat_constants": true,
+  "unknown_stats_ignored": true,
+  "sampling_runtime_errors_contained": true,
+  "retry_cooldown_seconds": 30,
+  "java_tests": 90,
+  "failures": 0,
+  "native_registry_regression_tests": 3,
+  "registry_bootstrap_only": true,
+  "game_or_world_launched": false,
+  "world_files_modified": false,
+  "restart_required": true,
+  "status": "installed",
+  "installed_hash_matches": true
+}

@@ -24,6 +24,7 @@ public final class MissionsMod implements ModInitializer {
     private static final String CHANNEL="pocketmate:missions";
     private static final Map<MinecraftServer,MissionStore> STORES=new IdentityHashMap<>();
     private static final Map<UUID,Sample> SAMPLES=new HashMap<>();
+    private static final Map<UUID,Long> SAMPLE_RETRY_AT=new HashMap<>();
     private record RequestStamp(String action,long time) {}
     private static final Map<UUID,RequestStamp> REQUESTS=new HashMap<>();
     private static final org.slf4j.Logger LOG=LoggerFactory.getLogger("pocketmate-missions");
@@ -60,7 +61,7 @@ public final class MissionsMod implements ModInitializer {
             try{STORES.put(server,new MissionStore(server.getSavePath(WorldSavePath.ROOT).resolve("data/pocketmate-missions.json"),Clock.systemUTC(),false));}
             catch(Exception e){LOG.error("Mission store unavailable; progress will not be reset",e);}
         });
-        ServerLifecycleEvents.SERVER_STOPPED.register(server->{STORES.remove(server);SAMPLES.clear();REQUESTS.clear();});
+        ServerLifecycleEvents.SERVER_STOPPED.register(server->{STORES.remove(server);SAMPLES.clear();SAMPLE_RETRY_AT.clear();REQUESTS.clear();});
         ServerPlayConnectionEvents.JOIN.register((handler,sender,server)->assignAndBaseline(handler.player));
         ServerTickEvents.START_SERVER_TICK.register(server->{
             String date=MissionStore.dayAt(java.time.Instant.now()).toString();
@@ -68,7 +69,7 @@ public final class MissionsMod implements ModInitializer {
                 Sample previous=SAMPLES.get(player.getUuid());if(previous==null||!previous.date.equals(date))assignAndBaseline(player);
             }
         });
-        ServerPlayConnectionEvents.DISCONNECT.register((handler,server)->{SAMPLES.remove(handler.player.getUuid());REQUESTS.remove(handler.player.getUuid());});
+        ServerPlayConnectionEvents.DISCONNECT.register((handler,server)->{SAMPLES.remove(handler.player.getUuid());SAMPLE_RETRY_AT.remove(handler.player.getUuid());REQUESTS.remove(handler.player.getUuid());});
         PlayerBlockBreakEvents.AFTER.register((world,player,pos,state,entity)->{
             if(!(player instanceof ServerPlayerEntity serverPlayer))return;
             MissionStore store=STORES.get(serverPlayer.getServer());if(store==null)return;
@@ -77,15 +78,23 @@ public final class MissionsMod implements ModInitializer {
                 if(state.getBlock() instanceof CropBlock crop&&crop.isMature(state))event(serverPlayer,Map.of("harvest",1),null,null);
             }catch(Exception e){LOG.error("Block mission update failed",e);}
         });
-        ServerTickEvents.END_SERVER_TICK.register(server->{if(server.getTicks()%20==0)for(var player:server.getPlayerManager().getPlayerList())sample(player);});
+        ServerTickEvents.END_SERVER_TICK.register(server->{if(server.getTicks()%20==0)for(var player:server.getPlayerManager().getPlayerList())sampleSafely(player);});
         WebGuiBridge.listen(CHANNEL,(player,payload)->{if(player.getServer()!=null)player.getServer().execute(()->receive(player,payload));});
     }
     private static void assignAndBaseline(ServerPlayerEntity player){
+        if(System.currentTimeMillis()<SAMPLE_RETRY_AT.getOrDefault(player.getUuid(),0L))return;
         MissionStore store=STORES.get(player.getServer());if(store==null)return;
-        try{store.view(player.getUuid());SAMPLES.remove(player.getUuid());sample(player);}
-        catch(Exception e){LOG.error("Daily mission assignment failed",e);}
+        try{store.view(player.getUuid());SAMPLES.remove(player.getUuid());sampleSafely(player);}
+        catch(Exception e){SAMPLE_RETRY_AT.put(player.getUuid(),System.currentTimeMillis()+30000);LOG.error("Daily mission assignment temporarily unavailable",e);}
     }
-    private static int custom(ServerPlayerEntity player,String name){return player.getStatHandler().getStat(Stats.CUSTOM.getOrCreateStat(Identifier.ofVanilla(name)));}
+    private static boolean sampleSafely(ServerPlayerEntity player){
+        if(System.currentTimeMillis()<SAMPLE_RETRY_AT.getOrDefault(player.getUuid(),0L))return false;
+        try{sample(player);SAMPLE_RETRY_AT.remove(player.getUuid());return true;}
+        catch(RuntimeException e){
+            SAMPLES.remove(player.getUuid());SAMPLE_RETRY_AT.put(player.getUuid(),System.currentTimeMillis()+30000);
+            LOG.error("Mission statistics temporarily unavailable; server tick will continue",e);return false;
+        }
+    }
     private static void sample(ServerPlayerEntity player){
         Map<String,Integer> now=new HashMap<>();int planks=0,food=0;
         for(Item item:Registries.ITEM){
@@ -93,10 +102,10 @@ public final class MissionsMod implements ModInitializer {
             if(stack.isIn(ItemTags.PLANKS))planks+=player.getStatHandler().getStat(Stats.CRAFTED.getOrCreateStat(item));
             if(stack.contains(DataComponentTypes.FOOD))food+=player.getStatHandler().getStat(Stats.CRAFTED.getOrCreateStat(item));
         }
-        now.put("planks",planks);now.put("food",food);now.put("fish",custom(player,"fish_caught"));
-        long walk=(long)custom(player,"walk_one_cm")+custom(player,"sprint_one_cm")+custom(player,"crouch_one_cm");
+        now.put("planks",planks);now.put("food",food);now.put("fish",MissionStatistics.custom(player.getStatHandler(),Stats.FISH_CAUGHT));
+        long walk=MissionStatistics.centimeters(player.getStatHandler(),MissionStatistics.walking());
         now.put("walk",(int)Math.min(Integer.MAX_VALUE,walk/100));
-        long total=walk;for(String stat:List.of("swim_one_cm","walk_on_water_one_cm","walk_under_water_one_cm","boat_one_cm","horse_one_cm","pig_one_cm","strider_one_cm"))total+=custom(player,stat);
+        long total=walk+MissionStatistics.centimeters(player.getStatHandler(),MissionStatistics.otherTravel());
         now.put("travel",(int)Math.min(Integer.MAX_VALUE,total/100));
         String date=MissionStore.dayAt(java.time.Instant.now()).toString();Sample previous=SAMPLES.put(player.getUuid(),new Sample(date,now));
         if(previous==null||!previous.date.equals(date)||player.isCreative()||player.isSpectator())return;
@@ -120,9 +129,9 @@ public final class MissionsMod implements ModInitializer {
                 response.addProperty("message","보상 수령을 기록했습니다. 보상 구성은 준비 중입니다.");
             }else if(action.equals("reroll")){
                 String id=request.get("taskId").getAsString(),date=request.get("date").getAsString();
-                sample(player); // Flush old-stat deltas to the old assignment before replacing it.
+                if(!sampleSafely(player))throw new IllegalStateException("통계를 확인하지 못해 교체하지 않았습니다. 잠시 후 다시 시도해주세요."); // Flush old deltas and establish the replacement baseline.
                 if(!store.reroll(player.getUuid(),date,id))throw new IllegalArgumentException("교체할 수 없습니다. 남은 횟수·완료 여부·임무 날짜를 확인해주세요.");
-                SAMPLES.remove(player.getUuid());sample(player); // New assignment starts from this exact baseline.
+                // The pre-reroll sample is already the exact baseline: this runs serially on the server thread.
                 response.addProperty("message","같은 슬롯의 새 임무로 교체했습니다. 새 임무는 지금부터 집계합니다.");
             }else if(!action.equals("view"))throw new IllegalArgumentException();
             response.addProperty("type","snapshot");response.addProperty("requestId",requestId);response.add("missions",new Gson().toJsonTree(store.view(player.getUuid())));
