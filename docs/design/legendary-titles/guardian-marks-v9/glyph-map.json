@@ -1,0 +1,1600 @@
+[
+  {
+    "dex": 144,
+    "name": "프리져",
+    "title": "빙설의 날개",
+    "color": "#7CCEF0",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E100",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 145,
+    "name": "썬더",
+    "title": "천둥의 날개",
+    "color": "#F4C84D",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E101",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 146,
+    "name": "파이어",
+    "title": "불멸의 불꽃",
+    "color": "#F29A61",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E102",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 150,
+    "name": "뮤츠",
+    "title": "초월한 유전자",
+    "color": "#BA9CE8",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E103",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 243,
+    "name": "라이코",
+    "title": "뇌명의 송곳니",
+    "color": "#E6C657",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E104",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 244,
+    "name": "앤테이",
+    "title": "화산의 포효",
+    "color": "#DFA77D",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E105",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 245,
+    "name": "스이쿤",
+    "title": "맑은 물결",
+    "color": "#78CFE0",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E106",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 249,
+    "name": "루기아",
+    "title": "심해의 수호자",
+    "color": "#A4C2E9",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E107",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 250,
+    "name": "칠색조",
+    "title": "무지개의 약속",
+    "color": "#E4BE66",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E108",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 377,
+    "name": "레지락",
+    "title": "태고의 암석",
+    "color": "#CEAB8D",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E109",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 378,
+    "name": "레지아이스",
+    "title": "절대영도의 결정",
+    "color": "#82D8EF",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E10A",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 379,
+    "name": "레지스틸",
+    "title": "영겁의 강철",
+    "color": "#AABBC4",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E10B",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 380,
+    "name": "라티아스",
+    "title": "홍빛의 비상",
+    "color": "#ED9DA8",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E10C",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 381,
+    "name": "라티오스",
+    "title": "창공의 비상",
+    "color": "#86B5EE",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E10D",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 382,
+    "name": "가이오가",
+    "title": "대양의 근원",
+    "color": "#6EA9F0",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E10E",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 383,
+    "name": "그란돈",
+    "title": "대지의 근원",
+    "color": "#F18B75",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E10F",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 384,
+    "name": "레쿠쟈",
+    "title": "천공의 지배자",
+    "color": "#83D8AF",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E110",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 480,
+    "name": "유크시",
+    "title": "지혜의 눈",
+    "color": "#E5CC75",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E111",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 481,
+    "name": "엠라이트",
+    "title": "마음을 잇는 빛",
+    "color": "#E5A4CF",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E112",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 482,
+    "name": "아그놈",
+    "title": "의지를 세운 자",
+    "color": "#81BCEC",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E113",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 483,
+    "name": "디아루가",
+    "title": "시간의 주인",
+    "color": "#8AB9E2",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E114",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 484,
+    "name": "펄기아",
+    "title": "공간을 가르는 자",
+    "color": "#D6ADE1",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E115",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 485,
+    "name": "히드런",
+    "title": "끓어오르는 심장",
+    "color": "#DCA07C",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E116",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 486,
+    "name": "레지기가스",
+    "title": "대륙을 옮긴 자",
+    "color": "#D6D3A0",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E117",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 487,
+    "name": "기라티나",
+    "title": "깨어진 세계의 왕",
+    "color": "#D4B673",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E118",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 488,
+    "name": "크레세리아",
+    "title": "초승달의 꿈",
+    "color": "#E5C0DF",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E119",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 638,
+    "name": "코바르온",
+    "title": "강철의 맹세",
+    "color": "#82BBCD",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E11A",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 639,
+    "name": "테라키온",
+    "title": "바위를 깨는 용기",
+    "color": "#CDB090",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E11B",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 640,
+    "name": "비리디온",
+    "title": "초원의 맹세",
+    "color": "#A4D397",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E11C",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 641,
+    "name": "토네로스",
+    "title": "폭풍을 부르는 자",
+    "color": "#A2D4AE",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E11D",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 642,
+    "name": "볼트로스",
+    "title": "번개를 몰고 오는 자",
+    "color": "#91B6EA",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E11E",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 643,
+    "name": "레시라무",
+    "title": "진실의 백염",
+    "color": "#E2DACE",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E11F",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 644,
+    "name": "제크로무",
+    "title": "이상의 흑뢰",
+    "color": "#8DA8C4",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E120",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 645,
+    "name": "랜드로스",
+    "title": "풍요를 부르는 자",
+    "color": "#DAAA7F",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E121",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 646,
+    "name": "큐레무",
+    "title": "얼어붙은 경계",
+    "color": "#A2D4DC",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E122",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 716,
+    "name": "제르네아스",
+    "title": "생명의 가지",
+    "color": "#92C6E4",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E123",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 717,
+    "name": "이벨타르",
+    "title": "종언의 날개",
+    "color": "#DD8E9F",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E124",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 718,
+    "name": "지가르데",
+    "title": "질서의 파수꾼",
+    "color": "#9ED18C",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E125",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 772,
+    "name": "타입:널",
+    "title": "봉인된 가능성",
+    "color": "#B1BFC8",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E126",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 773,
+    "name": "실버디",
+    "title": "해방된 가능성",
+    "color": "#D1D3E1",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E127",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 785,
+    "name": "카푸꼬꼬꼭",
+    "title": "번개의 섬지기",
+    "color": "#E8C569",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E128",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 786,
+    "name": "카푸나비나",
+    "title": "나비의 섬지기",
+    "color": "#E8AAD4",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E129",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 787,
+    "name": "카푸브루루",
+    "title": "숲의 섬지기",
+    "color": "#DEA288",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E12A",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 788,
+    "name": "카푸느지느",
+    "title": "안개의 섬지기",
+    "color": "#B8AAE5",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E12B",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 789,
+    "name": "코스모그",
+    "title": "작은 성운",
+    "color": "#B9A4EE",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E12C",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 790,
+    "name": "코스모움",
+    "title": "별의 요람",
+    "color": "#E1C47D",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E12D",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 791,
+    "name": "솔가레오",
+    "title": "태양을 삼킨 사자",
+    "color": "#E8C981",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E12E",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 792,
+    "name": "루나아라",
+    "title": "달을 부른 날개",
+    "color": "#B8A5DF",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E12F",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 800,
+    "name": "네크로즈마",
+    "title": "빛을 삼킨 프리즘",
+    "color": "#C3B6DA",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E130",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 888,
+    "name": "자시안",
+    "title": "왕의 검",
+    "color": "#84D1DB",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E131",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 889,
+    "name": "자마젠타",
+    "title": "왕의 방패",
+    "color": "#E499AC",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E132",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 890,
+    "name": "무한다이노",
+    "title": "무한의 독룡",
+    "color": "#D49BCF",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E133",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 891,
+    "name": "치고마",
+    "title": "첫 수련의 주먹",
+    "color": "#C3B9AB",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E134",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 892,
+    "name": "우라오스",
+    "title": "일격과 연격의 극의",
+    "color": "#B7C7CD",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E135",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 894,
+    "name": "레지에레키",
+    "title": "벼락의 거인",
+    "color": "#EAD76F",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E136",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 895,
+    "name": "레지드래고",
+    "title": "용옥의 거인",
+    "color": "#D990AA",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E137",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 896,
+    "name": "블리자포스",
+    "title": "설원을 달리는 발굽",
+    "color": "#B5DDE6",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E138",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 897,
+    "name": "레이스포스",
+    "title": "그림자를 달리는 발굽",
+    "color": "#B4A0DD",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E139",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 898,
+    "name": "버드렉스",
+    "title": "풍요의 왕관",
+    "color": "#A8D5BD",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E13A",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 905,
+    "name": "러브로스",
+    "title": "봄을 부르는 사랑",
+    "color": "#E4A7BB",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E13B",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 1001,
+    "name": "총지엔",
+    "title": "낙엽에 새긴 재앙",
+    "color": "#ACB68A",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E13C",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 1002,
+    "name": "파오젠",
+    "title": "빙검의 재앙",
+    "color": "#B6DAE7",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E13D",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 1003,
+    "name": "딩루",
+    "title": "대지를 누른 재앙",
+    "color": "#BDAB8A",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E13E",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 1004,
+    "name": "위유이",
+    "title": "옥빛 눈의 재앙",
+    "color": "#F4AE78",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E13F",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 1007,
+    "name": "코라이돈",
+    "title": "태고를 달린 왕",
+    "color": "#E99489",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E140",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 1008,
+    "name": "미라이돈",
+    "title": "미래를 달린 왕",
+    "color": "#B1A5F1",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E141",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 1014,
+    "name": "조타구",
+    "title": "사슬에 묶인 완력",
+    "color": "#A7C798",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E142",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 1015,
+    "name": "이야후",
+    "title": "사슬에 숨긴 꾀",
+    "color": "#A3B3DB",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E143",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 1016,
+    "name": "기로치",
+    "title": "사슬에 핀 유혹",
+    "color": "#D9A5C3",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E144",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 1017,
+    "name": "오거폰",
+    "title": "가면 너머의 미소",
+    "color": "#A2D28D",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E145",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 1024,
+    "name": "테라파고스",
+    "title": "별을 품은 결정",
+    "color": "#95DCE6",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E146",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 151,
+    "name": "뮤",
+    "title": "시작의 유전자",
+    "color": "#E5ABC9",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E147",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 251,
+    "name": "세레비",
+    "title": "시간을 건넌 숲",
+    "color": "#ABD4A0",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E148",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 385,
+    "name": "지라치",
+    "title": "별에 건 소원",
+    "color": "#E6D18A",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E149",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 386,
+    "name": "테오키스",
+    "title": "우주의 나선",
+    "color": "#E4A18D",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E14A",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 489,
+    "name": "피오네",
+    "title": "물결에 띄운 꿈",
+    "color": "#A1CDE5",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E14B",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 490,
+    "name": "마나피",
+    "title": "바다를 잇는 마음",
+    "color": "#82D5E6",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E14C",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 491,
+    "name": "다크라이",
+    "title": "악몽의 주인",
+    "color": "#ACA9D2",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E14D",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 492,
+    "name": "쉐이미",
+    "title": "감사의 꽃길",
+    "color": "#B3D397",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E14E",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 493,
+    "name": "아르세우스",
+    "title": "태초의 창조자",
+    "color": "#E0CA8D",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E14F",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 494,
+    "name": "비크티니",
+    "title": "승리의 브이",
+    "color": "#EDB88D",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E150",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 647,
+    "name": "케르디오",
+    "title": "맹세를 이은 검",
+    "color": "#99C9E3",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E151",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 648,
+    "name": "메로엣타",
+    "title": "마음을 울린 선율",
+    "color": "#A8D6BD",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E152",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 649,
+    "name": "게노세크트",
+    "title": "고대의 포신",
+    "color": "#BEA4DC",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E153",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 719,
+    "name": "디안시",
+    "title": "다이아몬드의 공주",
+    "color": "#E6B0D7",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E154",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 720,
+    "name": "후파",
+    "title": "고리를 넘는 장난",
+    "color": "#D7A3CB",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E155",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 721,
+    "name": "볼케니온",
+    "title": "증기를 뿜는 고리",
+    "color": "#DFA48C",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E156",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 801,
+    "name": "마기아나",
+    "title": "영혼을 품은 톱니",
+    "color": "#DEC6A7",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E157",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 802,
+    "name": "마샤도",
+    "title": "그림자에 숨은 주먹",
+    "color": "#A9C9AF",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E158",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 807,
+    "name": "제라오라",
+    "title": "번개를 쥔 발톱",
+    "color": "#E9D07A",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E159",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 808,
+    "name": "멜탄",
+    "title": "작은 너트의 눈",
+    "color": "#DFC997",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E15A",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 809,
+    "name": "멜메탈",
+    "title": "강철을 잇는 거인",
+    "color": "#CBBCA3",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E15B",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 893,
+    "name": "자루도",
+    "title": "밀림의 덩굴손",
+    "color": "#AAC49A",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E15C",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  },
+  {
+    "dex": 1025,
+    "name": "복숭악동",
+    "title": "달콤한 독의 사슬",
+    "color": "#DDA4D7",
+    "font": "pocketmate:legendary_titles",
+    "character": "",
+    "codepoint": "U+E15D",
+    "source_size": [
+      48,
+      48
+    ],
+    "font_height": 9,
+    "ascent": 8,
+    "art_style": "guardian_concept_revision",
+    "installed": false
+  }
+]

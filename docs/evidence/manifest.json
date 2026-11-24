@@ -361,6 +361,14 @@
       "bytes": 459,
       "sanitized": true
     },
+    "reports/webgui_menu/legendary-title-guardian-v9-report.json": {
+      "source": "webgui_menu/verification/legendary-title-guardian-v9-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "e62b57252d110370a41ab905799b37c83f5bfda92968279fcfc400654e149b48",
+      "published_sha256": "692bff1183f0051641b20572a4651b4bdfc13d069f7e0688dbf3777aa699300a",
+      "bytes": 603,
+      "sanitized": true
+    },
     "reports/webgui_menu/legendary-title-line-png-v3-report.json": {
       "source": "webgui_menu/verification/legendary-title-line-png-v3-report.json",
       "kind": "historical-or-current-report",

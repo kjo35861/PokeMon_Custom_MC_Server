@@ -1,0 +1,25 @@
+{
+  "revision": 9,
+  "status": "user_design_review_pending_not_installed",
+  "changed_species": [
+    "Silvally",
+    "Tapu Bulu",
+    "Tapu Fini",
+    "Kubfu",
+    "Eternatus",
+    "Rayquaza",
+    "Glastrier",
+    "Spectrier"
+  ],
+  "changed_png_count": 8,
+  "unchanged_png_count_verified": 86,
+  "title_text_colors_preserved": true,
+  "silvally_lock_motif_removed": true,
+  "glastrier_spectrier_hoof_motif_removed": true,
+  "static_png_font_checks_pass": true,
+  "mock_dom_cases": 188,
+  "comparison_visually_inspected": true,
+  "browser_tested": false,
+  "game_tested": false,
+  "installed": false
+}
