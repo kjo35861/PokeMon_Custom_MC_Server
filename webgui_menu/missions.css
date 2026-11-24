@@ -37,3 +37,6 @@
 .mission-reroll-dialog [data-reroll-cancel]{background:var(--control-bg);color:var(--control-ink);border:1px solid var(--control-line)}
 
 .mission-rules-help{display:inline-grid;place-items:center;width:20px;height:20px;margin-left:6px;padding:0;border:1px solid var(--control-line);border-radius:50%;background:var(--control-bg);color:var(--ink);font:inherit;cursor:help}
+
+.mission-claim-all{align-self:flex-end;padding:8px 16px;font-size:12px;white-space:nowrap}.mission-claim-all:disabled{opacity:.5;cursor:default}
+@media(max-width:700px){.mission-claim-all{align-self:flex-start}}

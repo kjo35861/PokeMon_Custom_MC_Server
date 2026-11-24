@@ -1,0 +1,12 @@
+{
+  "headless_mock_only": true,
+  "game_tested": false,
+  "partial_claims_only": true,
+  "final_reward_included": true,
+  "double_click_guard": true,
+  "save_failure_stops": true,
+  "unmount_stops": true,
+  "rollover_rejected": true,
+  "viewport_scale_cases": 9,
+  "errors": []
+}

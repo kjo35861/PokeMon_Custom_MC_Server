@@ -292,8 +292,8 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "c505d788ee0db7191b0066bff2326ca83546179cd1d7c354692f4ce9c37ba033",
-      "published_sha256": "321a46edb17d63c3fc011324765c98557a3f216ef4037cfd38525b03fa320ac2",
+      "source_sha256": "ac583ae4f3cb9dfafb1110929c75b1b1d11d0642aa9f8e00ba2edb9fd17d2d69",
+      "published_sha256": "8f70799b0838de810fe39babee5944212e9f81577be04479d17cb6948de6c1a8",
       "bytes": 31683,
       "sanitized": true
     },
@@ -553,6 +553,14 @@
       "bytes": 629,
       "sanitized": true
     },
+    "reports/webgui_menu/mission-claim-all-report.json": {
+      "source": "webgui_menu/verification/mission-claim-all-report.json",
+      "kind": "historical-or-current-report",
+      "source_sha256": "aeeb1b94954b5e55694f88a22ef9c1c1a1e5745aabb0dce0d935865bacd84a2d",
+      "published_sha256": "4054e8f7091394c7a649b944f51456c5aa2b40ef435c9f8d8e4c6daa3292aefd",
+      "bytes": 280,
+      "sanitized": true
+    },
     "reports/webgui_menu/mission-stat-crash-fix-report.json": {
       "source": "webgui_menu/verification/mission-stat-crash-fix-report.json",
       "kind": "historical-or-current-report",
@@ -744,6 +752,14 @@
       "published_sha256": "cd10f499e3b1639147ef8ca29ada4ae36f50658a0298639486efac3bec4c434d",
       "bytes": 421,
       "sanitized": true
+    },
+    "screenshots/daily-missions-claim-all-v0.18.3-mock.png": {
+      "source": "webgui_menu/verification/mission-claim-all-mock.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "8527378b23f2ca2e4b51c5747c80fa405a1d6eb0a93316ed8f1c245b9e2a01a5",
+      "published_sha256": "8527378b23f2ca2e4b51c5747c80fa405a1d6eb0a93316ed8f1c245b9e2a01a5",
+      "bytes": 84803,
+      "sanitized": false
     },
     "screenshots/daily-missions-dark-mock.png": {
       "source": "webgui_menu/verification/daily-missions-dark.png",

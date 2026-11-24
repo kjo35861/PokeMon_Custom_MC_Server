@@ -100,3 +100,7 @@ body{padding:var(--profile-reserve) 0 12px}
  body.large-text .missions-page .mission-list{display:flex;flex-direction:column;gap:8px}
  body.large-text .missions-page .mission-card{min-height:150px}
 }
+
+/* Keep the reset action compact so the five mission cards retain their height. */
+.missions-page .mission-claim-all{font-size:12px;padding:5px 12px;min-height:25px;line-height:1.2}
+@media(max-height:850px){.missions-page .mission-reset{gap:3px}.missions-page .mission-card p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}.missions-page .mission-card .mission-category{min-height:24px}}

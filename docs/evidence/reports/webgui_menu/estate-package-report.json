@@ -1,6 +1,6 @@
 {
-  "bundle": "PocketmateMenu-v0.18.2.zip",
-  "sha256": "858b69331a2fb3ab074f0aeebf7376f3cfc8712b87912da457a812556de9ddfd",
+  "bundle": "PocketmateMenu-v0.18.3.zip",
+  "sha256": "93d1cfc175109e7f43b311630f79866548989e9fa83e0230ec65d759a2ff1167",
   "files": {
     "config/webgui/web/index.html": "de3462fba426ba4f38da4bb16f4060e6bb55cc9408b8353604af5d6f31f02525",
     "config/webgui/web/menu.css": "0b0ff2ac2fcc6e4e5e45c4c1904b2ba62a79e000d4dd044d194408dc4e05aa20",
@@ -21,10 +21,10 @@
     "config/webgui/web/NanumSquareRound-LICENSE.txt": "03ffe86255bb7e5e38db938054b773af4e18c519ce13ba4f7416a87c1172ca0a",
     "config/webgui/web/profile.js": "f84c68b1f4fc33a8f5bdf5c39237a11102e17bf688c11becfd3a7f07a3296f78",
     "config/webgui/web/profile.css": "46e643d4cad0ea9ae829ddaa212cc81a1f79eba41008c5f0fd00dc21dea2ab4c",
-    "config/webgui/web/missions.js": "75b15813fc2a7fbf15039a1ad1f38a283a2f0240b22f9d7e536ae2797027d189",
-    "config/webgui/web/missions.css": "f96b2f9fce6fcd483968f606a602284ecf866ccddc5ae6713866534865c43129",
+    "config/webgui/web/missions.js": "8ec8fb6536ebc64dd80f1dfdd64bedc76355471e767c0d0b44b28c8dd8c9180b",
+    "config/webgui/web/missions.css": "e82b1d2e1f05c376bb0ff52c4146f5041017e70117fe4670b2aa3ed0cc2cb98b",
     "config/webgui/web/layout.js": "ada858f3deecd2b95f888a16a0726cf8fa61ed52c917154365d0af19a23828fa",
-    "config/webgui/web/layout.css": "fc3f7d7a5237c16e43038bb31b264e5af8d85c9a24eb91d7a6ab78d6758f17dc",
+    "config/webgui/web/layout.css": "85cbbee0ce8d90cf74182046a91fef62297ac51b468c78d0012cab1bc421581a",
     "config/webgui/web/shop.js": "75a35cfc8f5f314304d5634ce3b354e71be686b6bc5f8fe9ce19b0177e9dfe6c",
     "config/webgui/web/shop.css": "4b9b01c6b5b1192ddbe16d5c37c58b24db99ec9b090bb010759f0465fad40c72",
     "config/webgui/web/home-art.css": "d72d6d82e3be5a330c032e7dacd202f88cde588e08042ad64ab46a44e08e2e98",
