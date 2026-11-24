@@ -1,9 +1,11 @@
+﻿param([switch]$IconPreviewBuild)
 $ErrorActionPreference = 'Stop'
 $launcherRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 $launcherCompiler = Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\csc.exe'
 $launcherFramework = Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319'
 $launcherWpf = Join-Path $launcherFramework 'WPF'
-$launcherOutput = Join-Path $launcherRoot 'dist\PocketmateLauncher.exe'
+$launcherFilename = if ($IconPreviewBuild) { 'PocketmateLauncher-NewIcon.exe' } else { 'PocketmateLauncher.exe' }
+$launcherOutput = Join-Path $launcherRoot ('dist\' + $launcherFilename)
 New-Item -ItemType Directory -Force -Path (Split-Path -Parent $launcherOutput) | Out-Null
 $launcherArguments = @(
     '/nologo', '/target:winexe', '/platform:x64', '/optimize+', '/codepage:65001',
@@ -33,7 +35,7 @@ $launcherArguments = @(
 & $launcherCompiler @launcherArguments
 if ($LASTEXITCODE -ne 0) { throw 'Launcher compilation failed.' }
 # Keep the previously delivered download path working with the updated brand.
-Copy-Item -LiteralPath $launcherOutput -Destination (Join-Path $launcherRoot 'dist\SnowfrostLauncher.exe') -Force
+if (-not $IconPreviewBuild) { Copy-Item -LiteralPath $launcherOutput -Destination (Join-Path $launcherRoot 'dist\SnowfrostLauncher.exe') -Force }
 if (-not (Test-Path -LiteralPath (Join-Path $launcherRoot 'dist\launcher-config.json'))) { Copy-Item -LiteralPath (Join-Path $launcherRoot 'launcher-config.json') -Destination (Join-Path $launcherRoot 'dist\launcher-config.json') }
 Copy-Item -LiteralPath (Join-Path $launcherRoot '로그인 연결 안내.txt') -Destination (Join-Path $launcherRoot 'dist\로그인 연결 안내.txt') -Force
 Get-Item -LiteralPath $launcherOutput | Select-Object FullName,Length,LastWriteTime
