@@ -292,8 +292,8 @@
     "reports/webgui_menu/estate-package-report.json": {
       "source": "webgui_menu/verification/estate-package-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "56311df3895b929991892be888826fad8869de785d291d7a1beb87a721ee6db5",
-      "published_sha256": "a5366b301a1c20f6189e27f84a875b164f8905b4a895bca75b68f6d542dba054",
+      "source_sha256": "b2ebce45062edf9bce09fc2f5ac13430e5e41ea8df52097499e425c8618e20fe",
+      "published_sha256": "9e3d919d14131aec1212b7681de1d69b5fd8a345d7ae3a90bbf8034074162b96",
       "bytes": 31794,
       "sanitized": true
     },
@@ -903,6 +903,38 @@
       "source_sha256": "ac948c6036b8f6a8448ec501b87add80f19d72dde0df36ad9c4e0514da3769f5",
       "published_sha256": "ac948c6036b8f6a8448ec501b87add80f19d72dde0df36ad9c4e0514da3769f5",
       "bytes": 107333,
+      "sanitized": false
+    },
+    "screenshots/pokedex-tabs-v0.19.2-estate-dark-mock.png": {
+      "source": "webgui_menu/verification/pokedex-tabs-estate-dark.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "76709770d5040648b505c19208ec039844e9e7c8fd5f48154659bb4b95080372",
+      "published_sha256": "76709770d5040648b505c19208ec039844e9e7c8fd5f48154659bb4b95080372",
+      "bytes": 193913,
+      "sanitized": false
+    },
+    "screenshots/pokedex-tabs-v0.19.2-estate-light-mock.png": {
+      "source": "webgui_menu/verification/pokedex-tabs-estate-light.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "c26dd8c533b70306d732edcf907413dcf12a80cf356d4048401db7eac206da9b",
+      "published_sha256": "c26dd8c533b70306d732edcf907413dcf12a80cf356d4048401db7eac206da9b",
+      "bytes": 195206,
+      "sanitized": false
+    },
+    "screenshots/pokedex-tabs-v0.19.2-home-dark-mock.png": {
+      "source": "webgui_menu/verification/pokedex-tabs-home-dark.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "cf77691941d63146d6a64e28ae9f92241a89fb71e92976be6b41b51a0fc4140a",
+      "published_sha256": "cf77691941d63146d6a64e28ae9f92241a89fb71e92976be6b41b51a0fc4140a",
+      "bytes": 412085,
+      "sanitized": false
+    },
+    "screenshots/pokedex-tabs-v0.19.2-home-light-mock.png": {
+      "source": "webgui_menu/verification/pokedex-tabs-home-light.png",
+      "kind": "headless-mock-ui-screenshot",
+      "source_sha256": "56607b02e0f3c8769adcf788f6eb91396688a5efdce7d0c2a5fca513fabb5e85",
+      "published_sha256": "56607b02e0f3c8769adcf788f6eb91396688a5efdce7d0c2a5fca513fabb5e85",
+      "bytes": 442562,
       "sanitized": false
     },
     "screenshots/shop-v0.18-dark-mock.png": {

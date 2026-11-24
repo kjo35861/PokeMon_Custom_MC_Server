@@ -1,6 +1,6 @@
 {
-  "bundle": "PocketmateMenu-v0.19.1.zip",
-  "sha256": "fffd5a1ad81b7aa5e4826bfb38dc04c3c412c64b2d075d25fd1b110dc76f7291",
+  "bundle": "PocketmateMenu-v0.19.2.zip",
+  "sha256": "ad48bc4d895ef2412cf468cd931ac08550c59a0c6e63d53c6cceb7888cbaae75",
   "files": {
     "config/webgui/web/index.html": "0b587fe4788be92add5141cb338165df6e9755ebe0899e711786793f429cce59",
     "config/webgui/web/menu.css": "0b0ff2ac2fcc6e4e5e45c4c1904b2ba62a79e000d4dd044d194408dc4e05aa20",
@@ -28,7 +28,7 @@
     "config/webgui/web/shop.js": "75a35cfc8f5f314304d5634ce3b354e71be686b6bc5f8fe9ce19b0177e9dfe6c",
     "config/webgui/web/shop.css": "4b9b01c6b5b1192ddbe16d5c37c58b24db99ec9b090bb010759f0465fad40c72",
     "config/webgui/web/home-art.css": "d72d6d82e3be5a330c032e7dacd202f88cde588e08042ad64ab46a44e08e2e98",
-    "config/webgui/web/trainer-theme.css": "f5b54f99f29e2211911af901698094849c642fd9c622a4fa94d0f7addd695df1",
+    "config/webgui/web/trainer-theme.css": "5eac2b481a82f6ff354945443b5f5ddb2697106ef85cd3f5c253ead86dd3086a",
     "config/webgui/web/icons.css": "384535ec5d66ace1f31650aecceca5f7e74d3f3d47b852a2668b66c7f09813b8",
     "config/webgui/web/icons.js": "1e029465c1b8943b5eb6a282ed433b488e4aa938570c7456019c171a74b895e9",
     "config/webgui/web/pocketmate-mark.png": "ce4ef2099db8f7c01b1f1f68463790f24eda4c74e91d5fb121ef68108b132b9e",
