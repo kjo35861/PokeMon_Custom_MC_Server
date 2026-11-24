@@ -828,9 +828,9 @@
     "screenshots/home-block-art-v0.18.1-light-mock.png": {
       "source": "webgui_menu/verification/home-block-art-light.png",
       "kind": "headless-mock-ui-screenshot",
-      "source_sha256": "f4beef8cda286b1190a544176822956219bcfe80e09edb476bf3471c1253ebf0",
-      "published_sha256": "f4beef8cda286b1190a544176822956219bcfe80e09edb476bf3471c1253ebf0",
-      "bytes": 446193,
+      "source_sha256": "40770ad1efd999e4b148bfca6f748da4aeeba95740d1b3f19e8f7d90abb0fc59",
+      "published_sha256": "40770ad1efd999e4b148bfca6f748da4aeeba95740d1b3f19e8f7d90abb0fc59",
+      "bytes": 451540,
       "sanitized": false
     },
     "screenshots/menu-v0.17-docked-profile-dark-mock.png": {

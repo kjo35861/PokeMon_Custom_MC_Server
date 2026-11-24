@@ -14,7 +14,7 @@ with sync_playwright() as p:
  for w,h in [(1920,1080),(1440,900),(1280,720),(854,480)]:
   page.set_viewport_size({'width':w,'height':h});page.goto((root/'index.html').as_uri());page.wait_for_timeout(400)
   for theme in ['dark','light']:
-   page.evaluate('(t)=>document.documentElement.dataset.theme=t',theme)
+   page.evaluate('(t)=>document.documentElement.dataset.theme=t',theme);page.wait_for_timeout(300)
    assert page.locator('#home-page .home-tile-image').count()==5
    assert page.locator('#home-page .home-tile-image').evaluate_all('(es)=>es.every(e=>e.complete&&e.naturalWidth>0)')
    assert page.locator('#page-scroll').evaluate('(e)=>e.scrollHeight-e.clientHeight')<=1
