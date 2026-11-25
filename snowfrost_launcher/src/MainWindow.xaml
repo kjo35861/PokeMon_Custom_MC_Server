@@ -156,6 +156,7 @@
             <Grid><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="82"/><ColumnDefinition Width="72"/></Grid.ColumnDefinitions><TextBox x:Name="BackgroundPathBox" Style="{StaticResource Field}" IsReadOnly="True" FontSize="11"/><Button x:Name="BrowseBackgroundButton" Grid.Column="1" Content="변경" Style="{StaticResource SoftButton}" Margin="8,0,0,0" Padding="8,8" FontSize="11"/><Button x:Name="ResetBackgroundButton" Grid.Column="2" Content="기본값" Style="{StaticResource SoftButton}" Margin="8,0,0,0" Padding="8,8" FontSize="11"/></Grid>
             <CheckBox x:Name="MinimizeAfterLaunchBox" Content="게임을 실행한 뒤 이 창 최소화" Foreground="#D0DDCA" Margin="0,23,0,0" FontSize="12"/>
             <TextBlock x:Name="SettingsError" Foreground="#FFBC9C" FontSize="12" TextWrapping="Wrap" Margin="0,12,0,0"/>
+            <Button x:Name="ClientPackButton" Content="클라이언트 설치 목록 편집" Style="{StaticResource SoftButton}" HorizontalAlignment="Left" Margin="0,12,0,0"/>
             <Grid Margin="0,16,0,0"><Button x:Name="OpenMinecraftFolderButton" Content="Minecraft 폴더 열기" Style="{StaticResource SoftButton}" HorizontalAlignment="Left" FontSize="12"/><Button x:Name="SaveSettingsButton" Content="설정 저장" Width="136" Height="43" Style="{StaticResource PlayButton}" FontSize="13" FontWeight="SemiBold" HorizontalAlignment="Right"/></Grid>
           </StackPanel></ScrollViewer>
         </Border>

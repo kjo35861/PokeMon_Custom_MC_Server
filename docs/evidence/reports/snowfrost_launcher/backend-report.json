@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checks": 51,
+  "checks": 53,
   "cases": [
     "Reject path ../mods/escape.jar",
     "Reject path mods/../escape.jar",
@@ -25,6 +25,8 @@
     "Initial server pack requires update",
     "Installed pack is current",
     "Unlisted resource pack blocks managed launch",
+    "Editable local client pack installs and verifies its listed file",
+    "Removing a managed client pack entry uninstalls it",
     "Changed same-version file needs repair",
     "Repair restores verified bytes",
     "Bad SHA leaves prior pack intact",

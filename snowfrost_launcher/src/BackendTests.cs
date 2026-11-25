@@ -72,6 +72,23 @@ namespace Snowfrost
                 catch (InvalidDataException) { extraBlocked = true; }
                 File.Delete(extra);
                 Check(extraBlocked,"Unlisted resource pack blocks managed launch",checks);
+                string localRoot = Path.Combine(root,"local-client-pack");
+                string localSource = Path.Combine(localRoot,"client-files","fixture.jar");
+                Directory.CreateDirectory(Path.GetDirectoryName(localSource));
+                File.WriteAllText(localSource,"local mod fixture");
+                string manifestPath = Path.Combine(localRoot,"client-pack.json");
+                var localService = new UpdateService(Path.Combine(localRoot,"state"),Path.Combine(localRoot,"instance"));
+                Json.Save(manifestPath,new {formatVersion=1,serverId="pocketmate",minecraftVersion="1.21.1",packVersion="local-fixture",loader=new {type="neoforge",version="21.1.248"},files=new[]{
+                    new {path="mods/fixture.jar",url="local:fixture.jar",sha256=SafeFiles.Digest(localSource,"sha256"),size=new FileInfo(localSource).Length}
+                }});
+                var localPlan = localService.CheckLocal(manifestPath);
+                await localService.Apply(localPlan,progress,CancellationToken.None);
+                Check(localPlan.Needed && File.ReadAllText(Path.Combine(localService.GameRoot,"mods","fixture.jar"))=="local mod fixture" &&
+                    !localService.CheckLocal(manifestPath).Needed,"Editable local client pack installs and verifies its listed file",checks);
+                Json.Save(manifestPath,new {formatVersion=1,serverId="pocketmate",minecraftVersion="1.21.1",packVersion="local-fixture",loader=new {type="neoforge",version="21.1.248"},files=new object[0]});
+                var localRemoval = localService.CheckLocal(manifestPath);
+                await localService.Apply(localRemoval,progress,CancellationToken.None);
+                Check(!File.Exists(Path.Combine(localService.GameRoot,"mods","fixture.jar")),"Removing a managed client pack entry uninstalls it",checks);
                 string file=SafeFiles.Join(service.GameRoot,"config/managed.json");string original=File.ReadAllText(file);
                 File.WriteAllText(file,"damaged");
                 UpdatePlan repair=await service.Check(fixture+"manifest-v1.json",CancellationToken.None);

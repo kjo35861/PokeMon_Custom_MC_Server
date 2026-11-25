@@ -159,6 +159,13 @@ namespace Snowfrost
             On("CancelWorkButton", delegate { if (work != null) work.Cancel(); });
             On("LoginGuideButton", delegate { Info("Prism 연결 안내", "Prism Launcher에 Microsoft 계정으로 한 번 로그인하고 순정 Minecraft 1.21.1 인스턴스를 만들어주세요.\n\n아래 Prism 실행 파일, 데이터 폴더, 인스턴스 ID를 확인해 저장하면 됩니다. 일반 설치는 자동으로 찾습니다.\n\nAPI 키나 Microsoft Client ID는 필요 없습니다. 게임 시작 시 포켓메이트가 Prism을 자동으로 호출합니다.\n\n서버 주소가 비어 있으면 순정 인스턴스, 주소가 있으면 별도 서버 인스턴스를 사용합니다."); });
             On("OpenMinecraftFolderButton", delegate { OpenMinecraftFolder(); });
+            var packButton = Get<Button>("ClientPackButton");
+            packButton.Visibility = File.Exists(LocalPackPath) ? Visibility.Visible : Visibility.Collapsed;
+            packButton.Click += delegate
+            {
+                try { Process.Start(new ProcessStartInfo("notepad.exe",GameInstaller.Quote(LocalPackPath)) { UseShellExecute = true }); }
+                catch (Exception error) { Get<TextBlock>("SettingsError").Text = error.Message; }
+            };
             var statusTimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(30) };
             statusTimer.Tick += async delegate { await RefreshServerPanel(); };
             Window.Loaded += async delegate { if (!smokeTest && previewPath == null) statusTimer.Start(); await RefreshServerPanel(); };
@@ -295,6 +302,14 @@ namespace Snowfrost
             Get<ProgressBar>("WorkProgressBar").Value = Math.Max(0,Math.Min(100,progress.Percent));
         }
 
+        string LocalPackPath { get { return Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"client-pack.json"); } }
+        UpdatePlan ReadLocalPack()
+        {
+            var plan = updates.CheckLocal(LocalPackPath);
+            if (plan.Loader != "neoforge" || plan.LoaderVersion != "21.1.248")
+                throw new InvalidDataException("테스트 팩은 NeoForge 21.1.248이어야 합니다.");
+            return plan;
+        }
         bool refreshingPanel;
         string ServerSetting(string key)
         {
@@ -436,7 +451,8 @@ namespace Snowfrost
                     : server ? PrismBridge.ServerTarget(vanillaTarget,store.DirectoryPath) : vanillaTarget;
                 if(server) await Task.Run(()=>PrismBridge.EnsureServer(prismTarget,vanillaTarget));
                 updates=new UpdateService(Path.Combine(store.DirectoryPath,"prism",PrismBridge.Key(prismTarget.Root)),prismTarget.GameRoot);
-                updatePlan = await Task.Run(async delegate { return await updates.Check(localTest ? "" : settings.UpdateManifestUrl,token); });
+                updatePlan = localTest && File.Exists(LocalPackPath) ? await Task.Run(() => ReadLocalPack(),token)
+                    : await Task.Run(async delegate { return await updates.Check(localTest ? "" : settings.UpdateManifestUrl,token); });
                 if(updatePlan!=null && !PrismBridge.LoaderMatches(prismTarget,updatePlan)) updatePlan.Needed=true;
                 try {store.Save(settings);} catch(Exception saveError){store.Log("Prism settings",saveError);}
                 UpdateActivity();
@@ -471,6 +487,13 @@ namespace Snowfrost
                 {
                     var current = PrismBridge.ResolveNeoForgeTest(validated, localTestId);
                     if (current.Root != prismTarget.Root) throw new InvalidOperationException("테스트 인스턴스가 변경되었습니다. 런처를 다시 열어주세요.");
+                    if (File.Exists(LocalPackPath))
+                    {
+                        updatePlan = await Task.Run(() => ReadLocalPack(),token);
+                        if (updatePlan.Needed)
+                            await Task.Run(async delegate { await updates.Apply(updatePlan,progress,token); },token);
+                        updatePlan.Needed = false;
+                    }
                 }
                 if (localTestId.Length == 0 && !String.IsNullOrWhiteSpace(settings.UpdateManifestUrl))
                 {

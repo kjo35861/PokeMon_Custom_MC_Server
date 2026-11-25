@@ -195,6 +195,8 @@ namespace Snowfrost
     }
     public sealed class ServerFile
     {
+        [System.Web.Script.Serialization.ScriptIgnore]
+        public string LocalSource { get; set; }
         public string Path { get; set; } public string Url { get; set; } public string Sha256 { get; set; } public long Size { get; set; }
     }
     public sealed class PackState
@@ -251,7 +253,15 @@ namespace Snowfrost
         public async Task<UpdatePlan> Check(string url, CancellationToken cancel)
         {
             if (String.IsNullOrWhiteSpace(url)) return null;
-            Dictionary<string, object> manifest = await Net.GetJson(url, cancel);
+            return Inspect(await Net.GetJson(url, cancel), null);
+        }
+        public UpdatePlan CheckLocal(string path)
+        {
+            return Inspect(Json.Parse(System.IO.File.ReadAllText(path, Encoding.UTF8)),
+                Path.Combine(Path.GetDirectoryName(path), "client-files"));
+        }
+        UpdatePlan Inspect(Dictionary<string, object> manifest, string localRoot)
+        {
             if (Json.Number(manifest, "formatVersion") != 1 || Json.Text(manifest, "serverId") != "pocketmate" || Json.Text(manifest, "minecraftVersion") != "1.21.1")
                 throw new InvalidDataException("포켓메이트 Minecraft 1.21.1용 업데이트 목록이 아닙니다.");
             UpdatePlan plan = new UpdatePlan { PackVersion = Json.Text(manifest, "packVersion") };
@@ -272,7 +282,12 @@ namespace Snowfrost
             {
                 if (!new[] {"path","url","sha256","size"}.All(k => Json.Object(entry).ContainsKey(k))) throw new InvalidDataException("업데이트 파일의 필수 정보가 빠져 있습니다.");
                 ServerFile file = new ServerFile { Path = Json.Text(entry, "path"), Url = Json.Text(entry, "url"), Sha256 = Json.Text(entry, "sha256").ToLowerInvariant(), Size = Json.Number(entry, "size") };
-                ValidatePath(file.Path, GameRoot); Net.Address(file.Url);
+                ValidatePath(file.Path, GameRoot);
+                if (file.Url.StartsWith("local:", StringComparison.Ordinal) && localRoot != null)
+                {
+                    file.LocalSource = SafeFiles.Join(localRoot, file.Url.Substring(6));
+                }
+                else Net.Address(file.Url);
                 if (!paths.Add(file.Path) || !Regex.IsMatch(file.Sha256, "^[a-f0-9]{64}$") || file.Size < 0 || file.Size > 2147483648L)
                     throw new InvalidDataException("업데이트 파일 정보 또는 중복 경로를 확인해주세요.");
                 if (file.Path.StartsWith("mods/", StringComparison.OrdinalIgnoreCase) && plan.Loader == "vanilla")
@@ -297,7 +312,16 @@ namespace Snowfrost
             foreach (ServerFile file in plan.Downloads)
             {
                 progress.Report(new WorkProgress("서버 파일 다운로드 " + (++index) + "/" + plan.Downloads.Count + " · " + file.Path, index*70.0/Math.Max(1,plan.Downloads.Count)));
-                await Net.File(file.Url, SafeFiles.Join(staging, file.Path), file.Sha256, file.Size, "sha256", null, null, cancel);
+                string stagedFile = SafeFiles.Join(staging, file.Path);
+                if (file.LocalSource == null)
+                    await Net.File(file.Url, stagedFile, file.Sha256, file.Size, "sha256", null, null, cancel);
+                else
+                {
+                    Directory.CreateDirectory(Path.GetDirectoryName(stagedFile));
+                    System.IO.File.Copy(file.LocalSource, stagedFile);
+                    if (!SafeFiles.Matches(stagedFile,file.Sha256,file.Size,"sha256"))
+                        throw new InvalidDataException("클라이언트 팩 파일의 크기 또는 SHA-256이 다릅니다. " + file.Path);
+                }
             }
             cancel.ThrowIfCancellationRequested();
             List<Tuple<string, string, bool>> committed = new List<Tuple<string, string, bool>>();
