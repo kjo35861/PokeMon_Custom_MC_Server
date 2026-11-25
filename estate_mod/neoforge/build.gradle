@@ -1,0 +1,30 @@
+plugins { id 'dev.architectury.loom' version '1.13.469' }
+
+version = '0.15.4'
+group = 'space.pocketmate'
+base { archivesName = 'pocketmate-estates-neoforge' }
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.fabricmc.net/' }
+    maven { url = 'https://maven.architectury.dev/' }
+    maven { url = 'https://maven.neoforged.net/releases/' }
+}
+dependencies {
+    minecraft 'com.mojang:minecraft:1.21.1'
+    mappings loom.layered {
+        mappings 'net.fabricmc:yarn:1.21.1+build.3:v2'
+        mappings 'dev.architectury:yarn-mappings-patch-neoforge:1.21+build.4'
+    }
+    neoForge 'net.neoforged:neoforge:21.1.248'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+tasks.withType(JavaCompile).configureEach { options.release = 21; options.encoding = 'UTF-8' }
+java { sourceCompatibility = JavaVersion.VERSION_21; targetCompatibility = JavaVersion.VERSION_21 }
+
+test {
+    useJUnitPlatform()
+    // Yarn splits these registry classes across packages. The plain JUnit JVM
+    // cannot bootstrap NeoForge's patched registry in that namespace.
+    exclude '**/MissionStatisticsTest.class', '**/ShopAdminTest.class', '**/ShopTest.class'
+}

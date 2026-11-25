@@ -1,0 +1,26 @@
+{
+  "minecraft": "1.21.1",
+  "neoforge": "21.1.248",
+  "neoforge_test": {
+    "tests": 87,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "fabric_test": {
+    "tests": 108,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "neoforge_junit_exclusions": [
+    "MissionStatisticsTest",
+    "ShopAdminTest",
+    "ShopTest"
+  ],
+  "build_passed": true,
+  "asset_bytes_unchanged": true,
+  "server_installed": true,
+  "server_started": false,
+  "client_joined": false
+}

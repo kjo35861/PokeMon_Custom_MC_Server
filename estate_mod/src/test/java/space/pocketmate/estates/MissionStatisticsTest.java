@@ -16,8 +16,8 @@ class MissionStatisticsTest {
   var stats=new StatHandler();stats.setStat(null,Stats.CUSTOM.getOrCreateStat(Stats.FISH_CAUGHT),3);
   assertEquals(3,MissionStatistics.custom(stats,Stats.FISH_CAUGHT));
   assertEquals(3,MissionStatistics.custom(stats,Identifier.ofVanilla("fish_caught")));
-  for(var id:MissionStatistics.walking()){assertNotNull(Registries.CUSTOM_STAT.getId(id));assertDoesNotThrow(()->MissionStatistics.custom(stats,id));}
-  for(var id:MissionStatistics.otherTravel()){assertNotNull(Registries.CUSTOM_STAT.getId(id));assertDoesNotThrow(()->MissionStatistics.custom(stats,id));}
+  for(var id:MissionStatistics.walking()){assertTrue(Registries.CUSTOM_STAT.containsId(id));assertDoesNotThrow(()->MissionStatistics.custom(stats,id));}
+  for(var id:MissionStatistics.otherTravel()){assertTrue(Registries.CUSTOM_STAT.containsId(id));assertDoesNotThrow(()->MissionStatistics.custom(stats,id));}
  }
  @Test void unknownOrMissingStatisticIsIgnored(){
   var stats=new StatHandler();assertEquals(0,MissionStatistics.custom(stats,null));assertEquals(0,MissionStatistics.custom(stats,Identifier.of("pocketmate","missing_stat")));
