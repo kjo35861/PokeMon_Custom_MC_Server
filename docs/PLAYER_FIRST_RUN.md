@@ -11,3 +11,6 @@
 
 
 Windows 배포용 Pocketmate-Setup-1.21.1.exe는 설치 경로 선택과 기본 선택된 바탕화면 바로가기를 제공한다. 새 폴더 또는 빈 폴더를 선택한다. 격리된 사용자 지정 경로에 실제 내장 팩 추출 및 바로가기 대상·작업 경로 검증을 완료했다. 빌드 명령은 python snowfrost_launcher/build_player_setup.py <player.zip> <setup.exe> 이다.
+
+
+백그라운드 시작판은 Prism 설치 완료 직후 별도로 메인 창을 열지 않고 팩 설치와 게임 실행 요청을 계속한다. 인증이나 Prism 초기 설정이 필요한 PC에서는 Prism 창이 나타날 수 있다. 런처 빌드·백엔드60개 및 설치 EXE 내부 추출·바로가기 검증 통과. 실제 새 PC 로그인 미검증.
