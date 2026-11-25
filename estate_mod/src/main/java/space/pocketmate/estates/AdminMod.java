@@ -26,6 +26,14 @@ public final class AdminMod implements ModInitializer {
     case "upsert" -> {var rule=new ShopAdminStore.Rule(text(q,"item","",160),text(q,"itemCategory","",24),bool(q,"buy"),bool(q,"sell"),number(q,"buyPrice"),number(q,"sellPrice"));store.upsert(level,number(q,"revision"),rule,actor);message="품목 설정을 저장했습니다. 새 거래부터 적용됩니다.";}
     case "disable" -> {store.disable(level,number(q,"revision"),text(q,"item","",160),text(q,"side","",8),actor);message="선택한 거래를 일시정지했습니다.";}
     case "delete" -> {store.delete(level,number(q,"revision"),text(q,"item","",160),actor);message="상점 목록에서 품목을 삭제했습니다.";}
+    case "title_save" -> {
+     ProfilesMod.adminTitles(player.getServer()).editTitle(text(q,"id","",32),text(q,"name","",40),text(q,"color","",7),text(q,"icon","",8),bool(q,"create"));
+     message="칭호를 저장했습니다.";
+    }
+    case "title_delete" -> {
+     ProfilesMod.adminTitles(player.getServer()).deleteTitle(text(q,"id","",32));
+     message="칭호와 보유 목록의 해당 칭호를 삭제했습니다.";
+    }
     case "configure" -> {var old=store.view(level).prices();var prices=new ShopPrices(number(q,"buyBase"),number(q,"sellBase"),bool(q,"randomEnabled"),number(q,"intervalSeconds"),Math.toIntExact(number(q,"deviationPercent")),old.seed(),old.buyPrices(),old.sellPrices());store.configure(level,number(q,"revision"),prices,bool(q,"buyPaused"),bool(q,"sellPaused"),bool(q,"estatePurchasesPaused"),bool(q,"missionRewardsPaused"),text(q,"maintenanceReason","",120),actor);message="가격·점검 설정을 저장했습니다. 재시작 없이 적용됩니다.";}
     default -> throw new IllegalArgumentException("지원하지 않는 관리자 요청입니다.");
    }
@@ -38,6 +46,10 @@ public final class AdminMod implements ModInitializer {
   var list=store.entries().values().stream().filter(e->category.equals("all")||e.category().equals(category)).filter(e->side.equals("all")||side.equals("buy")&&e.buy()||side.equals("sell")&&e.sell()||side.equals("disabled")&&!e.buy()&&!e.sell()).filter(e->query.isEmpty()||e.id().contains(query)||ShopCatalog.name(Registries.ITEM.get(net.minecraft.util.Identifier.of(e.id()))).toLowerCase(Locale.ROOT).contains(query)).toList();int page=(int)Math.min(requested,Math.max(0,(list.size()-1)/24));JsonArray items=new JsonArray();
   for(var e:list.subList(Math.min(page*24,list.size()),Math.min((page+1)*24,list.size()))){var row=JSON.toJsonTree(store.rule(e.id())).getAsJsonObject();row.addProperty("name",ShopCatalog.name(Registries.ITEM.get(net.minecraft.util.Identifier.of(e.id()))));var base=ShopCatalog.entries().get(e.id());row.addProperty("sellAllowed",base!=null&&base.sell());row.addProperty("buyAllowed",!ShopCatalog.forbiddenBuy(e.id()));items.add(row);}
   JsonObject out=new JsonObject();out.addProperty("canAdmin",true);out.addProperty("revision",state.revision());out.addProperty("page",page);out.addProperty("pages",Math.max(1,(list.size()+23)/24));out.addProperty("total",list.size());out.add("items",items);JsonObject policy=new JsonObject();policy.addProperty("buyBase",state.prices().buyBase());policy.addProperty("sellBase",state.prices().sellBase());policy.addProperty("randomEnabled",state.prices().randomEnabled());policy.addProperty("intervalSeconds",state.prices().intervalSeconds());policy.addProperty("deviationPercent",state.prices().deviationPercent());out.add("settings",policy);out.addProperty("buyPaused",state.buyPaused());out.addProperty("sellPaused",state.sellPaused());out.addProperty("estatePurchasesPaused",state.estatePurchasesPaused());out.addProperty("missionRewardsPaused",state.missionRewardsPaused());out.addProperty("maintenanceReason",state.maintenanceReason());out.add("audit",JSON.toJsonTree(state.audit().subList(Math.max(0,state.audit().size()-30),state.audit().size())));
+  try{
+   var titles=ProfilesMod.adminTitles(player.getServer()).catalog().stream().filter(c->c.kind().equals("title")&&!c.id().equals("none")).toList();
+   out.add("titles",JSON.toJsonTree(titles));
+  }catch(IllegalStateException unavailable){out.add("titles",JsonNull.INSTANCE);}
   JsonObject status=new JsonObject();status.addProperty("modVersion","0.13.0");status.addProperty("memberLimit",EstateRules.memberLimit(0));status.addProperty("maxEstateLevel",EstateRules.MAX_LEVEL);status.addProperty("maxChunks",EstateRules.limit(10));status.addProperty("missionResetAt",MissionStore.nextReset(java.time.Instant.now()));status.addProperty("pokemonReady",false);
   try{int[] counts=EstatesMod.shopWallet(player.getServer()).adminCounts();status.addProperty("estateReady",true);status.addProperty("estates",counts[0]);status.addProperty("chunks",counts[1]);}catch(Exception unavailable){status.addProperty("estateReady",false);}out.add("status",status);return out;
  }

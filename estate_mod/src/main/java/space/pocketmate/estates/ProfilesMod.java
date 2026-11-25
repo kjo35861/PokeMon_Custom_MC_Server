@@ -28,14 +28,21 @@ public final class ProfilesMod implements ModInitializer {
         if(store==null)return original;
         String title=store.equippedTitle(player.getUuid());
         if(title.equals("none"))return original;
-        for(var item:ProfileStore.CATALOG){
-            if(item.kind().equals("title")&&item.id().equals(title))
-                return Text.empty()
-                    .append(Text.literal(item.glyph()).setStyle(net.minecraft.text.Style.EMPTY.withFont(net.minecraft.util.Identifier.of(item.font())).withColor(item.font().equals("pocketmate:legendary_titles")?0xffffff:Integer.parseInt(item.color().substring(1),16))))
-                    .append(Text.literal(" "+item.name()+" ").setStyle(net.minecraft.text.Style.EMPTY.withColor(Integer.parseInt(item.color().substring(1),16))))
-                    .append(original.copy());
+        var item=store.cosmetic("title",title);
+        if(item==null)return original;
+        int color=Integer.parseInt(item.color().substring(1),16);
+        var prefix=Text.empty();
+        if(!item.glyph().isEmpty()){
+            prefix.append(Text.literal(item.glyph()).setStyle(net.minecraft.text.Style.EMPTY
+                .withFont(net.minecraft.util.Identifier.of(item.font())).withColor(item.font().equals("pocketmate:legendary_titles")?0xffffff:color)));
+            prefix.append(" ");
         }
-        return original;
+        return prefix.append(Text.literal(item.name()+" ").setStyle(net.minecraft.text.Style.EMPTY.withColor(color))).append(original.copy());
+    }
+    static ProfileStore adminTitles(MinecraftServer server){
+        var store=stores.get(server);
+        if(store==null)throw new IllegalStateException("칭호 저장소를 사용할 수 없습니다.");
+        return store;
     }
     @Override public void onInitialize(){
         ServerLifecycleEvents.SERVER_STARTING.register(server->{
@@ -57,7 +64,7 @@ public final class ProfilesMod implements ModInitializer {
             .then(literal("grant").then(argument("player",EntityArgumentType.player()).then(argument("kind",StringArgumentType.word()).suggests((context,builder)->{
                 for(String kind:List.of("icon","title","banner"))builder.suggest(kind);return builder.buildFuture();
             }).then(argument("item",StringArgumentType.word()).suggests((context,builder)->{
-                String kind=StringArgumentType.getString(context,"kind");for(var c:ProfileStore.CATALOG)if(c.kind().equals(kind))builder.suggest(c.id());return builder.buildFuture();
+                String kind=StringArgumentType.getString(context,"kind");for(var c:adminTitles(context.getSource().getServer()).catalog())if(c.kind().equals(kind))builder.suggest(c.id());return builder.buildFuture();
             }).executes(context->{
                 ServerPlayerEntity target=EntityArgumentType.getPlayer(context,"player");ProfileStore store=stores.get(context.getSource().getServer());
                 try{
@@ -79,7 +86,7 @@ public final class ProfilesMod implements ModInitializer {
             else if(action.equals("equip"))profile=store.equip(id,string(request,"icon",32),string(request,"title",32),string(request,"banner",32));
             else throw new IllegalArgumentException();
             JsonObject response=new JsonObject();response.addProperty("type","snapshot");response.addProperty("requestId",requestId);response.addProperty("playerId",id.toString());response.addProperty("playerName",NicknamesMod.name(player));
-            response.add("profile",new Gson().toJsonTree(profile));response.add("catalog",new Gson().toJsonTree(ProfileStore.CATALOG));
+            response.add("profile",new Gson().toJsonTree(profile));response.add("catalog",new Gson().toJsonTree(store.catalog()));
             if(action.equals("equip"))response.addProperty("message","프로필카드를 저장했습니다.");WebGuiBridge.emit(player,CHANNEL,response.toString());
         }catch(ProfileStore.Denied denied){error(player,requestId,denied.getMessage());}
         catch(java.io.IOException failure){LoggerFactory.getLogger("pocketmate-profile").error("Profile save failed",failure);error(player,requestId,"저장에 실패했습니다. 착용 정보를 다시 확인해주세요.");}

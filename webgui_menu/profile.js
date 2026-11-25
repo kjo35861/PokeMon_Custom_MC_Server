@@ -46,7 +46,7 @@
   function initial(element){const span=document.createElement('span');span.className='avatar-initial';span.textContent=(snapshot?.playerName||client?.username||'P').slice(0,1);element.replaceChildren(span);}
   function titleMarkup(c){
     const path=imagePath(c.image),color=/^#[0-9a-f]{6}$/i.test(c.color||'')?c.color:'',light=/^#[0-9a-f]{6}$/i.test(c.lightColor||'')?c.lightColor:color;
-    const icon=c.id==='none'?'':path?'<img class="title-reward-icon title-reward-dark" src="'+esc(path)+'" alt=""><img class="title-reward-icon title-reward-light" src="'+esc(path.replace('.png','-light.png'))+'" alt="">':window.PocketmateIcons(c.prefixIcon||'spark');
+    const icon=c.id==='none'||c.glyph===''?'':path?'<img class="title-reward-icon title-reward-dark" src="'+esc(path)+'" alt=""><img class="title-reward-icon title-reward-light" src="'+esc(path.replace('.png','-light.png'))+'" alt="">':window.PocketmateIcons(c.prefixIcon||'spark');
     return '<span class="title-reward" style="--reward-color:'+color+';--reward-light:'+light+'">'+icon+'<span>'+esc(c.name)+'</span></span>';
   }
   function acquisition(c){

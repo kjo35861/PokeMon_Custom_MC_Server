@@ -12,6 +12,25 @@ class ProfileStoreTest {
     final UUID alice=UUID.randomUUID(),bob=UUID.randomUUID();
     Path file(){return root.resolve("profiles.json");}
     ProfileStore store() throws Exception{return new ProfileStore(file());}
+    @Test void managedTitlesPersistAndDeletingUnequipsForEveryPlayer() throws Exception {
+        var s=store();
+        s.editTitle("trail","숲길 안내자","#12ab34","none",true);
+        s.grant(alice,"title","trail");
+        s.equip(alice,"skin","trail","none");
+        s.editTitle("trail","숲의 안내자","#abc123","keep",false);
+        s=store();
+        assertEquals("trail",s.equippedTitle(alice));
+        assertEquals("#abc123",s.cosmetic("title","trail").color());
+        assertEquals("",s.cosmetic("title","trail").glyph());
+        s.deleteTitle("trail");
+        s.deleteTitle("beginner");
+        s=store();
+        assertNull(s.cosmetic("title","trail"));
+        assertNull(s.cosmetic("title","beginner"));
+        assertEquals("none",s.equippedTitle(alice));
+        assertFalse(s.get(alice).owned().contains("title:trail"));
+        assertEquals("none",s.get(bob).title());
+    }
     @Test void starterOwnershipAndDefaultsPersist() throws Exception {
         var profile=store().get(alice);assertEquals("skin",profile.icon());assertEquals("beginner",profile.title());assertEquals("none",profile.banner());
         assertTrue(profile.owned().contains("banner:forest"));assertFalse(profile.owned().contains("icon:pikachu"));assertEquals(profile,store().get(alice));

@@ -45,6 +45,44 @@ public final class ProfileStore {
     }
     public static final class Denied extends Exception { public Denied(String message){super(message);} }
     private final Path path;
+    private Map<String,Cosmetic> titleOverrides=Map.of();
+    private Set<String> deletedTitles=Set.of();
+    public List<Cosmetic> catalog(){
+        var result=new LinkedHashMap<String,Cosmetic>();
+        for(Cosmetic item:CATALOG)
+            if(!item.kind.equals("title")||!deletedTitles.contains(item.id))
+                result.put(item.kind+":"+item.id,item);
+        for(Cosmetic title:titleOverrides.values())result.put("title:"+title.id,title);
+        return List.copyOf(result.values());
+    }
+    public void editTitle(String id,String name,String color,String icon,boolean create) throws IOException {
+        if(!id.matches("[a-z0-9_-]{1,32}")||id.equals("none"))throw new IllegalArgumentException("칭호 ID는 영문 소문자·숫자·밑줄·하이픈 1~32자입니다.");
+        name=name.strip();
+        if(name.isEmpty()||name.length()>40||name.chars().anyMatch(Character::isISOControl)||!color.matches("#[0-9a-fA-F]{6}"))
+            throw new IllegalArgumentException("칭호 이름과 #RRGGBB 색 코드를 확인해주세요.");
+        Cosmetic old=cosmetic("title",id);
+        if(create==(old!=null))throw new IllegalArgumentException(create?"이미 등록된 칭호 ID입니다.":"수정할 칭호가 없습니다.");
+        if(!Set.of("keep","none","spark").contains(icon))throw new IllegalArgumentException("아이콘 설정을 확인해주세요.");
+        Cosmetic source=old==null?new Cosmetic("title",id,name,"",false):old;
+        boolean keep=icon.equals("keep");
+        Cosmetic next=new Cosmetic("title",id,name,keep?source.image:"",source.starter,color,color,
+            keep?source.glyph:icon.equals("none")?"":"",keep?source.font:"pocketmate:titles",source.acquisitionCondition);
+        var overrides=new LinkedHashMap<>(titleOverrides);overrides.put(id,next);
+        var deleted=new HashSet<>(deletedTitles);deleted.remove(id);
+        persist(new LinkedHashMap<>(profiles),overrides,deleted);
+    }
+    public void deleteTitle(String id) throws IOException {
+        if(id.equals("none")||cosmetic("title",id)==null)throw new IllegalArgumentException("삭제할 수 없는 칭호입니다.");
+        var overrides=new LinkedHashMap<>(titleOverrides);overrides.remove(id);
+        var deleted=new HashSet<>(deletedTitles);
+        if(CATALOG.stream().anyMatch(c->c.kind.equals("title")&&c.id.equals(id)))deleted.add(id);
+        var next=new LinkedHashMap<UUID,Profile>();
+        profiles.forEach((uuid,profile)->{
+            var owned=new HashSet<>(profile.owned);owned.remove("title:"+id);
+            next.put(uuid,new Profile(profile.icon,profile.title.equals(id)?"none":profile.title,profile.banner,owned));
+        });
+        persist(next,overrides,deleted);
+    }
     private final Map<UUID,Profile> profiles=new LinkedHashMap<>();
     private static final Gson JSON=new GsonBuilder().setPrettyPrinting().create();
     public ProfileStore(Path path) throws IOException {
@@ -53,11 +91,22 @@ public final class ProfileStore {
         try {
             JsonObject root=JsonParser.parseString(Files.readString(path)).getAsJsonObject();
             if(root.get("formatVersion").getAsInt()!=1)throw new IllegalArgumentException();
+            var loadedTitles=new LinkedHashMap<String,Cosmetic>();
+            if(root.has("titleOverrides"))for(var entry:root.getAsJsonObject("titleOverrides").entrySet()){
+                Cosmetic title=JSON.fromJson(entry.getValue(),Cosmetic.class);
+                if(!entry.getKey().equals(title.id)||!title.kind.equals("title")||title.id.equals("none")||!title.color.matches("#[0-9a-fA-F]{6}"))throw new IllegalArgumentException();
+                loadedTitles.put(title.id,title);
+            }
+            titleOverrides=Collections.unmodifiableMap(loadedTitles);
+            var removed=new HashSet<String>();
+            if(root.has("deletedTitles"))for(var value:root.getAsJsonArray("deletedTitles"))removed.add(value.getAsString());
+            if(removed.contains("none"))throw new IllegalArgumentException();
+            deletedTitles=Set.copyOf(removed);
             JsonObject entries=root.getAsJsonObject("profiles");
             for(var entry:entries.entrySet()) {
                 UUID id=UUID.fromString(entry.getKey());JsonObject value=entry.getValue().getAsJsonObject();
                 Set<String> owned=new HashSet<>();for(JsonElement item:value.getAsJsonArray("owned")) {
-                    String key=item.getAsString();if(CATALOG.stream().noneMatch(c->key.equals(c.kind+":"+c.id))||!owned.add(key))throw new IllegalArgumentException();
+                    String key=item.getAsString();if(catalog().stream().noneMatch(c->key.equals(c.kind+":"+c.id))||!owned.add(key))throw new IllegalArgumentException();
                 }
                 Profile profile=new Profile(value.get("icon").getAsString(),value.get("title").getAsString(),value.get("banner").getAsString(),owned);
                 validate(profile,"icon",profile.icon);validate(profile,"title",profile.title);validate(profile,"banner",profile.banner);
@@ -65,16 +114,16 @@ public final class ProfileStore {
             }
         }catch(Exception invalid){throw new IOException("Invalid profile store; refusing to reset cosmetic ownership",invalid);}
     }
-    public static Cosmetic cosmetic(String kind,String id){return CATALOG.stream().filter(c->c.kind.equals(kind)&&c.id.equals(id)).findFirst().orElse(null);}
-    private static Profile starter(){
-        Set<String> owned=new HashSet<>();for(Cosmetic c:CATALOG)if(c.starter)owned.add(c.kind+":"+c.id);
-        return new Profile("skin","beginner","none",owned);
+    public Cosmetic cosmetic(String kind,String id){return catalog().stream().filter(c->c.kind.equals(kind)&&c.id.equals(id)).findFirst().orElse(null);}
+    private Profile starter(){
+        Set<String> owned=new HashSet<>();for(Cosmetic c:catalog())if(c.starter)owned.add(c.kind+":"+c.id);
+        return new Profile("skin",owned.contains("title:beginner")?"beginner":"none","none",owned);
     }
     public Profile get(UUID id) throws IOException {
         Profile profile=profiles.get(id);if(profile!=null)return profile;
         profile=starter();commit(id,profile);return profile;
     }
-    private static void validate(Profile profile,String kind,String id) throws Denied {
+    private void validate(Profile profile,String kind,String id) throws Denied {
         if(cosmetic(kind,id)==null||!profile.owned.contains(kind+":"+id))throw new Denied("보유한 꾸미기 항목만 착용할 수 있습니다.");
     }
     public Profile equip(UUID id,String icon,String title,String banner) throws IOException,Denied {
@@ -90,14 +139,18 @@ public final class ProfileStore {
     public int grantAllTitles(UUID id) throws IOException {
         Profile current=get(id);Set<String> owned=new HashSet<>(current.owned);
         int added=0;
-        for(Cosmetic item:CATALOG)if(item.kind.equals("title")&&owned.add("title:"+item.id))added++;
+        for(Cosmetic item:catalog())if(item.kind.equals("title")&&owned.add("title:"+item.id))added++;
         if(added>0)commit(id,new Profile(current.icon,current.title,current.banner,owned));
         return added;
     }
     private void commit(UUID id,Profile profile) throws IOException {
         Map<UUID,Profile> next=new LinkedHashMap<>(profiles);next.put(id,profile);
+        persist(next,titleOverrides,deletedTitles);
+    }
+    private void persist(Map<UUID,Profile> next,Map<String,Cosmetic> overrides,Set<String> deleted) throws IOException {
         JsonObject root=new JsonObject(),entries=new JsonObject();root.addProperty("formatVersion",1);
         next.forEach((uuid,value)->entries.add(uuid.toString(),JSON.toJsonTree(value)));root.add("profiles",entries);
+        root.add("titleOverrides",JSON.toJsonTree(overrides));root.add("deletedTitles",JSON.toJsonTree(deleted));
         Files.createDirectories(path.getParent());Path temporary=Files.createTempFile(path.getParent(),"profiles-",".tmp");
         try {
             byte[] bytes=JSON.toJson(root).getBytes(java.nio.charset.StandardCharsets.UTF_8);
@@ -106,6 +159,7 @@ public final class ProfileStore {
             try{Files.move(temporary,path,StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);}
             catch(AtomicMoveNotSupportedException ignored){Files.move(temporary,path,StandardCopyOption.REPLACE_EXISTING);}
             profiles.clear();profiles.putAll(next);
+            titleOverrides=Collections.unmodifiableMap(new LinkedHashMap<>(overrides));deletedTitles=Set.copyOf(deleted);
         }finally{Files.deleteIfExists(temporary);}
     }
 }

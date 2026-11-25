@@ -2,7 +2,7 @@
  'use strict';
  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const cats=[['building','건축블럭'],['colored','색깔블럭'],['decoration','장식블럭'],['minerals','광물'],['crops','농작물'],['balls','몬스터볼'],['held','지니는 물건'],['zcrystals','Z크리스탈'],['megastones','메가나이트']];
- const tabs=[['items','상점 목록'],['policy','가격·점검'],['status','운영 현황'],['audit','변경 기록']];
+ const tabs=[['items','상점 목록'],['titles','칭호 관리'],['policy','가격·점검'],['status','운영 현황'],['audit','변경 기록']];
  let lastCapabilities=0;
  let allowed=false,cap=null,pending=null,host=null,data=null,tab='items',query='',category='all',sideFilter='all',page=0,feedback='',failed=false,closeMenu=null,poll=null,searchTimer=null,lookupTimer=null;
  const icon=n=>window.PocketmateIcons(n),money=n=>Number(n).toLocaleString('ko-KR')+'원';
@@ -31,6 +31,9 @@
   if(!data)return;
   host.querySelector('[data-admin-add]')?.addEventListener('click',()=>edit());
   host.querySelectorAll('[data-admin-edit]').forEach(b=>b.onclick=()=>edit(data.items.find(i=>i.id===b.dataset.adminEdit)));
+  host.querySelector('[data-title-add]')?.addEventListener('click',()=>editTitle(null));
+  host.querySelectorAll('[data-title-edit]').forEach(b=>b.onclick=()=>editTitle(data.titles.find(t=>t.id===b.dataset.titleEdit)));
+  host.querySelectorAll('[data-title-delete]').forEach(b=>b.onclick=()=>deleteTitle(data.titles.find(t=>t.id===b.dataset.titleDelete)));
   host.querySelectorAll('[data-admin-delete]').forEach(b=>b.onclick=()=>deleteItem(data.items.find(i=>i.id===b.dataset.adminDelete)));
   host.querySelectorAll('[data-admin-disable]').forEach(b=>b.onclick=()=>remove(data.items.find(i=>i.id===b.dataset.adminDisable)));
   host.querySelectorAll('[data-admin-page]').forEach(b=>b.onclick=()=>{page+=Number(b.dataset.adminPage);request();});
@@ -40,6 +43,7 @@
  }
  function content(){
   if(tab==='items')return `<div class="admin-filters"><input data-admin-search type="search" maxlength="80" placeholder="아이템 이름 또는 ID 검색" value="${esc(query)}"><select data-admin-category aria-label="관리 분류">${options(category,true)}</select><select data-admin-side aria-label="거래 목록">${[['all','전체 상태'],['buy','구매 목록'],['sell','판매 목록'],['disabled','일시정지 / 미사용']].map(([id,name])=>`<option value="${id}" ${id===sideFilter?'selected':''}>${name}</option>`).join('')}</select><button class="primary-button" data-admin-add>품목 추가</button></div><p class="admin-help">품목 ${data.total}종 · 구매/판매 여부와 가격을 따로 수정할 수 있습니다. 판매 품목 제한·압축 블록 제외 규칙은 유지됩니다.</p><div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>아이템</th><th>분류</th><th>구매</th><th>판매</th><th>관리</th></tr></thead><tbody>${data.items.map(i=>`<tr><td><strong>${esc(i.name)}</strong><small>${esc(i.id)}</small></td><td>${esc(cats.find(c=>c[0]===i.category)?.[1])}</td><td>${i.buy?money(i.buyPrice):'제외'}</td><td>${i.sell?money(i.sellPrice):'제외'}</td><td><div class="admin-row-actions"><button data-admin-edit="${esc(i.id)}">수정</button><button data-admin-disable="${esc(i.id)}" ${!i.buy&&!i.sell?'disabled':''}>일시정지</button><button data-admin-delete="${esc(i.id)}">삭제</button></div></td></tr>`).join('')||'<tr><td colspan="5">검색 결과가 없습니다.</td></tr>'}</tbody></table></div><div class="admin-pagination"><button data-admin-page="-1" ${page<=0?'disabled':''}>이전</button><span>${page+1} / ${data.pages}</span><button data-admin-page="1" ${page+1>=data.pages?'disabled':''}>다음</button></div>`;
+  if(tab==='titles')return !Array.isArray(data.titles)?'<p>칭호 저장소에 연결할 수 없습니다.</p>':`<div class="admin-filters"><button class="primary-button" data-title-add>칭호 추가</button></div><div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>칭호</th><th>색 코드</th><th>아이콘</th><th>관리</th></tr></thead><tbody>${data.titles.map(t=>`<tr><td><strong>${esc(t.name)}</strong><small>${esc(t.id)}</small></td><td><span style="color:${/^#[0-9a-f]{6}$/i.test(t.color)?esc(t.color):'inherit'}">●</span> ${esc(t.color)}</td><td>${t.glyph?'사용':'없음'}</td><td><div class="admin-row-actions"><button data-title-edit="${esc(t.id)}">수정</button><button data-title-delete="${esc(t.id)}">삭제</button></div></td></tr>`).join('')}</tbody></table></div>`;
   if(tab==='policy'){const s=data.settings;return `<form data-admin-policy class="admin-form"><div class="admin-form-grid"><label>기본 구매가<input name="buyBase" type="number" min="2" max="1000000" value="${s.buyBase}" required></label><label>기본 판매가<input name="sellBase" type="number" min="1" max="999999" value="${s.sellBase}" required></label><label>변동 주기 · 초<input name="intervalSeconds" type="number" min="60" max="604800" value="${s.intervalSeconds}" required></label><label>편차 · %<input name="deviationPercent" type="number" min="0" max="40" value="${s.deviationPercent}" required></label></div><label class="admin-check"><input name="randomEnabled" type="checkbox" ${s.randomEnabled?'checked':''}>주기별 랜덤 판매가 사용</label><p class="admin-help">개별 품목 가격 설정이 기본가보다 우선합니다. 판매가는 구매가보다 낮아야 합니다. 저장하면 열려 있던 이전 견적은 무효화됩니다.</p><hr><h3>상점 점검</h3><label class="admin-check"><input name="buyPaused" type="checkbox" ${data.buyPaused?'checked':''}>구매 일시정지</label><label class="admin-check"><input name="sellPaused" type="checkbox" ${data.sellPaused?'checked':''}>판매 일시정지</label><hr><h3>다른 기능 점검</h3><label class="admin-check"><input name="estatePurchasesPaused" type="checkbox" ${data.estatePurchasesPaused?'checked':''}>영지 생성·영토 구매 일시정지</label><label class="admin-check"><input name="missionRewardsPaused" type="checkbox" ${data.missionRewardsPaused?'checked':''}>임무 보상 수령 일시정지</label><p class="admin-help">기존 영지 소유권과 임무 진행도는 유지됩니다. 임무 진행 집계도 계속됩니다.</p><label>점검 안내<input name="maintenanceReason" maxlength="120" value="${esc(data.maintenanceReason)}" placeholder="이용자에게 표시할 안내"></label><button class="primary-button" type="submit">설정 저장</button></form>`;}
   if(tab==='audit')return `<p class="admin-help">최근 30건을 표시합니다. 서버에는 최근 100건이 보존됩니다.</p><div class="admin-audit">${[...(data.audit||[])].reverse().map(a=>`<article><div><strong>${esc(a.action)}</strong><span>${esc(a.actor)} · ${esc(new Date(a.at).toLocaleString('ko-KR'))}</span></div><p>${esc(a.summary)}</p><small>${esc(a.item)}</small></article>`).join('')||'<p>아직 변경 기록이 없습니다.</p>'}</div>`;
   const s=data.status;return `<p class="admin-help">다른 기능의 운영 상태와 현재 규칙을 확인합니다. 유저 재화·영지 소유권·임무 진행도는 이 화면에서 임의로 변경하지 않습니다.</p><div class="admin-status-grid"><section><h3>영지</h3><dl><dt>저장소</dt><dd>${s.estateReady?'정상 연결':'확인 필요'}</dd><dt>영지 / 청크</dt><dd>${s.estates??'—'} / ${s.chunks??'—'}</dd><dt>영지 최대 레벨</dt><dd>${s.maxEstateLevel}</dd><dt>최대 영토 / 인원</dt><dd>${s.maxChunks}청크 / ${s.memberLimit}명</dd></dl></section><section><h3>일일 임무</h3><dl><dt>초기화</dt><dd>매일 오전 6시 · 한국시간</dd><dt>다음 초기화</dt><dd>${esc(new Date(s.missionResetAt).toLocaleString('ko-KR'))}</dd><dt>포켓몬 연동</dt><dd>${s.pokemonReady?'연결됨':'픽셀몬 연동 대기'}</dd></dl></section><section><h3>상점 운영</h3><dl><dt>모드</dt><dd>${esc(s.modVersion)}</dd><dt>설정 버전</dt><dd>${data.revision}</dd><dt>구매 / 판매</dt><dd>${data.buyPaused?'중지':'운영'} / ${data.sellPaused?'중지':'운영'}</dd></dl><p class="admin-help">설정 저장 시 이전 파일을 .bak으로 보존합니다.</p></section></div>`;
@@ -51,6 +55,29 @@
   d.querySelector('form').onsubmit=e=>{e.preventDefault();if(pending)return;const f=new FormData(e.target),buyPrice=Number(f.get('buyPrice')),sellPrice=Number(f.get('sellPrice'));if(!Number.isInteger(buyPrice)||!Number.isInteger(sellPrice)||sellPrice>=buyPrice){d.querySelector('.admin-dialog-error').textContent='판매가는 구매가보다 작은 정수여야 합니다.';return;}const payload={revision,item:f.get('item'),itemCategory:f.get('itemCategory'),buy:e.target.elements.buy.checked,sell:e.target.elements.sell.checked,buyPrice,sellPrice};d.close();request('upsert',payload);};d.showModal();
  }
  function showLookup(items){const d=host?.querySelector('.admin-dialog');if(!d)return;const target=d.querySelector('.admin-lookup-results');if(!target)return;target.innerHTML=items.map((i,index)=>`<button type="button" data-pick="${index}"><strong>${esc(i.name)}</strong><small>${esc(i.id)}</small></button>`).join('')||'<small>검색 결과가 없습니다.</small>';target.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>{const i=items[Number(b.dataset.pick)],f=d.querySelector('form');f.elements.namedItem('item').value=i.id;f.elements.buy.disabled=!i.buyAllowed;f.elements.buy.checked=i.buyAllowed;f.elements.sell.disabled=!i.sellAllowed;f.elements.sell.checked=false;if(i.category)f.elements.itemCategory.value=i.category;target.innerHTML=`<small>${esc(i.name)} 선택됨</small>`;});}
+ function titleDialog(markup){
+  const dialog=document.createElement('dialog');
+  dialog.className='admin-dialog';
+  dialog.innerHTML=markup;
+  host.append(dialog);
+  dialog.querySelector('[data-title-cancel]').onclick=()=>dialog.close();
+  dialog.addEventListener('close',()=>dialog.remove(),{once:true});
+  dialog.showModal();
+  return dialog;
+ }
+ function editTitle(item){
+  const d=titleDialog(`<form class="admin-form"><h2>${item?'칭호 수정':'칭호 추가'}</h2><label>칭호 ID<input name="id" value="${esc(item?.id||'')}" ${item?'readonly':''} required maxlength="32" pattern="[a-z0-9_\\-]{1,32}"></label><label>칭호 이름<input name="name" value="${esc(item?.name||'')}" maxlength="40" required></label><label>색 코드<input name="color" value="${esc(item?.color||'#ffe0a0')}" pattern="#[0-9a-fA-F]{6}" maxlength="7" required></label><label>아이콘<select name="icon">${item?'<option value="keep">기존 설정 유지</option>':''}<option value="none">없음</option><option value="spark">기본 반짝임</option></select></label><div class="estate-confirm-actions"><button type="button" data-title-cancel>취소</button><button class="primary-button" type="submit">저장</button></div></form>`);
+  d.querySelector('form').onsubmit=e=>{
+   e.preventDefault();if(pending)return;
+   const values=Object.fromEntries(new FormData(e.currentTarget));
+   d.close();request('title_save',{...values,create:!item});
+  };
+ }
+ function deleteTitle(item){
+  if(!item)return;
+  const d=titleDialog(`<h2>칭호를 삭제할까요?</h2><p>${esc(item.name)} 칭호를 모든 플레이어의 보유 및 착용 목록에서 제거합니다.</p><div class="estate-confirm-actions"><button data-title-cancel>취소</button><button class="primary-button" data-title-delete-confirm>삭제 확정</button></div>`);
+  d.querySelector('[data-title-delete-confirm]').onclick=()=>{if(pending)return;d.close();request('title_delete',{id:item.id});};
+ }
  function deleteItem(item){
   if(!item)return;
   const revision=data.revision,d=document.createElement('dialog');d.className='admin-dialog';
