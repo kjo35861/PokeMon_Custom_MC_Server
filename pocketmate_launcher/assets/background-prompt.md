@@ -1,7 +1,7 @@
 # 배경 생성 기록
 
 - 방식: 내장 `image_gen` 도구, 불투명 이미지, 첨부 스크린샷은 풍경의 스타일과 구도 참조로 사용.
-- 프로젝트 저장 경로: `C:/Users/kkuu1/OneDrive/문서/ChatGPT/마인크래프트/snowfrost_launcher/assets/mountain-lake.png`
+- 프로젝트 저장 경로: `C:/Users/kkuu1/OneDrive/문서/ChatGPT/마인크래프트/pocketmate_launcher/assets/mountain-lake.png`
 - 원본 저장 경로: `C:/Users/kkuu1/.codex/generated_images/01a1fa38-f3f4-7363-9995-c7814c2dd27f/exec-5d66f4a9-bf72-4a0a-9ca2-b6452e16d13d.png`
 
 최종 프롬프트:

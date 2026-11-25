@@ -9,10 +9,16 @@ from pathlib import Path
 import subprocess
 import threading
 import zipfile
+import argparse
+
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--backend-only', action='store_true')
+parser.add_argument('--output', type=Path)
+args = parser.parse_args()
 
 ROOT = Path(__file__).resolve().parent
 EXE = Path(os.environ.get('POCKETMATE_TEST_EXE', str(ROOT/'dist/PocketmateLauncher.exe'))).resolve()
-OUT = ROOT/'verification'
+OUT = args.output.resolve() if args.output else ROOT/'verification'
 FIXTURES = OUT/'update-fixtures'
 FIXTURES.mkdir(parents=True, exist_ok=True)
 
@@ -75,7 +81,7 @@ try:
     print(json.dumps(result,indent=2,ensure_ascii=False))
     assert process.returncode==0,result
     prism=root/'test-sandbox'/'Prism data'
-    for label, endpoint, expected in [('update','manifest-v1.json','업데이트'),('latest','manifest-v2.json','게임 시작'),('error','manifest-version.json','다시 확인'),('vanilla','','게임 시작'),('settings','','게임 시작')]:
+    for label, endpoint, expected in ([] if args.backend_only else [('update','manifest-v1.json','업데이트'),('latest','manifest-v2.json','게임 시작'),('error','manifest-version.json','다시 확인'),('vanilla','','게임 시작'),('settings','','게임 시작')]):
         data=(root/'test-sandbox'/'updates-test') if label=='latest' else root/('ui-'+label)
         data.mkdir(parents=True,exist_ok=True)
         settings={'DisplayName':'포켓메이트','UpdateManifestUrl':base+endpoint if endpoint else '', 'PrismPath':str(prism/'prismlauncher.exe'),'PrismDataPath':str(prism),'PrismInstanceId':'1.21.1 test'}

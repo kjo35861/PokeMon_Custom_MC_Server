@@ -111,6 +111,7 @@ namespace Snowfrost
                 Directory.CreateDirectory(instances);
                 string staged=Path.Combine(instances,".pocketmate-" + Guid.NewGuid().ToString("N"));
                 string game=Path.Combine(staged,"minecraft");
+                CopyClientDefaults(game);
                 WriteInitialOptions(game,true);
                 if (!String.IsNullOrWhiteSpace(address)) WriteServerList(game,address);
                 Json.Save(Path.Combine(staged,"mmc-pack.json"),new {formatVersion=1, components=new[]{
@@ -121,6 +122,18 @@ namespace Snowfrost
                 Directory.Move(staged,root);
             }
             return ResolveNeoForgeTest(prism,id);
+        }
+        static void CopyClientDefaults(string gameRoot)
+        {
+            string defaults = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "client-defaults");
+            if (!Directory.Exists(defaults)) return;
+            foreach (string source in Directory.EnumerateFiles(defaults, "*", SearchOption.AllDirectories))
+            {
+                string relative = source.Substring(defaults.Length + 1).Replace(Path.DirectorySeparatorChar, '/');
+                string target = SafeFiles.Join(gameRoot, relative);
+                Directory.CreateDirectory(Path.GetDirectoryName(target));
+                File.Copy(source, target);
+            }
         }
         static void NbtString(Stream stream,string value)
         {
@@ -194,10 +207,32 @@ namespace Snowfrost
                 if(pocketmatePack)
                 {
                     writer.WriteLine("key_key.webgui.main_menu:key.keyboard.f:SHIFT");
-                    writer.WriteLine("resourcePacks:[\"vanilla\",\"mod_resources\",\"file/eevee-server-resourcepack-recovered.zip\"]");
+                    writer.WriteLine("resourcePacks:[\"vanilla\",\"mod_resources\",\"file/eevee-server-resourcepack-recovered.zip\",\"file/pocketmate-pixelmon-radar.zip\"]");
                     writer.WriteLine("incompatibleResourcePacks:[]");
                 }
             }
+        }
+        public static void EnablePixelmonRadarPack(string gameRoot)
+        {
+            const string pack = "file/pocketmate-pixelmon-radar.zip";
+            if (!File.Exists(Path.Combine(gameRoot, "resourcepacks", "pocketmate-pixelmon-radar.zip"))) return;
+            string path = Path.Combine(gameRoot, "options.txt");
+            if (!File.Exists(path)) { WriteInitialOptions(gameRoot, true); return; }
+            var lines = File.ReadAllLines(path).ToList();
+            const string key = "resourcePacks:";
+            int index = lines.FindIndex(line => line.StartsWith(key, StringComparison.Ordinal));
+            var packs = index < 0
+                ? new List<string> { "vanilla", "mod_resources" }
+                : Json.Serializer().Deserialize<List<string>>(lines[index].Substring(key.Length));
+            if (packs.Contains(pack)) return;
+            packs.Add(pack);
+            string setting = key + Json.Encode(packs);
+            if (index < 0) lines.Add(setting);
+            else lines[index] = setting;
+            string temporary = path + ".pocketmate-" + Guid.NewGuid().ToString("N");
+            File.WriteAllLines(temporary, lines, new UTF8Encoding(false));
+            try { File.Replace(temporary, path, null); }
+            finally { if (File.Exists(temporary)) File.Delete(temporary); }
         }
         public static object LoaderPack(PrismTarget target,UpdatePlan plan)
         {

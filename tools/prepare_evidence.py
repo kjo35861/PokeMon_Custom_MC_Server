@@ -26,10 +26,11 @@ def clean(value):
     return scrub(value) if isinstance(value,str) else value
 
 def candidates():
-    for folder in ['webgui_menu','snowfrost_launcher']:
+    for folder in ['webgui_menu','pocketmate_launcher']:
+        report_folder = 'snowfrost_launcher' if folder == 'pocketmate_launcher' else folder
         for source in sorted((ROOT/folder/'verification').glob('*.json')):
             if source.name.endswith('.state.json'):continue
-            yield source,f'reports/{folder}/{source.name}','historical-or-current-report'
+            yield source,f'reports/{report_folder}/{source.name}','historical-or-current-report'
     for source in sorted((ROOT/'estate_mod/verification/test-results/test').glob('TEST-*.xml')):
         yield source,f'reports/estate_mod/{source.name}','junit-result'
     screenshots={
@@ -104,7 +105,7 @@ def candidates():
         'webgui_menu/verification/estate-management.png':'historical-estate-map-mock.png',
         'webgui_menu/verification/estate-vault.png':'historical-estate-treasury.png',
         'webgui_menu/verification/profile-studio.png':'historical-profile-studio.png',
-        'snowfrost_launcher/verification/current-prism-preview.png':'historical-launcher-prism-0.3.0.png',
+        'pocketmate_launcher/verification/current-prism-preview.png':'historical-launcher-prism-0.3.0.png',
     }
     for original,name in screenshots.items():
         source=ROOT/original

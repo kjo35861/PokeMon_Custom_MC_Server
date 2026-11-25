@@ -1,5 +1,6 @@
 """Build a standalone Windows setup executable from a Pocketmate player ZIP."""
 import argparse
+import json
 import os
 from pathlib import Path
 import shutil
@@ -17,6 +18,9 @@ with zipfile.ZipFile(args.zip) as archive:
     required = {"PocketmateLauncher.exe", "launcher-config.json", "client-pack.json"}
     if not required <= set(archive.namelist()) or archive.testzip() is not None:
         raise SystemExit("Invalid Pocketmate player ZIP")
+    version = json.loads(archive.read("client-pack.json")).get("packVersion")
+    if not isinstance(version, str) or not 1 <= len(version.encode("utf-16-le")) // 2 <= 100:
+        raise SystemExit("Invalid packVersion: expected 1 to 100 characters")
 csc = Path(os.environ["WINDIR"]) / "Microsoft.NET/Framework64/v4.0.30319/csc.exe"
 with tempfile.TemporaryDirectory(prefix="PocketmateSetupBuild-") as temp:
     stub = Path(temp) / "stub.exe"

@@ -31,6 +31,7 @@ $launcherArguments = @(
     (Join-Path $launcherRoot 'src\Authentication.cs'),
     (Join-Path $launcherRoot 'src\GameInstaller.cs'),
     (Join-Path $launcherRoot 'src\PrismBridge.cs'),
+    (Join-Path $launcherRoot 'src\GameWindowActivation.cs'),
     (Join-Path $launcherRoot 'src\BackendTests.cs')
 )
 & $launcherCompiler @launcherArguments

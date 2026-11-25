@@ -111,7 +111,46 @@ namespace Snowfrost
                 Check(fabric.Loader=="fabric"&&fabric.LoaderVersion=="0.16.14","Fabric loader is selected from server manifest",checks);
             }
             await PrismChecks(root,fixture,checks);
+            await GameWindowChecks(checks);
             Json.Save(report,new{passed=true,checks=checks.Count,cases=checks,realMicrosoftLoginPerformed=false,gameLaunched=false});
+        }
+        static async Task GameWindowChecks(List<string> checks)
+        {
+            Check(GameWindowActivation.IsGameWindow(17,17,true,false,"Minecraft* NeoForge 1.21.1","GLFW30") &&
+                !GameWindowActivation.IsGameWindow(17,18,true,false,"Minecraft 1.21.1","GLFW30") &&
+                !GameWindowActivation.IsGameWindow(17,17,false,false,"Minecraft 1.21.1","GLFW30") &&
+                !GameWindowActivation.IsGameWindow(17,17,true,true,"Minecraft 1.21.1","GLFW30") &&
+                !GameWindowActivation.IsGameWindow(17,17,true,false,"Minecraft console","ConsoleWindowClass") &&
+                !GameWindowActivation.IsGameWindow(17,17,true,false,"NeoForge early loading","GLFW30"),
+                "Focus selects only the launched process's visible Minecraft GLFW main window",checks);
+            int found=0,focused=0,waits=0,flashed=0;IntPtr handle=new IntPtr(7);
+            bool result=await GameWindowActivation.FocusWhenReady(()=>true,()=>++found<3?IntPtr.Zero:handle,
+                h=>{focused++;return h==handle;},h=>flashed++,ms=>{waits++;return Task.FromResult(0);},8,CancellationToken.None);
+            Check(result && focused==1 && waits==2 && flashed==0,"Focus waits for window creation and stops after successful activation",checks);
+            focused=0;flashed=0;
+            result=await GameWindowActivation.FocusWhenReady(()=>true,()=>handle,h=>{focused++;return false;},
+                h=>flashed++,ms=>Task.FromResult(0),8,CancellationToken.None);
+            Check(!result && focused==3 && flashed==1,"Denied foreground activation has bounded retries and one taskbar notification",checks);
+            bool alive=true;focused=0;
+            result=await GameWindowActivation.FocusWhenReady(()=>alive,()=>IntPtr.Zero,h=>{focused++;return true;},
+                h=>flashed++,ms=>{alive=false;return Task.FromResult(0);},8,CancellationToken.None);
+            Check(!result && focused==0,"Exited game stops window waiting without activation",checks);
+            found=0;focused=0;flashed=0;
+            result=await GameWindowActivation.FocusWhenReady(()=>true,()=>{found++;return IntPtr.Zero;},
+                h=>{focused++;return true;},h=>flashed++,ms=>Task.FromResult(0),2,CancellationToken.None);
+            Check(!result && found==2 && focused==0 && flashed==0,"Window readiness timeout does not focus an unrelated window",checks);
+            int calls=0;bool cancelled=false;
+            using(var cancel=new CancellationTokenSource())
+            {
+                cancel.Cancel();
+                try { await GameWindowActivation.FocusWhenReady(()=>{calls++;return true;},()=>handle,h=>true,h=>{},ms=>Task.FromResult(0),8,cancel.Token); }
+                catch(OperationCanceledException){cancelled=true;}
+            }
+            Check(cancelled && calls==0,"Cancelled launch never activates a game window",checks);
+            found=0;focused=0;IntPtr replacement=new IntPtr(9);
+            result=await GameWindowActivation.FocusWhenReady(()=>true,()=>++found==1?handle:replacement,
+                h=>{focused++;return h==replacement;},h=>{},ms=>Task.FromResult(0),8,CancellationToken.None);
+            Check(result && focused==1,"Replaced loading window is never activated after replacement",checks);
         }
         static async Task PrismChecks(string root,string fixture,List<string> checks)
         {

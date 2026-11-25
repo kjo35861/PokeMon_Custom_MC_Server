@@ -20,7 +20,7 @@
 ## 저장소 구조
 
 ```text
-snowfrost_launcher/  C# / WPF 런처와 Prism·업데이트 연결
+pocketmate_launcher/  C# / WPF 런처와 Prism·업데이트 연결
 webgui_menu/        HTML·CSS·JavaScript 메뉴 및 SVG/PNG/폰트
 estate_mod/         Fabric 서버·클라이언트 모드와 Java 테스트
 docs/               상세 개발 과정, 구조, 운영·검증 기록
@@ -28,7 +28,7 @@ docs/evidence/      경로를 정리한 보고서, 과거 화면, JUnit 결과, 
 tools/              공개용 증거 정리 및 업로드 파일 검사
 ```
 
-`snowfrost_launcher`는 처음 사용했던 내부 폴더명입니다. 사용자에게 표시되는 서비스 이름은 **포켓메이트 / POCKETMATE**로 통일했습니다. 빌드 결과 EXE·JAR·ZIP, 게임 월드와 계정 파일은 Git에 넣지 않습니다. 각 구성 요소의 빌드 명령은 아래에 안내합니다.
+**포켓메이트 / POCKETMATE**의 Windows 런처 소스는 `pocketmate_launcher/`에 있습니다. Windows 설치 마법사는 [GitHub Releases](https://github.com/kjo35861/PokeMon_Custom_MC_Server/releases/latest)에서 받을 수 있습니다. 게임 월드와 계정 파일은 공개하지 않습니다. 각 구성 요소의 빌드 명령은 아래에 안내합니다.
 
 ## 작업 과정
 
@@ -40,7 +40,7 @@ tools/              공개용 증거 정리 및 업로드 파일 검사
 
 서버 업데이트 주소가 없으면 **순정 Minecraft 1.21.1**을 실행합니다. 주소가 있으면 manifest의 파일 경로·크기·SHA-256을 검사하고 변경·누락·손상 항목이 있을 때 버튼을 업데이트로 바꿉니다. 다운로드와 검증을 마친 다음 게임을 실행합니다. 서버용 인스턴스는 기본 순정 인스턴스와 분리하며, 적용 실패 시 변경을 되돌리고 기존에 관리하던 파일만 정리합니다. 서버 팩 기본 로더는 Fabric입니다. 실행 횟수 표시는 제거했습니다.
 
-관련 자료: [런처 사용·빌드 안내](snowfrost_launcher/README.md), [46개 백엔드 검사 기록](docs/evidence/reports/snowfrost_launcher/backend-report.json), [최종 상태](docs/evidence/reports/snowfrost_launcher/final-report.json).
+관련 자료: [런처 사용·빌드 안내](pocketmate_launcher/README.md), [46개 백엔드 검사 기록](docs/evidence/reports/snowfrost_launcher/backend-report.json), [최종 상태](docs/evidence/reports/snowfrost_launcher/final-report.json).
 
 ### 2. 인게임 메뉴와 테마 재설계
 
@@ -110,7 +110,7 @@ Windows 기준입니다. 외부 Minecraft·Fabric·WebGUI·Xaero·Prism 프로�
 
 ```powershell
 # 런처 (.NET Framework 4.8 / WPF, Windows 내장 C# 컴파일러)
-cd snowfrost_launcher
+cd pocketmate_launcher
 .\build.ps1
 python verify_backend.py
 

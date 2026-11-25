@@ -15,7 +15,7 @@ patterns={
     'JWT credential':rb'eyJ[A-Za-z0-9_-]{12,}\.[A-Za-z0-9_-]{12,}\.[A-Za-z0-9_-]{12,}',
 }
 problems=[];total=0
-allowed_dirs={'docs','tools','estate_mod','snowfrost_launcher','webgui_menu'}
+allowed_dirs={'docs','tools','estate_mod','pocketmate_launcher','webgui_menu'}
 allowed_root_files={'.gitattributes','.gitignore','AGENTS.md','README.md','THIRD_PARTY_NOTICES.md'}
 for name in paths:
     source=ROOT/name

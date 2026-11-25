@@ -306,7 +306,6 @@ namespace Snowfrost
         {
             busy=true;
             ReadyButton();
-            Get<ProgressBar>("PrismInstallGauge").Visibility=Visibility.Visible;
             Get<TextBlock>("PlayLabel").Text="Prism 설치 중";
             Get<TextBlock>("ActionStatus").Text="Prism을 설치하고 있습니다. Windows 권한 확인이 표시되면 안내를 따라주세요.";
             bool installed=false;
@@ -331,7 +330,7 @@ namespace Snowfrost
                 store.Log("Prism install",error);
                 Info("Prism 설치를 완료하지 못했어요",error.Message);
             }
-            finally { Get<ProgressBar>("PrismInstallGauge").Visibility=Visibility.Collapsed;busy=false;ReadyButton(); }
+            finally { busy=false;ReadyButton(); }
             if(installed)
             {
                 await CheckInstallation();
@@ -340,11 +339,16 @@ namespace Snowfrost
         }
         void ReadyButton()
         {
+            var gauge=Get<ProgressBar>("LaunchGauge");
+            gauge.Visibility=busy||checking?Visibility.Visible:Visibility.Collapsed;
+            gauge.IsIndeterminate=busy||checking;
+            gauge.Value=0;
+            Get<Button>("CancelWorkButton").Visibility=work!=null&&(busy||checking)?Visibility.Visible:Visibility.Hidden;
             bool running = gameProcess != null && !gameProcess.HasExited;
             Get<Button>("LaunchButton").IsEnabled = !running && !busy && !checking;
             Get<Button>("SettingsButton").IsEnabled = !busy && !checking;
             bool installed=PrismInstalled();
-            Get<Button>("PrismLoginButton").Visibility=installed&&showPrismLogin?Visibility.Visible:Visibility.Collapsed;
+            Get<Button>("PrismLoginButton").Visibility=installed&&showPrismLogin?Visibility.Visible:Visibility.Hidden;
             Get<Button>("PrismLoginButton").IsEnabled=!busy&&!checking;
             Get<TextBlock>("PlayLabel").Text = running ? "게임 실행 중" : !installed ? "게임 시작 · Prism 설치" : checkError != null ? "다시 확인" : updatePlan != null && updatePlan.Needed ? "업데이트" : "게임 시작";
             Get<System.Windows.Shapes.Path>("PlayIcon").Data = Geometry.Parse(updatePlan!=null&&updatePlan.Needed&&checkError==null ? "M 4,0 L 8,0 8,7 12,7 6,14 0,7 4,7 Z" : "M 0,0 L 0,14 11,7 Z");
@@ -352,10 +356,9 @@ namespace Snowfrost
         void ShowProgress(WorkProgress progress)
         {
             if (!busy && !checking) return;
-            Get<Grid>("WorkArea").Visibility = Visibility.Visible;
             Get<TextBlock>("ActionStatus").Text = progress.Message;
-            Get<ProgressBar>("WorkProgressBar").IsIndeterminate = progress.Percent <= 0;
-            Get<ProgressBar>("WorkProgressBar").Value = Math.Max(0,Math.Min(100,progress.Percent));
+            Get<ProgressBar>("LaunchGauge").IsIndeterminate = progress.Percent <= 0;
+            Get<ProgressBar>("LaunchGauge").Value = Math.Max(0,Math.Min(100,progress.Percent));
         }
 
         string LocalPackPath { get { return Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"client-pack.json"); } }
@@ -548,7 +551,7 @@ namespace Snowfrost
                 if(!String.Equals(validated.Root,(packaged?prismTarget:vanillaTarget).Root,StringComparison.OrdinalIgnoreCase))
                     throw new InvalidOperationException("Prism 인스턴스 위치가 변경되었습니다. 업데이트를 다시 확인해주세요.");
                 Process existing=await Task.Run(()=>PrismBridge.FindGame(vanillaTarget,prismTarget));
-                if(existing!=null) {gameProcess=existing;Get<TextBlock>("ActionStatus").Text="연결된 게임이 이미 실행 중입니다.";return;}
+                if(existing!=null) {gameProcess=existing;await GameWindowActivation.FocusProcess(existing,token);Get<TextBlock>("ActionStatus").Text="연결된 게임이 이미 실행 중입니다.";return;}
                 if(packaged)
                 {
                     updatePlan = await Task.Run(() => ReadPackagedPack(token),token);
@@ -557,6 +560,7 @@ namespace Snowfrost
                     {
                         var metadata=new System.Collections.Generic.Dictionary<string,object>{{Path.Combine(prismTarget.Root,"mmc-pack.json"),PrismBridge.LoaderPack(prismTarget,updatePlan)}};
                         await Task.Run(async delegate { await updates.Apply(updatePlan,progress,token,metadata); },token);
+                        PrismBridge.EnablePixelmonRadarPack(prismTarget.GameRoot);
                     }
                     updatePlan.Needed=false;
                 }
@@ -578,7 +582,10 @@ namespace Snowfrost
                 settings.LastOpenedUtc = DateTime.UtcNow.ToString("O", CultureInfo.InvariantCulture);
                 try { store.Save(settings); } catch (Exception error) { store.Log("Activity save", error); }
                 UpdateActivity();
-                Get<TextBlock>("ActionStatus").Text = "Prism으로 Minecraft Java 1.21.1을 실행했습니다.";
+                ShowProgress(new WorkProgress("마인크래프트 창을 준비하고 있습니다…",0));
+                bool focused=await GameWindowActivation.FocusProcess(gameProcess,token);
+                if(gameProcess==null || gameProcess.HasExited) { Get<TextBlock>("ActionStatus").Text="게임이 종료되었습니다. Prism의 게임 로그를 확인해주세요.";return; }
+                Get<TextBlock>("ActionStatus").Text = focused ? "마인크래프트 창을 앞으로 열었습니다." : "게임이 실행되었습니다. 작업 표시줄에서 마인크래프트 창을 확인해주세요.";
                 if (settings.MinimizeAfterLaunch) Window.WindowState = WindowState.Minimized;
             }
             catch (OperationCanceledException) { Get<TextBlock>("ActionStatus").Text = "작업이 취소되었습니다. 다시 게임을 시작할 수 있습니다."; }
@@ -589,7 +596,7 @@ namespace Snowfrost
                 Get<TextBlock>("ActionStatus").Text = "작업을 완료하지 못했습니다. 안내를 확인한 뒤 다시 시도해주세요.";
                 Info("게임을 시작하지 못했어요", error.Message);
             }
-            finally { busy = false; work.Dispose(); work = null; Get<Grid>("WorkArea").Visibility = Visibility.Collapsed; ReadyButton(); if (closingRequested) Window.Close(); }
+            finally { busy = false; work.Dispose(); work = null; ReadyButton(); if (closingRequested) Window.Close(); }
         }
 
         void OpenSettings()
