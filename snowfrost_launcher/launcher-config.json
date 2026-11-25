@@ -3,5 +3,7 @@
   "updateManifestUrl": "",
   "prismPath": "",
   "prismDataPath": "",
-  "prismInstanceId": ""
+  "prismInstanceId": "",
+  "serverAddress": "",
+  "noticesUrl": ""
 }

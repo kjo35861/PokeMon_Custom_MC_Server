@@ -64,6 +64,14 @@ namespace Snowfrost
                 Check(first.Needed&&first.Downloads.Count==2,"Initial server pack requires update",checks);
                 await service.Apply(first,progress,CancellationToken.None);
                 Check(!(await service.Check(fixture+"manifest-v1.json",CancellationToken.None)).Needed,"Installed pack is current",checks);
+                service.VerifyApprovedContent(first);
+                string extra = SafeFiles.Join(service.GameRoot,"resourcepacks/unlisted.zip");
+                File.WriteAllText(extra,"fixture");
+                bool extraBlocked = false;
+                try { service.VerifyApprovedContent(first); }
+                catch (InvalidDataException) { extraBlocked = true; }
+                File.Delete(extra);
+                Check(extraBlocked,"Unlisted resource pack blocks managed launch",checks);
                 string file=SafeFiles.Join(service.GameRoot,"config/managed.json");string original=File.ReadAllText(file);
                 File.WriteAllText(file,"damaged");
                 UpdatePlan repair=await service.Check(fixture+"manifest-v1.json",CancellationToken.None);
@@ -129,6 +137,8 @@ namespace Snowfrost
             Check(PrismBridge.LoaderMatches(server,vanillaPlan)&&PrismBridge.Vanilla1211(vanilla),"Switching server loader back to vanilla leaves base untouched",checks);
             var command=PrismBridge.Command(plain);
             Check(command.FileName==exe && command.Arguments=="--dir "+GameInstaller.Quote(data)+" --launch "+GameInstaller.Quote("1.21.1 test")&&!command.Arguments.Contains("token"),"Prism CLI quotes paths and sends no credentials",checks);
+            Check(PrismBridge.Command(server,"localhost:25565").Arguments.EndsWith(" --server "+GameInstaller.Quote("localhost:25565")) &&
+                  !PrismBridge.Command(plain,"localhost:25565").Arguments.Contains(" --server "), "Auto join is limited to the managed server instance", checks);
             Check(PrismBridge.MatchesProcess("java -Djava.library.path="+plain.Root.Replace('\\','/')+"/natives",plain)&&!PrismBridge.MatchesProcess("java -Djava.library.path="+plain.Root+"-other/natives",plain),"Process detection respects instance path boundary",checks);
             if(!String.IsNullOrWhiteSpace(fixture))
             {

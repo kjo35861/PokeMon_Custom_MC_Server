@@ -11,6 +11,7 @@ import threading
 import zipfile
 
 ROOT = Path(__file__).resolve().parent
+EXE = Path(os.environ.get('POCKETMATE_TEST_EXE', str(ROOT/'dist/PocketmateLauncher.exe'))).resolve()
 OUT = ROOT/'verification'
 FIXTURES = OUT/'update-fixtures'
 FIXTURES.mkdir(parents=True, exist_ok=True)
@@ -69,7 +70,7 @@ thread.start()
 try:
     root=Path(os.environ['LOCALAPPDATA'])/'PocketmateLauncherVerification'/('backend-'+os.urandom(6).hex())
     report=OUT/'backend-report.json'
-    process=subprocess.run([str(ROOT/'dist/PocketmateLauncher.exe'),'--backend-test',str(report),'--fixture-url',base,'--data-dir',str(root)],timeout=60,capture_output=True)
+    process=subprocess.run([str(EXE),'--backend-test',str(report),'--fixture-url',base,'--data-dir',str(root)],timeout=60,capture_output=True)
     result=json.loads(report.read_text(encoding='utf-8'))
     print(json.dumps(result,indent=2,ensure_ascii=False))
     assert process.returncode==0,result
@@ -97,7 +98,7 @@ try:
             (game/'resourcepacks').mkdir(parents=True,exist_ok=True)
             (game/'resourcepacks/test.zip').write_bytes((data/'game/resourcepacks/test.zip').read_bytes())
         preview=OUT/(label+'-preview.png')
-        command=[str(ROOT/'dist/PocketmateLauncher.exe'),'--render-preview',str(preview),'--data-dir',str(data)]
+        command=[str(EXE),'--render-preview',str(preview),'--data-dir',str(data)]
         if label=='settings':
             command.append('--preview-settings')
         p=subprocess.run(command,timeout=25)

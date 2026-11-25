@@ -212,6 +212,27 @@ namespace Snowfrost
     {
         public const string DefaultFabricVersion = "0.20.1";
         public readonly string GameRoot; readonly string dataRoot;
+        public void VerifyApprovedContent(UpdatePlan plan)
+        {
+            var files = plan.Files.ToDictionary(file => file.Path, StringComparer.OrdinalIgnoreCase);
+            foreach (string folder in new[] { "mods", "resourcepacks" })
+            {
+                string directory = SafeFiles.Join(GameRoot, folder);
+                if (!Directory.Exists(directory)) continue;
+                foreach (string path in Directory.EnumerateFileSystemEntries(directory))
+                {
+                    string extension = Path.GetExtension(path);
+                    bool loadable = folder == "mods" ? extension.Equals(".jar", StringComparison.OrdinalIgnoreCase)
+                        : Directory.Exists(path) || extension.Equals(".zip", StringComparison.OrdinalIgnoreCase);
+                    if (!loadable) continue;
+                    string relative = folder + "/" + Path.GetFileName(path);
+                    ServerFile approved;
+                    if (!files.TryGetValue(relative, out approved) ||
+                        !SafeFiles.Matches(path, approved.Sha256, approved.Size, "sha256"))
+                        throw new InvalidDataException("서버 팩에 등록되지 않은 파일입니다. 다른 폴더로 옮긴 후 다시 실행해주세요.\n" + relative);
+                }
+            }
+        }
         public UpdateService(string data) : this(data,Path.Combine(data,"game")) { }
         public UpdateService(string data,string gameRoot) { dataRoot = data; GameRoot = gameRoot; }
         public static void ValidatePath(string path, string root)

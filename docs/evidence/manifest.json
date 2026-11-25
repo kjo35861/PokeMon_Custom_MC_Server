@@ -116,9 +116,9 @@
     "reports/snowfrost_launcher/backend-report.json": {
       "source": "snowfrost_launcher/verification/backend-report.json",
       "kind": "historical-or-current-report",
-      "source_sha256": "cc4e2d75fde45573772be60ae3104483164b3f2e6076dc7d094ce37dafea5e74",
-      "published_sha256": "f6c80532f601a53770cb1501d19fdad90c89244b3940d2b837cf5c06008cba0d",
-      "bytes": 2381,
+      "source_sha256": "b9cefce472475af9f5f3f54aef2179909dd47ffe01259f01fe26970a4b2798bb",
+      "published_sha256": "31960b3fdf97605c32ba4db89d76b7f06b525015a9e3d6fa17f517a3010bf4f8",
+      "bytes": 2492,
       "sanitized": true
     },
     "reports/snowfrost_launcher/final-report.json": {

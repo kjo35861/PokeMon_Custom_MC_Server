@@ -147,9 +147,9 @@ namespace Snowfrost
             object[] loaders=parts.Where(c=>LoaderIds.Contains(Json.Text(c,"uid"))).ToArray();
             return plan.Loader=="vanilla" ? loaders.Length==0 : loaders.Length==1 && Json.Text(loaders[0],"uid")== (plan.Loader=="fabric"?"net.fabricmc.fabric-loader":"net.neoforged") && Json.Text(loaders[0],"version")==plan.LoaderVersion;
         }
-        public static ProcessStartInfo Command(PrismTarget target)
+        public static ProcessStartInfo Command(PrismTarget target,string serverAddress=null)
         {
-            return new ProcessStartInfo(target.Executable,"--dir "+GameInstaller.Quote(target.DataRoot)+" --launch "+GameInstaller.Quote(target.Id))
+            return new ProcessStartInfo(target.Executable,"--dir "+GameInstaller.Quote(target.DataRoot)+" --launch "+GameInstaller.Quote(target.Id)+(target.Managed&&!String.IsNullOrEmpty(serverAddress)?" --server "+GameInstaller.Quote(serverAddress):""))
                 {UseShellExecute=false,CreateNoWindow=true,WindowStyle=ProcessWindowStyle.Hidden,WorkingDirectory=Path.GetDirectoryName(target.Executable)};
         }
         public static bool MatchesProcess(string command,PrismTarget target)
@@ -173,9 +173,9 @@ namespace Snowfrost
             }
             return null;
         }
-        public static async Task<Process> Start(PrismTarget target,IProgress<WorkProgress> progress,CancellationToken cancel)
+        public static async Task<Process> Start(PrismTarget target,IProgress<WorkProgress> progress,CancellationToken cancel,string serverAddress=null)
         {
-            using(Process request=Process.Start(Command(target)))
+            using(Process request=Process.Start(Command(target,serverAddress)))
             {
                 DateTime until=DateTime.UtcNow.AddMinutes(3);
                 while (DateTime.UtcNow<until)

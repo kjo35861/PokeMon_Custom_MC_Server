@@ -1,3 +1,4 @@
+using System.Linq;
 using System;
 using System.Diagnostics;
 using System.Globalization;
@@ -158,10 +159,10 @@ namespace Snowfrost
             On("CancelWorkButton", delegate { if (work != null) work.Cancel(); });
             On("LoginGuideButton", delegate { Info("Prism 연결 안내", "Prism Launcher에 Microsoft 계정으로 한 번 로그인하고 순정 Minecraft 1.21.1 인스턴스를 만들어주세요.\n\n아래 Prism 실행 파일, 데이터 폴더, 인스턴스 ID를 확인해 저장하면 됩니다. 일반 설치는 자동으로 찾습니다.\n\nAPI 키나 Microsoft Client ID는 필요 없습니다. 게임 시작 시 포켓메이트가 Prism을 자동으로 호출합니다.\n\n서버 주소가 비어 있으면 순정 인스턴스, 주소가 있으면 별도 서버 인스턴스를 사용합니다."); });
             On("OpenMinecraftFolderButton", delegate { OpenMinecraftFolder(); });
-            On("NoticeSettings", delegate { OpenSettings(); });
-            On("NoticeFolder", delegate { OpenMinecraftFolder(); });
-            On("NoticeStart", delegate { Info("포켓메이트 시작하기", "Minecraft Java 1.21.1을 Prism으로 실행합니다.\n\nPrism에서 계정 로그인과 순정 1.21.1 인스턴스 생성을 마치면 포켓메이트의 게임 시작 버튼만 누르면 됩니다.\n\n서버 주소가 없으면 순정으로 실행합니다. 서버 업데이트가 있으면 업데이트 버튼이 나타나고 별도 서버 인스턴스에 적용한 뒤 게임을 실행합니다."); });
-            On("NoticeAbout", async delegate { await CheckInstallation(); });
+            var statusTimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(30) };
+            statusTimer.Tick += async delegate { await RefreshServerPanel(); };
+            Window.Loaded += async delegate { if (!smokeTest && previewPath == null) statusTimer.Start(); await RefreshServerPanel(); };
+            Window.Closed += delegate { statusTimer.Stop(); };
             On("CloseInfoButton", delegate { Get<Grid>("InfoOverlay").Visibility = Visibility.Collapsed; });
             Window.PreviewKeyDown += delegate(object sender, KeyEventArgs e) {
                 if (e.Key == Key.Escape) { CloseSettings(); Get<Grid>("InfoOverlay").Visibility = Visibility.Collapsed; e.Handled = true; }
@@ -294,6 +295,129 @@ namespace Snowfrost
             Get<ProgressBar>("WorkProgressBar").Value = Math.Max(0,Math.Min(100,progress.Percent));
         }
 
+        bool refreshingPanel;
+        string ServerSetting(string key)
+        {
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "launcher-config.json");
+            return File.Exists(path) ? Json.Text(Json.Parse(File.ReadAllText(path, Encoding.UTF8)), key).Trim() : "";
+        }
+        async Task RefreshServerPanel()
+        {
+            if (refreshingPanel) return;
+            refreshingPanel = true;
+            var list = Get<StackPanel>("NoticeList");
+            var maintenance = Get<TextBlock>("MaintenanceNotice");
+            try
+            {
+                string url = ServerSetting("noticesUrl");
+                string local = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "notices.json");
+                object feed = null;
+                using (var timeout = new CancellationTokenSource(TimeSpan.FromSeconds(5)))
+                {
+                    if (url.Length != 0 && !smokeTest && previewPath == null)
+                        feed = await Net.GetJson(url, timeout.Token);
+                    else if (File.Exists(local)) feed = Json.Parse(File.ReadAllText(local, Encoding.UTF8));
+                }
+                list.Children.Clear();
+                maintenance.Visibility = Visibility.Collapsed;
+                foreach (object item in Json.Array(Json.Get(feed, "notices")).Take(30))
+                {
+                    string title = Json.Text(item,"title").Trim(), body = Json.Text(item,"body");
+                    if (title.Length == 0) continue;
+                    var button = new Button { Content = title, Style = (Style)Window.FindResource("NoticeButton") };
+                    button.Click += delegate { Info(title, body); };
+                    list.Children.Add(button);
+                }
+                if (list.Children.Count == 0) list.Children.Add(new TextBlock { Text = "등록된 공지가 없습니다." });
+                object window = Json.Get(feed,"maintenance");
+                DateTimeOffset start, end;
+                if (DateTimeOffset.TryParse(Json.Text(window,"start"),out start) &&
+                    DateTimeOffset.TryParse(Json.Text(window,"end"),out end) && start < end && DateTimeOffset.UtcNow < end)
+                {
+                    maintenance.Text = (DateTimeOffset.UtcNow >= start ? "서버 점검 중" : "서버 점검 예정") +
+                        "\n" + start.ToLocalTime().ToString("MM-dd HH:mm") + " ~ " + end.ToLocalTime().ToString("MM-dd HH:mm") +
+                        "\n" + Json.Text(window,"body");
+                    maintenance.Visibility = Visibility.Visible;
+                }
+            }
+            catch (Exception)
+            {
+                if (list.Children.Count == 0) list.Children.Add(new TextBlock { Text = "공지사항을 불러오지 못했습니다." });
+            }
+            try
+            {
+                string address = ServerSetting("serverAddress");
+                Get<TextBlock>("ServerStatus").Text = address.Length == 0 || smokeTest || previewPath != null
+                    ? "" : await Task.Run(() => ReadServerStatus(address));
+            }
+            catch (Exception) { Get<TextBlock>("ServerStatus").Text = "서버 응답 없음"; }
+            finally { refreshingPanel = false; }
+        }
+        static string ReadServerStatus(string address)
+        {
+            Uri endpoint;
+            if (!Uri.TryCreate("tcp://" + address,UriKind.Absolute,out endpoint) ||
+                endpoint.UserInfo.Length != 0 || endpoint.AbsolutePath != "/" ||
+                endpoint.Query.Length != 0 || endpoint.Fragment.Length != 0)
+                throw new InvalidDataException("서버 주소를 확인해주세요.");
+            string host = endpoint.DnsSafeHost;
+            int port = endpoint.Port < 0 ? 25565 : endpoint.Port;
+            using (var socket = new System.Net.Sockets.TcpClient())
+            {
+                if (!socket.ConnectAsync(host,port).Wait(2500)) throw new TimeoutException();
+                socket.ReceiveTimeout = 2500;
+                socket.SendTimeout = 2500;
+                using (var stream = socket.GetStream())
+                using (var handshake = new MemoryStream())
+                {
+                    WriteVarInt(handshake,0);
+                    WriteVarInt(handshake,767);
+                    byte[] hostname = Encoding.UTF8.GetBytes(host);
+                    WriteVarInt(handshake,hostname.Length);
+                    handshake.Write(hostname,0,hostname.Length);
+                    handshake.WriteByte((byte)(port >> 8));
+                    handshake.WriteByte((byte)port);
+                    WriteVarInt(handshake,1);
+                    WriteVarInt(stream,(int)handshake.Length);
+                    handshake.WriteTo(stream);
+                    var timer = Stopwatch.StartNew();
+                    stream.Write(new byte[]{1,0},0,2);
+                    int packet = ReadVarInt(stream);
+                    if (packet < 2 || packet > 65536) throw new InvalidDataException();
+                    if (ReadVarInt(stream) != 0) throw new InvalidDataException();
+                    int length = ReadVarInt(stream);
+                    if (length < 1 || length >= packet) throw new InvalidDataException();
+                    byte[] bytes = new byte[length];
+                    for (int offset = 0; offset < bytes.Length;)
+                    {
+                        int count = stream.Read(bytes,offset,bytes.Length-offset);
+                        if (count == 0) throw new EndOfStreamException();
+                        offset += count;
+                    }
+                    object players = Json.Get(Json.Parse(Encoding.UTF8.GetString(bytes)),"players");
+                    return "서버 온라인 · " + Json.Get(players,"online") + "/" + Json.Get(players,"max") +
+                        "명 · " + timer.ElapsedMilliseconds + " ms";
+                }
+            }
+        }
+        static void WriteVarInt(Stream stream,int value)
+        {
+            uint remaining = (uint)value;
+            while (remaining > 127) { stream.WriteByte((byte)(remaining | 128)); remaining >>= 7; }
+            stream.WriteByte((byte)remaining);
+        }
+        static int ReadVarInt(Stream stream)
+        {
+            int value = 0;
+            for (int shift = 0; shift < 32; shift += 7)
+            {
+                int next = stream.ReadByte();
+                if (next < 0) throw new EndOfStreamException();
+                value |= (next & 127) << shift;
+                if ((next & 128) == 0) return value;
+            }
+            throw new InvalidDataException();
+        }
         async Task CheckInstallation()
         {
             if (busy || checking) return;
@@ -350,8 +474,9 @@ namespace Snowfrost
                         updatePlan.Needed=false;Get<TextBlock>("ConnectionLabel").Text="최신 버전입니다";
                     }
                 }
+                if (prismTarget.Managed && updatePlan != null) await Task.Run(() => updates.VerifyApprovedContent(updatePlan), token);
                 token.ThrowIfCancellationRequested();
-                gameProcess = await PrismBridge.Start(prismTarget,progress,token);
+                gameProcess = await PrismBridge.Start(prismTarget,progress,token,ServerSetting("serverAddress"));
                 Json.Save(Path.Combine(store.DirectoryPath,"game-session.json"),new {pid=gameProcess.Id,startTicks=gameProcess.StartTime.ToUniversalTime().Ticks});
                 settings.LastOpenedUtc = DateTime.UtcNow.ToString("O", CultureInfo.InvariantCulture);
                 try { store.Save(settings); } catch (Exception error) { store.Log("Activity save", error); }
