@@ -359,9 +359,9 @@ namespace Snowfrost
         }
 
         string LocalPackPath { get { return Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"client-pack.json"); } }
-        UpdatePlan ReadLocalPack()
+        async Task<UpdatePlan> ReadPackagedPack(CancellationToken token)
         {
-            var plan = updates.CheckLocal(LocalPackPath);
+            var plan = await updates.CheckPackaged(ServerSetting("clientPackManifestUrl"), LocalPackPath, token);
             if (plan.Loader != "neoforge" || plan.LoaderVersion != "21.1.248")
                 throw new InvalidDataException("테스트 팩은 NeoForge 21.1.248이어야 합니다.");
             return plan;
@@ -508,14 +508,14 @@ namespace Snowfrost
                 if(localTest&&!File.Exists(LocalPackPath))throw new InvalidDataException("client-pack.json이 없습니다. 배포 ZIP을 전부 풀어주세요.");
                 if(server) await Task.Run(()=>PrismBridge.EnsureServer(prismTarget,vanillaTarget));
                 updates=new UpdateService(Path.Combine(store.DirectoryPath,"prism",PrismBridge.Key(prismTarget.Root)),prismTarget.GameRoot);
-                updatePlan = localTest && File.Exists(LocalPackPath) ? await Task.Run(() => ReadLocalPack(),token)
+                updatePlan = localTest ? await Task.Run(() => ReadPackagedPack(token),token)
                     : await Task.Run(async delegate { return await updates.Check(localTest ? "" : settings.UpdateManifestUrl,token); });
                 if(updatePlan!=null && !PrismBridge.LoaderMatches(prismTarget,updatePlan)) updatePlan.Needed=true;
                 try {store.Save(settings);} catch(Exception saveError){store.Log("Prism settings",saveError);}
                 UpdateActivity();
                 Get<TextBlock>("ConnectionLabel").Text = localTest ? "포켓메이트 멀티플레이" : updatePlan == null ? "서버 업데이트 미연결" : updatePlan.Needed ? "새 업데이트가 있습니다" : "최신 버전입니다";
                 Get<TextBlock>("ConnectionDetail").Text = localTest ? "NeoForge · Prism" : updatePlan == null ? "순정 · Prism" : "팩 " + updatePlan.PackVersion;
-                Get<TextBlock>("ActionStatus").Text = localTest ? "포켓메이트 서버 · NeoForge 21.1.248" : updatePlan == null ? "순정 Minecraft 1.21.1 · Prism 연결 완료" : updatePlan.Needed ? "업데이트를 누르면 최신 파일을 적용한 뒤 게임 실행을 이어갑니다." : "서버 파일 확인 완료 · Minecraft 1.21.1";
+                Get<TextBlock>("ActionStatus").Text = updatePlan == null ? "순정 Minecraft 1.21.1 · Prism 연결 완료" : updatePlan.Needed ? "업데이트를 누르면 최신 파일을 적용한 뒤 게임 실행을 이어갑니다." : "서버 파일 확인 완료 · Minecraft 1.21.1";
                 Get<System.Windows.Shapes.Ellipse>("ConnectionDot").Fill = new SolidColorBrush(updatePlan == null ? Color.FromRgb(176,186,169) : Color.FromRgb(133,202,115));
             }
             catch (OperationCanceledException) { checkError = "업데이트 확인이 취소되었습니다."; Get<TextBlock>("ConnectionLabel").Text = "업데이트 확인 취소"; Get<TextBlock>("ActionStatus").Text = checkError; }
@@ -551,9 +551,13 @@ namespace Snowfrost
                 if(existing!=null) {gameProcess=existing;Get<TextBlock>("ActionStatus").Text="연결된 게임이 이미 실행 중입니다.";return;}
                 if(packaged)
                 {
-                    updatePlan = await Task.Run(() => ReadLocalPack(),token);
+                    updatePlan = await Task.Run(() => ReadPackagedPack(token),token);
+                    if (!PrismBridge.LoaderMatches(prismTarget,updatePlan)) updatePlan.Needed=true;
                     if(updatePlan.Needed)
-                        await Task.Run(async delegate { await updates.Apply(updatePlan,progress,token); },token);
+                    {
+                        var metadata=new System.Collections.Generic.Dictionary<string,object>{{Path.Combine(prismTarget.Root,"mmc-pack.json"),PrismBridge.LoaderPack(prismTarget,updatePlan)}};
+                        await Task.Run(async delegate { await updates.Apply(updatePlan,progress,token,metadata); },token);
+                    }
                     updatePlan.Needed=false;
                 }
                 if (localTestId.Length == 0 && !String.IsNullOrWhiteSpace(settings.UpdateManifestUrl))

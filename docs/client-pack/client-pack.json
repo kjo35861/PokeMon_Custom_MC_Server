@@ -1,0 +1,132 @@
+{
+  "formatVersion": 1,
+  "serverId": "pocketmate",
+  "minecraftVersion": "1.21.1",
+  "packVersion": "local-neoforge-1.21.1-20261126-client-sync",
+  "loader": {
+    "type": "neoforge",
+    "version": "21.1.248"
+  },
+  "files": [
+    {
+      "path": "mods/pocketmate-estates-neoforge-0.15.5.jar",
+      "url": "local:mods/pocketmate-estates-neoforge-0.15.5.jar",
+      "sha256": "41631cb0d66f9778882157e2d190da1dd46ace107227f8cac941ee2f4d513bd9",
+      "size": 2547547
+    },
+    {
+      "path": "mods/webgui-neoforge-2.0.0+mc1.21.1.jar",
+      "url": "local:webgui-neoforge-2.0.0+mc1.21.1.jar",
+      "sha256": "0d6fe4eab038d3f8fe413811a767137ec8a40154103fbf591423f44059d048b3",
+      "size": 518995
+    },
+    {
+      "path": "mods/xaeroworldmap-neoforge-1.21.1-1.47.0.jar",
+      "url": "https://cdn.modrinth.com/data/NcUtCpym/versions/SnQ4SoDe/xaeroworldmap-neoforge-1.21.1-1.47.0.jar",
+      "sha256": "6a42b6f01bd96b496e5fcc07d4541bad1a699d9ec8ad58ad40d5dcfe23a7d4c7",
+      "size": 1427078
+    },
+    {
+      "path": "mods/accessories-neoforge-1.1.0-beta.54+1.21.1.jar",
+      "url": "local:mods/accessories-neoforge-1.1.0-beta.54+1.21.1.jar",
+      "sha256": "cbecac21acbaf323349afa263b22cda67c3e836f928f6cf3f951ba460c196d15",
+      "size": 1086553
+    },
+    {
+      "path": "mods/appleskin-neoforge-mc1.21-3.0.9.jar",
+      "url": "local:mods/appleskin-neoforge-mc1.21-3.0.9.jar",
+      "sha256": "38b48dd6231341c9f964ce6e42c57ec866c6cc8f72bec938390a59bafb3922df",
+      "size": 75804
+    },
+    {
+      "path": "mods/Clumps-neoforge-1.21.1-19.0.0.1.jar",
+      "url": "local:mods/Clumps-neoforge-1.21.1-19.0.0.1.jar",
+      "sha256": "b524ccdace2ef8fd19f5b2074f7de1103ac5065c52553f064c00e098346c293e",
+      "size": 18382
+    },
+    {
+      "path": "mods/Jade-1.21.1-NeoForge-15.10.6.jar",
+      "url": "local:mods/Jade-1.21.1-NeoForge-15.10.6.jar",
+      "sha256": "276f1f65a20d04f536989c4f311949d770b52c440c23c2b904a08860f3c93810",
+      "size": 726853
+    },
+    {
+      "path": "mods/jei-1.21.1-neoforge-19.76.1.481.jar",
+      "url": "local:mods/jei-1.21.1-neoforge-19.76.1.481.jar",
+      "sha256": "0614f0a6a6ef9d7e0a313b1d71561a561e8af4936e557710034507cfc356908f",
+      "size": 7103608
+    },
+    {
+      "path": "mods/koreanpatch-neoforge-1.9.6+mc1.21.jar",
+      "url": "local:mods/koreanpatch-neoforge-1.9.6+mc1.21.jar",
+      "sha256": "0dff16ad9752c7211f39672e3480866bef5e1d7e4a37206525335995cae585af",
+      "size": 373120
+    },
+    {
+      "path": "mods/mezz_config-1.21.1-neoforge-0.7.1-standalone.jar",
+      "url": "local:mods/mezz_config-1.21.1-neoforge-0.7.1-standalone.jar",
+      "sha256": "c42510938584eda0aae134003e367d745fd32ceac1836221cecac4cbc7bfa3a1",
+      "size": 347249
+    },
+    {
+      "path": "mods/MouseTweaks-neoforge-mc1.21-2.26.1.jar",
+      "url": "local:mods/MouseTweaks-neoforge-mc1.21-2.26.1.jar",
+      "sha256": "68e6f4201c5de97b77929a7215c9552495696ca6a3bf3ae4eacc34e135f6cc8b",
+      "size": 73938
+    },
+    {
+      "path": "mods/owo-lib-neoforge-0.12.15.6-beta.1+1.21.jar",
+      "url": "local:mods/owo-lib-neoforge-0.12.15.6-beta.1+1.21.jar",
+      "sha256": "5fc306ad3d42e1dc26812f2df856e7c232376405caab6af4f5aaffe89cd2b256",
+      "size": 1223197
+    },
+    {
+      "path": "mods/Pixelmon-1.21.1-9.4.3-universal.jar",
+      "url": "local:mods/Pixelmon-1.21.1-9.4.3-universal.jar",
+      "sha256": "3700dd10bef8a16a6a740819d1e3b29df17067471ca01288cb6bb37d38470bfe",
+      "size": 398944199
+    },
+    {
+      "path": "mods/pocketmate-mega-evolution-0.1.3.jar",
+      "url": "local:mods/pocketmate-mega-evolution-0.1.3.jar",
+      "sha256": "4bcde6ca102f61bcc5faa39194d54bff20109d6eb55f1fdb60dfba9abb7dcbb2",
+      "size": 108712377
+    },
+    {
+      "path": "mods/PocketMate_Mega.jar",
+      "url": "local:mods/PocketMate_Mega.jar",
+      "sha256": "c132251daa6d90bc993440a228c92525bfb8ae8be965b7058e505e2f5e72f838",
+      "size": 56846
+    },
+    {
+      "path": "mods/sophisticatedbackpacks-1.21.1-3.26.23.2263.jar",
+      "url": "local:mods/sophisticatedbackpacks-1.21.1-3.26.23.2263.jar",
+      "sha256": "8df6a8ebad2aebc71bc54e51eddd47fe931ed8bc338f7d1924e272ac72e38092",
+      "size": 1272052
+    },
+    {
+      "path": "mods/sophisticatedcore-1.21.1-1.5.43.2504.jar",
+      "url": "local:mods/sophisticatedcore-1.21.1-1.5.43.2504.jar",
+      "sha256": "6273cfa446b338f165a9c799ddd78fcb320fad0b519a70d969165b7518d3bac8",
+      "size": 1856959
+    },
+    {
+      "path": "mods/xaerominimap-neoforge-1.21.1-26.6.0.jar",
+      "url": "local:mods/xaerominimap-neoforge-1.21.1-26.6.0.jar",
+      "sha256": "d3398221b2262abfe2d394b588122e5b3fd2e4d8c4bf66a5fd357352fcf51b2e",
+      "size": 2186351
+    },
+    {
+      "path": "resourcepacks/eevee-server-resourcepack-recovered.zip",
+      "url": "local:resourcepacks/eevee-server-resourcepack-recovered.zip",
+      "sha256": "415e80b6aad1280f7cc97f6aed00db3bfa0ec43f101acfdfd839b4d23ff112fe",
+      "size": 182689572
+    },
+    {
+      "path": "resourcepacks/pocketmate-pixelmon-radar.zip",
+      "url": "local:resourcepacks/pocketmate-pixelmon-radar.zip",
+      "sha256": "b9f591de9a958962011236684f3106a8cf516952a64496d07f15ac526bb0ca39",
+      "size": 3467652
+    }
+  ]
+}

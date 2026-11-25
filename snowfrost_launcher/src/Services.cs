@@ -260,6 +260,11 @@ namespace Snowfrost
             return Inspect(Json.Parse(System.IO.File.ReadAllText(path, Encoding.UTF8)),
                 Path.Combine(Path.GetDirectoryName(path), "client-files"));
         }
+        public async Task<UpdatePlan> CheckPackaged(string url, string localManifest, CancellationToken cancel)
+        {
+            if (String.IsNullOrWhiteSpace(url)) return CheckLocal(localManifest);
+            return Inspect(await Net.GetJson(url, cancel), Path.Combine(Path.GetDirectoryName(localManifest), "client-files"));
+        }
         UpdatePlan Inspect(Dictionary<string, object> manifest, string localRoot)
         {
             if (Json.Number(manifest, "formatVersion") != 1 || Json.Text(manifest, "serverId") != "pocketmate" || Json.Text(manifest, "minecraftVersion") != "1.21.1")
