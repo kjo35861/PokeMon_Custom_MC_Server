@@ -150,6 +150,10 @@ namespace Snowfrost
             On("MaximizeButton", delegate { Window.WindowState = Window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized; });
             On("CloseButton", delegate { Window.Close(); });
             On("LaunchButton", async delegate { await OpenGame(); });
+            On("PrismLoginButton", delegate {
+                try { OpenPrismForLogin(); }
+                catch (Exception error) { Info("Prism 계정 연결",error.Message); }
+            });
             On("SettingsButton", delegate { OpenSettings(); });
             On("CloseSettingsButton", delegate { CloseSettings(); });
             On("SaveSettingsButton", async delegate { await SaveSettings(); });
@@ -285,12 +289,62 @@ namespace Snowfrost
             }
             catch { }
         }
+        bool PrismInstalled()
+        {
+            PrismBridge.Discover(settings);
+            return File.Exists(settings.PrismPath);
+        }
+        void OpenPrismForLogin()
+        {
+            if (!PrismInstalled()) throw new InvalidOperationException("먼저 게임 시작 버튼으로 Prism을 설치해주세요.");
+            Process.Start(new ProcessStartInfo(settings.PrismPath,
+                "--dir "+GameInstaller.Quote(settings.PrismDataPath)) { UseShellExecute=true });
+            Get<TextBlock>("ActionStatus").Text="Prism의 계정 메뉴에서 Microsoft 계정을 추가한 뒤 포켓메이트에서 게임 시작을 눌러주세요.";
+        }
+        async Task InstallPrism()
+        {
+            busy=true;
+            ReadyButton();
+            Get<TextBlock>("PlayLabel").Text="Prism 설치 중";
+            Get<TextBlock>("ActionStatus").Text="Windows 설치 창이 표시되면 안내에 따라 진행해주세요.";
+            bool installed=false;
+            try
+            {
+                string winget=Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                    "Microsoft","WindowsApps","winget.exe");
+                if(!File.Exists(winget))winget="winget.exe";
+                using(var process=Process.Start(new ProcessStartInfo(winget,
+                    "install --exact --id PrismLauncher.PrismLauncher --source winget --interactive") { UseShellExecute=true }))
+                {
+                    if(process==null)throw new InvalidOperationException("Windows 패키지 관리자를 시작하지 못했습니다.");
+                    int exit=await Task.Run(()=>{process.WaitForExit();return process.ExitCode;});
+                    if(!File.Exists(settings.PrismPath))settings.PrismPath="";
+                    installed=PrismInstalled();
+                    if(!installed)throw new InvalidOperationException("Prism 설치를 확인하지 못했습니다. Windows 앱 설치 관리자(WinGet)를 확인한 뒤 다시 시도해주세요. 종료 코드 "+exit);
+                }
+            }
+            catch(Exception error)
+            {
+                store.Log("Prism install",error);
+                Info("Prism 설치를 완료하지 못했어요",error.Message);
+            }
+            finally { busy=false;ReadyButton(); }
+            if(installed)
+            {
+                await CheckInstallation();
+                try { OpenPrismForLogin(); }
+                catch(Exception error) { Info("Prism 계정 연결",error.Message); }
+            }
+        }
         void ReadyButton()
         {
             bool running = gameProcess != null && !gameProcess.HasExited;
             Get<Button>("LaunchButton").IsEnabled = !running && !busy && !checking;
             Get<Button>("SettingsButton").IsEnabled = !busy && !checking;
-            Get<TextBlock>("PlayLabel").Text = running ? "게임 실행 중" : checkError != null ? "다시 확인" : updatePlan != null && updatePlan.Needed ? "업데이트" : "게임 시작";
+            bool installed=PrismInstalled();
+            Get<Button>("PrismLoginButton").Visibility=installed?Visibility.Visible:Visibility.Collapsed;
+            Get<Button>("PrismLoginButton").IsEnabled=!busy&&!checking;
+            Get<TextBlock>("PlayLabel").Text = running ? "게임 실행 중" : !installed ? "게임 시작 · Prism 설치" : checkError != null ? "다시 확인" : updatePlan != null && updatePlan.Needed ? "업데이트" : "게임 시작";
             Get<System.Windows.Shapes.Path>("PlayIcon").Data = Geometry.Parse(updatePlan!=null&&updatePlan.Needed&&checkError==null ? "M 4,0 L 8,0 8,7 12,7 6,14 0,7 4,7 Z" : "M 0,0 L 0,14 11,7 Z");
         }
         void ShowProgress(WorkProgress progress)
@@ -469,6 +523,11 @@ namespace Snowfrost
 
         async Task OpenGame()
         {
+            if(!busy&&!checking&&!PrismInstalled())
+            {
+                await InstallPrism();
+                return;
+            }
             if (busy || checking || Get<Grid>("SettingsOverlay").Visibility == Visibility.Visible || Get<Grid>("InfoOverlay").Visibility == Visibility.Visible) return;
             if (gameProcess != null && !gameProcess.HasExited) return;
             if (prismTarget == null) { OpenSettings(); Get<TextBlock>("SettingsError").Text=checkError ?? "Prism 연결 설정을 확인해주세요."; return; }
