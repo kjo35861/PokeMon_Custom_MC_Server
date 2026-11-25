@@ -148,9 +148,9 @@ python tools/check_publish.py
 
 ## 작업 기록과 매시간 백업
 
-[상세 개발 이력](docs/DEVELOPMENT_HISTORY.md), [구조와 데이터 흐름](docs/ARCHITECTURE.md), [검증 자료 목록](docs/evidence/README.md), [자동 기록·푸시 운영 방식](docs/AUTOMATION.md)을 함께 관리합니다.
+[상세 개발 이력](docs/DEVELOPMENT_HISTORY.md), [구조와 데이터 흐름](docs/ARCHITECTURE.md), [검증 자료 목록](docs/evidence/README.md), [수동 기록·푸시 운영 방식](docs/AUTOMATION.md)을 함께 관리합니다.
 
-매시간 변경 사항을 확인하고, 작업이 있으면 관련 README·기록·증거를 갱신한 뒤 검사·커밋·일반 푸시를 수행합니다. 변경이 없으면 빈 커밋을 만들지 않습니다. 로컬 Codex 자동화이므로 PC 절전·앱 종료·네트워크 또는 인증 문제로 실행이 지연될 수 있습니다. 원격 이력을 덮어쓰는 강제 푸시는 사용하지 않습니다.
+GitHub 문서는 작업 중 수동으로 갱신합니다. README에는 최종 검증이 끝난 내용만 반영하고, 진행 중인 작업과 검사 결과는 날짜별 작업일지에 기록합니다.
 
 타사 에셋·폰트에 관한 표기는 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)를 참고하세요.
 
@@ -253,3 +253,7 @@ Java 빌드와 단위 테스트 59개를 통과했다. 기본 칭호/해제/재�
 ## 대표 배지 (사용자 확인 완료)
 
 일반 메뉴와 영지 관리소에 오른쪽을 보는 초록 캐릭터의 투명 배지를 사용합니다. 표시 크기는 일반 화면 55px, 좁은 화면 약 43px입니다. 사용자가 최종 크기를 확인했습니다.
+
+## 액세서리 메뉴
+
+Pixelmon NeoForge 클라이언트에서 `J` 키로 Accessories 메뉴를 열 수 있습니다. 사용자 확인 완료(추가 수정 요청 없이 다음 작업으로 진행).
