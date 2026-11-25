@@ -306,6 +306,7 @@ namespace Snowfrost
         {
             busy=true;
             ReadyButton();
+            Get<ProgressBar>("PrismInstallGauge").Visibility=Visibility.Visible;
             Get<TextBlock>("PlayLabel").Text="Prism 설치 중";
             Get<TextBlock>("ActionStatus").Text="Prism을 설치하고 있습니다. Windows 권한 확인이 표시되면 안내를 따라주세요.";
             bool installed=false;
@@ -315,7 +316,8 @@ namespace Snowfrost
                     "Microsoft","WindowsApps","winget.exe");
                 if(!File.Exists(winget))winget="winget.exe";
                 using(var process=Process.Start(new ProcessStartInfo(winget,
-                    "install --exact --id PrismLauncher.PrismLauncher --source winget --silent") { UseShellExecute=true }))
+                    "install --exact --id PrismLauncher.PrismLauncher --source winget --silent --disable-interactivity")
+                    { UseShellExecute=false, CreateNoWindow=true, WindowStyle=ProcessWindowStyle.Hidden }))
                 {
                     if(process==null)throw new InvalidOperationException("Windows 패키지 관리자를 시작하지 못했습니다.");
                     int exit=await Task.Run(()=>{process.WaitForExit();return process.ExitCode;});
@@ -329,7 +331,7 @@ namespace Snowfrost
                 store.Log("Prism install",error);
                 Info("Prism 설치를 완료하지 못했어요",error.Message);
             }
-            finally { busy=false;ReadyButton(); }
+            finally { Get<ProgressBar>("PrismInstallGauge").Visibility=Visibility.Collapsed;busy=false;ReadyButton(); }
             if(installed)
             {
                 await CheckInstallation();

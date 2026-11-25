@@ -102,9 +102,14 @@
               </Border>
             </WrapPanel>
             <StackPanel Orientation="Horizontal" Margin="0,18,0,0">
+              <Grid Width="260" Height="58">
               <Button x:Name="LaunchButton" Style="{StaticResource PlayButton}" Width="260" Height="58" IsDefault="True">
                 <StackPanel Orientation="Horizontal"><Path x:Name="PlayIcon" Fill="White" Data="M 0,0 L 0,14 11,7 Z" Margin="0,0,14,0" VerticalAlignment="Center"/><TextBlock x:Name="PlayLabel" Text="게임 시작" FontSize="18" FontWeight="Bold"/></StackPanel>
               </Button>
+                <ProgressBar x:Name="PrismInstallGauge" Height="5" Margin="11,0,11,6" VerticalAlignment="Bottom"
+                             IsIndeterminate="True" Visibility="Collapsed" IsHitTestVisible="False"
+                             Foreground="#FFFFFF" Background="#55326027" AutomationProperties.Name="Prism 설치 진행 중"/>
+              </Grid>
               <Button x:Name="SettingsButton" Style="{StaticResource SoftButton}" Width="58" Height="58" Margin="12,0,0,0" Padding="0" ToolTip="런처 설정"><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE713;" FontSize="21"/></Button>
             </StackPanel>
             <Button x:Name="PrismLoginButton" Content="Microsoft 계정 연결" Style="{StaticResource SoftButton}" HorizontalAlignment="Left" Margin="0,12,0,0" Visibility="Collapsed"/>
