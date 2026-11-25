@@ -188,8 +188,36 @@ namespace Snowfrost
             }
             return null;
         }
+        static long LogLength(string path)
+        {
+            try { return new FileInfo(path).Length; }
+            catch (IOException) { return 0; }
+            catch (UnauthorizedAccessException) { return 0; }
+        }
+        static bool InstanceRejected(string path, long start, string id)
+        {
+            try
+            {
+                using (var stream = new FileStream(path,FileMode.Open,FileAccess.Read,FileShare.ReadWrite | FileShare.Delete))
+                {
+                    stream.Seek(start <= stream.Length ? Math.Max(start, stream.Length - 65536) : Math.Max(0,stream.Length - 65536),SeekOrigin.Begin);
+                    using (var reader = new StreamReader(stream,Encoding.UTF8))
+                    {
+                        string line;
+                        while ((line = reader.ReadLine()) != null)
+                            if (line.Contains("Launch command requires an valid instance ID") && line.Contains("\""+id+"\"") && line.Contains("resolves to nothing"))
+                                return true;
+                    }
+                }
+            }
+            catch (IOException) {}
+            catch (UnauthorizedAccessException) {}
+            return false;
+        }
         public static async Task<Process> Start(PrismTarget target,IProgress<WorkProgress> progress,CancellationToken cancel,string serverAddress=null)
         {
+            string log = Path.Combine(target.DataRoot,"logs","PrismLauncher-0.log");
+            long previousLogLength = LogLength(log);
             using(Process request=Process.Start(Command(target,serverAddress)))
             {
                 DateTime until=DateTime.UtcNow.AddMinutes(3);
@@ -197,6 +225,8 @@ namespace Snowfrost
                 {
                     cancel.ThrowIfCancellationRequested();
                     Process game=await Task.Run(()=>FindGame(target));if(game!=null)return game;
+                    if(InstanceRejected(log,previousLogLength,target.Id))
+                        throw new InvalidOperationException("Prism이 테스트 인스턴스를 목록에서 찾지 못했습니다. Prism을 완전히 종료한 뒤 게임 시작을 다시 눌러주세요.");
                     if(request.HasExited && request.ExitCode!=0)throw new InvalidOperationException("Prism이 실행 요청을 처리하지 못했습니다. Prism에서 이 인스턴스가 실행되는지 확인해주세요.");
                     progress.Report(new WorkProgress("Prism에서 Minecraft 시작 중 · 로그인이 필요하면 Prism 화면에서 진행해주세요.",0));
                     await Task.Delay(900,cancel);
