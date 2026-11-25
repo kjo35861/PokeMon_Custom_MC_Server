@@ -8,3 +8,6 @@
 
 
 설치 연동판에서는 Prism 미설치 시 게임 시작 버튼이 WinGet의 공식 Prism 패키지 설치를 시작한다. 설치 경로를 다시 확인하고 인스턴스를 준비한 뒤 Prism을 열어 계정 추가를 안내한다. 빌드와 백엔드60개 통과. 실제 WinGet 설치 및 Microsoft 실계정 인증 미검증.
+
+
+Windows 배포용 Pocketmate-Setup-1.21.1.exe는 설치 경로 선택과 기본 선택된 바탕화면 바로가기를 제공한다. 새 폴더 또는 빈 폴더를 선택한다. 격리된 사용자 지정 경로에 실제 내장 팩 추출 및 바로가기 대상·작업 경로 검증을 완료했다. 빌드 명령은 python snowfrost_launcher/build_player_setup.py <player.zip> <setup.exe> 이다.
