@@ -429,17 +429,20 @@ namespace Snowfrost
                 CancellationToken token = work.Token;
                 prismTarget=null;
                 vanillaTarget=await Task.Run(()=>PrismBridge.Resolve(settings));
-                bool server=!String.IsNullOrWhiteSpace(settings.UpdateManifestUrl);
-                prismTarget=server ? PrismBridge.ServerTarget(vanillaTarget,store.DirectoryPath) : vanillaTarget;
+                string localTestId = ServerSetting("localTestInstanceId");
+                bool localTest = localTestId.Length != 0;
+                bool server=!localTest && !String.IsNullOrWhiteSpace(settings.UpdateManifestUrl);
+                prismTarget = localTest ? PrismBridge.ResolveNeoForgeTest(vanillaTarget, localTestId)
+                    : server ? PrismBridge.ServerTarget(vanillaTarget,store.DirectoryPath) : vanillaTarget;
                 if(server) await Task.Run(()=>PrismBridge.EnsureServer(prismTarget,vanillaTarget));
                 updates=new UpdateService(Path.Combine(store.DirectoryPath,"prism",PrismBridge.Key(prismTarget.Root)),prismTarget.GameRoot);
-                updatePlan = await Task.Run(async delegate { return await updates.Check(settings.UpdateManifestUrl,token); });
+                updatePlan = await Task.Run(async delegate { return await updates.Check(localTest ? "" : settings.UpdateManifestUrl,token); });
                 if(updatePlan!=null && !PrismBridge.LoaderMatches(prismTarget,updatePlan)) updatePlan.Needed=true;
                 try {store.Save(settings);} catch(Exception saveError){store.Log("Prism settings",saveError);}
                 UpdateActivity();
-                Get<TextBlock>("ConnectionLabel").Text = updatePlan == null ? "서버 업데이트 미연결" : updatePlan.Needed ? "새 업데이트가 있습니다" : "최신 버전입니다";
-                Get<TextBlock>("ConnectionDetail").Text = updatePlan == null ? "순정 · Prism" : "팩 " + updatePlan.PackVersion;
-                Get<TextBlock>("ActionStatus").Text = updatePlan == null ? "순정 Minecraft 1.21.1 · Prism 연결 완료" : updatePlan.Needed ? "업데이트를 누르면 최신 파일을 적용한 뒤 게임 실행을 이어갑니다." : "서버 파일 확인 완료 · Minecraft 1.21.1";
+                Get<TextBlock>("ConnectionLabel").Text = localTest ? "로컬 멀티 테스트" : updatePlan == null ? "서버 업데이트 미연결" : updatePlan.Needed ? "새 업데이트가 있습니다" : "최신 버전입니다";
+                Get<TextBlock>("ConnectionDetail").Text = localTest ? "NeoForge · Prism" : updatePlan == null ? "순정 · Prism" : "팩 " + updatePlan.PackVersion;
+                Get<TextBlock>("ActionStatus").Text = localTest ? "PIXELMON 멀티 테스트 · NeoForge 21.1.248" : updatePlan == null ? "순정 Minecraft 1.21.1 · Prism 연결 완료" : updatePlan.Needed ? "업데이트를 누르면 최신 파일을 적용한 뒤 게임 실행을 이어갑니다." : "서버 파일 확인 완료 · Minecraft 1.21.1";
                 Get<System.Windows.Shapes.Ellipse>("ConnectionDot").Fill = new SolidColorBrush(updatePlan == null ? Color.FromRgb(176,186,169) : Color.FromRgb(133,202,115));
             }
             catch (OperationCanceledException) { checkError = "업데이트 확인이 취소되었습니다."; Get<TextBlock>("ConnectionLabel").Text = "업데이트 확인 취소"; Get<TextBlock>("ActionStatus").Text = checkError; }
@@ -463,7 +466,13 @@ namespace Snowfrost
                 if(!String.Equals(validated.Root,vanillaTarget.Root,StringComparison.OrdinalIgnoreCase))throw new InvalidOperationException("Prism 인스턴스 위치가 변경되었습니다. 업데이트를 다시 확인해주세요.");
                 Process existing=await Task.Run(()=>PrismBridge.FindGame(vanillaTarget,prismTarget));
                 if(existing!=null) {gameProcess=existing;Get<TextBlock>("ActionStatus").Text="연결된 게임이 이미 실행 중입니다.";return;}
-                if (!String.IsNullOrWhiteSpace(settings.UpdateManifestUrl))
+                string localTestId = ServerSetting("localTestInstanceId");
+                if (localTestId.Length != 0)
+                {
+                    var current = PrismBridge.ResolveNeoForgeTest(validated, localTestId);
+                    if (current.Root != prismTarget.Root) throw new InvalidOperationException("테스트 인스턴스가 변경되었습니다. 런처를 다시 열어주세요.");
+                }
+                if (localTestId.Length == 0 && !String.IsNullOrWhiteSpace(settings.UpdateManifestUrl))
                 {
                     updatePlan = await Task.Run(async delegate { return await updates.Check(settings.UpdateManifestUrl,token); });
                     if (!PrismBridge.LoaderMatches(prismTarget,updatePlan)) updatePlan.Needed=true;

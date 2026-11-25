@@ -95,6 +95,21 @@ namespace Snowfrost
                 throw new InvalidOperationException("선택한 Prism 인스턴스는 순정 Minecraft 1.21.1이어야 합니다. 모드가 없는 1.21.1 인스턴스를 선택해주세요.");
             return new PrismTarget { Executable=Path.GetFullPath(settings.PrismPath),DataRoot=data,InstancesRoot=instances,Id=id,Root=root,GameRoot=GameDirectory(root) };
         }
+        public static PrismTarget ResolveNeoForgeTest(PrismTarget vanilla, string id)
+        {
+            if (id.IndexOfAny(new[]{'/', (char)92, ':'}) >= 0 || id == "." || id == "..")
+                throw new InvalidDataException("테스트 인스턴스 ID에는 폴더 이름만 입력해주세요.");
+            string root = SafeFiles.Join(vanilla.InstancesRoot, id);
+            if (!File.Exists(Path.Combine(root, "instance.cfg")))
+                throw new InvalidOperationException("NeoForge 테스트 인스턴스가 없습니다.");
+            object[] components = Json.Array(Json.Get(Json.Parse(File.ReadAllText(Path.Combine(root, "mmc-pack.json"))), "components"));
+            if (!components.Any(c => Json.Text(c,"uid") == "net.minecraft" && Json.Text(c,"version") == GameInstaller.Version) ||
+                !components.Any(c => Json.Text(c,"uid") == "net.neoforged" && Json.Text(c,"version") == "21.1.248") ||
+                components.Count(c => LoaderIds.Contains(Json.Text(c,"uid"))) != 1)
+                throw new InvalidOperationException("테스트 인스턴스는 Minecraft 1.21.1 / NeoForge 21.1.248이어야 합니다.");
+            return new PrismTarget { Executable=vanilla.Executable, DataRoot=vanilla.DataRoot,
+                InstancesRoot=vanilla.InstancesRoot, Id=id, Root=root, GameRoot=GameDirectory(root), Managed=true };
+        }
         public static PrismTarget ServerTarget(PrismTarget vanilla,string owner)
         {
             string id="Pocketmate-Server-"+Key(vanilla.Root+Path.DirectorySeparatorChar+Key(owner));
