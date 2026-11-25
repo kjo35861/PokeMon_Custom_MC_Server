@@ -18,6 +18,18 @@ class ShopAdminTest {
  @Test void flatPriceConfigMigratesOnFirstEditAndKeepsBackup() throws Exception{
   String old=new com.google.gson.Gson().toJson(ShopPrices.defaults());Files.writeString(file(),old);var s=fresh();assertEquals(0,s.revision());assertEquals(old,Files.readString(file()));s.upsert(2,0,rule(),"Admin");assertEquals(old,Files.readString(file().resolveSibling("shop.json.bak")));assertEquals(200,new ShopAdminStore(file()).prices().buy("minecraft:raw_iron",0));assertEquals("Admin",s.view(2).audit().getFirst().actor());
  }
+ @Test void deletedDefaultItemStaysAbsentUntilExplicitlyRegisteredAgain() throws Exception {
+  var store=fresh();String id="minecraft:raw_iron";
+  store.disable(2,0,id,"both","Admin");
+  assertTrue(store.entries().containsKey(id));
+  assertThrows(SecurityException.class,()->store.delete(0,1,id,"Player"));
+  assertThrows(IllegalArgumentException.class,()->store.delete(2,0,id,"Stale admin"));
+  store.delete(2,1,id,"Admin");
+  var reopened=new ShopAdminStore(file());
+  assertFalse(reopened.entries().containsKey(id));
+  reopened.upsert(2,2,rule(),"Admin");
+  assertTrue(new ShopAdminStore(file()).entries().get(id).sell());
+ }
  @Test void listChangesAndPriceEditsInvalidateOutstandingQuotes() throws Exception{
   var s=fresh();String version=s.version(0);s.upsert(2,0,rule(),"Admin");assertNotEquals(version,s.version(0));assertEquals(70,s.prices().sell("minecraft:raw_iron",0));assertEquals("minerals",new ShopCatalog.Entry("minecraft:raw_iron","decoration",true,true).saleCategory());s.disable(2,1,"minecraft:raw_iron","sell","Admin");assertTrue(s.entries().get("minecraft:raw_iron").buy());assertFalse(s.entries().get("minecraft:raw_iron").sell());s.disable(2,2,"minecraft:raw_iron","both","Admin");assertFalse(s.entries().get("minecraft:raw_iron").buy());s.upsert(2,3,rule(),"Admin");assertTrue(new ShopAdminStore(file()).entries().get("minecraft:raw_iron").sell());
  }

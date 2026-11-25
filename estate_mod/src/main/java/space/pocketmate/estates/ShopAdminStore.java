@@ -21,9 +21,10 @@ public final class ShopAdminStore {
   }
  }
  public record Audit(long at,String actor,String action,String item,String summary) {}
- public record State(int schema,long revision,ShopPrices prices,Map<String,Rule> overrides,boolean buyPaused,boolean sellPaused,boolean estatePurchasesPaused,boolean missionRewardsPaused,String maintenanceReason,List<Audit> audit) {
+ public record State(int schema,long revision,ShopPrices prices,Map<String,Rule> overrides,boolean buyPaused,boolean sellPaused,boolean estatePurchasesPaused,boolean missionRewardsPaused,String maintenanceReason,List<Audit> audit,Set<String> deleted) {
   public State {
    if(schema!=1||revision<0||revision>1_000_000_000_000L||prices==null)throw new IllegalArgumentException("상점 설정 버전을 확인해주세요.");
+   deleted=Set.copyOf(deleted==null?Set.of():deleted);
    overrides=Map.copyOf(overrides==null?Map.of():overrides);audit=List.copyOf(audit==null?List.of():audit);
    maintenanceReason=maintenanceReason==null?"":maintenanceReason.strip();if(maintenanceReason.length()>120||audit.size()>100)throw new IllegalArgumentException("운영 안내 또는 기록 길이를 확인해주세요.");
    for(var e:overrides.entrySet())if(!e.getKey().equals(e.getValue().id()))throw new IllegalArgumentException("품목 설정 ID가 일치하지 않습니다.");
@@ -36,8 +37,8 @@ public final class ShopAdminStore {
   try{
    if(Files.exists(file)){
     JsonObject json=JsonParser.parseString(Files.readString(file)).getAsJsonObject();
-    state=json.has("schema")?JSON.fromJson(json,State.class):new State(1,0,JSON.fromJson(json,ShopPrices.class),Map.of(),false,false,false,false,"",List.of());
-   }else{state=new State(1,0,ShopPrices.defaults(),Map.of(),false,false,false,false,"",List.of());persist(state);}
+    state=json.has("schema")?JSON.fromJson(json,State.class):new State(1,0,JSON.fromJson(json,ShopPrices.class),Map.of(),false,false,false,false,"",List.of(),Set.of());
+   }else{state=new State(1,0,ShopPrices.defaults(),Map.of(),false,false,false,false,"",List.of(),Set.of());persist(state);}
    effectivePrices(state);
   }catch(Exception e){throw new IOException("상점 설정을 읽지 못했습니다. 파일을 초기화하지 않았습니다.",e);}
  }
@@ -57,9 +58,12 @@ public final class ShopAdminStore {
  }
  public synchronized Map<String,ShopCatalog.Entry> entries(){
   Map<String,ShopCatalog.Entry> result=new TreeMap<>(ShopCatalog.entries());
-  for(Rule r:state.overrides().values())result.put(r.id(),new ShopCatalog.Entry(r.id(),r.category(),r.buy(),r.sell()));return Collections.unmodifiableMap(result);
+  for(Rule r:state.overrides().values())result.put(r.id(),new ShopCatalog.Entry(r.id(),r.category(),r.buy(),r.sell()));
+  result.keySet().removeAll(state.deleted());
+  return Collections.unmodifiableMap(result);
  }
  public synchronized Rule rule(String id){
+  if(state.deleted().contains(id))throw new IllegalArgumentException("등록된 품목을 선택해주세요.");
   if(state.overrides().containsKey(id))return state.overrides().get(id);
   var e=ShopCatalog.entries().get(id);if(e==null)throw new IllegalArgumentException("등록된 품목을 선택해주세요.");
   var p=prices();return new Rule(e.id(),e.category(),e.buy(),e.sell(),p.buy(e.id(),0),p.sellBaseFor(e.id()));
@@ -67,20 +71,29 @@ public final class ShopAdminStore {
  public synchronized void upsert(int level,long expected,Rule rule,String actor) throws IOException {
   require(level);check(expected);Map<String,Rule> next=new HashMap<>(state.overrides());next.put(rule.id(),rule);
   var old=entries().get(rule.id());String summary=(old==null?"추가":"수정")+" · 구매 "+(rule.buy()?rule.buyPrice()+"원":"제외")+" / 판매 "+(rule.sell()?rule.sellPrice()+"원":"제외");
-  save(next,state.prices(),state.buyPaused(),state.sellPaused(),state.estatePurchasesPaused(),state.missionRewardsPaused(),state.maintenanceReason(),actor,"품목 변경",rule.id(),summary);
+  var deleted=new HashSet<>(state.deleted());deleted.remove(rule.id());
+  save(deleted,next,state.prices(),state.buyPaused(),state.sellPaused(),state.estatePurchasesPaused(),state.missionRewardsPaused(),state.maintenanceReason(),actor,"품목 변경",rule.id(),summary);
  }
  public synchronized void disable(int level,long expected,String id,String side,String actor) throws IOException {
   require(level);check(expected);Rule old=rule(id);if(!Set.of("buy","sell","both").contains(side))throw new IllegalArgumentException("구매/판매 구분을 확인해주세요.");
   Map<String,Rule> next=new HashMap<>(state.overrides());next.put(id,new Rule(id,old.category(),old.buy()&&!Set.of("buy","both").contains(side),old.sell()&&!Set.of("sell","both").contains(side),old.buyPrice(),old.sellPrice()));
-  save(next,state.prices(),state.buyPaused(),state.sellPaused(),state.estatePurchasesPaused(),state.missionRewardsPaused(),state.maintenanceReason(),actor,"목록 제외",id,side+" 목록에서 제외");
+  save(state.deleted(),next,state.prices(),state.buyPaused(),state.sellPaused(),state.estatePurchasesPaused(),state.missionRewardsPaused(),state.maintenanceReason(),actor,"일시정지",id,side+" 거래 일시정지");
+ }
+ public synchronized void delete(int level,long expected,String id,String actor) throws IOException {
+  require(level);check(expected);rule(id);
+  var next=new HashMap<>(state.overrides());next.remove(id);
+  var deleted=new HashSet<>(state.deleted());
+  if(ShopCatalog.entries().containsKey(id))deleted.add(id);
+  save(deleted,next,state.prices(),state.buyPaused(),state.sellPaused(),state.estatePurchasesPaused(),
+      state.missionRewardsPaused(),state.maintenanceReason(),actor,"품목 삭제",id,"상점 목록에서 삭제");
  }
  public synchronized void configure(int level,long expected,ShopPrices prices,boolean buyPaused,boolean sellPaused,boolean estatePaused,boolean missionPaused,String reason,String actor) throws IOException {
-  require(level);check(expected);save(state.overrides(),prices,buyPaused,sellPaused,estatePaused,missionPaused,reason,actor,"가격·점검 설정","", "기본 구매 "+prices.buyBase()+"원 / 판매 "+prices.sellBase()+"원 · 변동 "+prices.randomEnabled()+" · 구매 중지 "+buyPaused+" / 판매 중지 "+sellPaused+" · 영지 중지 "+estatePaused+" / 임무 보상 중지 "+missionPaused);
+  require(level);check(expected);save(state.deleted(),state.overrides(),prices,buyPaused,sellPaused,estatePaused,missionPaused,reason,actor,"가격·점검 설정","", "기본 구매 "+prices.buyBase()+"원 / 판매 "+prices.sellBase()+"원 · 변동 "+prices.randomEnabled()+" · 구매 중지 "+buyPaused+" / 판매 중지 "+sellPaused+" · 영지 중지 "+estatePaused+" / 임무 보상 중지 "+missionPaused);
  }
  private void check(long expected){if(expected!=state.revision())throw new IllegalArgumentException("다른 관리자가 설정을 변경했습니다. 새로고침 후 다시 수정해주세요.");}
- private void save(Map<String,Rule> rules,ShopPrices prices,boolean bp,boolean sp,boolean ep,boolean mp,String reason,String actor,String action,String item,String summary) throws IOException {
+ private void save(Set<String> deleted,Map<String,Rule> rules,ShopPrices prices,boolean bp,boolean sp,boolean ep,boolean mp,String reason,String actor,String action,String item,String summary) throws IOException {
   List<Audit> log=new ArrayList<>(state.audit());log.add(new Audit(System.currentTimeMillis(),actor,action,item,summary));if(log.size()>100)log=log.subList(log.size()-100,log.size());
-  State next=new State(1,state.revision()+1,prices,rules,bp,sp,ep,mp,reason,log);effectivePrices(next);persist(next);state=next;
+  State next=new State(1,state.revision()+1,prices,rules,bp,sp,ep,mp,reason,log,deleted);effectivePrices(next);persist(next);state=next;
  }
  private void persist(State value) throws IOException {
   Path parent=file.toAbsolutePath().getParent();Files.createDirectories(parent);Path temp=Files.createTempFile(parent,"shop-",".tmp");
