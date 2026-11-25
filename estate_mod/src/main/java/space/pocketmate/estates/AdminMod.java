@@ -50,7 +50,7 @@ public final class AdminMod implements ModInitializer {
    var titles=ProfilesMod.adminTitles(player.getServer()).catalog().stream().filter(c->c.kind().equals("title")&&!c.id().equals("none")).toList();
    out.add("titles",JSON.toJsonTree(titles));
   }catch(IllegalStateException unavailable){out.add("titles",JsonNull.INSTANCE);}
-  JsonObject status=new JsonObject();status.addProperty("modVersion","0.13.0");status.addProperty("memberLimit",EstateRules.memberLimit(0));status.addProperty("maxEstateLevel",EstateRules.MAX_LEVEL);status.addProperty("maxChunks",EstateRules.limit(10));status.addProperty("missionResetAt",MissionStore.nextReset(java.time.Instant.now()));status.addProperty("pokemonReady",false);
+  JsonObject status=new JsonObject();status.addProperty("modVersion","0.13.0");status.addProperty("memberLimit",EstateRules.memberLimit(0));status.addProperty("maxEstateLevel",EstateRules.MAX_LEVEL);status.addProperty("maxChunks",EstateRules.limit(10));status.addProperty("missionResetAt",MissionStore.nextReset(java.time.Instant.now()));status.addProperty("pokemonReady",MissionsMod.pokemonReady());
   try{int[] counts=EstatesMod.shopWallet(player.getServer()).adminCounts();status.addProperty("estateReady",true);status.addProperty("estates",counts[0]);status.addProperty("chunks",counts[1]);}catch(Exception unavailable){status.addProperty("estateReady",false);}out.add("status",status);return out;
  }
 }

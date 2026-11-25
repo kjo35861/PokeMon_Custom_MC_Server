@@ -29,6 +29,9 @@ public final class MissionsMod implements ModInitializer {
     private static final Map<UUID,RequestStamp> REQUESTS=new HashMap<>();
     private static final org.slf4j.Logger LOG=LoggerFactory.getLogger("pocketmate-missions");
     private record Sample(String date,Map<String,Integer> stats) {}
+    private static boolean pokemonReady;
+    public static boolean pokemonReady(){return pokemonReady;}
+    public static void connectPokemon(){pokemonReady=true;}
     public static void event(ServerPlayerEntity player,Map<String,Integer> values,String species,String unique){
         if(player.isCreative()||player.isSpectator())return;
         MissionStore store=STORES.get(player.getServer());if(store==null)return;
@@ -58,7 +61,7 @@ public final class MissionsMod implements ModInitializer {
     }
     @Override public void onInitialize(){
         ServerLifecycleEvents.SERVER_STARTING.register(server->{
-            try{STORES.put(server,new MissionStore(server.getSavePath(WorldSavePath.ROOT).resolve("data/pocketmate-missions.json"),Clock.systemUTC(),false));}
+            try{STORES.put(server,new MissionStore(server.getSavePath(WorldSavePath.ROOT).resolve("data/pocketmate-missions.json"),Clock.systemUTC(),pokemonReady()));}
             catch(Exception e){LOG.error("Mission store unavailable; progress will not be reset",e);}
         });
         ServerLifecycleEvents.SERVER_STOPPED.register(server->{STORES.remove(server);SAMPLES.clear();SAMPLE_RETRY_AT.clear();REQUESTS.clear();});
@@ -136,7 +139,7 @@ public final class MissionsMod implements ModInitializer {
                 response.addProperty("message","같은 슬롯의 새 임무로 교체했습니다. 새 임무는 지금부터 집계합니다.");
             }else if(!action.equals("view"))throw new IllegalArgumentException();
             response.addProperty("type","snapshot");response.addProperty("requestId",requestId);response.add("missions",new Gson().toJsonTree(store.view(player.getUuid())));
-            response.addProperty("rewardsPaused",ShopMod.missionsPaused());response.addProperty("pokemonReady",false);WebGuiBridge.emit(player,CHANNEL,response.toString());
+            response.addProperty("rewardsPaused",ShopMod.missionsPaused());response.addProperty("pokemonReady",pokemonReady());WebGuiBridge.emit(player,CHANNEL,response.toString());
         }catch(Exception e){JsonObject error=new JsonObject();error.addProperty("type","error");error.addProperty("requestId",requestId);error.addProperty("message",e instanceof java.io.IOException?"저장하지 못했습니다. 다시 확인해주세요.":e.getMessage()==null?"올바르지 않은 임무 요청입니다.":e.getMessage());WebGuiBridge.emit(player,CHANNEL,error.toString());}
     }
 }

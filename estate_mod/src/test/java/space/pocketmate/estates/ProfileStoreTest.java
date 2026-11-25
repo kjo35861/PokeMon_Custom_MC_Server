@@ -12,6 +12,15 @@ class ProfileStoreTest {
     final UUID alice=UUID.randomUUID(),bob=UUID.randomUUID();
     Path file(){return root.resolve("profiles.json");}
     ProfileStore store() throws Exception{return new ProfileStore(file());}
+    @Test void firstCaptureHasOneWinnerAcrossRestarts() throws Exception {
+        var profiles=store();
+        assertTrue(profiles.firstCapture(alice,144));
+        assertFalse(profiles.firstCapture(alice,25));
+        var reopened=store();
+        assertFalse(reopened.firstCapture(bob,144));
+        assertTrue(reopened.get(alice).owned().contains("title:legendary_144"));
+        assertFalse(reopened.get(bob).owned().contains("title:legendary_144"));
+    }
     @Test void managedTitlesPersistAndDeletingUnequipsForEveryPlayer() throws Exception {
         var s=store();
         s.editTitle("trail","숲길 안내자","#12ab34","none",true);

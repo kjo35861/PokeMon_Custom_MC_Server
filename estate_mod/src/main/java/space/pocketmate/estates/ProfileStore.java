@@ -47,6 +47,18 @@ public final class ProfileStore {
     private final Path path;
     private Map<String,Cosmetic> titleOverrides=Map.of();
     private Set<String> deletedTitles=Set.of();
+    private Map<String,UUID> firstCaptures=Map.of();
+    public synchronized boolean firstCapture(UUID player,int dex) throws IOException {
+        String id="legendary_"+dex;
+        if(firstCaptures.containsKey(id)||cosmetic("title",id)==null)return false;
+        Profile profile=profiles.getOrDefault(player,starter());
+        var owned=new HashSet<>(profile.owned);owned.add("title:"+id);
+        var next=new LinkedHashMap<>(profiles);
+        next.put(player,new Profile(profile.icon,profile.title,profile.banner,owned));
+        var captures=new LinkedHashMap<>(firstCaptures);captures.put(id,player);
+        persist(next,titleOverrides,deletedTitles,captures);
+        return true;
+    }
     public List<Cosmetic> catalog(){
         var result=new LinkedHashMap<String,Cosmetic>();
         for(Cosmetic item:CATALOG)
@@ -102,6 +114,10 @@ public final class ProfileStore {
             if(root.has("deletedTitles"))for(var value:root.getAsJsonArray("deletedTitles"))removed.add(value.getAsString());
             if(removed.contains("none"))throw new IllegalArgumentException();
             deletedTitles=Set.copyOf(removed);
+            var captures=new LinkedHashMap<String,UUID>();
+            if(root.has("firstCaptures"))for(var match:root.getAsJsonObject("firstCaptures").entrySet())
+                captures.put(match.getKey(),UUID.fromString(match.getValue().getAsString()));
+            firstCaptures=Map.copyOf(captures);
             JsonObject entries=root.getAsJsonObject("profiles");
             for(var entry:entries.entrySet()) {
                 UUID id=UUID.fromString(entry.getKey());JsonObject value=entry.getValue().getAsJsonObject();
@@ -148,8 +164,12 @@ public final class ProfileStore {
         persist(next,titleOverrides,deletedTitles);
     }
     private void persist(Map<UUID,Profile> next,Map<String,Cosmetic> overrides,Set<String> deleted) throws IOException {
+        persist(next,overrides,deleted,firstCaptures);
+    }
+    private void persist(Map<UUID,Profile> next,Map<String,Cosmetic> overrides,Set<String> deleted,Map<String,UUID> captures) throws IOException {
         JsonObject root=new JsonObject(),entries=new JsonObject();root.addProperty("formatVersion",1);
         next.forEach((uuid,value)->entries.add(uuid.toString(),JSON.toJsonTree(value)));root.add("profiles",entries);
+        root.add("firstCaptures",JSON.toJsonTree(captures));
         root.add("titleOverrides",JSON.toJsonTree(overrides));root.add("deletedTitles",JSON.toJsonTree(deleted));
         Files.createDirectories(path.getParent());Path temporary=Files.createTempFile(path.getParent(),"profiles-",".tmp");
         try {
@@ -159,7 +179,7 @@ public final class ProfileStore {
             try{Files.move(temporary,path,StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING);}
             catch(AtomicMoveNotSupportedException ignored){Files.move(temporary,path,StandardCopyOption.REPLACE_EXISTING);}
             profiles.clear();profiles.putAll(next);
-            titleOverrides=Collections.unmodifiableMap(new LinkedHashMap<>(overrides));deletedTitles=Set.copyOf(deleted);
+            titleOverrides=Collections.unmodifiableMap(new LinkedHashMap<>(overrides));deletedTitles=Set.copyOf(deleted);firstCaptures=Map.copyOf(captures);
         }finally{Files.deleteIfExists(temporary);}
     }
 }

@@ -39,7 +39,7 @@ public final class ProfilesMod implements ModInitializer {
         }
         return prefix.append(Text.literal(item.name()+" ").setStyle(net.minecraft.text.Style.EMPTY.withColor(color))).append(original.copy());
     }
-    static ProfileStore adminTitles(MinecraftServer server){
+    public static ProfileStore adminTitles(MinecraftServer server){
         var store=stores.get(server);
         if(store==null)throw new IllegalStateException("칭호 저장소를 사용할 수 없습니다.");
         return store;
