@@ -443,12 +443,13 @@ namespace Snowfrost
             {
                 CancellationToken token = work.Token;
                 prismTarget=null;
-                vanillaTarget=await Task.Run(()=>PrismBridge.Resolve(settings));
                 string localTestId = ServerSetting("localTestInstanceId");
                 bool localTest = localTestId.Length != 0;
                 bool server=!localTest && !String.IsNullOrWhiteSpace(settings.UpdateManifestUrl);
-                prismTarget = localTest ? PrismBridge.ResolveNeoForgeTest(vanillaTarget, localTestId)
-                    : server ? PrismBridge.ServerTarget(vanillaTarget,store.DirectoryPath) : vanillaTarget;
+                vanillaTarget=localTest?null:await Task.Run(()=>PrismBridge.Resolve(settings));
+                prismTarget=localTest?await Task.Run(()=>PrismBridge.EnsureNeoForgeClient(settings,localTestId,ServerSetting("serverAddress")))
+                    :server?PrismBridge.ServerTarget(vanillaTarget,store.DirectoryPath):vanillaTarget;
+                if(localTest&&!File.Exists(LocalPackPath))throw new InvalidDataException("client-pack.json이 없습니다. 배포 ZIP을 전부 풀어주세요.");
                 if(server) await Task.Run(()=>PrismBridge.EnsureServer(prismTarget,vanillaTarget));
                 updates=new UpdateService(Path.Combine(store.DirectoryPath,"prism",PrismBridge.Key(prismTarget.Root)),prismTarget.GameRoot);
                 updatePlan = localTest && File.Exists(LocalPackPath) ? await Task.Run(() => ReadLocalPack(),token)
@@ -456,9 +457,9 @@ namespace Snowfrost
                 if(updatePlan!=null && !PrismBridge.LoaderMatches(prismTarget,updatePlan)) updatePlan.Needed=true;
                 try {store.Save(settings);} catch(Exception saveError){store.Log("Prism settings",saveError);}
                 UpdateActivity();
-                Get<TextBlock>("ConnectionLabel").Text = localTest ? "로컬 멀티 테스트" : updatePlan == null ? "서버 업데이트 미연결" : updatePlan.Needed ? "새 업데이트가 있습니다" : "최신 버전입니다";
+                Get<TextBlock>("ConnectionLabel").Text = localTest ? "포켓메이트 멀티플레이" : updatePlan == null ? "서버 업데이트 미연결" : updatePlan.Needed ? "새 업데이트가 있습니다" : "최신 버전입니다";
                 Get<TextBlock>("ConnectionDetail").Text = localTest ? "NeoForge · Prism" : updatePlan == null ? "순정 · Prism" : "팩 " + updatePlan.PackVersion;
-                Get<TextBlock>("ActionStatus").Text = localTest ? "PIXELMON 멀티 테스트 · NeoForge 21.1.248" : updatePlan == null ? "순정 Minecraft 1.21.1 · Prism 연결 완료" : updatePlan.Needed ? "업데이트를 누르면 최신 파일을 적용한 뒤 게임 실행을 이어갑니다." : "서버 파일 확인 완료 · Minecraft 1.21.1";
+                Get<TextBlock>("ActionStatus").Text = localTest ? "포켓메이트 서버 · NeoForge 21.1.248" : updatePlan == null ? "순정 Minecraft 1.21.1 · Prism 연결 완료" : updatePlan.Needed ? "업데이트를 누르면 최신 파일을 적용한 뒤 게임 실행을 이어갑니다." : "서버 파일 확인 완료 · Minecraft 1.21.1";
                 Get<System.Windows.Shapes.Ellipse>("ConnectionDot").Fill = new SolidColorBrush(updatePlan == null ? Color.FromRgb(176,186,169) : Color.FromRgb(133,202,115));
             }
             catch (OperationCanceledException) { checkError = "업데이트 확인이 취소되었습니다."; Get<TextBlock>("ConnectionLabel").Text = "업데이트 확인 취소"; Get<TextBlock>("ActionStatus").Text = checkError; }
@@ -478,22 +479,21 @@ namespace Snowfrost
             try
             {
                 CancellationToken token = work.Token;
-                PrismTarget validated=await Task.Run(()=>PrismBridge.Resolve(settings));
-                if(!String.Equals(validated.Root,vanillaTarget.Root,StringComparison.OrdinalIgnoreCase))throw new InvalidOperationException("Prism 인스턴스 위치가 변경되었습니다. 업데이트를 다시 확인해주세요.");
+                string localTestId = ServerSetting("localTestInstanceId");
+                bool packaged = localTestId.Length != 0;
+                PrismTarget validated=packaged
+                    ? await Task.Run(()=>PrismBridge.EnsureNeoForgeClient(settings,localTestId,ServerSetting("serverAddress")))
+                    : await Task.Run(()=>PrismBridge.Resolve(settings));
+                if(!String.Equals(validated.Root,(packaged?prismTarget:vanillaTarget).Root,StringComparison.OrdinalIgnoreCase))
+                    throw new InvalidOperationException("Prism 인스턴스 위치가 변경되었습니다. 업데이트를 다시 확인해주세요.");
                 Process existing=await Task.Run(()=>PrismBridge.FindGame(vanillaTarget,prismTarget));
                 if(existing!=null) {gameProcess=existing;Get<TextBlock>("ActionStatus").Text="연결된 게임이 이미 실행 중입니다.";return;}
-                string localTestId = ServerSetting("localTestInstanceId");
-                if (localTestId.Length != 0)
+                if(packaged)
                 {
-                    var current = PrismBridge.ResolveNeoForgeTest(validated, localTestId);
-                    if (current.Root != prismTarget.Root) throw new InvalidOperationException("테스트 인스턴스가 변경되었습니다. 런처를 다시 열어주세요.");
-                    if (File.Exists(LocalPackPath))
-                    {
-                        updatePlan = await Task.Run(() => ReadLocalPack(),token);
-                        if (updatePlan.Needed)
-                            await Task.Run(async delegate { await updates.Apply(updatePlan,progress,token); },token);
-                        updatePlan.Needed = false;
-                    }
+                    updatePlan = await Task.Run(() => ReadLocalPack(),token);
+                    if(updatePlan.Needed)
+                        await Task.Run(async delegate { await updates.Apply(updatePlan,progress,token); },token);
+                    updatePlan.Needed=false;
                 }
                 if (localTestId.Length == 0 && !String.IsNullOrWhiteSpace(settings.UpdateManifestUrl))
                 {
@@ -558,7 +558,9 @@ namespace Snowfrost
                     LaunchCount = settings.LaunchCount, LastOpenedUtc = settings.LastOpenedUtc,
                     JavaPath=settings.JavaPath,UpdateManifestUrl=url,MicrosoftClientId=settings.MicrosoftClientId,MemoryMB=settings.MemoryMB,
                     PrismPath=path,PrismDataPath=Get<TextBox>("PrismDataBox").Text.Trim().Trim('"'),PrismInstanceId=Get<TextBox>("PrismInstanceBox").Text.Trim() };
-                PrismBridge.Resolve(next);
+                string testId=ServerSetting("localTestInstanceId");
+                if(testId.Length==0)PrismBridge.Resolve(next);
+                else PrismBridge.EnsureNeoForgeClient(next,testId,ServerSetting("serverAddress"));
                 store.Save(next); settings = next; ApplyAppearance(); CloseSettings();
                 Get<TextBlock>("ActionStatus").Text = "설정을 저장했습니다. 다음 실행에도 그대로 적용됩니다.";
                 await CheckInstallation();

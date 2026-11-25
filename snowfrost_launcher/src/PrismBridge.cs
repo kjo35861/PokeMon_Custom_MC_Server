@@ -95,6 +95,51 @@ namespace Snowfrost
                 throw new InvalidOperationException("선택한 Prism 인스턴스는 순정 Minecraft 1.21.1이어야 합니다. 모드가 없는 1.21.1 인스턴스를 선택해주세요.");
             return new PrismTarget { Executable=Path.GetFullPath(settings.PrismPath),DataRoot=data,InstancesRoot=instances,Id=id,Root=root,GameRoot=GameDirectory(root) };
         }
+        public static PrismTarget EnsureNeoForgeClient(Settings settings, string id, string address)
+        {
+            Discover(settings);
+            if (!File.Exists(settings.PrismPath) || !String.Equals(Path.GetFileName(settings.PrismPath),"prismlauncher.exe",StringComparison.OrdinalIgnoreCase))
+                throw new InvalidOperationException("Prism Launcher를 설치한 뒤 다시 실행해주세요.");
+            if (id.IndexOfAny(new[]{'/', (char)92, ':'}) >= 0 || id == "." || id == ".." || String.IsNullOrWhiteSpace(id))
+                throw new InvalidDataException("서버 인스턴스 ID를 확인해주세요.");
+            string data=Path.GetFullPath(settings.PrismDataPath);
+            string instances=InstanceDirectory(data);
+            string root=SafeFiles.Join(instances,id);
+            var prism=new PrismTarget { Executable=Path.GetFullPath(settings.PrismPath),DataRoot=data,InstancesRoot=instances };
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(instances);
+                string staged=Path.Combine(instances,".pocketmate-" + Guid.NewGuid().ToString("N"));
+                string game=Path.Combine(staged,"minecraft");
+                WriteInitialOptions(game,true);
+                if (!String.IsNullOrWhiteSpace(address)) WriteServerList(game,address);
+                Json.Save(Path.Combine(staged,"mmc-pack.json"),new {formatVersion=1, components=new[]{
+                    new {uid="net.minecraft",version="1.21.1"},
+                    new {uid="net.neoforged",version="21.1.248"}
+                }});
+                File.WriteAllText(Path.Combine(staged,"instance.cfg"),"[General]\nConfigVersion=1.3\nInstanceType=OneSix\nname=Pocketmate Server 1.21.1\nuuid="+Guid.NewGuid().ToString("N")+"\n",new UTF8Encoding(false));
+                Directory.Move(staged,root);
+            }
+            return ResolveNeoForgeTest(prism,id);
+        }
+        static void NbtString(Stream stream,string value)
+        {
+            byte[] bytes=Encoding.UTF8.GetBytes(value);
+            if(bytes.Length>65535)throw new InvalidDataException("서버 주소가 너무 깁니다.");
+            stream.WriteByte((byte)(bytes.Length >> 8));stream.WriteByte((byte)bytes.Length);
+            stream.Write(bytes,0,bytes.Length);
+        }
+        static void WriteServerList(string game,string address)
+        {
+            using(var stream=File.Create(Path.Combine(game,"servers.dat")))
+            {
+                stream.Write(new byte[]{10,0,0,9},0,4);NbtString(stream,"servers");
+                stream.Write(new byte[]{10,0,0,0,1},0,5);
+                stream.WriteByte(8);NbtString(stream,"name");NbtString(stream,"포켓메이트");
+                stream.WriteByte(8);NbtString(stream,"ip");NbtString(stream,address);
+                stream.WriteByte(0);stream.WriteByte(0);
+            }
+        }
         public static PrismTarget ResolveNeoForgeTest(PrismTarget vanilla, string id)
         {
             if (id.IndexOfAny(new[]{'/', (char)92, ':'}) >= 0 || id == "." || id == "..")
@@ -129,7 +174,7 @@ namespace Snowfrost
                 File.WriteAllText(Path.Combine(target.Root,"instance.cfg"),"[General]\nConfigVersion=1.3\nInstanceType=OneSix\nname=Pocketmate Server 1.21.1\nuuid="+Guid.NewGuid().ToString("N")+"\n",new UTF8Encoding(false));
             if (creating) WriteInitialOptions(target.GameRoot);
         }
-        private static void WriteInitialOptions(string gameRoot)
+        private static void WriteInitialOptions(string gameRoot,bool pocketmatePack=false)
         {
             Directory.CreateDirectory(gameRoot);
             string path = Path.Combine(gameRoot, "options.txt");
@@ -144,7 +189,15 @@ namespace Snowfrost
             };
             using (var file = new FileStream(path, FileMode.CreateNew, FileAccess.Write))
             using (var writer = new StreamWriter(file, new UTF8Encoding(false)))
+            {
                 foreach (string line in defaults) writer.WriteLine(line);
+                if(pocketmatePack)
+                {
+                    writer.WriteLine("key_key.webgui.main_menu:key.keyboard.f:SHIFT");
+                    writer.WriteLine("resourcePacks:[\"vanilla\",\"mod_resources\",\"file/eevee-server-resourcepack-recovered.zip\"]");
+                    writer.WriteLine("incompatibleResourcePacks:[]");
+                }
+            }
         }
         public static object LoaderPack(PrismTarget target,UpdatePlan plan)
         {
