@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "serverId": "pocketmate",
   "minecraftVersion": "1.21.1",
-  "packVersion": "local-neoforge-1.21.1-20261126-mega-namespace",
+  "packVersion": "local-neoforge-1.21.1-20261126-mega-art",
   "loader": {
     "type": "neoforge",
     "version": "21.1.248"
@@ -87,10 +87,10 @@
       "size": 398944199
     },
     {
-      "path": "mods/pocketmate-mega-evolution-0.1.4.jar",
-      "url": "https://github.com/kjo35861/PokeMon_Custom_MC_Server/releases/download/launcher-1.21.1-2026-11-26-mega/pocketmate-mega-evolution-0.1.4.jar",
-      "sha256": "e99c968e8c5f0fb7ab506a09236c094d1e02a000beac4ef28ce0a8815e1d897e",
-      "size": 108727331
+      "path": "mods/pocketmate-mega-evolution-0.1.5.jar",
+      "url": "https://github.com/kjo35861/PokeMon_Custom_MC_Server/releases/download/launcher-1.21.1-2026-11-26-mega-art/pocketmate-mega-evolution-0.1.5.jar",
+      "sha256": "e52e9b812718a3ceb5cdb5436cd634d801a174ecb9c2c2a100f4d28235c70dc9",
+      "size": 108729490
     },
     {
       "path": "mods/PocketMate_Mega.jar",
