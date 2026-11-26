@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-25",
+  "version": "0.1.1",
+  "display_name": "포켓메이트 메가진화",
+  "artifact": "pocketmate-mega-evolution-0.1.1.jar",
+  "sha256": "1d510af2383cb8ff48ca57b6c9aaba6f703b2d24f6c853191718bd3204595c4d",
+  "bytes": 108709420,
+  "internal_mod_id": "pocketmate_mega_bridge",
+  "data_resources_identical_to_v0_1_0": true,
+  "all_changed_archive_entries": [
+    "META-INF/neoforge.mods.toml",
+    "space/pocketmate/mega/PocketmateMegaBridge.class"
+  ],
+  "junit_abi_tests": {
+    "tests": 2,
+    "failures": 0,
+    "errors": 0
+  },
+  "installed_own_mod_files": [
+    "pocketmate-mega-evolution-0.1.1.jar"
+  ],
+  "installed_hash_matches": true,
+  "previous_jar_archived": true,
+  "jar_crc": "passed",
+  "game_launched": false,
+  "runtime_verified": false,
+  "restart_required": true
+}

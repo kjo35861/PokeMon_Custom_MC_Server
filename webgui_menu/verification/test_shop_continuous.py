@@ -7,10 +7,10 @@ r=Path(__file__).resolve().parents[1]
 source=(r/'verification/test_profile_ui.py').read_text(encoding='utf-8')
 mock=source.split('mock=r"""',1)[1].split('"""',1)[0]
 mock+=r'''
-window.shopCalls=[];window.shopBalance=50000;window.shopOwned=81;window.shopCapacity=100;window.shopVersion='fixture1';window.buyPaused=false;window.sellPaused=false;window.quoteDelay=30;
+window.shopCalls=[];window.shopBalance=50000;window.shopOwned=81;window.shopCapacity=100;window.shopVersion='fixture1';window.buyPaused=false;window.sellPaused=false;window.quoteDelay=30;window.saleCategories=['minerals','crops'];
 const originalShopPost=webgui.postToGame;
 webgui.postToGame=function(p){if(p.channel!=='pocketmate:shop')return originalShopPost.call(this,p);shopCalls.push(p);setTimeout(()=>{
- const meta={balance:shopBalance,priceVersion:shopVersion,randomPrices:false,nextPriceAt:0,buyPaused,sellPaused,maintenanceReason:'상품 가격 점검 중입니다.'};
+ const meta={balance:shopBalance,priceVersion:shopVersion,randomPrices:false,nextPriceAt:0,buyPaused,sellPaused,saleCategories,maintenanceReason:'상품 가격 점검 중입니다.'};
  let out={...meta,requestId:p.requestId};
  if(p.action==='status')out.type='status';
  else if(p.action==='quote')Object.assign(out,{type:'quote',item:p.item,mode:p.mode,unitPrice:p.mode==='buy'?100:50,owned:shopOwned,capacity:shopCapacity,maxQuantity:p.mode==='buy'?Math.min(shopCapacity,Math.floor(shopBalance/100)):shopOwned});
@@ -50,13 +50,23 @@ with sync_playwright() as p:
  assert page.locator('.shop-main').evaluate('(e)=>e.scrollTop>0')
  page.evaluate('shopBalance=250');page.locator('[data-shop-item="minecraft:fixture_74"]').click();page.locator('[data-shop-max]').click();assert page.locator('dialog input').input_value()=='2';page.locator('[data-shop-cancel]').click()
  page.locator('[data-shop-mode=sell]').click();page.wait_for_timeout(150);page.evaluate('shopOwned=81');page.locator('[data-shop-item]').first.click();page.locator('[data-shop-max]').click();assert page.locator('dialog input').input_value()=='81';page.locator('[data-shop-confirm]').click();page.wait_for_timeout(150);assert page.evaluate('shopOwned')==0
+ building=page.locator('[data-shop-category=building]')
+ assert building.is_disabled()
+ page.evaluate("saleCategories=['minerals','crops','building']")
+ page.locator('[data-shop-refresh]').click();page.wait_for_timeout(150)
+ assert building.is_enabled()
+ building.click();page.locator('.shop-product').first.wait_for()
+ assert page.locator('#shop-category-title').inner_text()=='건축블럭'
+ page.evaluate("saleCategories=['minerals','crops']")
+ page.locator('[data-shop-refresh]').click();page.wait_for_timeout(200)
+ assert building.is_disabled() and page.locator('#shop-category-title').inner_text()=='광물'
  # Public pause banner and label, updated by server status poll.
  page.evaluate('buyPaused=true;sellPaused=true');page.wait_for_timeout(5200);assert '구매 일시정지' in page.locator('.shop-maintenance').inner_text();assert '판매 일시정지' in page.locator('.shop-maintenance').inner_text();assert page.locator('[data-shop-item]').first.is_disabled();assert '판매 중지' in page.locator('[data-shop-item]').first.inner_text()
  for theme in ['dark','light']:
   page.evaluate('(t)=>PocketmateTheme.set(t)',theme);page.wait_for_timeout(100);page.screenshot(path=str(r/f'verification/shop-continuous-pause-{theme}-mock.png'))
  page.evaluate('buyPaused=false;sellPaused=false;shopBalance=50000;shopCapacity=0');page.locator('[data-shop-mode=buy]').click();page.wait_for_timeout(150);page.locator('[data-shop-item]').first.click();page.wait_for_timeout(120);assert page.locator('[data-shop-max]').is_disabled();assert page.locator('[data-shop-confirm]').is_disabled();page.locator('[data-shop-cancel]').click()
- page.evaluate('shopCapacity=100');page.locator('[data-shop-item]').first.click();page.locator('[data-shop-max]').click();page.evaluate('shopVersion="fixture2"');page.locator('[data-shop-confirm]').click();page.wait_for_timeout(150);assert '갱신' in page.locator('.shop-feedback').inner_text();assert page.evaluate('shopBalance')==50000
- page.locator('[data-shop-category=building]').click();page.wait_for_timeout(150);page.locator('.shop-search input').fill('상품 74');page.wait_for_timeout(450);assert page.locator('.shop-product').count()==1,(page.locator('.shop-product').count(),page.evaluate('shopCalls.slice(-6)'),page.locator('.shop-feedback').inner_text())
+ page.evaluate('shopCapacity=100');page.locator('[data-shop-item]').first.click();page.locator('[data-shop-max]').click();page.evaluate('shopVersion="fixture2"');page.locator('[data-shop-confirm]').click();page.wait_for_timeout(150);assert '갱신' in page.locator('.pm-notification').inner_text();assert page.evaluate('shopBalance')==50000
+ page.locator('[data-shop-category=building]').click();page.wait_for_timeout(150);page.locator('.shop-search input').fill('상품 74');page.wait_for_timeout(450);assert page.locator('.shop-product').count()==1,(page.locator('.shop-product').count(),page.evaluate('shopCalls.slice(-6)'),page.locator('.pm-notification').inner_text())
  page.locator('.shop-search input').fill('');page.wait_for_timeout(450)
  # Closing a pending quote must never resurrect a dialog.
  page.evaluate('quoteDelay=300');page.locator('[data-shop-item]').first.click();page.locator('[data-shop-cancel]').click();page.wait_for_timeout(400);assert page.locator('.shop-trade-dialog').count()==0

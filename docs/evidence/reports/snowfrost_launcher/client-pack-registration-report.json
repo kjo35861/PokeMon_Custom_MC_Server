@@ -1,0 +1,22 @@
+{
+  "added": 16,
+  "registered_files": 19,
+  "registered_mods": 18,
+  "registered_resourcepacks": 1,
+  "existing_entries_preserved": true,
+  "launcher_verification_unchanged": true,
+  "instance_files_modified": false,
+  "game_started": false,
+  "in_game_verified": false,
+  "pack_version": "local-neoforge-client-20261125-223707",
+  "actual_update_service_check_local_passed": true,
+  "actual_verify_approved_content_passed": true,
+  "required_downloads": 0,
+  "required_removals": 0,
+  "verified_local_sources": 18,
+  "services_source_sha256": "82726be7c27093fb3391659efeac2d276ae61bb3e00232dad283ed1dc5c81a04",
+  "launcher_executable_modified": false,
+  "server_backpack_dependency_added": "sophisticatedcore-1.21.1-1.5.43.2504.jar",
+  "server_backpacks_and_core_crc_passed": true,
+  "server_restart_required": true
+}

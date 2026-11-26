@@ -1,0 +1,26 @@
+{
+  "pixelmon": "9.4.3",
+  "dedicated_spawn_sets": 58,
+  "dedicated_condition_rows": 59,
+  "catalog_forms": 45,
+  "coverage_counts": {
+    "전용 메가보스 + 야생 보스 전환": 14,
+    "야생 보스 전환만 가능": 29,
+    "자연 스폰 연결 없음": 2
+  },
+  "missing_natural_routes": [
+    "Floette",
+    "Zygarde"
+  ],
+  "unresolved_biome_tags": [],
+  "settings": {
+    "boss-rate": "256.0",
+    "ultra-space-boss-modifier": "0.5",
+    "bosses-always-mega-if-possible": "true",
+    "boss-spawn-ticks": "100",
+    "boss-spawn-chance": "1.0"
+  },
+  "report_sha256": "beef0b038be071fe63e1ec22863f9912fe823918a16896aee9119ec441a461f6",
+  "spawning_changed": false,
+  "runtime_tested": false
+}

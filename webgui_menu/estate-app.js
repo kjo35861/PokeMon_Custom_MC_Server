@@ -2,6 +2,7 @@
   'use strict';
   const CHANNEL='pocketmate:estate',pending=new Map();
   let host=null,data=null,tab='overview',selected=new Map(),view=null,map=null,poll=null,retainedPane=null;
+  let shownNotice='';
   let busy=false,loading=false,notice='',latestView='',accepted='',mapSession='',renderFrame=0;
   let options={grid:true,claims:true};
   let clientDimension=typeof window.webgui?.client?.dimension==='string'?window.webgui.client.dimension:null;
@@ -126,7 +127,8 @@
     if(!host||host.querySelector('dialog[open]'))return;
     window.PocketmateHelp?.hide();
     const previous=host.querySelector('.estate-map-pane')||retainedPane,scroll=host.querySelector('.estate-sidebar')?.scrollTop||0,stageScroll=host.querySelector('.estate-vault-stage')?.scrollTop||0;
-    host.innerHTML=`<div class="estate-app"><header class="estate-header"><div><span class="estate-eyebrow">POCKETMATE / ESTATES</span><h1>${data?esc(data.estateName||'새로운 영지'):'영지 연결 중'}</h1></div><div class="estate-header-stats">${data?.hasEstate?`<span class="estate-level-badge">Lv. ${data.estateLevel??0}</span>`:''}<span>소유 <b>${data?.ownedCount??'—'}</b> / ${data?.chunkLimit??1}청크</span><span class="estate-test-badge">${data?.testEconomy?'테스트 재화':'영지 금고'}</span><button data-estate-refresh>새로고침</button></div></header>${nav()}<section class="estate-stage${['vault','settings'].includes(tab)?' estate-vault-stage':''}"><p class="estate-notice" role="status" ${notice?'':'hidden'}>${esc(notice)}</p>${data?stage():`<div class="estate-wait"><h2>${loading?'서버에서 영지 정보를 확인하고 있습니다':'영지 서버에 연결해 주세요'}</h2><p>접속한 서버가 실제 소유권과 구매 가능 여부를 확인합니다.</p><button data-estate-refresh>다시 확인</button></div>`}</section></div>`;
+    if(notice&&notice!==shownNotice){window.PocketmateNotify.show(notice);shownNotice=notice;}else if(!notice)shownNotice='';
+    host.innerHTML=`<div class="estate-app"><header class="estate-header"><div><span class="estate-eyebrow">POCKETMATE / ESTATES</span><h1>${data?esc(data.estateName||'새로운 영지'):'영지 연결 중'}</h1></div><div class="estate-header-stats">${data?.hasEstate?`<span class="estate-level-badge">Lv. ${data.estateLevel??0}</span>`:''}<span>소유 <b>${data?.ownedCount??'—'}</b> / ${data?.chunkLimit??1}청크</span><span class="estate-test-badge">${data?.testEconomy?'테스트 재화':'영지 금고'}</span><button data-estate-refresh>새로고침</button></div></header>${nav()}<section class="estate-stage${['vault','settings'].includes(tab)?' estate-vault-stage':''}">${data?stage():`<div class="estate-wait"><h2>${loading?'서버에서 영지 정보를 확인하고 있습니다':'영지 서버에 연결해 주세요'}</h2><p>접속한 서버가 실제 소유권과 구매 가능 여부를 확인합니다.</p><button data-estate-refresh>다시 확인</button></div>`}</section></div>`;
     const nextPane=host.querySelector('.estate-map-pane');
     if(nextPane){
       if(previous){nextPane.replaceWith(previous);retainedPane=previous;}

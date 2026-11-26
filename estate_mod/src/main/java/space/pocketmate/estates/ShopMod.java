@@ -61,7 +61,18 @@ public final class ShopMod implements ModInitializer {
       favorites.put(entry.getKey(),ids);
      }
     }
+    ShopPixelmonItems.load();
     settings=new ShopAdminStore(path);prices=settings.prices();ShopCatalog.entries();
+    Path pixelmonSeed=path.resolveSibling("pocketmate-shop-pixelmon.once");
+    if(Files.exists(pixelmonSeed)){
+     settings.seedPixelmonCatalog();
+     Files.delete(pixelmonSeed);
+    }
+    Path sortMarker=path.resolveSibling("pocketmate-shop-sort.once");
+    if(Files.exists(sortMarker)){
+     settings.sortExistingByCategory();
+     Files.delete(sortMarker);
+    }
    }catch(Exception e){failure="상점 설정을 읽지 못했습니다. 거래를 중단했습니다.";org.slf4j.LoggerFactory.getLogger("pocketmate-shop").error("Shop unavailable",e);}
   });
   ServerLifecycleEvents.SERVER_STOPPED.register(server->{mutations.clear();lastTrade.clear();});
@@ -91,8 +102,14 @@ public final class ShopMod implements ModInitializer {
     if(entry==null||buy&&!entry.buy()||!buy&&!entry.sell())throw new IllegalArgumentException("해당 거래가 가능한 품목이 아닙니다.");
     if(settings.paused(buy))throw new IllegalArgumentException(maintenanceMessage(buy?"구매가 일시정지되었습니다.":"판매가 일시정지되었습니다."));
     if(player.isSpectator()||player.currentScreenHandler!=player.playerScreenHandler)throw new IllegalArgumentException("보관함을 닫고 일반 플레이 상태에서 거래해주세요.");
-    Item item=Registries.ITEM.get(Identifier.of(entry.id()));var inventory=slots(player);long balance=wallet.wallet(player.getUuid()),unit=buy?prices.buy(entry.id(),now):prices.sell(entry.id(),now);
-    JsonObject out=metadata(player,now);out.addProperty("type","quote");out.addProperty("requestId",requestId);out.addProperty("item",entry.id());out.addProperty("mode",mode);out.addProperty("unitPrice",unit);out.addProperty("owned",ShopInventory.count(inventory,item));out.addProperty("capacity",ShopInventory.capacity(inventory,item));out.addProperty("maxQuantity",buy?ShopInventory.maxBuy(inventory,item,balance,unit):Math.min(2304,ShopInventory.count(inventory,item)));WebGuiBridge.emit(player,CHANNEL,out.toString());return;
+    ItemStack item=ShopPixelmonItems.stack(entry.id());var inventory=slots(player);long balance=wallet.wallet(player.getUuid()),unit=buy?prices.buy(entry.id(),now):prices.sell(entry.id(),now);
+    JsonObject out=metadata(player,now);out.addProperty("type","quote");out.addProperty("requestId",requestId);out.addProperty("item",entry.id());out.addProperty("mode",mode);out.addProperty("unitPrice",unit);ShopGimmickUnlock unlock=ShopGimmickUnlock.forItem(entry.id());if(unlock!=null){
+     boolean owned=unlock.owned(player);
+     out.addProperty("owned",owned?1:0);out.addProperty("capacity",owned?0:1);out.addProperty("maxQuantity",!owned&&balance>=unit?1:0);
+    }else{
+     out.addProperty("owned",ShopInventory.count(inventory,item));out.addProperty("capacity",ShopInventory.capacity(inventory,item));
+     out.addProperty("maxQuantity",buy?ShopInventory.maxBuy(inventory,item,balance,unit):Math.min(2304,ShopInventory.count(inventory,item)));
+    }WebGuiBridge.emit(player,CHANNEL,out.toString());return;
    }
    if(action.equals("trade")||action.equals("bulk")){
     UUID id=player.getUuid();var seen=mutations.computeIfAbsent(id,key->new LinkedHashSet<>());
@@ -106,21 +123,27 @@ public final class ShopMod implements ModInitializer {
     List<ItemStack> before=ShopInventory.copy(slots(player)),after=before;
     long total=0;int quantity=0;
     boolean bulk=action.equals("bulk");
+    var unlocks=EnumSet.noneOf(ShopGimmickUnlock.class);
     var entries=settings.entries();
     var ids=bulk?favoritesOf(player):Set.of(string(q,"item"));
     if(bulk&&!category.equals("favorites"))throw new IllegalArgumentException("즐겨찾기 탭에서 거래해주세요.");
     var reviewed=new ArrayList<String>();
-    for(String itemId:ids){
+    for(String itemId:new TreeSet<>(ids)){
      var entry=entries.get(itemId);
      if(entry==null||buy&&!entry.buy()||!buy&&!entry.sell()){
       if(bulk)continue;
       throw new IllegalArgumentException("해당 거래가 가능한 품목이 아닙니다.");
      }
-     Item item=Registries.ITEM.get(Identifier.of(itemId));
+     ItemStack item=ShopPixelmonItems.stack(itemId);
+     ShopGimmickUnlock unlock=ShopGimmickUnlock.forItem(itemId);
+     if(bulk&&unlock!=null&&(unlock.owned(player)||unlocks.contains(unlock)))continue;
      int amount=bulk?(buy?1:Math.min(2304,ShopInventory.count(after,item))):integer(q,"quantity");
      if(amount==0)continue;
      reviewed.add(itemId+"="+amount);
-     after=ShopInventory.plan(after,item,amount,buy);
+     if(unlock!=null){
+      if(!buy||amount!=1||unlock.owned(player))throw new IllegalArgumentException("기믹 도구는 해금하지 않은 계정에서 한 번만 구매할 수 있습니다.");
+      unlocks.add(unlock);
+     }else after=ShopInventory.plan(after,item,amount,buy);
      total=Math.addExact(total,Math.multiplyExact(buy?prices.buy(itemId,now):prices.sell(itemId,now),amount));
      quantity+=amount;
     }
@@ -130,7 +153,14 @@ public final class ShopMod implements ModInitializer {
     long delta=buy?-total:total;
     List<ItemStack> planned=after;
     // Mutate only after a complete plan; roll back memory if wallet persistence rejects/fails.
-    ShopTransaction.commit(()->apply(player,planned),()->apply(player,before),()->wallet.shopAdjust(id,delta));
+    Runnable restoreUnlocks=unlocks.isEmpty()?()->{}:ShopGimmickUnlock.restorePoint(player);
+    ShopTransaction.commit(()->{
+     try{for(var unlock:unlocks)unlock.grant(player);apply(player,planned);}
+     catch(RuntimeException failure){restoreUnlocks.run();throw failure;}
+    },()->{
+     apply(player,before);
+     restoreUnlocks.run();
+    },()->wallet.shopAdjust(id,delta));
     seen.add(requestId);while(seen.size()>2048)seen.remove(seen.iterator().next());
     ((space.pocketmate.estates.mixin.ShopPlayerSaveInvoker)player.getServer().getPlayerManager()).pocketmate$saveShopPlayer(player);
     message=quantity+"개 "+(buy?"구매":"판매")+"를 완료했습니다. "+String.format("%,d",total)+"원";
@@ -141,14 +171,24 @@ public final class ShopMod implements ModInitializer {
  private static JsonObject snapshot(ServerPlayerEntity player,JsonObject q,String mode,String category,int requestedPage,long now){
   String query=q.has("query")?string(q,"query").trim().toLowerCase(Locale.ROOT):"";
   boolean buy=mode.equals("buy");
-  var list=settings.entries().values().stream().filter(e->buy?e.buy():e.sell()).filter(e->category.equals("favorites")?favoritesOf(player).contains(e.id()):(buy?e.category():e.saleCategory()).equals(category)).filter(e->query.isEmpty()||e.id().contains(query)||ShopCatalog.name(Registries.ITEM.get(Identifier.of(e.id()))).toLowerCase(Locale.ROOT).contains(query)).toList();
+  var list=settings.entries().values().stream().filter(e->buy?e.buy():e.sell()).filter(e->category.equals("favorites")?favoritesOf(player).contains(e.id()):(buy?e.category():e.saleCategory()).equals(category)).filter(e->query.isEmpty()||e.id().contains(query)||ShopCatalog.name(e.id()).toLowerCase(Locale.ROOT).contains(query)).toList();
   int page=Math.min(requestedPage,Math.max(0,(list.size()-1)/24));JsonArray rows=new JsonArray();
   for(var entry:list.subList(Math.min(page*24,list.size()),Math.min((page+1)*24,list.size()))){
-   Item item=Registries.ITEM.get(Identifier.of(entry.id()));JsonObject row=new JsonObject();row.addProperty("id",entry.id());row.addProperty("name",ShopCatalog.name(item));row.addProperty("buy",entry.buy()?prices.buy(entry.id(),now):0);row.addProperty("sell",entry.sell()?prices.sell(entry.id(),now):0);row.addProperty("owned",ShopInventory.count(slots(player),item));row.addProperty("maxBuy",ShopInventory.maxBuy(slots(player),item,EstatesMod.shopWallet(player.getServer()).wallet(player.getUuid()),prices.buy(entry.id(),now)));rows.add(row);
+   ItemStack item=ShopPixelmonItems.stack(entry.id());JsonObject row=new JsonObject();row.addProperty("id",entry.id());row.addProperty("name",ShopCatalog.name(entry.id()));if(ShopPixelmonItems.isBall(entry.id()))row.addProperty("ball",true);row.addProperty("buy",entry.buy()?prices.buy(entry.id(),now):0);row.addProperty("sell",entry.sell()?prices.sell(entry.id(),now):0);long balance=EstatesMod.shopWallet(player.getServer()).wallet(player.getUuid()),unit=prices.buy(entry.id(),now);
+   ShopGimmickUnlock unlock=ShopGimmickUnlock.forItem(entry.id());if(unlock!=null){
+    boolean owned=unlock.owned(player);
+    row.addProperty("owned",owned?1:0);row.addProperty("maxBuy",!owned&&balance>=unit?1:0);row.addProperty("unlock",true);row.addProperty("unlockGroup",unlock.name());
+   }else{
+    row.addProperty("owned",ShopInventory.count(slots(player),item));row.addProperty("maxBuy",ShopInventory.maxBuy(slots(player),item,balance,unit));
+   }
+   if(buy)row.addProperty("description",ShopCatalog.description(entry,item));
+   rows.add(row);
   }
   JsonObject out=metadata(player,now);out.addProperty("mode",mode);out.addProperty("category",category);out.addProperty("page",page);out.addProperty("total",list.size());out.addProperty("pages",Math.max(1,(list.size()+23)/24));out.add("items",rows);return out;
  }
  private static JsonObject metadata(ServerPlayerEntity player,long now){
-  JsonObject out=new JsonObject();out.add("favorites",JSON.toJsonTree(favoritesOf(player)));out.addProperty("balance",EstatesMod.shopWallet(player.getServer()).wallet(player.getUuid()));out.addProperty("priceVersion",settings.version(now));out.addProperty("nextPriceAt",prices.nextAt(now));out.addProperty("randomPrices",prices.randomEnabled());out.addProperty("buyPaused",settings.paused(true));out.addProperty("sellPaused",settings.paused(false));out.addProperty("maintenanceReason",settings.reason());return out;
+  JsonObject out=new JsonObject();out.add("favorites",JSON.toJsonTree(favoritesOf(player)));
+  out.add("saleCategories",JSON.toJsonTree(settings.entries().values().stream().filter(ShopCatalog.Entry::sell).map(ShopCatalog.Entry::saleCategory).distinct().toList()));
+  out.addProperty("balance",EstatesMod.shopWallet(player.getServer()).wallet(player.getUuid()));out.addProperty("priceVersion",settings.version(now));out.addProperty("nextPriceAt",prices.nextAt(now));out.addProperty("randomPrices",prices.randomEnabled());out.addProperty("buyPaused",settings.paused(true));out.addProperty("sellPaused",settings.paused(false));out.addProperty("maintenanceReason",settings.reason());return out;
  }
 }

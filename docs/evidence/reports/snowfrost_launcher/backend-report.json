@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "checks": 53,
+  "checks": 60,
   "cases": [
     "Reject path ../mods/escape.jar",
     "Reject path mods/../escape.jar",
@@ -54,7 +54,14 @@
     "Process detection respects instance path boundary",
     "Updates land in selected Prism server game directory",
     "Locked Prism loader metadata rolls back changed content",
-    "Server manifest accepts pinned NeoForge version"
+    "Server manifest accepts pinned NeoForge version",
+    "Focus selects only the launched process's visible Minecraft GLFW main window",
+    "Focus waits for window creation and stops after successful activation",
+    "Denied foreground activation has bounded retries and one taskbar notification",
+    "Exited game stops window waiting without activation",
+    "Window readiness timeout does not focus an unrelated window",
+    "Cancelled launch never activates a game window",
+    "Replaced loading window is never activated after replacement"
   ],
   "realMicrosoftLoginPerformed": false,
   "gameLaunched": false

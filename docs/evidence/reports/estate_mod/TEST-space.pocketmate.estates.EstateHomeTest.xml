@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="space.pocketmate.estates.EstateHomeTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-11-25T08:26:41" hostname="DESKTOP-6FIEOUH" time="0.176">
+<testsuite name="space.pocketmate.estates.EstateHomeTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-11-26T09:02:43" hostname="DESKTOP-6FIEOUH" time="0.175">
   <properties/>
-  <testcase name="homeMustStayInsideOwnedTerritoryIncludingNegativeCoordinates()" classname="space.pocketmate.estates.EstateHomeTest" time="0.019"/>
-  <testcase name="missingOrForeignHomeFailsClosedAndDeletionRemovesAccess()" classname="space.pocketmate.estates.EstateHomeTest" time="0.027"/>
-  <testcase name="invalidPositionsAndCreationMismatchNeverPersist()" classname="space.pocketmate.estates.EstateHomeTest" time="0.007"/>
-  <testcase name="legacyV3UsesEarliestClaimWithoutResettingLandOrWallet()" classname="space.pocketmate.estates.EstateHomeTest" time="0.026"/>
-  <testcase name="onlyLordMaySetButMembersMayResolveHome()" classname="space.pocketmate.estates.EstateHomeTest" time="0.023"/>
-  <testcase name="initialHomePersistsExactCreationPositionAndOrientation()" classname="space.pocketmate.estates.EstateHomeTest" time="0.007"/>
-  <testcase name="homeSurvivesUnrelatedEstateAndEconomyChanges()" classname="space.pocketmate.estates.EstateHomeTest" time="0.051"/>
-  <testcase name="failedSavePreservesPreviousHome()" classname="space.pocketmate.estates.EstateHomeTest" time="0.011"/>
+  <testcase name="homeMustStayInsideOwnedTerritoryIncludingNegativeCoordinates()" classname="space.pocketmate.estates.EstateHomeTest" time="0.022"/>
+  <testcase name="missingOrForeignHomeFailsClosedAndDeletionRemovesAccess()" classname="space.pocketmate.estates.EstateHomeTest" time="0.024"/>
+  <testcase name="invalidPositionsAndCreationMismatchNeverPersist()" classname="space.pocketmate.estates.EstateHomeTest" time="0.008"/>
+  <testcase name="legacyV3UsesEarliestClaimWithoutResettingLandOrWallet()" classname="space.pocketmate.estates.EstateHomeTest" time="0.027"/>
+  <testcase name="onlyLordMaySetButMembersMayResolveHome()" classname="space.pocketmate.estates.EstateHomeTest" time="0.022"/>
+  <testcase name="initialHomePersistsExactCreationPositionAndOrientation()" classname="space.pocketmate.estates.EstateHomeTest" time="0.01"/>
+  <testcase name="homeSurvivesUnrelatedEstateAndEconomyChanges()" classname="space.pocketmate.estates.EstateHomeTest" time="0.048"/>
+  <testcase name="failedSavePreservesPreviousHome()" classname="space.pocketmate.estates.EstateHomeTest" time="0.012"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

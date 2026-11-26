@@ -7,7 +7,7 @@
 .shop-sidebar nav .shop-favorite-tab{background:#59441e;color:#ffdf86;border-color:#aa8641;margin-bottom:10px}
 .shop-sidebar nav .shop-favorite-tab[aria-pressed=true]{background:#ffdf86;color:#352509;border-color:#ffdf86}
 .shop-product{position:relative}
-.shop-screen .shop-star{position:absolute;right:8px;top:8px;padding:2px 6px;font-size:20px;line-height:1;background:transparent;border-color:transparent}
+.shop-screen .shop-star{position:absolute;left:8px;top:8px;padding:2px 6px;font-size:20px;line-height:1;background:transparent;border-color:transparent}
 .shop-screen .shop-star[aria-pressed=true]{color:#e6aa29}
 .shop-bulk-items{max-height:30vh;overflow:auto}
 .shop-heading h1{font-size:calc(22px * var(--text-scale,1))}
@@ -15,3 +15,13 @@
 .shop-item-copy h3,.shop-wallet strong,.shop-product-bottom>strong{font-size:calc(13px * var(--text-scale,1))}
 .shop-screen button:not(.shop-star),.shop-search input,.shop-trade-dialog input{font-size:12px}
 .shop-trade-total{font-size:calc(16px * var(--text-scale,1))!important}
+
+.shop-product .shop-item-help {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.shop-description-text {
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}

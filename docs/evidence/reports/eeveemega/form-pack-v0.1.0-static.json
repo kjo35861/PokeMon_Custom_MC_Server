@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-25",
+  "version": "0.1.0",
+  "minecraft": "1.21.1",
+  "pixelmon": "9.4.3",
+  "eeveemega": "1.1.0",
+  "catalog_forms": 45,
+  "species_overrides": 44,
+  "source_target_links": 48,
+  "eeveemega_stones": 43,
+  "native_additional_stones": 2,
+  "python_contract_tests": {
+    "tests": 6,
+    "failures": 0,
+    "errors": 0
+  },
+  "java_abi_tests": {
+    "tests": 2,
+    "failures": 0,
+    "errors": 0
+  },
+  "legacy_api_rewritten_classes": 7,
+  "legacy_api_rewritten_instructions": 12,
+  "jar_classes": 11,
+  "jar_crc": "passed",
+  "jar_sha256": "671e849926d2291b1a88f92a14c84f4095384523566dec21f365cad52e545330",
+  "jar_bytes": 108709350,
+  "installed_client_hash_matches": true,
+  "game_launched": false,
+  "runtime_verified": false,
+  "restart_required": true,
+  "stats_source": "https://github.com/smogon/pokemon-showdown/blob/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+}

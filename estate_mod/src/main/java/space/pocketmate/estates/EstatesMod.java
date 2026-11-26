@@ -8,6 +8,7 @@ import com.mojang.brigadier.arguments.LongArgumentType;
 import net.minecraft.text.Text;
 import static net.minecraft.server.command.CommandManager.*;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.BlockState;
@@ -43,13 +44,17 @@ public final class EstatesMod implements ModInitializer {
         final Map<UUID,LinkedHashSet<String>> mutations=new HashMap<>();
         final Map<UUID,Integer> radii=new HashMap<>();
         final Map<UUID,String> mapSessions=new HashMap<>();
+        final Map<UUID,Long> displayedWallets=new HashMap<>();
     }
     private static final Map<MinecraftServer,Session> sessions=new IdentityHashMap<>();
     @Override public void onInitialize() {
         ServerLifecycleEvents.SERVER_STARTING.register(this::start);
         ServerLifecycleEvents.SERVER_STOPPED.register(server->sessions.remove(server));
+        ServerTickEvents.END_SERVER_TICK.register(EstatesMod::updateWalletSidebar);
         ServerPlayConnectionEvents.JOIN.register((handler,sender,server)->seen(server,handler.player));
         ServerPlayConnectionEvents.DISCONNECT.register((handler,server)->{
+            Session current=sessions.get(server);
+            if(current!=null)current.displayedWallets.remove(handler.player.getUuid());
             seen(server,handler.player);Session state=sessions.get(server);if(state!=null){UUID id=handler.player.getUuid();state.views.remove(id);state.purchases.remove(id);state.travels.remove(id);state.mutations.remove(id);state.radii.remove(id);state.mapSessions.remove(id);}
         });
         WebGuiBridge.listen(CHANNEL,(player,payload)->{
@@ -66,6 +71,22 @@ public final class EstatesMod implements ModInitializer {
                 }catch(Exception failure){context.getSource().sendError(Text.literal("테스트 지급을 처리하지 못했습니다. freeTestMode 설정과 저장 상태를 확인해주세요."));return 0;}
             }))))));
         LOG.info("Pocketmate estates registered: server-authoritative Overworld ownership");
+    }
+    private static void updateWalletSidebar(MinecraftServer server) {
+        if(server.getTicks()%20!=0)return;
+        Session state=sessions.get(server);
+        if(state==null)return;
+        boolean occupied=server.getScoreboard().getObjectiveForSlot(net.minecraft.scoreboard.ScoreboardDisplaySlot.SIDEBAR)!=null;
+        for(ServerPlayerEntity player:server.getPlayerManager().getPlayerList()){
+            UUID id=player.getUuid();
+            if(occupied||state.store==null||state.failure!=null){
+                if(state.displayedWallets.remove(id)!=null)WalletSidebar.remove(player);
+                continue;
+            }
+            long balance=state.store.wallet(id);
+            Long previous=state.displayedWallets.put(id,balance);
+            if(previous==null||previous!=balance)WalletSidebar.show(player,balance,previous==null);
+        }
     }
     private void start(MinecraftServer server) {
         Session state=new Session();sessions.put(server,state);

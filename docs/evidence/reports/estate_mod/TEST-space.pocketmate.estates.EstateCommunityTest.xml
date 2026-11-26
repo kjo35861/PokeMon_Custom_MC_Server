@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="space.pocketmate.estates.EstateCommunityTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-11-25T08:26:40" hostname="DESKTOP-6FIEOUH" time="0.424">
+<testsuite name="space.pocketmate.estates.EstateCommunityTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-11-26T09:02:42" hostname="DESKTOP-6FIEOUH" time="0.411">
   <properties/>
-  <testcase name="cannotJoinTwoEstatesOrOwnAnotherAsMember()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.032"/>
-  <testcase name="forgedDuplicateExpiredAndUnknownInvitationsFail()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.026"/>
-  <testcase name="deleteRequiresExactNameAndReleasesOnlyItsOwnClaims()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.043"/>
-  <testcase name="knownPlayersLastSeenSurvivesReload()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.023"/>
-  <testcase name="invalidNamesNeverCreateOwnership()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.002"/>
-  <testcase name="invitationNeedsAcceptanceAndCanBeDeclined()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.042"/>
-  <testcase name="legacyWorldMigratesWithoutLosingClaims()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.03"/>
-  <testcase name="announcementAndImageValidationPersist()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.095"/>
-  <testcase name="namedCreationPersistsWithOwnership()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.028"/>
-  <testcase name="failedManagementAndDeletionSaveLeaveStateUnchanged()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.038"/>
-  <testcase name="onlyLordMayManageAndLordCannotBeReplacedOrKicked()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.039"/>
-  <testcase name="damagedCommunityDataCannotResetWorld()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.019"/>
+  <testcase name="cannotJoinTwoEstatesOrOwnAnotherAsMember()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.034"/>
+  <testcase name="forgedDuplicateExpiredAndUnknownInvitationsFail()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.028"/>
+  <testcase name="deleteRequiresExactNameAndReleasesOnlyItsOwnClaims()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.04"/>
+  <testcase name="knownPlayersLastSeenSurvivesReload()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.024"/>
+  <testcase name="invalidNamesNeverCreateOwnership()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.004"/>
+  <testcase name="invitationNeedsAcceptanceAndCanBeDeclined()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.04"/>
+  <testcase name="legacyWorldMigratesWithoutLosingClaims()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.027"/>
+  <testcase name="announcementAndImageValidationPersist()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.091"/>
+  <testcase name="namedCreationPersistsWithOwnership()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.027"/>
+  <testcase name="failedManagementAndDeletionSaveLeaveStateUnchanged()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.032"/>
+  <testcase name="onlyLordMayManageAndLordCannotBeReplacedOrKicked()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.036"/>
+  <testcase name="damagedCommunityDataCannotResetWorld()" classname="space.pocketmate.estates.EstateCommunityTest" time="0.02"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

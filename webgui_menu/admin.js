@@ -1,9 +1,10 @@
 (() => {
  'use strict';
  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- const cats=[['building','건축블럭'],['colored','색깔블럭'],['decoration','장식블럭'],['minerals','광물'],['crops','농작물'],['balls','몬스터볼'],['held','지니는 물건'],['zcrystals','Z크리스탈'],['megastones','메가나이트']];
- const tabs=[['items','상점 목록'],['titles','칭호 관리'],['policy','가격·점검'],['status','운영 현황'],['audit','변경 기록']];
- let lastCapabilities=0;
+ const cats=[['building','건축블럭'],['colored','색깔블럭'],['decoration','장식블럭'],['minerals','광물'],['crops','농작물'],['balls','몬스터볼'],['held','지니는 물건'],['zcrystals','Z크리스탈'],['megastones','메가나이트'],['gimmicks','기믹도구']];
+ const tabs=[['items','상점 목록'],['registration','등록 가능 품목'],['titles','칭호 관리'],['policy','가격·점검'],['status','운영 현황'],['audit','변경 기록']];
+ let registrationQuery='',registrationFilter='all';
+ let lastCapabilities=0,shownFeedback='';
  let allowed=false,cap=null,pending=null,host=null,data=null,tab='items',query='',category='all',sideFilter='all',page=0,feedback='',failed=false,closeMenu=null,poll=null,searchTimer=null,lookupTimer=null;
  const icon=n=>window.PocketmateIcons(n),money=n=>Number(n).toLocaleString('ko-KR')+'원';
  function setAllowed(value){allowed=value===true;const b=document.getElementById('admin-open');if(b)b.hidden=!allowed;if(!allowed&&document.body.dataset.activePage==='admin')window.dispatchEvent(new CustomEvent('pocketmate:admin-denied'));}
@@ -12,12 +13,20 @@
  function clearPending(){if(pending)clearTimeout(pending.timer);pending=null;}
  function request(action='view',extra={}){
   if(!host||!allowed)return;if(pending&&!(action==='lookup'&&pending.action==='lookup'))return;clearPending();
-  const requestId='admin_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,8);pending={requestId,action,timer:setTimeout(()=>{clearPending();feedback='관리자 서버 응답을 받지 못했습니다.';failed=true;render();},7000)};
-  post({channel:'pocketmate:admin',action,requestId,revision:data?.revision,query,category,sideFilter,page,...extra},()=>{clearPending();feedback='관리자 서버에 연결하지 못했습니다.';failed=true;render();});
+  if(action!=='view'&&action!=='lookup')shownFeedback='';
+  const requestId='admin_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,8);pending={requestId,action,parts:[],timer:setTimeout(()=>{clearPending();feedback='관리자 서버 응답을 받지 못했습니다.';failed=true;render();},7000)};
+  post({channel:'pocketmate:admin',action,requestId,revision:data?.revision,query,category,sideFilter,page,...(tab==='registration'?{registrationQuery,registrationFilter}:{}),...extra},()=>{clearPending();feedback='관리자 서버에 연결하지 못했습니다.';failed=true;render();});
  }
  window.addEventListener('webgui:pocketmate:admin',event=>{
-  const v=event.detail;if(cap&&v?.requestId===cap.requestId){clearTimeout(cap.timer);cap=null;setAllowed(v.type==='capabilities'&&v.canAdmin===true);return;}
-  if(!host||!pending||v?.requestId!==pending.requestId)return;const action=pending.action;clearPending();
+  let v=event.detail;if(cap&&v?.requestId===cap.requestId){clearTimeout(cap.timer);cap=null;setAllowed(v.type==='capabilities'&&v.canAdmin===true);return;}
+  if(!host||!pending||v?.requestId!==pending.requestId)return;
+  if(v.type==='snapshotPart'){
+   if(v.index!==pending.parts.length||typeof v.data!=='string')return;
+   pending.parts.push(v.data);
+   if(!v.last)return;
+   try{v=JSON.parse(pending.parts.join(''));}catch(_){v={type:'error',message:'관리자 응답을 읽지 못했습니다. 새로고침해 주세요.'};}
+  }
+  const action=pending.action;clearPending();
   if(v.type==='error'){if(v.forbidden){setAllowed(false);return;}feedback=v.message||'관리자 작업을 처리하지 못했습니다.';failed=true;render();return;}
   if(v.type==='lookup'){showLookup(v.items||[]);return;}
   if(v.type!=='snapshot'||v.canAdmin!==true||!Number.isSafeInteger(v.revision)||!Array.isArray(v.items)){feedback='올바른 관리자 응답을 받지 못했습니다.';failed=true;render();return;}
@@ -25,11 +34,48 @@
  });
  function options(value,all=false){return (all?'<option value="all">전체 분류</option>':'')+cats.map(([id,name])=>`<option value="${id}" ${id===value?'selected':''}>${name}</option>`).join('');}
  function render(){
-  if(!host)return;const focused=host.querySelector('[data-admin-search]')===document.activeElement,pos=focused?document.activeElement.selectionStart:0;
-  host.innerHTML=`<header class="admin-heading"><div><span class="shop-eyebrow">POCKETMATE / ADMIN</span><h1 tabindex="-1">관리자 페이지</h1></div><div class="shop-heading-actions"><button data-go="home">${icon('arrow')} 홈으로</button><button data-admin-close aria-label="관리자 페이지 닫고 게임으로">${icon('x')}</button></div></header><div class="admin-window"><nav class="admin-nav" aria-label="관리자 메뉴">${tabs.map(([id,name])=>`<button data-admin-tab="${id}" aria-selected="${id===tab}">${name}</button>`).join('')}<small>OP 레벨 2 이상<br>모든 변경은 서버에서 검사합니다.</small></nav><main class="admin-main"><div class="admin-section-heading"><h2>${tabs.find(t=>t[0]===tab)[1]}</h2><button data-admin-refresh>새로고침</button></div><p class="admin-feedback" role="status" data-error="${failed}">${esc(feedback)}</p>${!data?'<p>관리자 정보를 불러오고 있습니다.</p>':content()}</main></div>`;
+  if(!host)return;const noticeKey=String(failed)+feedback;if(feedback&&noticeKey!==shownFeedback){window.PocketmateNotify.show(feedback,{error:failed});shownFeedback=noticeKey;}else if(!feedback)shownFeedback='';const scroll=host.querySelector('.admin-main')?.scrollTop||0;const focused=host.querySelector('[data-admin-search]')===document.activeElement,pos=focused?document.activeElement.selectionStart:0;
+  const layout=document.createElement('template');layout.innerHTML=`<header class="admin-heading"><div><span class="shop-eyebrow">POCKETMATE / ADMIN</span><h1 tabindex="-1">관리자 페이지</h1></div><div class="shop-heading-actions"><button data-go="home">${icon('arrow')} 홈으로</button><button data-admin-close aria-label="관리자 페이지 닫고 게임으로">${icon('x')}</button></div></header><div class="admin-window"><nav class="admin-nav" aria-label="관리자 메뉴">${tabs.map(([id,name])=>`<button data-admin-tab="${id}" aria-selected="${id===tab}">${name}</button>`).join('')}<small>OP 레벨 2 이상<br>모든 변경은 서버에서 검사합니다.</small></nav><main class="admin-main"><div class="admin-section-heading"><h2>${tabs.find(t=>t[0]===tab)[1]}</h2><button data-admin-refresh>새로고침</button></div>${!data?`<p>${failed?esc(feedback):'관리자 정보를 불러오고 있습니다.'}</p>`:content()}</main></div>`;
+  const panel=host.querySelector('.admin-main');
+  if(panel){
+   const next=layout.content;
+   host.querySelector('.admin-heading').replaceWith(next.querySelector('.admin-heading'));
+   host.querySelector('.admin-nav').replaceWith(next.querySelector('.admin-nav'));
+   panel.replaceChildren(...next.querySelector('.admin-main').childNodes);
+  }else host.replaceChildren(layout.content);
   host.querySelector('[data-admin-close]').onclick=closeMenu;host.querySelector('[data-admin-refresh]').onclick=()=>request();host.querySelectorAll('[data-admin-tab]').forEach(b=>b.onclick=()=>{tab=b.dataset.adminTab;feedback='';render();request();});
+  host.querySelector('.admin-main').scrollTop=scroll;
   if(!data)return;
+  host.querySelectorAll('[data-admin-move]').forEach(b=>b.onclick=()=>{if(pending)return;const index=data.items.findIndex(i=>i.id===b.dataset.adminMove),position=b.dataset.position;const targetPage=position==='before'&&index===0&&page>0?page-1:position==='after'&&index===data.items.length-1&&page+1<data.pages?page+1:page;request('move',{item:b.dataset.adminMove,anchor:b.dataset.anchor,position,page:targetPage});host.querySelectorAll('[data-admin-move]').forEach(button=>button.disabled=true);});
   host.querySelector('[data-admin-add]')?.addEventListener('click',()=>edit());
+  host.querySelector('[data-registration-search]')?.addEventListener('submit',e=>{
+   e.preventDefault();if(pending)return;
+   registrationQuery=e.currentTarget.elements.registrationQuery.value.trim();request();
+  });
+  host.querySelector('[data-registration-filter]')?.addEventListener('change',e=>{
+   if(pending){e.target.value=registrationFilter;return;}
+   registrationFilter=e.target.value;request();
+  });
+  host.querySelector('[data-registration-sync]')?.addEventListener('click',()=>{
+   if(pending)return;
+   const revision=data.revision;
+   const dialog=titleDialog(`<h2>등록 허용 상태를 상점과 동기화할까요?</h2><p>전체 품목을 확인해 구매와 판매가 모두 꺼진 품목과 미등록 품목을 비허용으로 바꿉니다. 양쪽 거래가 꺼진 등록 품목은 상점에서 삭제됩니다.</p><div class="estate-confirm-actions"><button data-title-cancel>취소</button><button class="primary-button" data-registration-sync-confirm>동기화</button></div>`);
+   dialog.querySelector('[data-registration-sync-confirm]').onclick=()=>{if(pending)return;dialog.close();request('registration_sync',{revision});};
+  });
+  host.querySelectorAll('[data-registration-bulk]').forEach(button=>button.onclick=()=>{
+   if(pending||!registrationQuery)return;
+   const allowed=button.dataset.registrationBulk==='allow';
+   const payload={allowed,registrationQuery,revision:data.revision};
+   if(allowed){request('registration_bulk',payload);return;}
+   const dialog=titleDialog(`<h2>검색 결과를 모두 차단할까요?</h2><p>‘${esc(registrationQuery)}’ 검색에 해당하는 전체 품목의 등록을 차단합니다. 이미 등록된 품목은 상점에서 삭제됩니다.</p><div class="estate-confirm-actions"><button data-title-cancel>취소</button><button class="primary-button" data-registration-confirm>일괄 비허용</button></div>`);
+   dialog.querySelector('[data-registration-confirm]').onclick=()=>{if(pending)return;dialog.close();request('registration_bulk',payload);};
+  });
+  host.querySelectorAll('[data-registration-item]').forEach(input=>input.onchange=()=>{
+   const allowed=input.checked;
+   input.checked=!allowed;
+   if(pending)return;
+   request('registration',{item:input.dataset.registrationItem,allowed});
+  });
   host.querySelectorAll('[data-admin-edit]').forEach(b=>b.onclick=()=>edit(data.items.find(i=>i.id===b.dataset.adminEdit)));
   host.querySelector('[data-title-add]')?.addEventListener('click',()=>editTitle(null));
   host.querySelectorAll('[data-title-edit]').forEach(b=>b.onclick=()=>editTitle(data.titles.find(t=>t.id===b.dataset.titleEdit)));
@@ -42,7 +88,8 @@
   host.querySelector('[data-admin-policy]')?.addEventListener('submit',savePolicy);
  }
  function content(){
-  if(tab==='items')return `<div class="admin-filters"><input data-admin-search type="search" maxlength="80" placeholder="아이템 이름 또는 ID 검색" value="${esc(query)}"><select data-admin-category aria-label="관리 분류">${options(category,true)}</select><select data-admin-side aria-label="거래 목록">${[['all','전체 상태'],['buy','구매 목록'],['sell','판매 목록'],['disabled','일시정지 / 미사용']].map(([id,name])=>`<option value="${id}" ${id===sideFilter?'selected':''}>${name}</option>`).join('')}</select><button class="primary-button" data-admin-add>품목 추가</button></div><p class="admin-help">품목 ${data.total}종 · 구매/판매 여부와 가격을 따로 수정할 수 있습니다. 판매 품목 제한·압축 블록 제외 규칙은 유지됩니다.</p><div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>아이템</th><th>분류</th><th>구매</th><th>판매</th><th>관리</th></tr></thead><tbody>${data.items.map(i=>`<tr><td><strong>${esc(i.name)}</strong><small>${esc(i.id)}</small></td><td>${esc(cats.find(c=>c[0]===i.category)?.[1])}</td><td>${i.buy?money(i.buyPrice):'제외'}</td><td>${i.sell?money(i.sellPrice):'제외'}</td><td><div class="admin-row-actions"><button data-admin-edit="${esc(i.id)}">수정</button><button data-admin-disable="${esc(i.id)}" ${!i.buy&&!i.sell?'disabled':''}>일시정지</button><button data-admin-delete="${esc(i.id)}">삭제</button></div></td></tr>`).join('')||'<tr><td colspan="5">검색 결과가 없습니다.</td></tr>'}</tbody></table></div><div class="admin-pagination"><button data-admin-page="-1" ${page<=0?'disabled':''}>이전</button><span>${page+1} / ${data.pages}</span><button data-admin-page="1" ${page+1>=data.pages?'disabled':''}>다음</button></div>`;
+  if(tab==='registration')return `<form class="admin-filters" data-registration-search><input name="registrationQuery" type="search" maxlength="80" aria-label="등록 가능 품목 검색" placeholder="아이템 이름 또는 ID 검색" value="${esc(registrationQuery)}"><button type="submit">검색</button><select data-registration-filter aria-label="등록 허용 상태">${[["all","전체"],["allowed","허용만"],["blocked","비허용만"]].map(([id,label])=>`<option value="${id}" ${id===registrationFilter?"selected":""}>${label}</option>`).join("")}</select><button type="button" data-registration-bulk="allow" ${!registrationQuery?"disabled":""}>일괄 허용</button><button type="button" data-registration-bulk="deny" ${!registrationQuery?"disabled":""}>일괄 비허용</button><button type="button" data-registration-sync>상점과 동기화</button></form><p class="admin-help">체크를 해제하면 상점 목록에서 삭제됩니다. 다시 체크하면 품목 추가에서 등록할 수 있습니다. 목록에는 선택한 상태의 품목이 최대 24개 표시됩니다. 일괄 변경은 상태 필터와 관계없이 검색 결과 전체에 적용됩니다.</p><div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>아이템</th><th>상점 상태</th><th>등록 허용</th></tr></thead><tbody>${Array.isArray(data.registrationItems)?data.registrationItems.map(i=>`<tr><td><strong>${esc(i.name)}</strong><small>${esc(i.id)}</small></td><td>${i.registered?'등록됨':i.editable?'미등록':'서버 규칙으로 제한'}</td><td><input type="checkbox" aria-label="${esc(i.name)} 등록 허용" data-registration-item="${esc(i.id)}" ${i.allowed?'checked':''} ${i.editable?'':'disabled'}></td></tr>`).join('')||'<tr><td colspan="3">검색 결과가 없습니다.</td></tr>':'<tr><td colspan="3">품목을 불러오고 있습니다.</td></tr>'}</tbody></table></div>`;
+  if(tab==='items')return `<div class="admin-filters"><input data-admin-search type="search" maxlength="80" placeholder="아이템 이름 또는 ID 검색" value="${esc(query)}"><select data-admin-category aria-label="관리 분류">${options(category,true)}</select><select data-admin-side aria-label="거래 목록">${[['all','전체 상태'],['buy','구매 목록'],['sell','판매 목록'],['disabled','일시정지 / 미사용']].map(([id,name])=>`<option value="${id}" ${id===sideFilter?'selected':''}>${name}</option>`).join('')}</select><button class="primary-button" data-admin-add>품목 추가</button></div><p class="admin-help">품목 ${data.total}종 · ↑ ↓ 버튼으로 현재 목록의 순서를 바꿀 수 있습니다. 저장된 순서는 구매·판매 목록에도 적용됩니다.</p><div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>아이템</th><th>분류</th><th>구매</th><th>판매</th><th>순서</th><th>관리</th></tr></thead><tbody>${data.items.map(i=>`<tr><td><strong>${esc(i.name)}</strong><small>${esc(i.id)}</small></td><td>${esc(cats.find(c=>c[0]===i.category)?.[1])}</td><td>${i.buy?money(i.buyPrice):'제외'}</td><td>${i.sell?money(i.sellPrice):'제외'}</td><td><div class="admin-order-actions"><button data-admin-move="${esc(i.id)}" data-anchor="${esc(i.previousItem)}" data-position="before" aria-label="${esc(i.name)} 위로 이동" ${!i.previousItem?'disabled':''}>↑</button><button data-admin-move="${esc(i.id)}" data-anchor="${esc(i.nextItem)}" data-position="after" aria-label="${esc(i.name)} 아래로 이동" ${!i.nextItem?'disabled':''}>↓</button></div></td><td><div class="admin-row-actions"><button data-admin-edit="${esc(i.id)}">수정</button><button data-admin-disable="${esc(i.id)}" ${!i.buy&&!i.sell?'disabled':''}>일시정지</button><button data-admin-delete="${esc(i.id)}">삭제</button></div></td></tr>`).join('')||'<tr><td colspan="6">검색 결과가 없습니다.</td></tr>'}</tbody></table></div><div class="admin-pagination"><button data-admin-page="-1" ${page<=0?'disabled':''}>이전</button><span>${page+1} / ${data.pages}</span><button data-admin-page="1" ${page+1>=data.pages?'disabled':''}>다음</button></div>`;
   if(tab==='titles')return !Array.isArray(data.titles)?'<p>칭호 저장소에 연결할 수 없습니다.</p>':`<div class="admin-filters"><button class="primary-button" data-title-add>칭호 추가</button></div><div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>칭호</th><th>색 코드</th><th>아이콘</th><th>관리</th></tr></thead><tbody>${data.titles.map(t=>`<tr><td><strong>${esc(t.name)}</strong><small>${esc(t.id)}</small></td><td><span style="color:${/^#[0-9a-f]{6}$/i.test(t.color)?esc(t.color):'inherit'}">●</span> ${esc(t.color)}</td><td>${t.glyph?'사용':'없음'}</td><td><div class="admin-row-actions"><button data-title-edit="${esc(t.id)}">수정</button><button data-title-delete="${esc(t.id)}">삭제</button></div></td></tr>`).join('')}</tbody></table></div>`;
   if(tab==='policy'){const s=data.settings;return `<form data-admin-policy class="admin-form"><div class="admin-form-grid"><label>기본 구매가<input name="buyBase" type="number" min="2" max="1000000" value="${s.buyBase}" required></label><label>기본 판매가<input name="sellBase" type="number" min="1" max="999999" value="${s.sellBase}" required></label><label>변동 주기 · 초<input name="intervalSeconds" type="number" min="60" max="604800" value="${s.intervalSeconds}" required></label><label>편차 · %<input name="deviationPercent" type="number" min="0" max="40" value="${s.deviationPercent}" required></label></div><label class="admin-check"><input name="randomEnabled" type="checkbox" ${s.randomEnabled?'checked':''}>주기별 랜덤 판매가 사용</label><p class="admin-help">개별 품목 가격 설정이 기본가보다 우선합니다. 판매가는 구매가보다 낮아야 합니다. 저장하면 열려 있던 이전 견적은 무효화됩니다.</p><hr><h3>상점 점검</h3><label class="admin-check"><input name="buyPaused" type="checkbox" ${data.buyPaused?'checked':''}>구매 일시정지</label><label class="admin-check"><input name="sellPaused" type="checkbox" ${data.sellPaused?'checked':''}>판매 일시정지</label><hr><h3>다른 기능 점검</h3><label class="admin-check"><input name="estatePurchasesPaused" type="checkbox" ${data.estatePurchasesPaused?'checked':''}>영지 생성·영토 구매 일시정지</label><label class="admin-check"><input name="missionRewardsPaused" type="checkbox" ${data.missionRewardsPaused?'checked':''}>임무 보상 수령 일시정지</label><p class="admin-help">기존 영지 소유권과 임무 진행도는 유지됩니다. 임무 진행 집계도 계속됩니다.</p><label>점검 안내<input name="maintenanceReason" maxlength="120" value="${esc(data.maintenanceReason)}" placeholder="이용자에게 표시할 안내"></label><button class="primary-button" type="submit">설정 저장</button></form>`;}
   if(tab==='audit')return `<p class="admin-help">최근 30건을 표시합니다. 서버에는 최근 100건이 보존됩니다.</p><div class="admin-audit">${[...(data.audit||[])].reverse().map(a=>`<article><div><strong>${esc(a.action)}</strong><span>${esc(a.actor)} · ${esc(new Date(a.at).toLocaleString('ko-KR'))}</span></div><p>${esc(a.summary)}</p><small>${esc(a.item)}</small></article>`).join('')||'<p>아직 변경 기록이 없습니다.</p>'}</div>`;
@@ -50,11 +97,34 @@
  }
  function edit(item){
   const rule=item||{id:'',category:'building',buy:true,sell:false,buyPrice:data.settings.buyBase,sellPrice:data.settings.sellBase},revision=data.revision;
-  const d=document.createElement('dialog');d.className='admin-dialog';d.innerHTML=`<h2>${item?'품목 수정':'품목 추가'}</h2>${item?`<p>${esc(item.name)}</p>`:'<label>아이템 검색<input data-admin-lookup placeholder="이름 또는 ID로 검색" maxlength="80"></label><div class="admin-lookup-results"></div>'}<form data-rule-form><label>아이템 ID<input name="item" value="${esc(rule.id)}" maxlength="160" ${item?'readonly':''} required placeholder="minecraft:stone"></label><label>구매 분류<select name="itemCategory">${options(rule.category)}</select></label><div class="admin-form-grid"><label class="admin-check"><input type="checkbox" name="buy" ${rule.buy?'checked':''} ${item?.buyAllowed===false?'disabled':''}>구매 목록에 표시</label><label class="admin-check"><input type="checkbox" name="sell" ${rule.sell?'checked':''} ${item?.sellAllowed===false?'disabled':''}>판매 목록에 표시</label><label>기준 구매가<input type="number" name="buyPrice" min="2" max="1000000" value="${rule.buyPrice}" required></label><label>기준 판매가<input type="number" name="sellPrice" min="1" max="999999" value="${rule.sellPrice}" required></label></div><p class="admin-help">판매는 광물·농작물 허용 품목만 가능합니다. 판매 분류는 서버가 지정하며, 개별 가격이 기본가보다 우선합니다.</p><p class="admin-dialog-error" role="alert"></p><div class="estate-confirm-actions"><button type="button" class="back-button" data-admin-cancel>취소</button><button class="primary-button" type="submit">저장</button></div></form>`;
+  const d=document.createElement('dialog');d.className='admin-dialog';d.innerHTML=`<h2>${item?'품목 수정':'품목 추가'}</h2>${item?`<p>${esc(item.name)}</p>`:'<label>아이템 검색<input data-admin-lookup placeholder="이름 또는 ID로 검색" maxlength="80"></label><div class="admin-lookup-results"></div>'}<form data-rule-form><label>아이템 ID<input name="item" value="${esc(rule.id)}" maxlength="160" ${item?'readonly':''} required placeholder="minecraft:stone"></label><label>상점 분류<select name="itemCategory">${options(rule.category)}</select></label><div class="admin-form-grid"><label class="admin-check"><input type="checkbox" name="buy" ${rule.buy?'checked':''} ${item?.buyAllowed===false?'disabled':''}>구매 목록에 표시</label><label class="admin-check"><input type="checkbox" name="sell" ${rule.sell?'checked':''} ${item?.sellAllowed===false?'disabled':''}>판매 목록에 표시</label><label>기준 구매가<input type="number" name="buyPrice" min="2" max="1000000" value="${rule.buyPrice}" required></label><label>기준 판매가<input type="number" name="sellPrice" min="1" max="999999" value="${rule.sellPrice}" required></label></div><p class="admin-help">구매와 판매를 별도로 켤 수 있습니다. 상품은 선택한 분류에 표시되고, 개별 가격이 기본가보다 우선합니다.</p><p class="admin-dialog-error" role="alert"></p><div class="estate-confirm-actions"><button type="button" class="back-button" data-admin-cancel>취소</button><button class="primary-button" type="submit">저장</button></div></form>`;
   host.append(d);d.querySelector('[data-admin-cancel]').onclick=()=>d.close();d.addEventListener('close',()=>{clearTimeout(lookupTimer);d.remove();},{once:true});d.querySelector('[data-admin-lookup]')?.addEventListener('input',e=>{const value=e.target.value;clearTimeout(lookupTimer);lookupTimer=setTimeout(()=>request('lookup',{query:value}),300);});
   d.querySelector('form').onsubmit=e=>{e.preventDefault();if(pending)return;const f=new FormData(e.target),buyPrice=Number(f.get('buyPrice')),sellPrice=Number(f.get('sellPrice'));if(!Number.isInteger(buyPrice)||!Number.isInteger(sellPrice)||sellPrice>=buyPrice){d.querySelector('.admin-dialog-error').textContent='판매가는 구매가보다 작은 정수여야 합니다.';return;}const payload={revision,item:f.get('item'),itemCategory:f.get('itemCategory'),buy:e.target.elements.buy.checked,sell:e.target.elements.sell.checked,buyPrice,sellPrice};d.close();request('upsert',payload);};d.showModal();
  }
- function showLookup(items){const d=host?.querySelector('.admin-dialog');if(!d)return;const target=d.querySelector('.admin-lookup-results');if(!target)return;target.innerHTML=items.map((i,index)=>`<button type="button" data-pick="${index}"><strong>${esc(i.name)}</strong><small>${esc(i.id)}</small></button>`).join('')||'<small>검색 결과가 없습니다.</small>';target.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>{const i=items[Number(b.dataset.pick)],f=d.querySelector('form');f.elements.namedItem('item').value=i.id;f.elements.buy.disabled=!i.buyAllowed;f.elements.buy.checked=i.buyAllowed;f.elements.sell.disabled=!i.sellAllowed;f.elements.sell.checked=false;if(i.category)f.elements.itemCategory.value=i.category;target.innerHTML=`<small>${esc(i.name)} 선택됨</small>`;});}
+ function showLookup(items){
+  const dialog=host?.querySelector('.admin-dialog');
+  const target=dialog?.querySelector('.admin-lookup-results');
+  if(!target)return;
+  target.innerHTML=items.map((item,index)=>{
+   const blocked=item.registrationAllowed===false;
+   const status=!blocked?'':item.registrationEditable?' · 등록 비허용 · 허용 설정 열기':' · 서버 규칙으로 제한';
+   return `<button type="button" data-pick="${index}" ${blocked&&!item.registrationEditable?'disabled':''}><strong>${esc(item.name)}</strong><small>${esc(item.id+status)}</small></button>`;
+  }).join('')||'<small>검색 결과가 없습니다.</small>';
+  target.querySelectorAll('[data-pick]').forEach(button=>button.onclick=()=>{
+   const item=items[Number(button.dataset.pick)];
+   if(item.registrationAllowed===false){
+    dialog.close();
+    registrationQuery=item.id;registrationFilter='blocked';tab='registration';render();request();
+    return;
+   }
+   const form=dialog.querySelector('form');
+   form.elements.namedItem('item').value=item.id;
+   form.elements.buy.disabled=!item.buyAllowed;form.elements.buy.checked=item.buyAllowed;
+   form.elements.sell.disabled=!item.sellAllowed;form.elements.sell.checked=false;
+   if(item.category)form.elements.itemCategory.value=item.category;
+   target.innerHTML=`<small>${esc(item.name)} 선택됨</small>`;
+  });
+ }
  function titleDialog(markup){
   const dialog=document.createElement('dialog');
   dialog.className='admin-dialog';
@@ -90,6 +160,6 @@
  }
  function remove(item){if(!item)return;const revision=data.revision,d=document.createElement('dialog');d.className='admin-dialog';d.innerHTML=`<h2>거래를 일시정지할까요?</h2><p>${esc(item.name)}의 거래를 일시정지합니다. 수정에서 거래를 다시 켤 수 있습니다.</p><label>정지할 거래<select data-remove-side><option value="buy" ${item.buy?'':'disabled'}>구매 목록</option><option value="sell" ${item.sell?'':'disabled'}>판매 목록</option><option value="both">구매·판매 모두</option></select></label><div class="estate-confirm-actions"><button class="back-button" data-admin-cancel>취소</button><button class="primary-button" data-admin-remove>일시정지 확정</button></div>`;host.append(d);d.querySelector('select').value=item.buy?'buy':'sell';d.querySelector('[data-admin-cancel]').onclick=()=>d.close();d.querySelector('[data-admin-remove]').onclick=()=>{if(pending)return;const side=d.querySelector('select').value;d.close();request('disable',{revision,item:item.id,side});};d.addEventListener('close',()=>d.remove(),{once:true});d.showModal();}
  function savePolicy(e){e.preventDefault();const f=e.target,values=Object.fromEntries(new FormData(f));for(const key of ['buyBase','sellBase','intervalSeconds','deviationPercent'])values[key]=Number(values[key]);if(values.sellBase>=values.buyBase){feedback='기본 판매가는 구매가보다 작아야 합니다.';failed=true;render();return;}for(const key of ['randomEnabled','buyPaused','sellPaused','estatePurchasesPaused','missionRewardsPaused'])values[key]=f.elements[key].checked;request('configure',values);}
- window.PocketmateAdmin={allowed:()=>allowed,mount(element,close){this.unmount();host=element;closeMenu=close;data=null;feedback='';failed=false;render();request();poll=setInterval(()=>{if(tab!=='policy'&&!document.hidden&&!pending&&!host?.querySelector('dialog[open]')&&!host?.querySelector('input:focus,select:focus'))request();},15000);},unmount(){host?.querySelector('dialog')?.close();clearPending();clearInterval(poll);clearTimeout(searchTimer);clearTimeout(lookupTimer);host=null;data=null;}};
+ window.PocketmateAdmin={allowed:()=>allowed,mount(element,close){this.unmount();host=element;closeMenu=close;data=null;feedback='';shownFeedback='';failed=false;render();request();poll=setInterval(()=>{if(tab!=='policy'&&!document.hidden&&!pending&&!host?.querySelector('dialog[open]')&&!host?.querySelector('input:focus,select:focus'))request();},15000);},unmount(){host?.querySelector('dialog')?.close();clearPending();clearInterval(poll);clearTimeout(searchTimer);clearTimeout(lookupTimer);host=null;data=null;}};
  capabilities();setInterval(capabilities,10000);window.addEventListener('webgui:client',capabilities);
 })();

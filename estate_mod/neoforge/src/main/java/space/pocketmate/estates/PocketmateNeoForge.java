@@ -15,6 +15,7 @@ public final class PocketmateNeoForge {
         new MissionsMod().onInitialize();
         new ShopMod().onInitialize();
         new AdminMod().onInitialize();
+        PixelmonConfigCommand.register();
         bus.addListener((net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent event) -> event.enqueueWork(NeoPixelmon::register));
     }
 }

@@ -1,0 +1,52 @@
+{
+  "checked_at": "2026-11-25T22:32:57.006640+09:00",
+  "installed_mods": {
+    "accessories-neoforge-1.1.0-beta.54+1.21.1.jar": "cbecac21acbaf323349afa263b22cda67c3e836f928f6cf3f951ba460c196d15",
+    "owo-lib-neoforge-0.12.15.6-beta.1+1.21.jar": "5fc306ad3d42e1dc26812f2df856e7c232376405caab6af4f5aaffe89cd2b256",
+    "Clumps-neoforge-1.21.1-19.0.0.1.jar": "b524ccdace2ef8fd19f5b2074f7de1103ac5065c52553f064c00e098346c293e",
+    "Jade-1.21.1-NeoForge-15.10.6.jar": "276f1f65a20d04f536989c4f311949d770b52c440c23c2b904a08860f3c93810",
+    "appleskin-neoforge-mc1.21-3.0.9.jar": "38b48dd6231341c9f964ce6e42c57ec866c6cc8f72bec938390a59bafb3922df",
+    "Pixelmon-1.21.1-9.4.3-universal.jar": "3700dd10bef8a16a6a740819d1e3b29df17067471ca01288cb6bb37d38470bfe",
+    "PocketMate_Mega.jar": "c132251daa6d90bc993440a228c92525bfb8ae8be965b7058e505e2f5e72f838",
+    "pocketmate-mega-evolution-0.1.1.jar": "1d510af2383cb8ff48ca57b6c9aaba6f703b2d24f6c853191718bd3204595c4d"
+  },
+  "web_file_count": 260,
+  "server_and_client_pages_match_source": true,
+  "unique_mod_ids": [
+    "accessories",
+    "appleskin",
+    "clumps",
+    "eeveemega",
+    "jade",
+    "owo",
+    "pixelmon",
+    "pocketmate_estates",
+    "pocketmate_mega_bridge",
+    "tcg",
+    "webgui"
+  ],
+  "working_directory_pinned": true,
+  "game_or_server_started": false,
+  "in_game_verified": false,
+  "server_restart_required": true,
+  "newly_installed_files": [
+    "accessories-neoforge-1.1.0-beta.54+1.21.1.jar",
+    "owo-lib-neoforge-0.12.15.6-beta.1+1.21.jar",
+    "Clumps-neoforge-1.21.1-19.0.0.1.jar",
+    "Jade-1.21.1-NeoForge-15.10.6.jar",
+    "appleskin-neoforge-mc1.21-3.0.9.jar"
+  ],
+  "installed_jar_count": 10,
+  "new_jars_crc_passed": true,
+  "embedded_jars_crc_passed": [
+    "endec",
+    "fabric-api-base",
+    "gson",
+    "jankson",
+    "jankson",
+    "netty"
+  ],
+  "existing_estates_preserved": true,
+  "unresolved_required_mod_ids": [],
+  "dependency_check": "Declared required server-side mod IDs are present, including Accessories -> owo; Minecraft 1.21.1 and NeoForge 21.1.248 checked against metadata. No runtime loading test."
+}

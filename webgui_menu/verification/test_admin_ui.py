@@ -12,7 +12,7 @@ webgui.postToGame=function(p){if(p.channel!=='pocketmate:admin')return originalA
  if(p.action==='capabilities'){dispatchEvent(new CustomEvent('webgui:pocketmate:admin',{detail:{type:'capabilities',requestId:p.requestId,canAdmin:op}}));return;}
  let error='',forbidden=false;
  if(!op){error='OP 권한이 필요합니다.';forbidden=true;}
- else if(p.action==='lookup'){dispatchEvent(new CustomEvent('webgui:pocketmate:admin',{detail:{type:'lookup',requestId:p.requestId,items:[{id:'minecraft:stone',name:'돌',category:'building',buyAllowed:true,sellAllowed:false}]}}));return;}
+ else if(p.action==='lookup'){const items=p.query==='몬스터볼'?[{id:'pixelmon:poke_ball',name:'몬스터볼',registrationAllowed:false,registrationEditable:true}]:[{id:'minecraft:stone',name:'돌',category:'building',buyAllowed:true,sellAllowed:false}];dispatchEvent(new CustomEvent('webgui:pocketmate:admin',{detail:{type:'lookup',requestId:p.requestId,items}}));return;}
  else if(p.action!=='view'&&p.revision!==adminState.revision)error='다른 관리자가 설정을 변경했습니다.';
  else if(p.action==='upsert'){const row={id:p.item,name:p.item==='minecraft:stone'?'돌':'철 원석',category:p.itemCategory,buy:p.buy,sell:p.sell,buyPrice:p.buyPrice,sellPrice:p.sellPrice,buyAllowed:true,sellAllowed:p.item!=='minecraft:stone'};adminState.items=adminState.items.filter(i=>i.id!==p.item).concat([row]);adminState.revision++;}
  else if(p.action==='disable'){const row=adminState.items.find(i=>i.id===p.item);if(p.side!=='sell')row.buy=false;if(p.side!=='buy')row.sell=false;adminState.revision++;}
@@ -31,13 +31,19 @@ with sync_playwright() as p:
  page.locator('[data-admin-disable]').click();page.locator('[data-admin-cancel]').click();assert page.evaluate('adminState.revision')==1
  page.locator('[data-admin-disable]').click();page.locator('[data-remove-side]').select_option('sell');page.locator('[data-admin-remove]').click();page.wait_for_timeout(120);assert not page.evaluate('adminState.items[0].sell')
  page.locator('[data-admin-add]').click();page.locator('[data-admin-lookup]').fill('돌');page.locator('[data-pick]').wait_for();page.locator('[data-pick]').click();assert page.locator('[name=item]').input_value()=='minecraft:stone';assert page.locator('[name=sell]').is_disabled();page.locator('.admin-dialog button[type=submit]').click();page.wait_for_timeout(120);assert page.evaluate('adminState.items.length')==2
+ page.locator('[data-admin-add]').click();page.locator('[data-admin-lookup]').fill('몬스터볼')
+ blocked=page.locator('[data-pick]',has_text='등록 비허용')
+ blocked.click()
+ assert page.locator('[name=registrationQuery]').input_value()=='pixelmon:poke_ball'
+ assert page.locator('[data-registration-filter]').input_value()=='blocked'
+ assert page.evaluate('adminCalls.at(-1).registrationQuery')=='pixelmon:poke_ball'
  page.locator('[data-admin-tab=policy]').click();page.wait_for_timeout(120);page.locator('[name=randomEnabled]').check();page.locator('[name=buyPaused]').check();page.locator('[name=estatePurchasesPaused]').check();page.locator('[name=missionRewardsPaused]').check();page.locator('[name=maintenanceReason]').fill('운영 점검');page.locator('[data-admin-policy] button[type=submit]').click();page.wait_for_timeout(120);assert page.evaluate('adminState.buyPaused&&adminState.estatePurchasesPaused&&adminState.missionRewardsPaused')
  for tab in ['items','policy','status','audit']:
   page.locator('[data-admin-tab='+tab+']').click();page.wait_for_timeout(120)
   for theme in ['dark','light']:
    page.evaluate('(t)=>PocketmateTheme.set(t)',theme);page.wait_for_timeout(200)
    if tab in ['items','policy']:page.screenshot(path=str(r/f'verification/admin-{tab}-{theme}-mock.png'))
- page.locator('[data-admin-tab=items]').click();page.wait_for_timeout(100);page.locator('[data-admin-edit]').first.click();page.evaluate('adminState.revision++');page.locator('.admin-dialog button[type=submit]').click();page.wait_for_timeout(120);assert '다른 관리자' in page.locator('.admin-feedback').inner_text()
+ page.locator('[data-admin-tab=items]').click();page.wait_for_timeout(100);page.locator('[data-admin-edit]').first.click();page.evaluate('adminState.revision++');page.locator('.admin-dialog button[type=submit]').click();page.wait_for_timeout(120);assert '다른 관리자' in page.locator('.pm-notification').inner_text()
  for w,h in [(1280,720),(854,480),(640,360)]:
   page.set_viewport_size({'width':w,'height':h});page.evaluate('document.documentElement.style.setProperty("--text-scale","1.6")');page.wait_for_timeout(60);assert page.locator('#admin-page').evaluate('(e)=>e.scrollWidth<=e.clientWidth+1')
  page.evaluate('op=false');page.locator('[data-admin-refresh]').click();page.wait_for_timeout(120);assert page.locator('#admin-page').is_hidden() and page.locator('#admin-open').is_hidden()

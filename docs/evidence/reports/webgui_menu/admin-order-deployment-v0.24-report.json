@@ -1,0 +1,32 @@
+{
+  "mod_version": "0.15.5",
+  "web_version": "0.24.0",
+  "server_and_client_installed": true,
+  "all_web_assets_match": 262,
+  "jar_sha256": "cf5990bdc584f866b130de3f4582d6d7846eb62ef10a2235a982aab31ac2fc8f",
+  "build_tests": {
+    "fabric": {
+      "tests": 115,
+      "failures": 0
+    },
+    "neoforge": {
+      "tests": 88,
+      "failures": 0
+    }
+  },
+  "mock_ui_tests": [
+    "admin_order_notifications",
+    "admin_permission_and_edit",
+    "shop_continuous",
+    "daily_missions",
+    "estate_community"
+  ],
+  "mock_viewports": 4,
+  "mock_themes": 2,
+  "server_config_or_personal_data_modified": false,
+  "prior_mega_size_queue_applied": true,
+  "game_or_server_started": false,
+  "in_game_verified": false,
+  "restart_required": true,
+  "package_sha256": "baec1e6a935301d35158a3922331298639d4b6e2e84f37573a47439f06737fd6"
+}

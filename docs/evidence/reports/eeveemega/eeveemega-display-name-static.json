@@ -1,0 +1,19 @@
+{
+  "original_sha256": "9ed23a4b2bd8146481484b212a9b1fcf883607310d55f8378cf0847b4fc6f058",
+  "renamed_sha256": "c132251daa6d90bc993440a228c92525bfb8ae8be965b7058e505e2f5e72f838",
+  "filename": "PocketMate_Mega.jar",
+  "display_name": "PocketMate_Mega",
+  "mod_id": "eeveemega",
+  "version": "1.1.0",
+  "changed_jar_entries": [
+    "META-INF/neoforge.mods.toml"
+  ],
+  "other_entries_byte_identical": true,
+  "metadata_only_display_name_changed": true,
+  "crc_passed": true,
+  "installed_locations": 2,
+  "restart_required": true,
+  "game_started": false,
+  "in_game_verified": false,
+  "exactly_one_eeveemega_mod_per_target": true
+}

@@ -1,0 +1,13 @@
+{
+  "permission_checked_by_backend_tests": true,
+  "move_request_and_updated_order": true,
+  "cross_page_move": true,
+  "filtered_boundaries": true,
+  "stale_error_keeps_order": true,
+  "success_and_error_popup_zero_layout_shift": true,
+  "popup_manual_close_and_auto_dismiss": true,
+  "themes": 2,
+  "viewport_sizes": 4,
+  "game_tested": false,
+  "errors": []
+}

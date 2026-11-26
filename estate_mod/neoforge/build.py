@@ -15,5 +15,5 @@ subprocess.run([sys.executable, str(here / "prepare.py")], check=True)
 subprocess.run([str(gradle), "-p", str(stage), "build", "--no-daemon", "--console=plain"], check=True, env=env)
 dist = here.parent / "dist"
 dist.mkdir(exist_ok=True)
-jar = stage / "build/libs/pocketmate-estates-neoforge-0.15.4.jar"
+jar = stage / "build/libs/pocketmate-estates-neoforge-0.15.8.jar"
 shutil.copy2(jar, dist / jar.name)

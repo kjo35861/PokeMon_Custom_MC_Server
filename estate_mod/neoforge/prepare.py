@@ -39,6 +39,8 @@ for path in (base / "src/main/java").rglob("*.java"):
         "        PayloadTypeRegistry.playS2C().register(NicknamePayload.ID,NicknamePayload.CODEC);\n": "",
     }.items():
         text = text.replace(old, new)
+    if path.name == "WalletSidebar.java":
+        text = text.replace("networkHandler.sendPacket(", "networkHandler.send(")
     if path.name == "ShopAssetsClient.java":
         start = text.index("  ResourceManagerHelper.get")
         end = text.index("\n }",start)
@@ -56,6 +58,7 @@ shutil.copyfile(alpha / "pocketmate-webgui-alpha.mixins.json",resources / "pocke
 mixins_file = resources / "pocketmate-estates.mixins.json"
 mixins = json.loads(mixins_file.read_text())
 mixins["mixins"].append("NeoMissionBreakMixin")
+mixins["mixins"].append("PixelmonTeraShardMessageMixin")
 mixins_file.write_text(json.dumps(mixins, indent=2) + "\n")
 shutil.copytree(base / "src/test", stage / "src/test", dirs_exist_ok=True)
 print(stage)

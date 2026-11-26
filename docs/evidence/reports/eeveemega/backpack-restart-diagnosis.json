@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-11-25T22:42:47.350369+09:00",
+  "server_log_start_time": "2026-11-25T22:35:22+09:00",
+  "server_process_start_time": "2026-11-25T22:34:57+09:00",
+  "core_deployed_at": "2026-11-25T22:37:54.893850+09:00",
+  "backpack_mods_on_disk_match_client": true,
+  "sophisticated_mentions_in_server_startup_log": 0,
+  "client_channel_mismatch_namespaces": [
+    "sophisticatedbackpacks",
+    "sophisticatedcore"
+  ],
+  "diagnosis": "Running server started before newly installed mods were loaded; full user-controlled server restart required.",
+  "server_restarted_by_agent": false,
+  "runtime_resolution_verified": false
+}

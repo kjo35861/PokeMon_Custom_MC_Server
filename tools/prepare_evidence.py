@@ -26,6 +26,8 @@ def clean(value):
     return scrub(value) if isinstance(value,str) else value
 
 def candidates():
+    for source in sorted((ROOT/'estate_mod/mega_compat/verification').glob('*.json')):
+        yield source, f'reports/eeveemega/{source.name}', 'static-and-unit-test-report'
     for folder in ['webgui_menu','pocketmate_launcher']:
         report_folder = 'snowfrost_launcher' if folder == 'pocketmate_launcher' else folder
         for source in sorted((ROOT/folder/'verification').glob('*.json')):
@@ -34,6 +36,8 @@ def candidates():
     for source in sorted((ROOT/'estate_mod/verification/test-results/test').glob('TEST-*.xml')):
         yield source,f'reports/estate_mod/{source.name}','junit-result'
     screenshots={
+        'webgui_menu/verification/admin-order-notification-v0.24-dark-mock.png':'admin-order-notification-v0.24-dark-mock.png',
+        'webgui_menu/verification/admin-order-notification-v0.24-light-mock.png':'admin-order-notification-v0.24-light-mock.png',
         'webgui_menu/verification/shop-continuous-pause-dark-mock.png':'shop-v0.22-pause-dark-mock.png',
         'webgui_menu/verification/shop-continuous-catalog-buy-dark-mock.png':'shop-v0.22-catalog-buy-dark-mock.png',
         'webgui_menu/verification/shop-continuous-catalog-sell-dark-mock.png':'shop-v0.22-catalog-sell-dark-mock.png',

@@ -16,9 +16,9 @@ class ShopTest {
   for(String id:List.of("raw_iron","raw_gold","raw_copper","diamond","coal","lapis_lazuli","quartz","ancient_debris"))assertTrue(all.get("minecraft:"+id).sell());
   for(String id:List.of("iron_ingot","iron_nugget","gold_ingot","gold_nugget","copper_ingot","netherite_ingot","netherite_scrap","diamond_block","raw_iron_block","iron_block","coal_block","hay_block","melon","glowstone","diamond_ore","stone_stairs","stone_slab","command_block","bedrock"))assertFalse(all.containsKey("minecraft:"+id),id);
   assertTrue(all.get("minecraft:chorus_flower").buy());assertTrue(all.get("minecraft:chorus_fruit").sell());assertTrue(all.get("minecraft:wheat_seeds").buy());assertTrue(all.get("minecraft:wheat_seeds").sell());assertFalse(all.get("minecraft:wheat").buy());assertTrue(all.get("minecraft:wheat").sell());
-  assertTrue(all.values().stream().filter(ShopCatalog.Entry::sell).allMatch(e->Set.of("minerals","crops").contains(e.saleCategory())));
+  assertTrue(all.values().stream().filter(ShopCatalog.Entry::sell).allMatch(e->e.category().equals(e.saleCategory())));
   for(String category:List.of("balls","held","zcrystals","megastones"))assertTrue(all.values().stream().noneMatch(e->e.category().equals(category)));
-  assertEquals("decoration",all.get("minecraft:torchflower").category());assertTrue(all.get("minecraft:torchflower").buy());assertEquals("crops",all.get("minecraft:torchflower").saleCategory());
+  assertEquals("decoration",all.get("minecraft:torchflower").category());assertTrue(all.get("minecraft:torchflower").buy());assertEquals("decoration",all.get("minecraft:torchflower").saleCategory());
   assertEquals("돌",ShopCatalog.name(Items.STONE));
   var report=new com.google.gson.JsonObject();var rows=new com.google.gson.JsonArray();
   for(var e:all.values()){var row=new com.google.gson.Gson().toJsonTree(e).getAsJsonObject();row.addProperty("name",ShopCatalog.name(net.minecraft.registry.Registries.ITEM.get(net.minecraft.util.Identifier.of(e.id()))));row.addProperty("buyPrice",e.buy()?100:0);row.addProperty("sellPrice",e.sell()?50:0);rows.add(row);}
@@ -38,6 +38,16 @@ class ShopTest {
   var after=ShopInventory.plan(slots,Items.STONE,10,true);assertEquals(64,after.get(0).getCount());assertEquals(6,after.get(1).getCount());assertEquals(60,slots.get(0).getCount());
   assertThrows(IllegalArgumentException.class,()->ShopInventory.plan(List.of(new ItemStack(Items.DIRT,64)),Items.STONE,1,true));
   assertThrows(IllegalArgumentException.class,()->ShopInventory.plan(slots,Items.STONE,0,true));assertThrows(IllegalArgumentException.class,()->ShopInventory.plan(slots,Items.STONE,2305,true));
+ }
+ @Test void componentVariantsArePurchasedAndCountedSeparately(){
+  var normal=new ItemStack(Items.STONE,12);
+  var variant=new ItemStack(Items.STONE);
+  variant.set(net.minecraft.component.DataComponentTypes.CUSTOM_NAME,net.minecraft.text.Text.literal("Variant"));
+  var bought=ShopInventory.plan(List.of(normal,ItemStack.EMPTY),variant,3,true);
+  assertEquals(12,ShopInventory.count(bought,Items.STONE));
+  assertEquals(3,ShopInventory.count(bought,variant));
+  assertEquals(1,variant.getCount());
+  assertTrue(ItemStack.areItemsAndComponentsEqual(variant,bought.get(1)));
  }
  @Test void salesUseExactPlainComponentsAndQuantity(){
   var named=new ItemStack(Items.DIAMOND,8);named.set(net.minecraft.component.DataComponentTypes.CUSTOM_NAME,net.minecraft.text.Text.literal("Keep me"));

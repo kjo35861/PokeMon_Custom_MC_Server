@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="space.pocketmate.estates.MissionStoreTest" tests="19" skipped="0" failures="0" errors="0" timestamp="2026-11-25T08:26:49" hostname="DESKTOP-6FIEOUH" time="1.005">
+<testsuite name="space.pocketmate.estates.MissionStoreTest" tests="19" skipped="0" failures="0" errors="0" timestamp="2026-11-26T09:02:51" hostname="DESKTOP-6FIEOUH" time="0.872">
   <properties/>
-  <testcase name="rerollOncePersistsAcrossRestartAndKeepsOtherSlotsAndProgress()" classname="space.pocketmate.estates.MissionStoreTest" time="0.048"/>
-  <testcase name="failedRerollWriteKeepsQuotaAndAssignment()" classname="space.pocketmate.estates.MissionStoreTest" time="0.015"/>
-  <testcase name="v1UpgradePreservesProgressClaimsAssignmentAndPlacedGuard()" classname="space.pocketmate.estates.MissionStoreTest" time="0.05"/>
+  <testcase name="rerollOncePersistsAcrossRestartAndKeepsOtherSlotsAndProgress()" classname="space.pocketmate.estates.MissionStoreTest" time="0.046"/>
+  <testcase name="failedRerollWriteKeepsQuotaAndAssignment()" classname="space.pocketmate.estates.MissionStoreTest" time="0.012"/>
+  <testcase name="v1UpgradePreservesProgressClaimsAssignmentAndPlacedGuard()" classname="space.pocketmate.estates.MissionStoreTest" time="0.031"/>
   <testcase name="eventsBeforeAssignmentOrBeforeReplacementNeverCount()" classname="space.pocketmate.estates.MissionStoreTest" time="0.021"/>
-  <testcase name="fiveSlotsAreStableAndTargetsStayWithinBounds()" classname="space.pocketmate.estates.MissionStoreTest" time="0.008"/>
+  <testcase name="fiveSlotsAreStableAndTargetsStayWithinBounds()" classname="space.pocketmate.estates.MissionStoreTest" time="0.007"/>
   <testcase name="placedGuardSurvivesRestartAndCannotBeConsumedTwice()" classname="space.pocketmate.estates.MissionStoreTest" time="0.013"/>
-  <testcase name="rewardsPersistAcrossAllClaimsAndNewDay()" classname="space.pocketmate.estates.MissionStoreTest" time="0.065"/>
-  <testcase name="badStoreFailsClosedInsteadOfResetting()" classname="space.pocketmate.estates.MissionStoreTest" time="0.005"/>
-  <testcase name="pixelmonSignalContractRejectsSummonsUnknownAndPvp()" classname="space.pocketmate.estates.MissionStoreTest" time="0.025"/>
-  <testcase name="resetsAtKoreanSixIncludingOfflineRestart()" classname="space.pocketmate.estates.MissionStoreTest" time="0.05"/>
-  <testcase name="midnightDoesNotResetAndMonthBoundaryIsCorrect()" classname="space.pocketmate.estates.MissionStoreTest" time="0.002"/>
-  <testcase name="movedPlacedBlocksStayProtectedAcrossPistonChainsAndRestarts()" classname="space.pocketmate.estates.MissionStoreTest" time="0.015"/>
-  <testcase name="incorrectAndNegativeMetricsNeverAdvance()" classname="space.pocketmate.estates.MissionStoreTest" time="0.008"/>
+  <testcase name="rewardsPersistAcrossAllClaimsAndNewDay()" classname="space.pocketmate.estates.MissionStoreTest" time="0.064"/>
+  <testcase name="badStoreFailsClosedInsteadOfResetting()" classname="space.pocketmate.estates.MissionStoreTest" time="0.004"/>
+  <testcase name="pixelmonSignalContractRejectsSummonsUnknownAndPvp()" classname="space.pocketmate.estates.MissionStoreTest" time="0.021"/>
+  <testcase name="resetsAtKoreanSixIncludingOfflineRestart()" classname="space.pocketmate.estates.MissionStoreTest" time="0.048"/>
+  <testcase name="midnightDoesNotResetAndMonthBoundaryIsCorrect()" classname="space.pocketmate.estates.MissionStoreTest" time="0.001"/>
+  <testcase name="movedPlacedBlocksStayProtectedAcrossPistonChainsAndRestarts()" classname="space.pocketmate.estates.MissionStoreTest" time="0.012"/>
+  <testcase name="incorrectAndNegativeMetricsNeverAdvance()" classname="space.pocketmate.estates.MissionStoreTest" time="0.004"/>
   <testcase name="freeRerollRenewsOnlyAtSixAndNeverOnRestart()" classname="space.pocketmate.estates.MissionStoreTest" time="0.016"/>
   <testcase name="rerollRejectsInvalidCompleteClaimedOrOldDateWithoutSpending()" classname="space.pocketmate.estates.MissionStoreTest" time="0.013"/>
-  <testcase name="noEarlyDuplicateOrUnknownClaimsAndFinalNeedsFive()" classname="space.pocketmate.estates.MissionStoreTest" time="0.041"/>
-  <testcase name="failedClaimWriteDoesNotAcknowledgeOrChangeMemory()" classname="space.pocketmate.estates.MissionStoreTest" time="0.033"/>
-  <testcase name="manyDaysNeverRepeatSlotsAndVariationStaysPractical()" classname="space.pocketmate.estates.MissionStoreTest" time="0.547"/>
-  <testcase name="speciesAndEventKeysDeduplicateAndOtherPlayersAreIsolated()" classname="space.pocketmate.estates.MissionStoreTest" time="0.02"/>
+  <testcase name="noEarlyDuplicateOrUnknownClaimsAndFinalNeedsFive()" classname="space.pocketmate.estates.MissionStoreTest" time="0.035"/>
+  <testcase name="failedClaimWriteDoesNotAcknowledgeOrChangeMemory()" classname="space.pocketmate.estates.MissionStoreTest" time="0.05"/>
+  <testcase name="manyDaysNeverRepeatSlotsAndVariationStaysPractical()" classname="space.pocketmate.estates.MissionStoreTest" time="0.446"/>
+  <testcase name="speciesAndEventKeysDeduplicateAndOtherPlayersAreIsolated()" classname="space.pocketmate.estates.MissionStoreTest" time="0.013"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

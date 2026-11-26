@@ -1,0 +1,20 @@
+{
+  "version": "0.1.2",
+  "sha256": "d7723fac3e21d46fd02cd7e66f1167bd0da90f4ef26144bb1b462eaa80910dac",
+  "bytes": 108711932,
+  "tooltip_namespace_display": "PocketMate_Mega / <item path>",
+  "actual_registry_namespace": "eeveemega",
+  "registry_ids_unchanged": true,
+  "all_existing_data_and_assets_identical": true,
+  "installed_client_and_server": true,
+  "launcher_manifest_updated": true,
+  "original_eeveemega_jar_unchanged": true,
+  "in_game_verified": false,
+  "restart_required": true,
+  "junit_tests": 4,
+  "junit_failures": 0,
+  "junit_errors": 0,
+  "actual_launcher_check_local_passed": true,
+  "actual_verify_approved_content_passed": true,
+  "game_started": false
+}

@@ -3,7 +3,7 @@ loaderVersion="[4,)"
 license="MIT"
 [[mods]]
 modId="pocketmate_estates"
-version="0.15.4"
+version="0.15.8"
 displayName="Pocketmate Estates"
 [[dependencies.pocketmate_estates]]
 modId="neoforge"

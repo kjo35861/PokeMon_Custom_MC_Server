@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="space.pocketmate.estates.MissionStatisticsTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-25T08:26:49" hostname="DESKTOP-6FIEOUH" time="0.017">
+<testsuite name="space.pocketmate.estates.MissionStatisticsTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-26T09:02:51" hostname="DESKTOP-6FIEOUH" time="0.02">
   <properties/>
   <testcase name="registeredConstantsAndEquivalentNewIdsReadWithoutCrashing()" classname="space.pocketmate.estates.MissionStatisticsTest" time="0.015"/>
   <testcase name="unknownOrMissingStatisticIsIgnored()" classname="space.pocketmate.estates.MissionStatisticsTest" time="0.001"/>
   <testcase name="distanceTotalsUseRegisteredMovementStatsAndLongArithmetic()" classname="space.pocketmate.estates.MissionStatisticsTest" time="0.001"/>
-  <system-out><![CDATA[[17:26:43] [INFO] [FabricLoader/MixinExtras|Service]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+  <system-out><![CDATA[[18:02:45] [INFO] [FabricLoader/MixinExtras|Service]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

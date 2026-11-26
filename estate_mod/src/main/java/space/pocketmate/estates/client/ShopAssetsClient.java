@@ -39,14 +39,19 @@ public final class ShopAssetsClient implements ClientModInitializer {
   try{
    JsonObject data=JsonParser.parseString(payload).getAsJsonObject();if(!data.has("items")||!data.has("requestId"))return;
    ArrayDeque<String> ids=new ArrayDeque<>();for(JsonElement value:data.getAsJsonArray("items")){if(ids.size()>=24)break;String id=value.getAsJsonObject().get("id").getAsString();Identifier.of(id);ids.add(id);}
-   String requestId=data.get("requestId").getAsString();MinecraftClient.getInstance().execute(()->{if(jobs.size()>=16)jobs.removeFirst();jobs.add(new Job(requestId,ids));});
+   String requestId=data.get("requestId").getAsString();MinecraftClient.getInstance().execute(()->{if(jobs.size()>=16)jobs.removeLast();jobs.addFirst(new Job(requestId,ids));});
   }catch(RuntimeException ignored){}
  }
  private static void tick(MinecraftClient client){
   if(client.world==null){jobs.clear();return;}if(jobs.isEmpty()||!RenderSystem.isOnRenderThread())return;
-  Job job=jobs.peek();JsonObject icons=new JsonObject();int handled=0;
-  while(!job.ids.isEmpty()&&handled<2){
-   handled++;String id=job.ids.removeFirst();String png=cache.get(id);
+  Job job=jobs.peek();JsonObject icons=new JsonObject();int rendered=0;
+  long deadline=System.nanoTime()+6_000_000L;
+  while(!job.ids.isEmpty()&&icons.size()<8){
+   String id=job.ids.peekFirst();
+   String png=cache.get(id);
+   if(png==null&&(rendered>=4||(rendered>0&&System.nanoTime()>=deadline)))break;
+   job.ids.removeFirst();
+   if(png==null)rendered++;
    if(png==null)try{Identifier key=Identifier.of(id);if(!Registries.ITEM.containsId(key))continue;png=render(client,new ItemStack(Registries.ITEM.get(key)));cache.put(id,png);if(cache.size()>1024)cache.remove(cache.keySet().iterator().next());}
    catch(Exception|LinkageError error){if(System.currentTimeMillis()-lastWarning>30000){lastWarning=System.currentTimeMillis();org.slf4j.LoggerFactory.getLogger("pocketmate-shop").warn("Unable to render shop item {}",id,error);}}
    if(png!=null)icons.addProperty(id,png);

@@ -19,6 +19,7 @@ public final class NeoClientEvents {
         new ProfileSkinClient().onInitializeClient();
         new NicknameClient().onInitializeClient();
         new ShopAssetsClient().onInitializeClient();
+        PixelmonAccessoriesScreens.register();
     }
     static void afterTick(Consumer<MinecraftClient> callback) {
         NeoForge.EVENT_BUS.addListener((ClientTickEvent.Post e) -> callback.accept(MinecraftClient.getInstance()));
