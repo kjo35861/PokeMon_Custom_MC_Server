@@ -6,13 +6,26 @@ import json
 import re
 import shutil
 import subprocess
+from zipfile import ZipFile
 
 ROOT=Path(__file__).resolve().parents[1]
 
-def prepare_stone_namespace(source, destination):
+def prepare_stone_namespace(source, destination, recovered_pack):
     shutil.copytree(source, destination, dirs_exist_ok=False)
     legacy = destination / 'assets/eeveemega'
     branded = destination / 'assets/pocketmate_mega'
+    # The archived pack contains the original inventory art for these slots.
+    with ZipFile(recovered_pack) as archive:
+        for number in range(54, 59):
+            item = f'mega_stone_{number}'
+            model_path = f'assets/eeveemega/models/item/{item}.json'
+            model = json.loads(archive.read(model_path))
+            texture_ns, texture_path = model['textures']['layer0'].split(':', 1)
+            texture = f'assets/{texture_ns}/textures/{texture_path}.png'
+            for path in (model_path, texture):
+                target = destination / path
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(archive.read(path))
     for model in (legacy / 'models/item').glob('mega_stone_*.json'):
         folder = branded / 'models/item'
         folder.mkdir(parents=True, exist_ok=True)
@@ -41,6 +54,7 @@ def main():
     p.add_argument('--pixelmon',type=Path,required=True)
     p.add_argument('--eeveemega',type=Path,required=True)
     p.add_argument('--generated',type=Path,required=True)
+    p.add_argument('--recovered-pack',type=Path,required=True)
     p.add_argument('--stage',type=Path,required=True)
     p.add_argument('--java-home',type=Path,default=Path('C:/Program Files/Java/jdk-21.0.12'))
     p.add_argument('--gradle-home',type=Path,default=Path(os.environ.get('LOCALAPPDATA','.'))/'PocketmateEstateTools/gradle-8.12.1')
@@ -54,7 +68,7 @@ def main():
     import tempfile
     with tempfile.TemporaryDirectory(prefix='pocketmate-stone-namespace-', dir=args.stage) as temp:
         generated = Path(temp) / 'resources'
-        prepare_stone_namespace(args.generated.resolve(), generated)
+        prepare_stone_namespace(args.generated.resolve(), generated, args.recovered_pack.resolve())
         cmd=[str(args.gradle_home/'bin/gradle.bat'),'build','--console=plain','--no-daemon',
              '-PpixelmonJar='+str(args.pixelmon.resolve()),'-PeeveemegaJar='+str(args.eeveemega.resolve()),
              '-PgeneratedResources='+str(generated.resolve())]

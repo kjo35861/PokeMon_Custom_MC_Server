@@ -3,7 +3,7 @@ loaderVersion="[4,)"
 license="MIT"
 [[mods]]
 modId="pocketmate_mega_bridge"
-version="0.1.4"
+version="0.1.5"
 displayName="포켓메이트 메가진화"
 description="포켓메이트 서버 전용 메가진화·폼·능력치 연결 및 Pixelmon 9.4.3 호환 보완 모드."
 [[dependencies.pocketmate_mega_bridge]]

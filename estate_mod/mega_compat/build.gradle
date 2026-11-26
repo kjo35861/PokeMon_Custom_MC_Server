@@ -1,5 +1,5 @@
 plugins { id 'dev.architectury.loom' version '1.13.469' }
-version = '0.1.4'
+version = '0.1.5'
 group = 'space.pocketmate'
 base { archivesName = 'pocketmate-mega-evolution' }
 repositories {
