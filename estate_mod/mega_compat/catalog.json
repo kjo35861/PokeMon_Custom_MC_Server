@@ -30,99 +30,7 @@
       "establishes": "Direct official Asia press page: Mega Meganium Grass/Fairy + Mega Sol +2.4m/201kg; Mega Emboar Fire/Fighting+MoldBreaker+1.8m/180.3kg; Mega Feraligatr Water/Dragon+Dragonize(+20% Normal-to-Dragon)+2.3m/108.8kg"
     }
   ],
-  "forms": [
-    {
-      "dex": 26,
-      "species": "Raichu",
-      "slug": "raichu",
-      "form": "megax",
-      "source_forms": [
-        "base"
-      ],
-      "stone": "eeveemega:mega_stone_11",
-      "stone_name_ko": "라이츄나이트X",
-      "stone_binding_basis": "original_eeveemega_translation",
-      "showdown_id": "raichumegax",
-      "types": [
-        "ELECTRIC"
-      ],
-      "stats": {
-        "hp": 60,
-        "attack": 135,
-        "defense": 95,
-        "specialAttack": 90,
-        "specialDefense": 95,
-        "speed": 110
-      },
-      "ability_names": {
-        "0": "Electric Surge"
-      },
-      "height": 1.2,
-      "weight": 38.0,
-      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
-    },
-    {
-      "dex": 26,
-      "species": "Raichu",
-      "slug": "raichu",
-      "form": "megay",
-      "source_forms": [
-        "base"
-      ],
-      "stone": "eeveemega:mega_stone_12",
-      "stone_name_ko": "라이츄나이트Y",
-      "stone_binding_basis": "original_eeveemega_translation",
-      "showdown_id": "raichumegay",
-      "types": [
-        "ELECTRIC"
-      ],
-      "stats": {
-        "hp": 60,
-        "attack": 100,
-        "defense": 55,
-        "specialAttack": 160,
-        "specialDefense": 80,
-        "speed": 130
-      },
-      "ability_names": {
-        "0": "No Guard"
-      },
-      "height": 1.0,
-      "weight": 26.0,
-      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
-    },
-    {
-      "dex": 36,
-      "species": "Clefable",
-      "slug": "clefable",
-      "form": "mega",
-      "source_forms": [
-        "base"
-      ],
-      "stone": "eeveemega:mega_stone_13",
-      "stone_name_ko": "픽시나이트",
-      "stone_binding_basis": "original_eeveemega_translation",
-      "showdown_id": "clefablemega",
-      "types": [
-        "FAIRY",
-        "FLYING"
-      ],
-      "stats": {
-        "hp": 95,
-        "attack": 80,
-        "defense": 93,
-        "specialAttack": 135,
-        "specialDefense": 110,
-        "speed": 70
-      },
-      "ability_names": {
-        "0": "Magic Bounce"
-      },
-      "height": 1.7,
-      "weight": 42.3,
-      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
-    },
-    {
+  "forms": [    {
       "dex": 71,
       "species": "Victreebel",
       "slug": "victreebel",
@@ -244,37 +152,6 @@
       },
       "height": 1.7,
       "weight": 40.4,
-      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
-    },
-    {
-      "dex": 358,
-      "species": "Chimecho",
-      "slug": "chimecho",
-      "form": "mega",
-      "source_forms": [
-        "base"
-      ],
-      "stone": "eeveemega:mega_stone_20",
-      "stone_name_ko": "치렁나이트",
-      "stone_binding_basis": "original_eeveemega_translation",
-      "showdown_id": "chimechomega",
-      "types": [
-        "PSYCHIC",
-        "STEEL"
-      ],
-      "stats": {
-        "hp": 75,
-        "attack": 50,
-        "defense": 110,
-        "specialAttack": 135,
-        "specialDefense": 120,
-        "speed": 65
-      },
-      "ability_names": {
-        "0": "Levitate"
-      },
-      "height": 1.2,
-      "weight": 8.0,
       "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
     },
     {
@@ -464,36 +341,6 @@
       "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
     },
     {
-      "dex": 491,
-      "species": "Darkrai",
-      "slug": "darkrai",
-      "form": "mega",
-      "source_forms": [
-        "base"
-      ],
-      "stone": "eeveemega:mega_stone_55",
-      "stone_name_ko": "다크라이나이트",
-      "stone_binding_basis": "authored_reserved_slot_assignment",
-      "showdown_id": "darkraimega",
-      "types": [
-        "DARK"
-      ],
-      "stats": {
-        "hp": 70,
-        "attack": 120,
-        "defense": 130,
-        "specialAttack": 165,
-        "specialDefense": 130,
-        "speed": 85
-      },
-      "ability_names": {
-        "0": "Bad Dreams"
-      },
-      "height": 3.0,
-      "weight": 240.0,
-      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
-    },
-    {
       "dex": 500,
       "species": "Emboar",
       "slug": "emboar",
@@ -615,67 +462,6 @@
       },
       "height": 1.1,
       "weight": 31.0,
-      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
-    },
-    {
-      "dex": 604,
-      "species": "Eelektross",
-      "slug": "eelektross",
-      "form": "mega",
-      "source_forms": [
-        "base"
-      ],
-      "stone": "eeveemega:mega_stone_30",
-      "stone_name_ko": "저리더프나이트",
-      "stone_binding_basis": "original_eeveemega_translation",
-      "showdown_id": "eelektrossmega",
-      "types": [
-        "ELECTRIC"
-      ],
-      "stats": {
-        "hp": 85,
-        "attack": 145,
-        "defense": 80,
-        "specialAttack": 135,
-        "specialDefense": 90,
-        "speed": 80
-      },
-      "ability_names": {
-        "0": "Eelevate"
-      },
-      "height": 3.0,
-      "weight": 180.0,
-      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
-    },
-    {
-      "dex": 609,
-      "species": "Chandelure",
-      "slug": "chandelure",
-      "form": "mega",
-      "source_forms": [
-        "base"
-      ],
-      "stone": "eeveemega:mega_stone_31",
-      "stone_name_ko": "샹델라나이트",
-      "stone_binding_basis": "original_eeveemega_translation",
-      "showdown_id": "chandeluremega",
-      "types": [
-        "GHOST",
-        "FIRE"
-      ],
-      "stats": {
-        "hp": 60,
-        "attack": 75,
-        "defense": 110,
-        "specialAttack": 175,
-        "specialDefense": 110,
-        "speed": 90
-      },
-      "ability_names": {
-        "0": "Infiltrator"
-      },
-      "height": 2.5,
-      "weight": 69.6,
       "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
     },
     {
@@ -1112,37 +898,6 @@
       "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
     },
     {
-      "dex": 780,
-      "species": "Drampa",
-      "slug": "drampa",
-      "form": "mega",
-      "source_forms": [
-        "base"
-      ],
-      "stone": "eeveemega:mega_stone_44",
-      "stone_name_ko": "할비롱나이트",
-      "stone_binding_basis": "original_eeveemega_translation",
-      "showdown_id": "drampamega",
-      "types": [
-        "NORMAL",
-        "DRAGON"
-      ],
-      "stats": {
-        "hp": 78,
-        "attack": 85,
-        "defense": 110,
-        "specialAttack": 160,
-        "specialDefense": 116,
-        "speed": 36
-      },
-      "ability_names": {
-        "0": "Berserk"
-      },
-      "height": 3.0,
-      "weight": 240.5,
-      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
-    },
-    {
       "dex": 801,
       "species": "Magearna",
       "slug": "magearna",
@@ -1171,36 +926,6 @@
       },
       "height": 1.3,
       "weight": 248.1,
-      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
-    },
-    {
-      "dex": 807,
-      "species": "Zeraora",
-      "slug": "zeraora",
-      "form": "mega",
-      "source_forms": [
-        "base"
-      ],
-      "stone": "eeveemega:mega_stone_57",
-      "stone_name_ko": "제라오라나이트",
-      "stone_binding_basis": "authored_reserved_slot_assignment",
-      "showdown_id": "zeraoramega",
-      "types": [
-        "ELECTRIC"
-      ],
-      "stats": {
-        "hp": 88,
-        "attack": 157,
-        "defense": 75,
-        "specialAttack": 147,
-        "specialDefense": 80,
-        "speed": 153
-      },
-      "ability_names": {
-        "0": "Volt Absorb"
-      },
-      "height": 1.5,
-      "weight": 44.5,
       "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
     },
     {

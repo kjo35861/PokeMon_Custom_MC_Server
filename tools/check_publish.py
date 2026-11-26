@@ -43,12 +43,16 @@ for name in paths:
             return False
         if sensitive(data):problems.append((name,'nonempty credential field'))
 manifest=ROOT/'docs/evidence/manifest.json'
-if manifest.exists():
-    data=json.loads(manifest.read_text(encoding='utf-8'))
+manifest_name=manifest.relative_to(ROOT).as_posix()
+if (manifest_name in paths if args.staged else manifest.exists()):
+    body=subprocess.check_output(['git','show',':'+manifest_name],cwd=ROOT) if args.staged else manifest.read_bytes()
+    data=json.loads(body.decode('utf-8'))
     for name,entry in data['entries'].items():
         source=ROOT/'docs/evidence'/name
-        body=subprocess.check_output(['git','show',':'+source.relative_to(ROOT).as_posix()],cwd=ROOT) if args.staged and source.exists() else source.read_bytes() if source.exists() else b''
-        if not source.is_file() or hashlib.sha256(body).hexdigest()!=entry['published_sha256']:
+        relative=source.relative_to(ROOT).as_posix()
+        exists=relative in paths if args.staged else source.is_file()
+        body=(subprocess.check_output(['git','show',':'+relative],cwd=ROOT) if args.staged else source.read_bytes()) if exists else b''
+        if not exists or hashlib.sha256(body).hexdigest()!=entry['published_sha256']:
             problems.append((str(source.relative_to(ROOT)),'evidence hash mismatch'))
 if problems:
     for name,reason in problems:print(f'BLOCKED: {name}: {reason}')

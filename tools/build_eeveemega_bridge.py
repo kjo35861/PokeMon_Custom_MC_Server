@@ -14,10 +14,13 @@ def prepare_stone_namespace(source, destination, recovered_pack):
     shutil.copytree(source, destination, dirs_exist_ok=False)
     legacy = destination / 'assets/eeveemega'
     branded = destination / 'assets/pocketmate_mega'
+    stones = set(json.loads((destination / 'pocketmate_mega_catalog.json').read_text(encoding='utf-8'))['stones'])
     # The archived pack contains the original inventory art for these slots.
     with ZipFile(recovered_pack) as archive:
         for number in range(54, 59):
             item = f'mega_stone_{number}'
+            if f'eeveemega:{item}' not in stones:
+                continue
             model_path = f'assets/eeveemega/models/item/{item}.json'
             model = json.loads(archive.read(model_path))
             texture_ns, texture_path = model['textures']['layer0'].split(':', 1)
@@ -41,7 +44,8 @@ def prepare_stone_namespace(source, destination, recovered_pack):
             target = branded / 'lang' / language.name
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(json.dumps(names, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
-    for path in [destination / 'pocketmate_mega_catalog.json', *(destination / 'data').rglob('*.json')]:
+    for path in [destination / 'pocketmate_mega_catalog.json', *(destination / 'data').rglob('*.json'),
+                 *(destination / 'data').rglob('*.mcfunction')]:
         if not path.is_file():
             continue
         original = path.read_bytes()
