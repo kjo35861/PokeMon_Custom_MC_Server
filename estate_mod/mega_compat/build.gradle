@@ -1,0 +1,25 @@
+plugins { id 'dev.architectury.loom' version '1.13.469' }
+version = '0.1.4'
+group = 'space.pocketmate'
+base { archivesName = 'pocketmate-mega-evolution' }
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.neoforged.net/releases/' }
+}
+dependencies {
+    minecraft 'com.mojang:minecraft:1.21.1'
+    mappings loom.officialMojangMappings()
+    neoForge 'net.neoforged:neoforge:21.1.248'
+    compileOnly files(providers.gradleProperty('pixelmonJar').get())
+    compileOnly files(providers.gradleProperty('eeveemegaJar').get())
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+test {
+    useJUnitPlatform()
+    systemProperty 'eeveemegaJar', providers.gradleProperty('eeveemegaJar').get()
+    systemProperty 'pixelmonJar', providers.gradleProperty('pixelmonJar').get()
+}
+sourceSets.main.resources.srcDir(providers.gradleProperty('generatedResources').get())
+tasks.withType(JavaCompile).configureEach { options.release = 21; options.encoding = 'UTF-8' }
+java { sourceCompatibility = JavaVersion.VERSION_21; targetCompatibility = JavaVersion.VERSION_21 }

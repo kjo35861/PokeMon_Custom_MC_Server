@@ -1,0 +1,1431 @@
+{
+  "schema_version": 1,
+  "minecraft": "1.21.1",
+  "pixelmon": "9.4.3",
+  "eeveemega": "1.1.0",
+  "stats_basis": "Current turn-based Pokemon Showdown data; official Pokemon Company web does not publish a full base-stat table. Individual official confirmations are listed separately.",
+  "showdown_source": {
+    "repository": "https://github.com/smogon/pokemon-showdown",
+    "commit": "7244fe8e28fa8bc4d0809ae30d183c608b62bb2b",
+    "file": "data/pokedex.ts",
+    "raw_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts",
+    "sha256": "5e572601f4700f99835845eee5cd3e53362e43d885e2753fcc32418f636b83ed",
+    "main_and_pinned_identical": true
+  },
+  "official_sources": [
+    {
+      "url": "https://legends.pokemon.com/en-us/mega-pokemon",
+      "establishes": "Trainer Key Stone plus matching held Mega Stone, temporary changes to form and stats/type; does not publish full numerical base-stat table"
+    },
+    {
+      "url": "https://www.pokemon.com/us/pokemon-news/pokemon-champions-releases-on-nintendo-switch-and-nintendo-switch-2-on-april-8-2026",
+      "establishes": "Mega Meganium Mega Sol, Mega Feraligatr Dragonize(+20% Normal to Dragon moves), Mega Emboar Mold Breaker"
+    },
+    {
+      "url": "https://press.pokemon.com/en-NZ/Pokemon-Champions-Launches-June-17-on-iOS-and-Android-Devices-The-Poke",
+      "establishes": "Mega Raichu X Electric Surge; Mega Raichu Y No Guard; matching Raichunite X/Y"
+    },
+    {
+      "url": "https://asia-press.portal-pokemon.com/press-release/pokemon-champions_20260324/",
+      "establishes": "Direct official Asia press page: Mega Meganium Grass/Fairy + Mega Sol +2.4m/201kg; Mega Emboar Fire/Fighting+MoldBreaker+1.8m/180.3kg; Mega Feraligatr Water/Dragon+Dragonize(+20% Normal-to-Dragon)+2.3m/108.8kg"
+    }
+  ],
+  "forms": [
+    {
+      "dex": 26,
+      "species": "Raichu",
+      "slug": "raichu",
+      "form": "megax",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_11",
+      "stone_name_ko": "라이츄나이트X",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "raichumegax",
+      "types": [
+        "ELECTRIC"
+      ],
+      "stats": {
+        "hp": 60,
+        "attack": 135,
+        "defense": 95,
+        "specialAttack": 90,
+        "specialDefense": 95,
+        "speed": 110
+      },
+      "ability_names": {
+        "0": "Electric Surge"
+      },
+      "height": 1.2,
+      "weight": 38.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 26,
+      "species": "Raichu",
+      "slug": "raichu",
+      "form": "megay",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_12",
+      "stone_name_ko": "라이츄나이트Y",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "raichumegay",
+      "types": [
+        "ELECTRIC"
+      ],
+      "stats": {
+        "hp": 60,
+        "attack": 100,
+        "defense": 55,
+        "specialAttack": 160,
+        "specialDefense": 80,
+        "speed": 130
+      },
+      "ability_names": {
+        "0": "No Guard"
+      },
+      "height": 1.0,
+      "weight": 26.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 36,
+      "species": "Clefable",
+      "slug": "clefable",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_13",
+      "stone_name_ko": "픽시나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "clefablemega",
+      "types": [
+        "FAIRY",
+        "FLYING"
+      ],
+      "stats": {
+        "hp": 95,
+        "attack": 80,
+        "defense": 93,
+        "specialAttack": 135,
+        "specialDefense": 110,
+        "speed": 70
+      },
+      "ability_names": {
+        "0": "Magic Bounce"
+      },
+      "height": 1.7,
+      "weight": 42.3,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 71,
+      "species": "Victreebel",
+      "slug": "victreebel",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_14",
+      "stone_name_ko": "우츠보트나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "victreebelmega",
+      "types": [
+        "GRASS",
+        "POISON"
+      ],
+      "stats": {
+        "hp": 80,
+        "attack": 125,
+        "defense": 85,
+        "specialAttack": 135,
+        "specialDefense": 95,
+        "speed": 70
+      },
+      "ability_names": {
+        "0": "Innards Out"
+      },
+      "height": 4.5,
+      "weight": 125.5,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 154,
+      "species": "Meganium",
+      "slug": "meganium",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_17",
+      "stone_name_ko": "메가니움나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "meganiummega",
+      "types": [
+        "GRASS",
+        "FAIRY"
+      ],
+      "stats": {
+        "hp": 80,
+        "attack": 92,
+        "defense": 115,
+        "specialAttack": 143,
+        "specialDefense": 115,
+        "speed": 80
+      },
+      "ability_names": {
+        "0": "Mega Sol"
+      },
+      "height": 2.4,
+      "weight": 201.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 160,
+      "species": "Feraligatr",
+      "slug": "feraligatr",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_18",
+      "stone_name_ko": "장크로다일나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "feraligatrmega",
+      "types": [
+        "WATER",
+        "DRAGON"
+      ],
+      "stats": {
+        "hp": 85,
+        "attack": 160,
+        "defense": 125,
+        "specialAttack": 89,
+        "specialDefense": 93,
+        "speed": 78
+      },
+      "ability_names": {
+        "0": "Dragonize"
+      },
+      "height": 2.3,
+      "weight": 108.8,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 227,
+      "species": "Skarmory",
+      "slug": "skarmory",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_19",
+      "stone_name_ko": "무장조나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "skarmorymega",
+      "types": [
+        "STEEL",
+        "FLYING"
+      ],
+      "stats": {
+        "hp": 65,
+        "attack": 140,
+        "defense": 110,
+        "specialAttack": 40,
+        "specialDefense": 100,
+        "speed": 110
+      },
+      "ability_names": {
+        "0": "Stalwart"
+      },
+      "height": 1.7,
+      "weight": 40.4,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 358,
+      "species": "Chimecho",
+      "slug": "chimecho",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_20",
+      "stone_name_ko": "치렁나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "chimechomega",
+      "types": [
+        "PSYCHIC",
+        "STEEL"
+      ],
+      "stats": {
+        "hp": 75,
+        "attack": 50,
+        "defense": 110,
+        "specialAttack": 135,
+        "specialDefense": 120,
+        "speed": 65
+      },
+      "ability_names": {
+        "0": "Levitate"
+      },
+      "height": 1.2,
+      "weight": 8.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 359,
+      "species": "Absol",
+      "slug": "absol",
+      "form": "megaz",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_48",
+      "stone_name_ko": "앱솔나이트Z",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "absolmegaz",
+      "types": [
+        "DARK",
+        "GHOST"
+      ],
+      "stats": {
+        "hp": 65,
+        "attack": 154,
+        "defense": 60,
+        "specialAttack": 75,
+        "specialDefense": 60,
+        "speed": 151
+      },
+      "ability_names": {
+        "0": "Sharpness"
+      },
+      "height": 1.2,
+      "weight": 49.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 398,
+      "species": "Staraptor",
+      "slug": "staraptor",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_22",
+      "stone_name_ko": "찌르호크나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "staraptormega",
+      "types": [
+        "FIGHTING",
+        "FLYING"
+      ],
+      "stats": {
+        "hp": 85,
+        "attack": 140,
+        "defense": 100,
+        "specialAttack": 60,
+        "specialDefense": 90,
+        "speed": 110
+      },
+      "ability_names": {
+        "0": "Contrary"
+      },
+      "height": 1.9,
+      "weight": 50.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 445,
+      "species": "Garchomp",
+      "slug": "garchomp",
+      "form": "megaz",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_50",
+      "stone_name_ko": "한카리아스나이트Z",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "garchompmegaz",
+      "types": [
+        "DRAGON"
+      ],
+      "stats": {
+        "hp": 108,
+        "attack": 130,
+        "defense": 85,
+        "specialAttack": 141,
+        "specialDefense": 85,
+        "speed": 151
+      },
+      "ability_names": {
+        "0": "Levitate"
+      },
+      "height": 1.9,
+      "weight": 99.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 448,
+      "species": "Lucario",
+      "slug": "lucario",
+      "form": "megaz",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_49",
+      "stone_name_ko": "루카리오나이트Z",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "lucariomegaz",
+      "types": [
+        "FIGHTING",
+        "STEEL"
+      ],
+      "stats": {
+        "hp": 70,
+        "attack": 100,
+        "defense": 70,
+        "specialAttack": 164,
+        "specialDefense": 70,
+        "speed": 151
+      },
+      "ability_names": {
+        "0": "Aura Guard"
+      },
+      "height": 1.3,
+      "weight": 49.4,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 478,
+      "species": "Froslass",
+      "slug": "froslass",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_25",
+      "stone_name_ko": "눈여아나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "froslassmega",
+      "types": [
+        "ICE",
+        "GHOST"
+      ],
+      "stats": {
+        "hp": 70,
+        "attack": 80,
+        "defense": 70,
+        "specialAttack": 140,
+        "specialDefense": 100,
+        "speed": 120
+      },
+      "ability_names": {
+        "0": "Snow Warning"
+      },
+      "height": 2.6,
+      "weight": 29.6,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 485,
+      "species": "Heatran",
+      "slug": "heatran",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_54",
+      "stone_name_ko": "히드런나이트",
+      "stone_binding_basis": "authored_reserved_slot_assignment",
+      "showdown_id": "heatranmega",
+      "types": [
+        "FIRE",
+        "STEEL"
+      ],
+      "stats": {
+        "hp": 91,
+        "attack": 120,
+        "defense": 106,
+        "specialAttack": 175,
+        "specialDefense": 141,
+        "speed": 67
+      },
+      "ability_names": {
+        "0": "Flash Fire",
+        "H": "Flame Body"
+      },
+      "height": 2.8,
+      "weight": 570.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 491,
+      "species": "Darkrai",
+      "slug": "darkrai",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_55",
+      "stone_name_ko": "다크라이나이트",
+      "stone_binding_basis": "authored_reserved_slot_assignment",
+      "showdown_id": "darkraimega",
+      "types": [
+        "DARK"
+      ],
+      "stats": {
+        "hp": 70,
+        "attack": 120,
+        "defense": 130,
+        "specialAttack": 165,
+        "specialDefense": 130,
+        "speed": 85
+      },
+      "ability_names": {
+        "0": "Bad Dreams"
+      },
+      "height": 3.0,
+      "weight": 240.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 500,
+      "species": "Emboar",
+      "slug": "emboar",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_26",
+      "stone_name_ko": "염무왕나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "emboarmega",
+      "types": [
+        "FIRE",
+        "FIGHTING"
+      ],
+      "stats": {
+        "hp": 110,
+        "attack": 148,
+        "defense": 75,
+        "specialAttack": 110,
+        "specialDefense": 110,
+        "speed": 75
+      },
+      "ability_names": {
+        "0": "Mold Breaker"
+      },
+      "height": 1.8,
+      "weight": 180.3,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 530,
+      "species": "Excadrill",
+      "slug": "excadrill",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_27",
+      "stone_name_ko": "몰드류나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "excadrillmega",
+      "types": [
+        "GROUND",
+        "STEEL"
+      ],
+      "stats": {
+        "hp": 110,
+        "attack": 165,
+        "defense": 100,
+        "specialAttack": 65,
+        "specialDefense": 65,
+        "speed": 103
+      },
+      "ability_names": {
+        "0": "Piercing Drill"
+      },
+      "height": 0.9,
+      "weight": 60.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 545,
+      "species": "Scolipede",
+      "slug": "scolipede",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_28",
+      "stone_name_ko": "펜드라나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "scolipedemega",
+      "types": [
+        "BUG",
+        "POISON"
+      ],
+      "stats": {
+        "hp": 60,
+        "attack": 140,
+        "defense": 149,
+        "specialAttack": 75,
+        "specialDefense": 99,
+        "speed": 62
+      },
+      "ability_names": {
+        "0": "Shell Armor"
+      },
+      "height": 3.2,
+      "weight": 230.5,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 560,
+      "species": "Scrafty",
+      "slug": "scrafty",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_29",
+      "stone_name_ko": "곤율거니나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "scraftymega",
+      "types": [
+        "DARK",
+        "FIGHTING"
+      ],
+      "stats": {
+        "hp": 65,
+        "attack": 130,
+        "defense": 135,
+        "specialAttack": 55,
+        "specialDefense": 135,
+        "speed": 68
+      },
+      "ability_names": {
+        "0": "Intimidate"
+      },
+      "height": 1.1,
+      "weight": 31.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 604,
+      "species": "Eelektross",
+      "slug": "eelektross",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_30",
+      "stone_name_ko": "저리더프나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "eelektrossmega",
+      "types": [
+        "ELECTRIC"
+      ],
+      "stats": {
+        "hp": 85,
+        "attack": 145,
+        "defense": 80,
+        "specialAttack": 135,
+        "specialDefense": 90,
+        "speed": 80
+      },
+      "ability_names": {
+        "0": "Eelevate"
+      },
+      "height": 3.0,
+      "weight": 180.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 609,
+      "species": "Chandelure",
+      "slug": "chandelure",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_31",
+      "stone_name_ko": "샹델라나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "chandeluremega",
+      "types": [
+        "GHOST",
+        "FIRE"
+      ],
+      "stats": {
+        "hp": 60,
+        "attack": 75,
+        "defense": 110,
+        "specialAttack": 175,
+        "specialDefense": 110,
+        "speed": 90
+      },
+      "ability_names": {
+        "0": "Infiltrator"
+      },
+      "height": 2.5,
+      "weight": 69.6,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 623,
+      "species": "Golurk",
+      "slug": "golurk",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_32",
+      "stone_name_ko": "골루그나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "golurkmega",
+      "types": [
+        "GROUND",
+        "GHOST"
+      ],
+      "stats": {
+        "hp": 89,
+        "attack": 159,
+        "defense": 105,
+        "specialAttack": 70,
+        "specialDefense": 105,
+        "speed": 55
+      },
+      "ability_names": {
+        "0": "Unseen Fist"
+      },
+      "height": 4.0,
+      "weight": 330.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 652,
+      "species": "Chesnaught",
+      "slug": "chesnaught",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_33",
+      "stone_name_ko": "브리가론나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "chesnaughtmega",
+      "types": [
+        "GRASS",
+        "FIGHTING"
+      ],
+      "stats": {
+        "hp": 88,
+        "attack": 137,
+        "defense": 172,
+        "specialAttack": 74,
+        "specialDefense": 115,
+        "speed": 44
+      },
+      "ability_names": {
+        "0": "Bulletproof"
+      },
+      "height": 1.6,
+      "weight": 90.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 655,
+      "species": "Delphox",
+      "slug": "delphox",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_34",
+      "stone_name_ko": "마폭시나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "delphoxmega",
+      "types": [
+        "FIRE",
+        "PSYCHIC"
+      ],
+      "stats": {
+        "hp": 75,
+        "attack": 69,
+        "defense": 72,
+        "specialAttack": 159,
+        "specialDefense": 125,
+        "speed": 134
+      },
+      "ability_names": {
+        "0": "Levitate"
+      },
+      "height": 1.5,
+      "weight": 39.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 658,
+      "species": "Greninja",
+      "slug": "greninja",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_35",
+      "stone_name_ko": "개굴닌자나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "greninjamega",
+      "types": [
+        "WATER",
+        "DARK"
+      ],
+      "stats": {
+        "hp": 72,
+        "attack": 125,
+        "defense": 77,
+        "specialAttack": 133,
+        "specialDefense": 81,
+        "speed": 142
+      },
+      "ability_names": {
+        "0": "Protean"
+      },
+      "height": 1.5,
+      "weight": 40.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 668,
+      "species": "Pyroar",
+      "slug": "pyroar",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_36",
+      "stone_name_ko": "화염레오나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "pyroarmega",
+      "types": [
+        "FIRE",
+        "NORMAL"
+      ],
+      "stats": {
+        "hp": 86,
+        "attack": 88,
+        "defense": 92,
+        "specialAttack": 129,
+        "specialDefense": 86,
+        "speed": 126
+      },
+      "ability_names": {
+        "0": "Fire Mane"
+      },
+      "height": 1.5,
+      "weight": 93.3,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 670,
+      "species": "Floette",
+      "slug": "floette",
+      "form": "mega",
+      "source_forms": [
+        "az"
+      ],
+      "stone": "eeveemega:mega_stone_37",
+      "stone_name_ko": "플라엣테나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "floettemega",
+      "types": [
+        "FAIRY"
+      ],
+      "stats": {
+        "hp": 74,
+        "attack": 85,
+        "defense": 87,
+        "specialAttack": 155,
+        "specialDefense": 148,
+        "speed": 102
+      },
+      "ability_names": {
+        "0": "Fairy Aura"
+      },
+      "height": 0.2,
+      "weight": 100.8,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 678,
+      "species": "Meowstic",
+      "slug": "meowstic",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_38",
+      "stone_name_ko": "냐오닉스나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "meowsticmmega",
+      "types": [
+        "PSYCHIC"
+      ],
+      "stats": {
+        "hp": 74,
+        "attack": 48,
+        "defense": 76,
+        "specialAttack": 143,
+        "specialDefense": 101,
+        "speed": 124
+      },
+      "ability_names": {
+        "0": "Trace"
+      },
+      "height": 0.8,
+      "weight": 10.1,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 687,
+      "species": "Malamar",
+      "slug": "malamar",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_39",
+      "stone_name_ko": "칼라마네로나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "malamarmega",
+      "types": [
+        "DARK",
+        "PSYCHIC"
+      ],
+      "stats": {
+        "hp": 86,
+        "attack": 102,
+        "defense": 88,
+        "specialAttack": 98,
+        "specialDefense": 120,
+        "speed": 88
+      },
+      "ability_names": {
+        "0": "Contrary"
+      },
+      "height": 2.9,
+      "weight": 69.8,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 689,
+      "species": "Barbaracle",
+      "slug": "barbaracle",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_40",
+      "stone_name_ko": "거북손데스나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "barbaraclemega",
+      "types": [
+        "ROCK",
+        "FIGHTING"
+      ],
+      "stats": {
+        "hp": 72,
+        "attack": 140,
+        "defense": 130,
+        "specialAttack": 64,
+        "specialDefense": 106,
+        "speed": 88
+      },
+      "ability_names": {
+        "0": "Tough Claws"
+      },
+      "height": 2.2,
+      "weight": 100.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 691,
+      "species": "Dragalge",
+      "slug": "dragalge",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_41",
+      "stone_name_ko": "드래캄나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "dragalgemega",
+      "types": [
+        "POISON",
+        "DRAGON"
+      ],
+      "stats": {
+        "hp": 65,
+        "attack": 85,
+        "defense": 105,
+        "specialAttack": 132,
+        "specialDefense": 163,
+        "speed": 44
+      },
+      "ability_names": {
+        "0": "Regenerator"
+      },
+      "height": 2.1,
+      "weight": 100.3,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 701,
+      "species": "Hawlucha",
+      "slug": "hawlucha",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_42",
+      "stone_name_ko": "루차불나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "hawluchamega",
+      "types": [
+        "FIGHTING",
+        "FLYING"
+      ],
+      "stats": {
+        "hp": 78,
+        "attack": 137,
+        "defense": 100,
+        "specialAttack": 74,
+        "specialDefense": 93,
+        "speed": 118
+      },
+      "ability_names": {
+        "0": "No Guard"
+      },
+      "height": 1.0,
+      "weight": 25.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 718,
+      "species": "Zygarde",
+      "slug": "zygarde",
+      "form": "mega",
+      "source_forms": [
+        "fifty_percent",
+        "ten_percent"
+      ],
+      "stone": "eeveemega:mega_stone_53",
+      "stone_name_ko": "지가르데나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "zygardemega",
+      "types": [
+        "DRAGON",
+        "GROUND"
+      ],
+      "stats": {
+        "hp": 216,
+        "attack": 70,
+        "defense": 91,
+        "specialAttack": 216,
+        "specialDefense": 85,
+        "speed": 100
+      },
+      "ability_names": {
+        "0": "Aura Break"
+      },
+      "height": 7.7,
+      "weight": 610.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 740,
+      "species": "Crabominable",
+      "slug": "crabominable",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_43",
+      "stone_name_ko": "모단단게나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "crabominablemega",
+      "types": [
+        "FIGHTING",
+        "ICE"
+      ],
+      "stats": {
+        "hp": 97,
+        "attack": 157,
+        "defense": 122,
+        "specialAttack": 62,
+        "specialDefense": 107,
+        "speed": 33
+      },
+      "ability_names": {
+        "0": "Iron Fist"
+      },
+      "height": 2.6,
+      "weight": 252.8,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 768,
+      "species": "Golisopod",
+      "slug": "golisopod",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_51",
+      "stone_name_ko": "갑주무사나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "golisopodmega",
+      "types": [
+        "BUG",
+        "STEEL"
+      ],
+      "stats": {
+        "hp": 75,
+        "attack": 150,
+        "defense": 175,
+        "specialAttack": 70,
+        "specialDefense": 120,
+        "speed": 40
+      },
+      "ability_names": {
+        "0": "Tough Claws"
+      },
+      "height": 2.3,
+      "weight": 148.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 780,
+      "species": "Drampa",
+      "slug": "drampa",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_44",
+      "stone_name_ko": "할비롱나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "drampamega",
+      "types": [
+        "NORMAL",
+        "DRAGON"
+      ],
+      "stats": {
+        "hp": 78,
+        "attack": 85,
+        "defense": 110,
+        "specialAttack": 160,
+        "specialDefense": 116,
+        "speed": 36
+      },
+      "ability_names": {
+        "0": "Berserk"
+      },
+      "height": 3.0,
+      "weight": 240.5,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 801,
+      "species": "Magearna",
+      "slug": "magearna",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_56",
+      "stone_name_ko": "마기아나나이트",
+      "stone_binding_basis": "authored_reserved_slot_assignment",
+      "showdown_id": "magearnamega",
+      "types": [
+        "STEEL",
+        "FAIRY"
+      ],
+      "stats": {
+        "hp": 80,
+        "attack": 125,
+        "defense": 115,
+        "specialAttack": 170,
+        "specialDefense": 115,
+        "speed": 95
+      },
+      "ability_names": {
+        "0": "Soul-Heart"
+      },
+      "height": 1.3,
+      "weight": 248.1,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 807,
+      "species": "Zeraora",
+      "slug": "zeraora",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_57",
+      "stone_name_ko": "제라오라나이트",
+      "stone_binding_basis": "authored_reserved_slot_assignment",
+      "showdown_id": "zeraoramega",
+      "types": [
+        "ELECTRIC"
+      ],
+      "stats": {
+        "hp": 88,
+        "attack": 157,
+        "defense": 75,
+        "specialAttack": 147,
+        "specialDefense": 80,
+        "speed": 153
+      },
+      "ability_names": {
+        "0": "Volt Absorb"
+      },
+      "height": 1.5,
+      "weight": 44.5,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 870,
+      "species": "Falinks",
+      "slug": "falinks",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_45",
+      "stone_name_ko": "대여르나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "falinksmega",
+      "types": [
+        "FIGHTING"
+      ],
+      "stats": {
+        "hp": 65,
+        "attack": 135,
+        "defense": 135,
+        "specialAttack": 70,
+        "specialDefense": 65,
+        "speed": 100
+      },
+      "ability_names": {
+        "0": "Defiant"
+      },
+      "height": 1.6,
+      "weight": 99.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 952,
+      "species": "Scovillain",
+      "slug": "scovillain",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_46",
+      "stone_name_ko": "스코빌런나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "scovillainmega",
+      "types": [
+        "GRASS",
+        "FIRE"
+      ],
+      "stats": {
+        "hp": 65,
+        "attack": 138,
+        "defense": 85,
+        "specialAttack": 138,
+        "specialDefense": 85,
+        "speed": 75
+      },
+      "ability_names": {
+        "0": "Spicy Spray"
+      },
+      "height": 1.2,
+      "weight": 22.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 970,
+      "species": "Glimmora",
+      "slug": "glimmora",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_47",
+      "stone_name_ko": "킬라플로르나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "glimmoramega",
+      "types": [
+        "ROCK",
+        "POISON"
+      ],
+      "stats": {
+        "hp": 83,
+        "attack": 90,
+        "defense": 105,
+        "specialAttack": 150,
+        "specialDefense": 96,
+        "speed": 101
+      },
+      "ability_names": {
+        "0": "Adaptability"
+      },
+      "height": 2.8,
+      "weight": 77.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 978,
+      "species": "Tatsugiri",
+      "slug": "tatsugiri",
+      "form": "mega",
+      "source_forms": [
+        "curly",
+        "droopy",
+        "stretchy"
+      ],
+      "stone": "eeveemega:mega_stone_58",
+      "stone_name_ko": "싸리용나이트",
+      "stone_binding_basis": "authored_reserved_slot_assignment",
+      "showdown_id": "tatsugiricurlymega",
+      "types": [
+        "DRAGON",
+        "WATER"
+      ],
+      "stats": {
+        "hp": 68,
+        "attack": 65,
+        "defense": 90,
+        "specialAttack": 135,
+        "specialDefense": 125,
+        "speed": 92
+      },
+      "ability_names": {
+        "0": "Commander",
+        "H": "Storm Drain"
+      },
+      "height": 0.3,
+      "weight": 24.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 998,
+      "species": "Baxcalibur",
+      "slug": "baxcalibur",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "eeveemega:mega_stone_52",
+      "stone_name_ko": "드닐레이브나이트",
+      "stone_binding_basis": "original_eeveemega_translation",
+      "showdown_id": "baxcaliburmega",
+      "types": [
+        "DRAGON",
+        "ICE"
+      ],
+      "stats": {
+        "hp": 115,
+        "attack": 175,
+        "defense": 117,
+        "specialAttack": 105,
+        "specialDefense": 101,
+        "speed": 87
+      },
+      "ability_names": {
+        "0": "Thermal Exchange"
+      },
+      "height": 2.1,
+      "weight": 315.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 149,
+      "species": "Dragonite",
+      "slug": "dragonite",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "pixelmon:dragoninite",
+      "stone_name_ko": "망나뇽나이트",
+      "stone_binding_basis": "native_pixelmon_stone",
+      "showdown_id": "dragonitemega",
+      "types": [
+        "DRAGON",
+        "FLYING"
+      ],
+      "stats": {
+        "hp": 91,
+        "attack": 124,
+        "defense": 115,
+        "specialAttack": 145,
+        "specialDefense": 125,
+        "speed": 100
+      },
+      "ability_names": {
+        "0": "Multiscale"
+      },
+      "height": 2.2,
+      "weight": 290.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    },
+    {
+      "dex": 121,
+      "species": "Starmie",
+      "slug": "starmie",
+      "form": "mega",
+      "source_forms": [
+        "base"
+      ],
+      "stone": "pixelmon:starminite",
+      "stone_name_ko": "아쿠스타나이트",
+      "stone_binding_basis": "native_pixelmon_stone",
+      "showdown_id": "starmiemega",
+      "types": [
+        "WATER",
+        "PSYCHIC"
+      ],
+      "stats": {
+        "hp": 60,
+        "attack": 100,
+        "defense": 105,
+        "specialAttack": 130,
+        "specialDefense": 105,
+        "speed": 120
+      },
+      "ability_names": {
+        "0": "Huge Power"
+      },
+      "height": 2.3,
+      "weight": 80.0,
+      "source_url": "https://raw.githubusercontent.com/smogon/pokemon-showdown/7244fe8e28fa8bc4d0809ae30d183c608b62bb2b/data/pokedex.ts"
+    }
+  ],
+  "required_source_sha256": {
+    "pixelmon": "3700dd10bef8a16a6a740819d1e3b29df17067471ca01288cb6bb37d38470bfe",
+    "eeveemega": "9ed23a4b2bd8146481484b212a9b1fcf883607310d55f8378cf0847b4fc6f058",
+    "recovered_pack": "d4146d3a1eeebfc6f9064ee26948d7073621494255c6b0826fbbf3e73d2e3e8b"
+  }
+}

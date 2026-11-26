@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "space.pocketmate.mega.mixin",
+  "plugin": "space.pocketmate.mega.EeveeApiPlugin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": ["MegaStoneNamespaceMixin", "MegaStoneGuardMixin", "ZygardeHealthMixin", "EelevateApiMixin", "MegaSolApiMixin", "SpicySprayApiMixin", "TeraShiftApiMixin", "TeraShellApiMixin", "BattleAbilityApiMixin", "WeatherApiMixin"],
+  "injectors": {"defaultRequire": 1}
+}
