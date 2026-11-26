@@ -207,7 +207,7 @@ namespace Snowfrost
                 if(pocketmatePack)
                 {
                     writer.WriteLine("key_key.webgui.main_menu:key.keyboard.f:SHIFT");
-                    writer.WriteLine("resourcePacks:[\"vanilla\",\"mod_resources\",\"file/eevee-server-resourcepack-recovered.zip\",\"file/pocketmate-pixelmon-radar.zip\"]");
+                    writer.WriteLine("resourcePacks:[\"vanilla\",\"mod_resources\",\"file/pocketmate-pixelmon-radar.zip\"]");
                     writer.WriteLine("incompatibleResourcePacks:[]");
                 }
             }
